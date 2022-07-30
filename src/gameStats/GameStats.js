@@ -1,5 +1,15 @@
+const ingredients_discovered = [
+    1,1,1,1,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0
+]
+
 const ingredients_owned = [
-    1,2,3,4,0,0,0,0,0,0,
+    0,2,3,4,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,
@@ -22,4 +32,4 @@ const potions_mastery = [
 ]
 
 
-export default {ingredients_owned, potions_dicovered, potions_mastery}
+export default {ingredients_discovered, ingredients_owned, potions_dicovered, potions_mastery}

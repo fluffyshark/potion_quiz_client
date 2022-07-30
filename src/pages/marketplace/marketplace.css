@@ -95,10 +95,11 @@
     font-size: 20px;
     cursor: pointer;
 }
-.marketplace_menu_buy {
+
+#marketplace_menu_buy {
     width: 60px;
 }
-.marketplace_menu_sell {
+#marketplace_menu_sell {
     width: 60px;
     background-color: #1c62b3;
     margin-right: 20px;
@@ -133,6 +134,10 @@
     width: 90px;
     height: 90px;
     cursor: pointer;
+}
+
+.marketplace_no_ingred {
+    opacity: 0.5;
 }
 
 .marketplace_footer {
@@ -188,3 +193,10 @@
     cursor: pointer;
 }
 
+.marketplace_footer_buy_process {
+    width: 400px;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 25px;
+    text-align: center;
+}
