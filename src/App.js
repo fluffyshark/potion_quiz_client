@@ -4,6 +4,7 @@ import QuizView from "./pages/quizView/QuizView"
 import CraftView from "./pages/craftView/CraftView"
 import BuySell from "./pages/buysell/BuySell";
 import Leaderboard from "./pages/leaderboard/Leaderboard";
+import Marketplace from "./pages/marketplace/Marketplace";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/craft" element={<CraftView />}></Route>
       <Route path="/buysell" element={<BuySell />}></Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
+      <Route path="/marketplace" element={<Marketplace />}></Route>
     </Routes>
   </BrowserRouter>
   );

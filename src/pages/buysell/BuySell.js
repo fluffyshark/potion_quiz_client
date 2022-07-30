@@ -8,6 +8,7 @@ import store_buy_ten from "../../image_assets/general/store_buy_ten.png"
 import store_buy_ten_btn from "../../image_assets/general/store_buy_ten_btn.png"
 import store_buy_four from "../../image_assets/general/store_buy_four.png"
 import store_buy_four_btn from "../../image_assets/general/store_buy_four_btn.png"
+import { Link } from 'react-router-dom'
 
 
 
@@ -36,7 +37,7 @@ function BuySell() {
                 </div>
             </div>
             <p className="buySellView_or">OR</p>
-            <img src={market_btn} alt="" className="buySellView_visit_market" />
+            <Link className='link' to="/marketplace"><img src={market_btn} alt="" className="buySellView_visit_market" /></Link>
           </div>
         </div>
         
