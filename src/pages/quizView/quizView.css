@@ -1,0 +1,113 @@
+.studentQuiz {
+    width: 100%;
+    height: 100vh;
+}
+
+.studentQuiz_questionView {
+    width: 100%;
+    height: 50%;
+    background: rgb(190,146,116);
+    background: radial-gradient(circle, rgba(190,146,116,1) 0%, rgba(109,89,76,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.studentQuiz_questionView>p {
+    width: 80%;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+
+.studentQuiz_answerView {
+    width: 100%;
+    height: 40%;
+    background-color: yellow;
+    float: left;
+}
+
+.studentQuiz_anwserBox {
+    width: 50%;
+    height: 50%;
+    float: left; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;;
+}
+
+.studentQuiz_anwserBox>p {
+    margin: 0;
+    width: 80%;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#answerAlt_A {
+    background-color: #66a221;;
+    -webkit-box-shadow:inset 0px 0px 0px 6px #589100ff;
+    -moz-box-shadow:inset 0px 0px 0px 6px #589100ff;
+    box-shadow:inset 0px 0px 0px 6px #589100ff;
+}
+#answerAlt_B {
+    background-color: #d94a42; 
+    -webkit-box-shadow:inset 0px 0px 0px 6px #c63300;
+    -moz-box-shadow:inset 0px 0px 0px 6px #c63300;
+    box-shadow:inset 0px 0px 0px 6px #c63300;
+}
+#answerAlt_C {
+    background-color: #2e9e99; 
+    -webkit-box-shadow:inset 0px 0px 0px 6px #2e7e99;
+    -moz-box-shadow:inset 0px 0px 0px 6px #2e7e99;
+    box-shadow:inset 0px 0px 0px 6px #2e7e99;
+    }
+#answerAlt_D {
+    background-color: #e8c242; 
+    -webkit-box-shadow:inset 0px 0px 0px 6px #dab100;
+    -moz-box-shadow:inset 0px 0px 0px 6px #dab100;
+    box-shadow:inset 0px 0px 0px 6px #dab100;
+    }
+
+    .icer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.7;
+        animation: fadeIn 5s;
+        -webkit-animation: fadeIn 5s;
+        -moz-animation: fadeIn 5s;
+        -o-animation: fadeIn 5s;
+        -ms-animation: fadeIn 5s;
+    }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        80% { opacity: 0.7; }
+      }
+      
+      @-moz-keyframes fadeIn {
+        0% { opacity: 0; }
+        80% { opacity: 0.7; }
+      }
+      
+      @-webkit-keyframes fadeIn {
+        0% { opacity: 0; }
+        80% { opacity: 0.7; }
+      }
+      
+      @-o-keyframes fadeIn {
+        0% { opacity: 0; }
+        80% { opacity: 0.7; }
+      }
+      
+      @-ms-keyframes fadeIn {
+        0% { opacity: 0; }
+        80% { opacity: 0.7; }
+      }

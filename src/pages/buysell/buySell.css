@@ -1,0 +1,112 @@
+.buySellView {
+    width: 100%;
+    height: 100vh;
+}
+
+.buySellView_middle {
+    width: 100%;
+    height: 80%;
+    background-image: url("../../image_assets/general/background_image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center; 
+}
+
+.buySellView_middle_container {
+    width: 1024px;
+    height: 100%;
+    background: rgb(190,146,116);
+    background: radial-gradient(circle, rgba(190,146,116,1) 0%, rgba(109,89,76,1) 100%);
+    z-index: 100;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+}
+
+.buySellView_middle_lottery_container {
+    width: 750px;
+    height: 320px;
+    background-color: #2e1e12;
+}
+
+.buySellView_lottery_top {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.lottery_items {
+    width: 25%;
+}
+
+.buySellView_lottery_middle {
+    width: 100%;
+    height: auto;
+    display: flex;
+   justify-content: center;
+   gap: 90px;
+}
+
+.lottery_btns {
+    height: 45px;
+    cursor: pointer;
+}
+
+.buySellView_lottery_bottom {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin-top: 5px;
+    
+}
+
+.buySellView_lottery_desc {
+    font-size: 17px;
+    font-family: 'Luckiest Guy', cursive;
+    color: white;
+    margin: 0;
+}
+
+
+.buySellView_or {
+    font-size: 60px;
+    margin: 0;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.buySellView_visit_market {
+    width: 250px;
+    cursor: pointer;
+}
+
+.buySellView_footer {
+    width: 100%;
+    height: 10%;
+    background-color: #2e1e12;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 200;
+} 
+
+.buySellView_footer_container {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    
+}

@@ -1,0 +1,65 @@
+.navbar {
+    width: 100%;
+    height: 10%;
+    background-color: #2e1e12;
+    display: flex;
+    justify-content: space-between;
+}
+
+.space_filler_left {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar_menu {
+    width: 900px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;    
+}
+
+.navbar_menu_title {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 25px;
+    color: white;
+}
+
+#navbar_title_quiz {
+    width: 100px;
+    background-color: #e8c242;
+}
+#navbar_menu_title_potions {width: 150px;}
+#navbar_menu_title_craft {width: 110px;}
+#navbar_menu_title_buysell {width: 155px;}
+#navbar_menu_title_leaderboard {width: 220px;}
+
+.link {
+    text-decoration: none;
+}
+
+.player_money {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    justify-self: flex-end;
+    gap: 10px;
+
+}
+
+.player_money>img {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.player_money>p {
+    font-size: 25px;
+    font-family: 'Luckiest Guy', cursive;
+    color: white;
+    margin: 0;
+}
