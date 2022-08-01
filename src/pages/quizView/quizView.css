@@ -1,6 +1,7 @@
 .studentQuiz {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 
 .studentQuiz_questionView {
@@ -25,8 +26,10 @@
 .studentQuiz_answerView {
     width: 100%;
     height: 40%;
-    background-color: yellow;
-    float: left;
+    background-color: #2e1e12;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 .studentQuiz_anwserBox {
@@ -36,7 +39,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;;
+    cursor: pointer;
+    z-index: 2;
+   
 }
 
 .studentQuiz_anwserBox>p {
@@ -111,3 +116,65 @@
         0% { opacity: 0; }
         80% { opacity: 0.7; }
       }
+
+
+      .studentQuiz_answerView_correctAnswerBox1 {
+        width: 100%;
+        height: 100%;
+        font-size: 40px;
+        position: absolute;
+        color: white;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: #c63300;
+        -webkit-box-shadow:inset 0px 0px 0px 10px #a72c03;
+        -moz-box-shadow:inset 0px 0px 0px 10px #a72c03;
+         box-shadow:inset 0px 0px 0px 10px #a72c03;
+      }
+
+      .studentQuiz_answerView_correctAnswerBox2 {
+        width: 100%;
+        height: 100%;
+        font-size: 40px;
+        position: absolute;
+        color: white;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: #3987c9;
+        -webkit-box-shadow:inset 0px 0px 0px 10px #274a97;
+        -moz-box-shadow:inset 0px 0px 0px 10px #274a97;
+         box-shadow:inset 0px 0px 0px 10px #274a97;
+      }
+
+      .studentQuiz_answerView_correctAnswerBox3 {
+        width: 100%;
+        height: 100%;
+        font-size: 40px;
+        position: absolute;
+        color: white;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: #66a221;;
+        -webkit-box-shadow:inset 0px 0px 0px 10px #589100ff;
+        -moz-box-shadow:inset 0px 0px 0px 10px #589100ff;
+        box-shadow:inset 0px 0px 0px 10px #589100ff;
+      }
+
+      .disabledbutton {
+        pointer-events: none;
+    }

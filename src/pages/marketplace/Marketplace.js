@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "../../components/navbar/Navbar"
 import "./marketplace.css"
 import Navbar from "../../components/navbar/Navbar"
 import MarketplaceSell from "./MarketplaceSell.js"
@@ -39,8 +40,8 @@ function Marketplace() {
 
   }
 
-
   useEffect(() => {
+    
     if (marketIsBuy) {
       document.getElementById("marketplace_menu_sell").style.backgroundColor = "#1f80e0"
       document.getElementById("marketplace_menu_buy").style.backgroundColor = "#1c62b3"
@@ -50,12 +51,14 @@ function Marketplace() {
     }
   });
   
-
+  var props = {
+    focus: "buysell",
+  }
 
 
   return (
     <div className='marketplace'>
-        <Navbar />
+        <Navbar focus={props}/>
         <div className="marketplace_middle">
           <div className="marketplace_middle_container">
           
@@ -80,7 +83,26 @@ function Marketplace() {
         <div className="marketplace_footer">
           <div className="marketplace_footer_container">  
 
-            {buyOrSellFooter()}
+
+            {marketIsBuy ? ( 
+              <>
+                <p className='marketplace_footer_buy_process'>NO PURCHASE MADE YET...</p>
+              </>
+              
+            ) : ( 
+            
+              <>
+                <p className='marketplace_offer_text1'>OFFER TO SELL</p>
+                <img src={no_ingred} alt="" className="marketplace_offer_ingred" />
+                <p className='marketplace_offer_text2'>FOR</p>
+                <img src={add_btn} alt="" className="marketplace_offer_btns" />
+                <p className='marketplace_offer_text3'>100</p>
+                <img src={reduce_btn} alt="" className="marketplace_offer_btns" />
+                <img src={done_btn} alt="" className="marketplace_offer_done_btn" />
+              </>
+
+            )}
+                  
 
           </div>
         </div>

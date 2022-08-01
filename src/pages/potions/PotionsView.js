@@ -11,9 +11,14 @@ import ingred3 from "../../image_assets//herbs//normal/ingred3.png"
 import ingred4 from "../../image_assets//herbs//normal/ingred4.png"
 
 function PotionsView() {
+
+  var props = {
+    focus: "potions",
+  }
+
   return (
     <div className='potionsView'>
-        <Navbar />
+        <Navbar focus={props}/>
         
         <div className="potionView_middle">
             <div className="potionView_middle_container">

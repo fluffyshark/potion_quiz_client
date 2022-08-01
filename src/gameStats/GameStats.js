@@ -31,5 +31,12 @@ const potions_mastery = [
     0,0,0,0,0,0,0,0,0,0
 ]
 
+const ingredients_for_sale = [
+    {id:10, imageNr: 0, price: 10, amount: 1},
+    {id:20, imageNr: 1, price: 5, amount: 1},
+    {id:30, imageNr: 2, price: 25, amount: 2},
+    {id:40, imageNr: 3, price: 30, amount: 2},
+]
 
-export default {ingredients_discovered, ingredients_owned, potions_dicovered, potions_mastery}
+
+export default {ingredients_discovered, ingredients_owned, potions_dicovered, potions_mastery, ingredients_for_sale}

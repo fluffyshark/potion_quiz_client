@@ -6,9 +6,15 @@ import no_ingred from "../../image_assets/general/no_ingred.png"
 import caldrun from "../../image_assets/general/caldrun.png"
 
 function CraftView() {
+
+  var props = {
+    focus: "craft",
+    
+  }
+
   return (
     <div className='craftView'>
-        <Navbar />
+        <Navbar focus={props}/>
         <div className="craftView_middle">
           <div className="craftView_middle_container">
             <div className="craftView_middle_ingred_container">

@@ -1,29 +1,53 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./marketplace.css"
 import gameStats from "../../gameStats/GameStats.js"
-import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
 import herbs from "../../image_assets/HerbImageExport"
+
 
 
 function MarketplaceBuy() {
 
-  const [ingredients, setIngresients] = useState(gameStats.ingredients_owned)
+  
+  const [ingredOffering, setIngredOffering] = useState(gameStats.ingredients_for_sale)
 
+
+  function buyIngred(offeringID) {
+    
+    // Visually removing clicked ingredient
+    document.getElementById(`item${offeringID}`).style.display = "none"
+
+    // Finds the index of the clicked ingredient
+    const index = gameStats.ingredients_for_sale.findIndex(x => x.id === offeringID)
+
+    // Remove remove ingredient from array at index
+    gameStats.ingredients_for_sale.splice(index, 1);
+
+    // Update new list and new indexes
+    setIngredOffering(gameStats.ingredients_for_sale)
+
+  }
+
+  
 
   return (
     
     <div className="marketplace_middle_ingred_container">
-            
+          
         {
-          ingredients.map((item, i) => {
-            if (gameStats.ingredients_discovered[i] === 0) return (<img src={hidden_ingred} key={i} alt="" className="marketplace_ingred marketplace_no_ingred" />)
-            else if (item === 0) return (<img src={herbs[i]} key={i} alt="" className="marketplace_ingred marketplace_no_ingred" />)
-            else return (<img src={herbs[i]} key={i} alt="" className="marketplace_ingred" />)
-           
+          ingredOffering.map((item, i) => {
+            console.log(item)
+             return (
+              <div className='marketplace_offering' key={i} id={`item${item.id}`} onClick={() => buyIngred(item.id)}>
+                <img src={herbs[item.imageNr]} key={i} alt="" className="marketplace_ingred" />
+                <div className="marketplace_offering_price_btn">{item.price}</div>
+              </div>
+              
+             )
+             
           })
         }
              
-        <div className="marketplace_extra_space_bottom"></div>
+        <div className="marketplace_extra_space_bottom"></div>  
       </div>
 
   );

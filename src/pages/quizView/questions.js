@@ -1,24 +1,29 @@
 export const religionQuestions = { 
     questions: [
                 {
-                    question: "Fråga 1",
-                    answerAlt: ["svar 1","svar 2", "svar 3", "svar 4"],
-                    correctAnswer: "svar 1"
+                    question: "Vad händer enligt Buddhismen när man dör?",
+                    answerAlt: ["Man kommer till himmelen eller helvetet","Man återföds i ett nytt liv", "Man anses sig inte veta", "Man blir upplyst och når Nirvana"],
+                    correctAnswer: "Man återföds i ett nytt liv"
                 },
                 {
-                    question: "Fråga 2",
-                    answerAlt: ["svar 1","svar 2", "svar 3", "svar 4"],
-                    correctAnswer: "svar 2"
+                    question: "Vad händer enligt Judendomen när man dör?",
+                    answerAlt: ["Man kommer till himmelen eller helvetet","Man återföds i ett nytt liv", "Man anses sig inte veta", "Man blir upplyst och når Nirvana"],
+                    correctAnswer: "Man anses sig inte veta"
                 },
                 {
-                    question: "Fråga 3",
-                    answerAlt: ["svar 1","svar 2", "svar 3", "svar 4"],
-                    correctAnswer: "svar 3"
+                    question: "Vem anses vara Messias enlight Islam?",
+                    answerAlt: ["Mohammad","Jesus", "Moses", "Abraham"],
+                    correctAnswer: "Jesus"
                 },
                 {
-                    question: "Fråga 4",
-                    answerAlt: ["svar 1","svar 2", "svar 3", "svar 4"],
-                    correctAnswer: "svar 4"
+                    question: "Vad kallas Hinduismens heliga text (textsamling)?",
+                    answerAlt: ["Veda","Tanak", "Koranen", "Tripitaka"],
+                    correctAnswer: "Veda"
+                },
+                {
+                    question: "Hur många utövare/anhängare har Hinduismen?",
+                    answerAlt: ["15 miljoner","900 miljoner", "500 miljoner", "1.8 miljarder"],
+                    correctAnswer: "500 miljoner"
                 }
             ]
 }

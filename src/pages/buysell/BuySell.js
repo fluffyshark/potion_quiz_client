@@ -13,9 +13,15 @@ import { Link } from 'react-router-dom'
 
 
 function BuySell() {
+
+  var props = {
+    focus: "buysell",
+    
+  }
+
   return (
     <div className='buySellView'>
-        <Navbar />
+        <Navbar focus={props}/>
         
         <div className="buySellView_middle">
           <div className="buySellView_middle_container">
@@ -31,9 +37,9 @@ function BuySell() {
                     <img src={store_buy_ten_btn} alt="" className="lottery_btns" />
                 </div>
                 <div className="buySellView_lottery_bottom">
-                    <p className="buySellView_lottery_desc">BUY ONE INGREDIENT</p>
-                    <p className="buySellView_lottery_desc">BUY FOUR INGREDIENT</p>
-                    <p className="buySellView_lottery_desc">BUY TEN INGREDIENT</p>
+                    <p className="buySellView_lottery_desc">BUY 4 INGREDIENT</p>
+                    <p className="buySellView_lottery_desc">BUY 14 INGREDIENT</p>
+                    <p className="buySellView_lottery_desc">BUY 50 INGREDIENT</p>
                 </div>
             </div>
             <p className="buySellView_or">OR</p>

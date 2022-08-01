@@ -4,9 +4,14 @@ import Navbar from '../../components/navbar/Navbar'
 import leaderboard from "../../image_assets/general/leaderboard.png"
 
 function Leaderboard() {
+
+  var props = {
+    focus: "leaderboard",
+  }
+
   return (
     <div className='leaderboardView'>
-        <Navbar />
+        <Navbar focus={props}/>
         
         <div className="leaderboard_middle">
           <div className="leaderboard_middle_container">
