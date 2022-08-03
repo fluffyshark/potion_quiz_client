@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./quizView.css"
 import Navbar from "../../components/navbar/Navbar"
-import {useSelector, useDispatch} from "react-redux"
-import {increment} from "../../redux/reducers/playerGold"
+import { useSelector, useDispatch } from "react-redux"
+import { add_coins } from "../../redux/CoinsReducer.js"
 import {religionQuestions} from "./questions.js"
 import {motion} from "framer-motion"
 import click from "../../sound_assets/click.mp3"
@@ -13,12 +13,10 @@ var randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
 
 function QuizView() {
 
-  const dispatch = useDispatch()
   const [reveal, setReveal] = useState(false)
-
   const [question, setQuestion] = useState(religionQuestions.questions[randomQuestionNr].question)
   const [answerAlt, setAnswerAlt] = useState(religionQuestions.questions[randomQuestionNr].answerAlt)
-  const [points, setPoints] = useState(0)
+  const dispatch = useDispatch()
 
   function playSound(sound) {
     if (sound === "click") {new Audio(click).play()}
@@ -44,9 +42,13 @@ function QuizView() {
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox1');
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox3');
       
-      setTimeout(function() {playSound("coin")}, 1);
-      dispatch(increment())
+      setTimeout(function() {
+        playSound("coin")
+        dispatch(add_coins())
+      }, 1);
       
+
+      console.log()
     }
    
     setReveal(!reveal)

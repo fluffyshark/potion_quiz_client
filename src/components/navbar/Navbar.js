@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./navbar.css"
 import money_icon from "../../image_assets/general/money_icon.png"
-import {useSelector} from "react-redux"
-
-
+import { useSelector } from "react-redux"
 
 
 function Navbar(props) {
 
-  const playerGold = useSelector(state => state.playerGold)
-
-
+  const playerCoins = useSelector((state) => state.coins.value)
 
   useEffect(() => {
     console.log(props.focus.focus)
@@ -46,7 +42,7 @@ function Navbar(props) {
         <Link className='link' to="/leaderboard"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD</div></Link>
         </div>
         <div className="player_money">
-          <p id="money_points">{playerGold}</p>
+          <p id="money_points">{playerCoins}</p>
           <img src={money_icon} alt="" />
         </div>
     </div>

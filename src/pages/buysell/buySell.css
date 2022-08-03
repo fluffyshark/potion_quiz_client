@@ -31,44 +31,31 @@
     width: 750px;
     height: 320px;
     background-color: #2e1e12;
-}
-
-.buySellView_lottery_top {
-    width: 100%;
-    height: auto;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.buySellView_lottery_box {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5px;
 }
 
 .lottery_items {
-    width: 25%;
-}
-
-.buySellView_lottery_middle {
     width: 100%;
-    height: auto;
-    display: flex;
-   justify-content: center;
-   gap: 90px;
 }
 
 .lottery_btns {
-    height: 45px;
+    width: 120px;
     cursor: pointer;
 }
 
-.buySellView_lottery_bottom {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    gap: 45px;
-    margin-top: 5px;
-    
-}
+
 
 .buySellView_lottery_desc {
     font-size: 17px;

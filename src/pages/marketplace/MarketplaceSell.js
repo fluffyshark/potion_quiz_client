@@ -1,26 +1,43 @@
-import React, { useState } from 'react'
+import React from 'react'
 import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
-import gameStats from "../../gameStats/GameStats.js"
-import herbs from "../../image_assets/HerbImageExport"
+import { useSelector } from "react-redux"
 
 
 function MarketplaceSell() {
 
-  const [ingredients, setIngresients] = useState(gameStats.ingredients_owned)
+  const ingredientsList = useSelector((state) => state.ingredients.value)
+
 
 
   return (
     
     <div className="marketplace_middle_ingred_container">
-            
-        {
-          ingredients.map((item, i) => {
-            if (gameStats.ingredients_discovered[i] === 0) return (<img src={hidden_ingred} key={i} alt="" className="marketplace_ingred marketplace_no_ingred" />)
-            else if (item === 0) return (<img src={herbs[i]} key={i} alt="" className="marketplace_ingred marketplace_no_ingred" />)
-            else return (<img src={herbs[i]} key={i} alt="" className="marketplace_ingred" />)
-           
-          })
+
+
+      {ingredientsList.map((ingredient, i) => {
+          if (ingredient.amount > 0) {
+            return (
+              <div key={i} className="craftView_ingredBox">
+                <img src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
+                <p className="craftView_ingred_amount">{ingredient.amount}</p>
+              </div>
+            )
+          } else if (ingredient.discovered === false) {
+            return (
+              <div className="craftView_ingredBox">
+                <img src={hidden_ingred} alt="" className="marketplace_ingred marketplace_no_ingred" /> 
+              </div>
+            )
+          } else {
+          return (
+            <div className="craftView_ingredBox">
+              <img src={hidden_ingred} alt="" className="marketplace_ingred" /> 
+            </div>
+          )
         }
+        })
+      }
+       
              
         <div className="marketplace_extra_space_bottom"></div>
       </div>

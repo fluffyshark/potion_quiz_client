@@ -3,7 +3,6 @@ import "./potionsView.css"
 import Navbar from "../../components/navbar/Navbar"
 import progressbar_fill from "../../image_assets/general/progressbar_fill.png"
 import card_back from "../../image_assets/general/card_back.png"
-import potion_exp from "../../image_assets/potions/cards/potion_exp.png"
 import bottle_exp from "../../image_assets/potions/bottles/bottle_exp.png"
 import ingred1 from "../../image_assets//herbs//normal/ingred1.png"
 import ingred2 from "../../image_assets//herbs//normal/ingred2.png"
@@ -28,7 +27,7 @@ function PotionsView() {
                 <p className="potionView_middle_level_status">LEVEL 1 - UNLOCKED</p>
               </div>
               <div className="potionView_middle_cards">
-                <img src={potion_exp} alt="" className="cards cards_level1" />
+                <img src={card_back} alt="" className="cards cards_level1" />
                 <img src={card_back} alt="" className="cards cards_level1" />
                 <img src={card_back} alt="" className="cards cards_level1" />
                 <img src={card_back} alt="" className="cards cards_level1" />

@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from "redux"
-import allReducers from "./redux/reducers/index"
-import {Provider} from "react-redux"
+import { configureStore } from "@reduxjs/toolkit"
+import { Provider } from 'react-redux';
+import ingredientReducer from './redux/IngredientReducer.js';
+import coinsReducer from './redux/CoinsReducer';
 
-let store = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-
+const store = configureStore({
+  reducer: {
+    ingredients: ingredientReducer,
+    coins: coinsReducer
+  }
+})
 
 
 

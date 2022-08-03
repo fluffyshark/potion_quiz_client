@@ -19,10 +19,7 @@
     background: rgb(190,146,116);
     background: radial-gradient(circle, rgba(190,146,116,1) 0%, rgba(109,89,76,1) 100%);
     z-index: 100;
-    
-    
     display: flex;
-    
     justify-content: center;
     align-items: center;
 }
@@ -53,6 +50,25 @@
 
 .craftView_middle_ingred_container::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
+}
+
+.craftView_ingredBox {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    text-align: center;
+}
+
+.craftView_ingred_amount {
+    width: 10px;
+    position: absolute;
+    top: 69%;
+    left: 72.2%;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 10px;
+    margin: 0;
+    
 }
 
 .craftView_ingred {

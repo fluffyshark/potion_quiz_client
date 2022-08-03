@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import "./marketplace.css"
 import gameStats from "../../gameStats/GameStats.js"
 import herbs from "../../image_assets/HerbImageExport"
-
+import { useDispatch } from "react-redux"
+import { increase_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../redux/IngredientReducer.js"
 
 
 function MarketplaceBuy() {
@@ -10,6 +11,7 @@ function MarketplaceBuy() {
   
   const [ingredOffering, setIngredOffering] = useState(gameStats.ingredients_for_sale)
 
+  const dispatch = useDispatch()
 
   function buyIngred(offeringID) {
     
@@ -24,7 +26,8 @@ function MarketplaceBuy() {
 
     // Update new list and new indexes
     setIngredOffering(gameStats.ingredients_for_sale)
-
+    
+    dispatch(increase_ingredients({id:offeringID}))
   }
 
   
