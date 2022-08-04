@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from "@reduxjs/toolkit"
 import { Provider } from 'react-redux';
 import ingredientReducer from './redux/IngredientReducer.js';
-import coinsReducer from './redux/CoinsReducer';
+import coinsReducer from './redux/CoinsReducer'
+import potionReducer from './redux/PotionReducer';
 
 const store = configureStore({
   reducer: {
     ingredients: ingredientReducer,
-    coins: coinsReducer
+    coins: coinsReducer,
+    potions: potionReducer
   }
 })
 

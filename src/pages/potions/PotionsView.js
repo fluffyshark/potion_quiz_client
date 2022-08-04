@@ -1,5 +1,6 @@
 import React from 'react'
 import "./potionsView.css"
+import { useSelector } from "react-redux"
 import Navbar from "../../components/navbar/Navbar"
 import progressbar_fill from "../../image_assets/general/progressbar_fill.png"
 import card_back from "../../image_assets/general/card_back.png"
@@ -15,6 +16,9 @@ function PotionsView() {
     focus: "potions",
   }
 
+  const potionsList = useSelector((state) => state.potions.value)
+
+
   return (
     <div className='potionsView'>
         <Navbar focus={props}/>
@@ -27,25 +31,75 @@ function PotionsView() {
                 <p className="potionView_middle_level_status">LEVEL 1 - UNLOCKED</p>
               </div>
               <div className="potionView_middle_cards">
-                <img src={card_back} alt="" className="cards cards_level1" />
-                <img src={card_back} alt="" className="cards cards_level1" />
-                <img src={card_back} alt="" className="cards cards_level1" />
-                <img src={card_back} alt="" className="cards cards_level1" />
 
-                <img src={card_back} alt="" className="cards cards_level2" />
-                <img src={card_back} alt="" className="cards cards_level2" />
-                <img src={card_back} alt="" className="cards cards_level2" />
-                <img src={card_back} alt="" className="cards cards_level2" />
+              
+                {potionsList.map((potion, i) => {
+                    if (potion.amount > 0) {
+                        if (potion.level === 1) {
+                          return (
+                            <div key={i} className="cardBox">
+                              <img  src={potion.image_bronze} alt="" className="cards cards_clickable" /> 
+                              <p className="cards_amount_text">{potion.amount}</p>
+                            </div>
+                          )
+                        }
+                        if (potion.level === 2) {
+                          return (
+                            <div key={i} className="cardBox">
+                              <img  src={potion.image_silver} alt="" className="cards cards_clickable" /> 
+                              <p className="cards_amount_text">{potion.amount}</p>
+                            </div>
+                          )
+                        }
+                        if (potion.level === 3) {
+                          return (
+                            <div key={i} className="cardBox">
+                              <img  src={potion.image_gold} alt="" className="cards cards_clickable" /> 
+                              <p className="cards_amount_text">{potion.amount}</p>
+                            </div>
+                          )
+                        }
 
-                <img src={card_back} alt="" className="cards cards_level3" />
-                <img src={card_back} alt="" className="cards cards_level3" />
-                <img src={card_back} alt="" className="cards cards_level3" />
-                <img src={card_back} alt="" className="cards cards_level3" />
 
-                <img src={card_back} alt="" className="cards cards_level4" />
-                <img src={card_back} alt="" className="cards cards_level4" />
-                <img src={card_back} alt="" className="cards cards_level4" />
-                <img src={card_back} alt="" className="cards cards_level4" />
+                      
+                    } else if (potion.discovered === true) {
+                      if (potion.level === 1) {
+                        return (
+                          <div key={i} className="cardBox">
+                            <img  src={potion.image_bronze} alt="" className="cards cards_no_amount" /> 
+                            <p className="cards_amount_text">{potion.amount}</p>
+                          </div>
+                        )
+                      }
+                      if (potion.level === 2) {
+                        return (
+                          <div key={i} className="cardBox">
+                            <img  src={potion.image_silver} alt="" className="cards cards_no_amount" /> 
+                            <p className="cards_amount_text">{potion.amount}</p>
+                          </div>
+                        )
+                      }
+                      if (potion.level === 3) {
+                        return (
+                          <div key={i} className="cardBox">
+                            <img  src={potion.image_gold} alt="" className="cards cards_no_amount" /> 
+                            <p className="cards_amount_text">{potion.amount}</p>
+                          </div>
+                        )
+                      }
+
+
+                    } else {
+                      return (
+                        <div key={i} className="cardBox">
+                        <img src={card_back} alt="" className="cards" /> 
+                        </div>
+                      )
+                    }
+                    })
+                }
+                
+               
                 <div className="extra_space"></div>
               </div>      
             </div>

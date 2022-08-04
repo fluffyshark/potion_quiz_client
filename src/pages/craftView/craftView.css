@@ -60,15 +60,14 @@
 }
 
 .craftView_ingred_amount {
-    width: 10px;
+    width: 20px;
     position: absolute;
-    top: 69%;
-    left: 72.2%;
+    top: 85%;
+    left: 9.2%;
     color: white;
     font-family: 'Luckiest Guy', cursive;
-    font-size: 10px;
-    margin: 0;
-    
+    font-size: 15px;
+    margin: 0;    
 }
 
 .craftView_ingred {

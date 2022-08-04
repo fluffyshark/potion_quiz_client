@@ -80,9 +80,26 @@
     margin-top: 10px;
 }
 
-.cards {
+.cardBox {
     width: 20%;
+    position: relative;
+    text-align: center;
 }
+
+.cards {width: 100%;}
+
+.cards_amount_text {
+    width: 20px;
+    position: absolute;
+    top: 85%;
+    left: 9.2%;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 15px;
+    margin: 0;
+}
+.cards_no_amount {opacity: 0.5;}
+.cards_clickable {cursor: pointer;}
 
 .cards_level1 { cursor: pointer;}
 .cards_level2 {opacity: 0.5;}
