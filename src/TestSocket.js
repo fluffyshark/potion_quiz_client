@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import io from "socket.io-client"
 
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
 
 function TestSocket() {
     const [room, setRoom] = useState("");
