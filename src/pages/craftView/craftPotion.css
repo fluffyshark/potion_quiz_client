@@ -1,0 +1,80 @@
+.craftPotion {
+    width: 100%;
+    height: calc(100vh - 10%);
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    
+}
+
+.craftPotion_contentcontainer {
+    width: 350px;
+    height: 500px;
+    transform: translateY(-80px);
+    background-image: url("../../image_assets/general/potion_reveal_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 7px;
+}
+
+.craftPotion_textholder {
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#revealCard_text {
+    margin: 0;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
+    color: white;
+}
+
+.craftPotion_imageholder {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.craftPotion_image {
+    height: 100%;
+    cursor: pointer;
+}
+
+.craftPotion_ingredientsholder {
+    width: 100%;
+    height: 23%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.craftPotion_ingredientwrapper {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    text-align: center;
+}
+
+.craftPotion_ingred {
+    height: 100%;
+}
+
+.craftPotion_amount_text {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 67%;
+    left: 74%;
+    margin: 0;
+    
+}

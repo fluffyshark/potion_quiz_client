@@ -39,4 +39,4 @@ const ingredients_for_sale = [
 ]
 
 
-export default {ingredients_discovered, ingredients_owned, potions_dicovered, potions_mastery, ingredients_for_sale}
+export default {ingredients_for_sale }

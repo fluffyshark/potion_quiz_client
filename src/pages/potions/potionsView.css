@@ -31,7 +31,7 @@
 
 .potionView_middle_level {
     width: 100%;
-    height: 150px;
+    height: 175px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,6 +46,7 @@
     font-family: 'Luckiest Guy', cursive;
 }
 
+
 .potionView_middle_level_progressbar {
     width: 70%;
     height: 30px;
@@ -53,20 +54,21 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+.potionView_middle_level_progressbar_limiter {
+    width: 98.7%;
+    height: 74%;
 }
 
-.progressbar_fill {
-    width: calc(100% - 8px);
-    height: 22px;
-    margin-left: 4px;
-}
+.progressbar_fill {width: 0.5%; height: 100%;}
 
-.potionView_middle_level_status {
-    font-size: 17px;
-    color: white;
-    margin: 0;
-    font-family: 'Luckiest Guy', cursive;
-    
+
+
+.potionView_middle_level_btn {
+    width: 200px;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
 .potionView_middle_cards {
@@ -86,7 +88,9 @@
     text-align: center;
 }
 
-.cards {width: 100%;}
+.cards {
+    width: 100%;
+}
 
 .cards_amount_text {
     width: 20px;
@@ -98,13 +102,12 @@
     font-size: 15px;
     margin: 0;
 }
+
 .cards_no_amount {opacity: 0.5;}
 .cards_clickable {cursor: pointer;}
+.cards_not_discovered {opacity: 0.5; }
 
-.cards_level1 { cursor: pointer;}
-.cards_level2 {opacity: 0.5;}
-.cards_level3 {opacity: 0.5;}
-.cards_level4 {opacity: 0.5;}
+
 
 .extra_space {
     height: 60px;

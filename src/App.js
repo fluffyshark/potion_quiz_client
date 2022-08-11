@@ -6,6 +6,8 @@ import BuySell from "./pages/buysell/BuySell";
 import Leaderboard from "./pages/leaderboard/Leaderboard";
 import Marketplace from "./pages/marketplace/Marketplace";
 
+import TempSocket from "./TestSocket.js"
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +18,7 @@ function App() {
       <Route path="/buysell" element={<BuySell />}></Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
       <Route path="/marketplace" element={<Marketplace />}></Route>
+      <Route path="/socket" element={<TempSocket />}></Route>
     </Routes>
   </BrowserRouter>
   );

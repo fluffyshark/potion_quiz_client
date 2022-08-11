@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { add_coins } from "../../redux/CoinsReducer.js"
 import {religionQuestions} from "./questions.js"
 import {motion} from "framer-motion"
-import click from "../../sound_assets/click.mp3"
 import coindrop from "../../sound_assets/coindrop.mp3"
 
 
@@ -19,9 +18,7 @@ function QuizView() {
   const dispatch = useDispatch()
 
   function playSound(sound) {
-    if (sound === "click") {new Audio(click).play()}
     if (sound === "coin") {new Audio(coindrop).play()}
-    
   }
 
   function newQuestion() {
@@ -29,9 +26,12 @@ function QuizView() {
     setQuestion(religionQuestions.questions[randomQuestionNr].question)
     setAnswerAlt(religionQuestions.questions[randomQuestionNr].answerAlt)
     setReveal(!reveal)
-    
-    
+
+    // Remove navbar-blocker
+    document.getElementById("navbar_blocker").style.display = "none"
   }
+
+
 
   const answerQuestion = (chosenAnswer) => {
 
@@ -45,11 +45,12 @@ function QuizView() {
       setTimeout(function() {
         playSound("coin")
         dispatch(add_coins())
-      }, 1);
+      }, 1000);
       
-
-      console.log()
     }
+
+    // Div blocks navbar to prevent question-tabbing exploit
+    document.getElementById("navbar_blocker").style.display = "inherit"
    
     setReveal(!reveal)
 
@@ -76,6 +77,7 @@ function QuizView() {
   return (
     <div className='studentQuiz'>
       <Navbar focus={props} />
+      <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
       <div className='studentQuiz_questionView'>
         <p>{question}</p>
       </div>

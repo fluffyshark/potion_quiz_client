@@ -3,15 +3,17 @@ import "./marketplace.css"
 import gameStats from "../../gameStats/GameStats.js"
 import herbs from "../../image_assets/HerbImageExport"
 import { useDispatch } from "react-redux"
-import { increase_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../redux/IngredientReducer.js"
+import { increase_ingredients } from "../../redux/IngredientReducer.js"
 
 
 function MarketplaceBuy() {
 
-  
+  const dispatch = useDispatch()
   const [ingredOffering, setIngredOffering] = useState(gameStats.ingredients_for_sale)
 
-  const dispatch = useDispatch()
+  console.log("gamestat", gameStats.ingredients_for_sale)
+
+
 
   function buyIngred(offeringID) {
     
@@ -38,7 +40,6 @@ function MarketplaceBuy() {
           
         {
           ingredOffering.map((item, i) => {
-            console.log(item)
              return (
               <div className='marketplace_offering' key={i} id={`item${item.id}`} onClick={() => buyIngred(item.id)}>
                 <img src={herbs[item.imageNr]} key={i} alt="" className="marketplace_ingred" />
@@ -49,7 +50,7 @@ function MarketplaceBuy() {
              
           })
         }
-             
+      
         <div className="marketplace_extra_space_bottom"></div>  
       </div>
 

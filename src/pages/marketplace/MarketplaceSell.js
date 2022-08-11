@@ -18,19 +18,19 @@ function MarketplaceSell() {
           if (ingredient.amount > 0) {
             return (
               <div key={i} className="craftView_ingredBox">
-                <img src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
+                <img  src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
                 <p className="craftView_ingred_amount">{ingredient.amount}</p>
               </div>
             )
           } else if (ingredient.discovered === false) {
             return (
-              <div className="craftView_ingredBox">
+              <div key={i} className="craftView_ingredBox">
                 <img src={hidden_ingred} alt="" className="marketplace_ingred marketplace_no_ingred" /> 
               </div>
             )
           } else {
           return (
-            <div className="craftView_ingredBox">
+            <div key={i} className="craftView_ingredBox">
               <img src={hidden_ingred} alt="" className="marketplace_ingred" /> 
             </div>
           )

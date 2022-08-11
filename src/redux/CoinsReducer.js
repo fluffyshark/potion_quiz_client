@@ -5,13 +5,13 @@ export const coinSlice = createSlice({
     initialState: {value: 0},
     reducers: {
         add_coins: (state) => {
-            state.value += 1
+            state.value += 10
         },
         add_coins_amount: (state, action) => {
             state.value += action.payload
         },
         reduce_coins: (state) => {
-            state.value -= 1
+            state.value -= 10
         },
         reduce_coins_amount: (state, action) => {
             state.value -= action.payload
@@ -23,3 +23,4 @@ export const coinSlice = createSlice({
 
 export const {add_coins, add_coins_amount, reduce_coins, reduce_coins_amount} = coinSlice.actions
 export default coinSlice.reducer
+

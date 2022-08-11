@@ -8,12 +8,18 @@ import { Provider } from 'react-redux';
 import ingredientReducer from './redux/IngredientReducer.js';
 import coinsReducer from './redux/CoinsReducer'
 import potionReducer from './redux/PotionReducer';
+import craftReducer from './redux/CraftReducer';
+import recipeReducer from "./redux/PotionRecipeReducer"
+import levelExpReducer from "./redux/LevelExpReducer"
 
 const store = configureStore({
   reducer: {
     ingredients: ingredientReducer,
     coins: coinsReducer,
-    potions: potionReducer
+    potions: potionReducer,
+    crafting: craftReducer,
+    recipe: recipeReducer,
+    levelExp: levelExpReducer
   }
 })
 
