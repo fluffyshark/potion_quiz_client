@@ -47,7 +47,8 @@ function Navbar(props) {
         <Link onClick={() => playSound("page")} className='link' to="/craft"><div className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT</div></Link>
         <Link onClick={() => playSound("page")} className='link' to="/buysell"><div className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL</div></Link>
         <Link onClick={() => playSound("page")} className='link' to="/leaderboard"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD</div></Link>
-        <Link onClick={() => playSound("page")} className='link' to="/socket"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >SOCKET</div></Link>
+        <Link onClick={() => playSound("page")} className='link' to="/host"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >HOST</div></Link>
+        <Link onClick={() => playSound("page")} className='link' to="/join"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >JOIN</div></Link>
         </div>
         <div className="player_money">
           <p id="money_points">{playerCoins}</p>
