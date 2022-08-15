@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import io from "socket.io-client"
 import Timer from "./components/timer/Timer.js"
 
-const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+// const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 function TestSocket() {
     const [room, setRoom] = useState("");

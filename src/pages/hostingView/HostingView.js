@@ -3,8 +3,8 @@ import "./hostingView.css"
 import io from "socket.io-client"
 import Timer from "../../components/timer/Timer.js"
 
-const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
-// const socket = io.connect("http://localhost:3001")
+// const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 // Generate random number
 const randomNum = (Math.floor(Math.random() * 999999999))
@@ -21,11 +21,11 @@ intArr.splice(7, 0, " ");
 let gameCode = intArr.join("")
 
 
+
 function HostingView() {
 
   const [startTimer, setStartTimer] = useState(false)
   const [room, setRoom] = useState("");
-  const [message, setMessage] = useState("")
   const [playersJoined, setPlayersJoined] = useState([])
 
     
@@ -35,18 +35,14 @@ function HostingView() {
     }
   };
 
-  const sendMessage = () => {
-    socket.emit("send_message", { message, room });
-  };
-
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      setPlayersJoined(data.message)
+      setPlayersJoined(playersJoined => [...playersJoined, data.nickname]);
     })
-    console.log(playersJoined)
 }, [socket])
 
+console.log(playersJoined)
 
 setTimeout(function() {
   setRoom(gameCode)
@@ -69,18 +65,12 @@ setTimeout(function() {
 
         {playersJoined.map((player, i) => {
                     if (playersJoined.length > 0) {
-                      <div key={i} className="playerTags">{player}</div>
+                      return (<div key={i} className="playerTags">{player}</div>)
                     }
                   })} 
-            <div className="playerTags">Robin</div>
-            <div className="playerTags">JESUS KRISTUS</div>
-            <div className="playerTags">PATRIK</div>
-            <div className="playerTags">Adam Något</div>
-            <div className="playerTags">Adam Något</div>
-            <div className="playerTags">Adam Något</div>
 
-            <div className="playerTags">Adam Något</div>
         </div>
+
     </div>
   )
 }

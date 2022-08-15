@@ -4,31 +4,31 @@ import "./joinView.css"
 import io from "socket.io-client"
 import potion_rules from "../../image_assets/general/potion_rules.png"
 
-const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
-// const socket = io.connect("http://localhost:3001")
+// const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+ const socket = io.connect("http://localhost:3001")
 
 function JoinView() {
 
     const [viewContent, setViewContent] = useState("gamecode")
     const [gameCode, setGameCode] = useState("")
     const [nickname, setNickname] = useState("")
-    const [room, setRoom] = useState("");
 
    function switchViewContent() {
     if (gameCode !== "") {setViewContent("enterName"); joinRoom()}
     if (nickname !== "") {setViewContent("readyAndWaiting"); sendNickname()}
-    
     }
 
    
     const sendNickname = () => {
       socket.emit("send_message", { nickname, gameCode });
+  
     };
   
       
     const joinRoom = () => {
       if (gameCode !== "") {
         socket.emit("join_room", gameCode);
+        console.log("JOIN join room working")
       }
     };
 
@@ -60,6 +60,7 @@ function JoinView() {
         }
 
         </div>
+
     </div>
   )
 }
