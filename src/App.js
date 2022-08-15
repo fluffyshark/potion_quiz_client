@@ -5,8 +5,12 @@ import CraftView from "./pages/craftView/CraftView"
 import BuySell from "./pages/buysell/BuySell";
 import Leaderboard from "./pages/leaderboard/Leaderboard";
 import Marketplace from "./pages/marketplace/Marketplace";
+import HostingView from "./pages/hostingView/HostingView";
+import JoinView from "./pages/joinView/JoinView";
 
 import TempSocket from "./TestSocket.js"
+
+
 
 function App() {
   return (
@@ -19,6 +23,8 @@ function App() {
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
       <Route path="/marketplace" element={<Marketplace />}></Route>
       <Route path="/socket" element={<TempSocket />}></Route>
+      <Route path="/host" element={<HostingView />}></Route>
+      <Route path="/join" element={<JoinView />}></Route>
     </Routes>
   </BrowserRouter>
   );

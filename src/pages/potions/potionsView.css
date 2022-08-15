@@ -64,12 +64,17 @@
 .progressbar_fill {width: 0.5%; height: 100%;}
 
 
-
 .potionView_middle_level_btn {
     width: 200px;
     cursor: pointer;
     margin-top: 5px;
+    transition: all .3s ease-in-out;
 }
+.potionView_middle_level_btn:hover {
+    scale: 1.03;
+}
+
+
 
 .potionView_middle_cards {
     width: 100%;
@@ -90,6 +95,11 @@
 
 .cards {
     width: 100%;
+    transition: all .3s ease-in-out;
+}
+
+.cards:hover {
+    scale: 1.03;
 }
 
 .cards_amount_text {

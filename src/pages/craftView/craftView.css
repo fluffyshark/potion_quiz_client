@@ -74,6 +74,10 @@
 .craftView_ingred {
     width: 90px;
     height: 90px;
+    transition: all .2s ease-in-out;
+}
+.craftView_ingred:hover {
+    scale:1.05;
 }
 
 .craftView_footer {
@@ -108,7 +112,13 @@
     align-items: center;
 }
 
-.recipe_ingredient {height: 90%;}
+.recipe_ingredient {
+    height: 90%;
+    transition: all .2s ease-in-out;
+}
+.recipe_ingredient:hover {
+    scale:0.95;
+}
 
 .footer_cauldrun {
     height: 200%; 
@@ -117,7 +127,13 @@
     opacity: 0.5;
     pointer-events:none;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
+.footer_cauldrun:hover {
+    scale:1.05;
+    transform: translateY(-55px);
+}
+
 
 .selected_ingredients_amount {
     width: 20px;

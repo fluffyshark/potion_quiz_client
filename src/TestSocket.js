@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import io from "socket.io-client"
+import Timer from "./components/timer/Timer.js"
 
 const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
 
@@ -37,6 +38,7 @@ function TestSocket() {
         <button onClick={sendMessage}>Send Message</button>
         <h1>MESSAGE</h1>
         {messageReveiced}
+        <Timer />
     </div>
   )
 }
