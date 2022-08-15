@@ -3,8 +3,8 @@ import "./hostingView.css"
 import io from "socket.io-client"
 import Timer from "../../components/timer/Timer.js"
 
-// const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+// const socket = io.connect("http://localhost:3001")
 
 // Generate random number
 const randomNum = (Math.floor(Math.random() * 999999999))

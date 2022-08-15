@@ -4,8 +4,8 @@ import "./joinView.css"
 import io from "socket.io-client"
 import potion_rules from "../../image_assets/general/potion_rules.png"
 
-// const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
- const socket = io.connect("http://localhost:3001")
+ const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+// const socket = io.connect("http://localhost:3001")
 
 function JoinView() {
 
