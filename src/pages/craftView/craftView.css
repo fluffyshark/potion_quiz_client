@@ -74,10 +74,6 @@
 .craftView_ingred {
     width: 90px;
     height: 90px;
-    transition: all .2s ease-in-out;
-}
-.craftView_ingred:hover {
-    scale:1.05;
 }
 
 .craftView_footer {

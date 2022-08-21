@@ -10,6 +10,7 @@ export const potionSlice = createSlice({
                 if (potion.id === action.payload.id) {
                     potion.amount += 1
                     potion.discovered = true
+                    console.log("Potion with id: ", potion.id, " discovered, currently owning: ",potion.amount)
                 }
             })
         },
@@ -18,6 +19,7 @@ export const potionSlice = createSlice({
             state.value.map((potion) => {
                 if (potion.id === action.payload.id) {
                     potion.amount -= 1
+                    console.log("AMMOUNT REDUCED")
                 }
             })
         },

@@ -46,7 +46,7 @@ function CraftPotion() {
         if (matching[0] === matching[1] && matching[1] === matching[2] && matching[2] === matching[3])
             {
                 document.getElementById("craftedPotionCard").src = potionList[matching[0]].image_bronze
-                dispatch(add_potion({potion_id: matching[0]}))
+                dispatch(add_potion({id: matching[0]}))
                 console.log("SUCCESS:", matching[0])
             }
 

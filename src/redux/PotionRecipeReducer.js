@@ -66,7 +66,7 @@ function createRecipe() {
 }
 createRecipe()
 
-console.log(PotionRecipeData)
+
 
 
 

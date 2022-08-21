@@ -68,12 +68,7 @@
     width: 200px;
     cursor: pointer;
     margin-top: 5px;
-    transition: all .3s ease-in-out;
 }
-.potionView_middle_level_btn:hover {
-    scale: 1.03;
-}
-
 
 
 .potionView_middle_cards {
@@ -95,12 +90,9 @@
 
 .cards {
     width: 100%;
-    transition: all .3s ease-in-out;
 }
 
-.cards:hover {
-    scale: 1.03;
-}
+
 
 .cards_amount_text {
     width: 20px;
@@ -158,6 +150,11 @@
     position: absolute;
     top: -60px;
     z-index: 100;
+  
+}
+
+#potionView_actions {
+    display: none;
 }
 
 .potion_action_btns {

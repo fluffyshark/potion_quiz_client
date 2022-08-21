@@ -53,11 +53,8 @@
 .lottery_btns {
     width: 120px;
     cursor: pointer;
-    transition: all .3s ease-in-out;
 }
-.lottery_btns:hover {
-    scale: 1.05;
-}
+
 
 
 
@@ -79,11 +76,8 @@
 .buySellView_visit_market {
     width: 250px;
     cursor: pointer;
-    transition: all .3s ease-in-out;
 }
-.buySellView_visit_market:hover {
-    scale:1.03;
-}
+
 
 .buySellView_footer {
     width: 100%;

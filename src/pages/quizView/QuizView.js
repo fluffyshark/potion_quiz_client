@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react'
 import "./quizView.css"
 import Navbar from "../../components/navbar/Navbar"
 import { useSelector, useDispatch } from "react-redux"
-import { add_coins } from "../../redux/CoinsReducer.js"
+import { add_coins, add_coins_amount } from "../../redux/CoinsReducer.js"
+import { activate_power } from "../../redux/PowerReducer"
+import Protection from "../../components/powers/Protection.js"
+import DoublePoints from "../../components/powers/DoublePoints.js"
 import {religionQuestions} from "./questions.js"
 import {motion} from "framer-motion"
-import coindrop from "../../sound_assets/coindrop.mp3"
+import coinGain from "../../sound_assets/CoinGain.wav"
+import Icer from "../../components/powers/Icer.js"
+import SpeedUp from '../../components/powers/SpeedUp'
+import TripplePoints from '../../components/powers/TripplePoints'
+import GoldenPoints from '../../components/powers/GoldenPoints'
+import PointPoision from '../../components/powers/PointPoison'
+
 
 
 var randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
@@ -15,10 +24,16 @@ function QuizView() {
   const [reveal, setReveal] = useState(false)
   const [question, setQuestion] = useState(religionQuestions.questions[randomQuestionNr].question)
   const [answerAlt, setAnswerAlt] = useState(religionQuestions.questions[randomQuestionNr].answerAlt)
+  
+  // POTIONS EFFECTS
+  const [speed, setSpeed] = useState(5000)
+  
   const dispatch = useDispatch()
+  const potionsList = useSelector((state) => state.potions.value)
+  const powersList = useSelector((state) => state.powers.value)
 
   function playSound(sound) {
-    if (sound === "coin") {new Audio(coindrop).play()}
+    if (sound === "coin") {new Audio(coinGain).play()}
   }
 
   function newQuestion() {
@@ -31,7 +46,7 @@ function QuizView() {
     document.getElementById("navbar_blocker").style.display = "none"
   }
 
-
+  // CHANGE TO POSITION ANSWER ALT RANDOMLY
 
   const answerQuestion = (chosenAnswer) => {
 
@@ -44,7 +59,12 @@ function QuizView() {
       
       setTimeout(function() {
         playSound("coin")
-        dispatch(add_coins())
+        // Effect for potions DOUBLE POINTS, TRIPPLE POINTS, GOLDEN POINTS
+        if (powersList[1].doublePoints === "active") {dispatch(add_coins_amount(20))}
+        else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30))}
+        else if (powersList[19].goldenPoints === "active") {dispatch(add_coins_amount(50))}
+        else {dispatch(add_coins())}
+        
       }, 1000);
       
     }
@@ -66,7 +86,7 @@ function QuizView() {
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox3');
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox2');
       document.getElementById("answerBtn").classList.remove('disabledbutton');
-    }, 4000);
+    }, speed);
   }
 
   var props = {
@@ -74,9 +94,43 @@ function QuizView() {
   }
 
 
+
+  // Potion Effect - SPEED UP
+    useEffect(() => {
+      if (powersList[2].speedUp === "active") {
+        if (potionsList[2].level === 1) {setSpeed(powersList[2].speed_1)}
+        if (potionsList[2].level === 2) {setSpeed(powersList[2].speed_2)}
+        if (potionsList[2].level === 3) {setSpeed(powersList[2].speed_3)}
+      }
+    }, [powersList[2].speedUp])
+
+
+
   return (
     <div className='studentQuiz'>
+      
+      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+
+      <div className="studentQuiz_powerContainer">
+        {powersList[3].protection === "active" && <Protection />}
+        {powersList[1].doublePoints === "active" && <DoublePoints />}
+        {powersList[9].tripplePoints === "active" && <TripplePoints />}
+        {powersList[19].goldenPoints === "active" && <GoldenPoints />}
+        {powersList[2].speedUp === "active" && <SpeedUp />}
+        {powersList[6].poison === "active" && powersList[3].protection !== "active" && <PointPoision />}
+      </div>
+      
+
       <Navbar focus={props} />
+
+      <button onClick={() => dispatch(activate_power({power_name: "SPEED UP"}))}>SPEED UP</button>
+      <button onClick={() => dispatch(activate_power({power_name: "DOUBLE POINTS"}))}>DOUBLE POTIONS</button>
+      <button onClick={() => dispatch(activate_power({power_name: "TRIPPLE POINTS"}))}>TRIPPLE POTIONS</button>
+      <button onClick={() => dispatch(activate_power({power_name: "GOLDEN POINTS"}))}>GOLDEN POTIONS</button>
+      <button onClick={() => dispatch(activate_power({power_name: "FREEZE"}))}>FREEZE</button>
+      <button onClick={() => dispatch(activate_power({power_name: "PROTECTION"}))}>PROTECTION</button>
+      <button onClick={() => dispatch(activate_power({power_name: "POINT POISON"}))}>POINT POISON</button>
+      
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
       <div className='studentQuiz_questionView'>
         <p>{question}</p>

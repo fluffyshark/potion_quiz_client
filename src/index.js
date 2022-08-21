@@ -11,6 +11,9 @@ import potionReducer from './redux/PotionReducer';
 import craftReducer from './redux/CraftReducer';
 import recipeReducer from "./redux/PotionRecipeReducer"
 import levelExpReducer from "./redux/LevelExpReducer"
+import powerReducer from "./redux/PowerReducer"
+import playerStatsSlice from "./redux/PlayerSocketReducer"
+import gameStatsSlice from './redux/GameStatsReducer';
 
 const store = configureStore({
   reducer: {
@@ -19,7 +22,10 @@ const store = configureStore({
     potions: potionReducer,
     crafting: craftReducer,
     recipe: recipeReducer,
-    levelExp: levelExpReducer
+    levelExp: levelExpReducer,
+    powers: powerReducer,
+    playerStats: playerStatsSlice,
+    GameData: gameStatsSlice
   }
 })
 

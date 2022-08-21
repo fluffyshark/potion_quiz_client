@@ -1,6 +1,7 @@
 import React from 'react'
 import "./craftView.css"
 import CraftPotion from "./CraftPotion.js"
+import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux"
 import Navbar from "../../components/navbar/Navbar"
 import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
@@ -8,8 +9,12 @@ import no_ingred from "../../image_assets/general/no_ingred.png"
 import caldrun from "../../image_assets/general/caldrun.png"
 import {select_ingredients, deSelect_ingredients} from "../../redux/CraftReducer"
 import { increase_ingredients, decrease_ingredients } from "../../redux/IngredientReducer.js"
-import drop_in_water01 from "../../sound_assets/drop_in_water01.wav"
-import drop_in_water02 from "../../sound_assets/drop_in_water02.wav"
+import ingdrop1 from "../../sound_assets/Ingdrop1.wav"
+import ingdrop2 from "../../sound_assets/Ingdrop2.wav"
+import ingdrop3 from "../../sound_assets/Ingdrop3.wav"
+import ingdrop4 from "../../sound_assets/Ingdrop4.wav"
+import ingdrop5 from "../../sound_assets/Ingdrop5.wav"
+import craftPotionSound from "../../sound_assets/CraftPotion.wav"
 
 var craftingSlots = [200,200,200,200]
 
@@ -26,8 +31,23 @@ function CraftView() {
   const craftList = useSelector((state) => state.crafting.value) 
 
   function playSound(sound) {
-    if (sound === "drop01") {new Audio(drop_in_water01).play()}
-    if (sound === "drop02") {new Audio(drop_in_water02).play()}
+    if (sound === "drop01") {new Audio(ingdrop1).play()}
+    if (sound === "drop02") {new Audio(ingdrop2).play()}
+    if (sound === "drop03") {new Audio(ingdrop3).play()}
+    if (sound === "drop04") {new Audio(ingdrop4).play()}
+    if (sound === "drop05") {new Audio(ingdrop5).play()}
+    if (sound === "craftPotionSound") {new Audio(craftPotionSound).play()}
+  }
+
+  const dropIngredSound = () => {
+    switch (Math.floor(Math.random() * 5)) {
+      case 0: playSound("drop01"); break;
+      case 1: playSound("drop02"); break;
+      case 2: playSound("drop03"); break;
+      case 3: playSound("drop04"); break;
+      case 4: playSound("drop05"); break;
+      default: break;
+    }
   }
 
   const selectIngredient = (addRemove, nr, selected_id) => {
@@ -40,6 +60,7 @@ function CraftView() {
             document.getElementById("craftAmount1").style.display = "inherit"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[0] = selected_id 
+            dropIngredSound()
           } 
         }
       }
@@ -50,6 +71,7 @@ function CraftView() {
             document.getElementById("craftAmount2").style.display = "inherit"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[1] = selected_id 
+            dropIngredSound()
           }
         }   
       }
@@ -59,7 +81,8 @@ function CraftView() {
             dispatch(select_ingredients({id:2, selected_id: selected_id, total:ingredientsList[selected_id].amount, image: ingredientsList[selected_id].image_normal})); 
             document.getElementById("craftAmount3").style.display = "inherit"
             dispatch(decrease_ingredients({id:selected_id}))
-            craftingSlots[2] = selected_id 
+            craftingSlots[2] = selected_id
+            dropIngredSound() 
           }
         }
       }
@@ -70,6 +93,7 @@ function CraftView() {
             document.getElementById("craftAmount4").style.display = "inherit"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[3] = selected_id 
+            dropIngredSound()
           }
         }
       }
@@ -79,10 +103,8 @@ function CraftView() {
         document.getElementById("caldrun").style.pointerEvents = "inherit"
     } 
 
-    if (Math.floor(Math.random() * 2) === 0) {playSound("drop01")} else {playSound("drop02")}
-    
-    
-
+      
+      
 
     } // End of if-statement
   
@@ -142,6 +164,8 @@ function CraftView() {
     craftingSlots[3] = 200
    
     document.getElementById("craftPotion").style.display = "inherit"
+
+    playSound("craftPotionSound")
       
     // REMOVE FIRST WHEN RETURNING TO CRAFTVIEW
   //  setTimeout(function() {dispatch(remove_for_crafting()) }, 5000);
@@ -165,7 +189,7 @@ function CraftView() {
                    if (ingredient.amount > 0) {
                      return (
                       <div key={i} onClick={() => selectIngredient("add", 200, ingredient.id)} className="craftView_ingredBox">
-                        <img src={ingredient.image_normal} alt="" className="craftView_ingred" /> 
+                        <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} src={ingredient.image_normal} alt="" className="craftView_ingred" /> 
                         <p className="craftView_ingred_amount">{ingredient.amount}</p>
                       </div>
                      )

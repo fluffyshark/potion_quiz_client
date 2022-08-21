@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import "./potionsView.css"
-import { useSelector, useDispatch } from "react-redux"
-import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
-import { add_exp_amount } from "../../redux/LevelExpReducer"
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar"
-import progressbar_fill from "../../image_assets/general/progressbar_fill.png"
+import LevelProgressBar from './LevelProgressBar';
+import "./potionsView.css"
+import { motion } from "framer-motion";
+// Redux
+import { useSelector, useDispatch } from "react-redux"
+import { activate_power } from "../../redux/PowerReducer"
+import { reduce_potion } from '../../redux/PotionReducer';
+// Images & Sounds
 import card_back from "../../image_assets/general/card_back.png"
 import blop from "../../sound_assets/blop.wav"
 import nope from "../../sound_assets/click_01.wav"
-import levelBtn from "../../image_assets/general/level_btn.png"
 import coindrop from "../../sound_assets/coindrop.mp3"
+import useBlessing from "../../sound_assets/UseBlessing.wav"
+import useCurse from "../../sound_assets/UseCurse.wav"
+
 
 
 function PotionsView() {
@@ -18,77 +24,89 @@ function PotionsView() {
     focus: "potions",
   }
 
-  const [recipe, setRecipe] = useState({ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0})
+  const [recipe, setRecipe] = useState({id: 0, ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0})
   const [playerLevel, setPlayerLevel] = useState(1)
 
+  let navigate = useNavigate();
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
   const recipeList = useSelector((state) => state.recipe.value)
   const ingredientsList = useSelector((state) => state.ingredients.value)
-  const coinbag = useSelector((state) => state.coins.value)
   const levelExp = useSelector((state) => state.levelExp.value)
 
   function playSound(sound) {
     if (sound === "blop") {new Audio(blop).play()}
     if (sound === "nope") {new Audio(nope).play()}
     if (sound === "coin") {new Audio(coindrop).play()}
+    if (sound === "blessing") {new Audio(useBlessing).play()}
+    if (sound === "curse") {new Audio(useCurse).play()}
   }
   
 
+  useEffect(() => {
+    setPlayerLevel(levelExp.currentLevel)
+  }, [levelExp.currentLevel])
+
+
+  // Clicking on cards
   const potionInteraction = (id) => {
+
+    // If potion has no amount
+    if (potionsList[id].amount > 0) {
+      document.getElementById("potionView_actions").style.display = "inherit"
+    } else {
+      document.getElementById("potionView_actions").style.display = "none"
+    }
     
+    // Show or not, if the level is high enough
     if (playerLevel === 4 && id > 15) {playSound("nope")}
     else if (playerLevel === 3 && id > 11) {playSound("nope")}
     else if (playerLevel === 2 && id > 7) {playSound("nope")}
     else if (playerLevel === 1 && id > 3) {playSound("nope")}
     else {
-      setRecipe({ingred1: recipeList[id].ing1_id, ingred2: recipeList[id].ing2_id, ingred3: recipeList[id].ing3_id, ingred4: recipeList[id].ing4_id, flask: recipeList[id].potion_image})
+      // Display the recipe at the bottom of the page
+      setRecipe({id: id, ingred1: recipeList[id].ing1_id, ingred2: recipeList[id].ing2_id, ingred3: recipeList[id].ing3_id, ingred4: recipeList[id].ing4_id, flask: recipeList[id].potion_image})
       playSound("blop")
     }
+  }
+
+  
+  // CONTINUE CONNECTING POTIONS WITH POWER EFFECTS
+  // Clicking on "USE"
+  const activatePotion = () => {
+    switch (recipe.id) {
+      case 0: console.log("Potion name: GIVE EXP"); break;
+      case 1: dispatch(activate_power({power_name: "DOUBLE POINTS"})); playSound("blessing"); break;
+      case 2: dispatch(activate_power({power_name: "SPEED UP"})); playSound("blessing"); break;
+      case 3: dispatch(activate_power({power_name: "PROTECTION"})); playSound("blessing"); break;
+      case 6: dispatch(activate_power({power_name: "POINT POISON"})); playSound("curse"); break;
+      case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
+      case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
+    
+      default:
+        break;
+    }
+
+    dispatch(reduce_potion({id: recipe.id}))
+
+    console.log(potionsList[recipe.id].amount)
+    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 6) {navigate('/quiz')}
     
   }
 
 
-  const buyLevel = () => {
-    dispatch(reduce_coins_amount(50))
-    dispatch(add_exp_amount(1))
-    playSound("coin")   
-  }
 
-
-  useEffect(() => {
-    var exp = 1
-    if (levelExp.currentLevel === 1) {exp = levelExp.totalExp / levelExp.level_2_requirement * 110}
-    if (levelExp.currentLevel === 2) {exp = (levelExp.totalExp - 10) / levelExp.level_3_requirement * 196; setPlayerLevel(2)}
-    if (levelExp.currentLevel === 3) {exp = (levelExp.totalExp - 20) / levelExp.level_4_requirement * 230; setPlayerLevel(3)}
-    if (levelExp.currentLevel === 4) {exp = (levelExp.totalExp - 35) / levelExp.level_5_requirement * 330; setPlayerLevel(4)}
-    if (levelExp.currentLevel === 5) {exp = 100; setPlayerLevel(5); document.getElementById("levelBtn").style.display = "none"}
-
-    document.getElementById("progressBar").style.width = `${exp}%`
-
-  })
-
-  useEffect(() => {
-    if (coinbag < 50) {document.getElementById("levelBtn").style.opacity = 0.5}
-    if (coinbag > 49) {document.getElementById("levelBtn").style.opacity = 1}
-  })
- 
-  console.log("levelEXP", levelExp)
- 
 
   return (
     <div className='potionsView'>
+        
         <Navbar focus={props}/>
         
         <div className="potionView_middle">
             <div className="potionView_middle_container">
-              <div className="potionView_middle_level">
-                <p className="potionView_middle_level_title">{levelExp.title}</p>
-                <div className="potionView_middle_level_progressbar">
-                  <div className="potionView_middle_level_progressbar_limiter"><img id="progressBar" src={progressbar_fill} alt="" className="progressbar_fill" /></div>
-                </div>
-                <img onClick={() => {buyLevel()}} src={levelBtn} alt="" id="levelBtn" className="potionView_middle_level_btn" />
-              </div>
+              
+              <LevelProgressBar />
+
               <div className="potionView_middle_cards">
 
       
@@ -96,26 +114,26 @@ function PotionsView() {
                     if (potion.amount > 0) {
                         if (potion.level === 1) {
                           return (
-                            <div key={i} className="cardBox">
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={potion.image_bronze} alt="" className="cards cards_clickable" /> 
                               <p className="cards_amount_text">{potion.amount}</p>
-                            </div>
+                            </motion.div>
                           )
                         }
                         if (potion.level === 2) {
                           return (
-                            <div key={i} className="cardBox">
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={potion.image_silver} alt="" className="cards cards_clickable" /> 
                               <p className="cards_amount_text">{potion.amount}</p>
-                            </div>
+                            </motion.div>
                           )
                         }
                         if (potion.level === 3) {
                           return (
-                            <div key={i} className="cardBox">
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={potion.image_gold} alt="" className="cards cards_clickable" /> 
                               <p className="cards_amount_text">{potion.amount}</p>
-                            </div>
+                            </motion.div>
                           )
                         }
 
@@ -124,26 +142,26 @@ function PotionsView() {
                     } else if (potion.discovered === true) {
                       if (potion.level === 1) {
                         return (
-                          <div key={i} className="cardBox">
+                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                             <img onClick={() => potionInteraction(i)} src={potion.image_bronze} alt="" className="cards cards_no_amount cards_clickable" /> 
                             <p className="cards_amount_text">{potion.amount}</p>
-                          </div>
+                          </motion.div>
                         )
                       }
                       if (potion.level === 2) {
                         return (
-                          <div key={i} className="cardBox">
+                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                             <img onClick={() => potionInteraction(i)} src={potion.image_silver} alt="" className="cards cards_no_amount cards_clickable" /> 
                             <p className="cards_amount_text">{potion.amount}</p>
-                          </div>
+                          </motion.div>
                         )
                       }
                       if (potion.level === 3) {
                         return (
-                          <div key={i} className="cardBox">
+                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                             <img onClick={() => potionInteraction(i)} src={potion.image_gold} alt="" className="cards cards_no_amount cards_clickable" /> 
                             <p className="cards_amount_text">{potion.amount}</p>
-                          </div>
+                          </motion.div>
                         )
                       }
 
@@ -152,33 +170,33 @@ function PotionsView() {
                       } else {   
                         if (playerLevel === 1 && i < 4) {
                             return (
-                              <div key={i} className="cardBox">
+                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={card_back} alt="" className="cards cards_clickable" /> 
-                              </div>
+                              </motion.div>
                             )
                           } else if (playerLevel === 2 && i < 8) { 
                             return (
-                              <div key={i} className="cardBox">
+                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={card_back} alt="" className="cards cards_clickable" /> 
-                              </div>
+                              </motion.div>
                             )
                           } else if (playerLevel === 3 && i < 12) { 
                             return (
-                              <div key={i} className="cardBox">
+                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={card_back} alt="" className="cards cards_clickable" /> 
-                              </div>
+                              </motion.div>
                             )
                           } else if (playerLevel === 4 && i < 16) { 
                             return (
-                              <div key={i} className="cardBox">
+                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={card_back} alt="" className="cards cards_clickable" /> 
-                              </div>
+                              </motion.div>
                             )
                           } else if (playerLevel === 5 && i < 21) { 
                             return (
-                              <div key={i} className="cardBox">
+                              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} className="cardBox">
                               <img onClick={() => potionInteraction(i)} src={card_back} alt="" className="cards cards_clickable" /> 
-                              </div>
+                              </motion.div>
                             )
                           } else {
                             return (
@@ -210,10 +228,10 @@ function PotionsView() {
             <img src={ingredientsList[recipe.ingred4].image_normal} alt="" className="card_ingredient" />
           </div> 
           
-          <div className="potionView_footer_actions">
-                  <div className="potion_action_btns">USE</div>
-                  <div className="potion_action_btns">SELL</div>
-                  <div className="potion_action_btns">CRAFT</div>
+          <div id="potionView_actions" className="potionView_footer_actions">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => activatePotion()} className="potion_action_btns">USE</motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">SELL</motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">CRAFT</motion.div>
                 </div>
         </div>
     </div>
