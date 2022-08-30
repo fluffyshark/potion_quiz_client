@@ -1,79 +1,98 @@
 import React, { useEffect, useState } from 'react'
 import "./hostingView.css"
-import io from "socket.io-client"
+import Hostboard from "./Hostboard.js"
 import Timer from "../../components/timer/Timer.js"
+import { useSelector } from "react-redux"
+import {motion} from "framer-motion"
 
+// Hosting using Socket.io:
+// - Sockets are initiated at App.js and passed down to all children using props.
+// - At StartView, when clicking host button a random 9 digit number (gameCode) are generated and passed to playerStats by redux.
+// - At StartView, clicking host button also make that client join socket room using the gameCode as room code.
+// - At HostView, the gameCode is collected by redux and displayed in view.
+// - At JoinView, the players write the gameCode that are visually displayed in HostView on another device (projector or other monitor)
+// - At JoinView, players join the same room as the host using the gameCode and their nickname are displayed on the host's view via socket.io.
 
+function HostingView(props) {
 
-//const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
- const socket = io.connect("http://localhost:3001")
+  let socket = props.socket
 
-// Generate random number
-const randomNum = (Math.floor(Math.random() * 999999999))
-      
-// Turn number into array
-let myFunc = num => Number(num);
-var intArr = Array.from(String(randomNum), myFunc);
-
-// Add space between numbers
-intArr.splice(3, 0, " ");
-intArr.splice(7, 0, " ");
-
-// Turn array into string
-let gameCode = intArr.join("")
-
-
-
-function HostingView() {
+  const playerStats = useSelector((state) => state.playerStats.value) 
 
   const [startTimer, setStartTimer] = useState(false)
-  const [room, setRoom] = useState("");
   const [playersJoined, setPlayersJoined] = useState([])
-
-    
-  const joinRoom = () => {
-    if (gameCode !== "") {
-      socket.emit("join_room", gameCode);
-    }
-  };
+  const [gameStarted, setGameStarted] = useState(false)
+  const [letLateIn, setLetLateIn] = useState(false)
 
 
+  // Show players who joined room
   useEffect(() => {
-    socket.on("receive_message", (data) => {
+    socket.on("player_accepted", (data) => {
       setPlayersJoined(playersJoined => [...playersJoined, data.nickname]);
+    })
+
+    socket.on("start_game", (data) => {
+      console.log("Start Game Host", data)
+    })
+
+    // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
+    socket.on("sending_server_gameData", (data) => {
+      console.log("FROM SERVER TO HOST.JS: ", data)
+      socket.emit("gameData_from_host", data);
     })
 }, [socket])
 
-console.log(playersJoined)
 
-setTimeout(function() {
-  setRoom(gameCode)
-  joinRoom()
-  console.log("GAMECODE", room)
-}, 1000);
+  function startGame() {
+    socket.emit("ready_game", playerStats.gameCode);
+    setStartTimer(true)
+    setGameStarted(true)
+  }
 
+
+ 
 
   return (
+    
     <div className='hostingView'>
+        
+
         <div className="hostingView_top">
             <Timer startTimer={startTimer} />
-            <button className='hostView_startBtn' onClick={() => setStartTimer(true)}>START GAME</button>
+            
+            {gameStarted ? (
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => startGame()}>LET LATE IN</motion.button>
+            ) : (
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}  className='hostView_startBtn' onClick={() => startGame()}>START GAME</motion.button>
+            )}
+            
         </div>
-        <div className="hostingView_middle">
-            <p className="joinDesc">Go to magicpotions.com/join and enter:</p>
-            <p className="joinCode">{gameCode}</p>
-        </div>
-        <div className="hostingView_bottom">
+        
 
-        {playersJoined.map((player, i) => {
-                    if (playersJoined.length > 0) {
-                      return (<div key={i} className="playerTags">{player}</div>)
-                    }
-                  })} 
+        {gameStarted ? (<Hostboard />) : (
+          
+          <>
 
-        </div>
+            <div className="hostingView_middle">
+              <p className="joinDesc">Go to magicpotions.com/join and enter:</p>
+              <p className="joinCode">{playerStats.gameCode}</p>
+            </div>
+            
+            <div className="hostingView_bottom">
+              {playersJoined.map((player, i) => {
+                if (playersJoined.length > 0) {
+                  return (<div key={i} className="playerTags">{player}</div>)
+                }
+              })} 
 
-    </div>
+            </div>
+        
+        </>
+
+        )}
+  </div>
+    
+
   )
 }
 

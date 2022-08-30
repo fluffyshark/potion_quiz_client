@@ -49,7 +49,6 @@ function Timer(startCounting) {
     
     useEffect(() => {
         if (startCounting.startTimer === true)  {
-            console.log(startCounting)
             onClickResetBtn()
             document.getElementById("timer_container").style.display = "none"
             if (userInput !== 0) {
@@ -64,6 +63,7 @@ function Timer(startCounting) {
         if (userInput !== 0) {
             if (intervalRef.current) clearInterval(intervalRef.current)
             clearTimer(getDeadlineTime())
+            console.log("TIMER START")
         }
         
     }

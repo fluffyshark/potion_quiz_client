@@ -20,11 +20,12 @@ var craftingSlots = [200,200,200,200]
 
 
 
-function CraftView() {
+function CraftView(props_socket) {
 
   var props = {
     focus: "craft",
   }
+  let socket = props_socket.socket
 
   const dispatch = useDispatch()
   const ingredientsList = useSelector((state) => state.ingredients.value)
@@ -179,7 +180,7 @@ function CraftView() {
     <div className='craftView'>
         <Navbar focus={props}/>
         <div className="craftView_middle">
-        <CraftPotion/>
+        <CraftPotion socket={socket}/>
           <div className="craftView_middle_container">
             <div className="craftView_middle_ingred_container">
             <div className="craftView_extra_space_top"></div>

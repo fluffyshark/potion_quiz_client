@@ -35,27 +35,81 @@
     width: 100%;
 }
 
-.leaderboard_ranks {
-    font-size: 30px;
+.leaderboard_rank_container {
+    width: 692px;
+    height: 72px;
+    display: flex;
+}
+.leaderboard_rank_container_name {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.leaderboard_rank_container_name>p {
+    font-size: 27px;
     color: white;
     font-family: 'Luckiest Guy', cursive;
     margin: 0;
+    margin-left: 10px;
+    text-shadow: 0px 3px #d59629;
 } 
 
-.your_rank {position: absolute; top: 2.7%; left: 67%; font-size: 25px;}
+.leaderboard_rank_container_cards {
+    width: 36%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.leaderboard_rank_container_cards>img {
+    height: 60%;
+}
+.leaderboard_rank_container_cards>p {
+    font-size: 27px;
+    font-family: 'Luckiest Guy', cursive;
+    margin-left: 10px;
+    margin-right: 5px;
+    color: white;
+}
+.leaderboard_bronze_cards {text-shadow: 0px 3px #d59629;}
+.leaderboard_silver_cards {text-shadow: 0px 3px #929394;}
+.leaderboard_gold_cards {text-shadow: 0px 3px #e2b00d;}
 
-.first_rank_name {position: absolute; top: 16%; left: 16.5%; text-shadow: 0px 3px #d59629;}
-.first_rank_score {width: 300px; position: absolute; top: 16%; left: 61.1%; text-shadow: 0px 3px #d59629; text-align: right;}
-.second_rank_name {position: absolute; top: 31%; left: 16.5%; text-shadow: 0px 3px #91187e;}
-.second_rank_score {width: 300px; position: absolute; top: 31%; left: 61.1%; text-shadow: 0px 3px #91187e; text-align: right;}
-.third_rank_name {position: absolute; top: 45.5%; left: 16.5%; text-shadow: 0px 3px #24265f;}
-.third_rank_score {width: 300px; position: absolute; top: 45.5%; left: 61.1%; text-shadow: 0px 3px #24265f; text-align: right;}
-.fourth_rank_name {position: absolute; top: 60.2%; left: 16.5%; text-shadow: 0px 3px #24265f;}
-.fourth_rank_score {width: 300px; position: absolute; top: 60.2%; left: 61.1%; text-shadow: 0px 3px #24265f; text-align: right;}
-.fifth_rank_name {position: absolute; top: 75%; left: 16.5%; text-shadow: 0px 3px #24265f;}
-.fifth_rank_score {width: 300px; position: absolute; top: 75%; left: 61.1%; text-shadow: 0px 3px #24265f; text-align: right;}
-.sixth_rank_name {position: absolute; top: 90%; left: 16.5%; text-shadow: 0px 3px #24265f;}
-.sixth_rank_score {width: 300px; position: absolute; top: 90%; left: 61.1%; text-shadow: 0px 3px #24265f; text-align: right;}
+.leaderboard_rank_container_coins {
+    width: 24%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.leaderboard_rank_container_coins>p {
+    font-size: 27px;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+    margin-right: 10px;
+    text-shadow: 0px 3px #d59629;
+}
+.leaderboard_rank_container_coins>img {
+    height: 55%;
+    margin-right: 10px;
+}
+
+#leaderboard_containter_rank01 {position: absolute; top: 13%; left: 15.5%;}
+#leaderboard_containter_rank02 {position: absolute; top: 28%; left: 15.5%;}
+#leaderboard_containter_rank03 {position: absolute; top: 42.5%; left: 15.5%;}
+#leaderboard_containter_rank04 {position: absolute; top: 57.2%; left: 15.5%;}
+#leaderboard_containter_rank05 {position: absolute; top: 72%; left: 15.5%;}
+#leaderboard_containter_rank06 {position: absolute; top: 87%; left: 15.5%;}
+
+
+.leaderboard_your_rank {
+    font-size: 25px; 
+    color:white; 
+    position: absolute; top: -1%; left: 67%; 
+    font-family: 'Luckiest Guy', cursive;    
+}
+
 
 .leaderboard_footer {
     width: 100%;

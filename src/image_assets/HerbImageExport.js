@@ -86,7 +86,7 @@ import hn141 from "./herbs/normal/ingred141.png"; import hn146 from "./herbs/nor
 import hn142 from "./herbs/normal/ingred142.png"; import hn147 from "./herbs/normal/ingred147.png";
 import hn143 from "./herbs/normal/ingred143.png"; import hn148 from "./herbs/normal/ingred148.png";
 import hn144 from "./herbs/normal/ingred144.png"; import hn149 from "./herbs/normal/ingred149.png";
-import hn145 from "./herbs/normal/ingred145.png"; import hn150 from "./herbs/normal/ingred140.png";
+import hn145 from "./herbs/normal/ingred145.png"; import hn150 from "./herbs/normal/ingred150.png";
 
 import hn151 from "./herbs/normal/ingred151.png"; import hn156 from "./herbs/normal/ingred156.png";
 import hn152 from "./herbs/normal/ingred152.png"; import hn157 from "./herbs/normal/ingred157.png";

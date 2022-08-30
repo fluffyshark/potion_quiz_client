@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./navbar.css"
 import money_icon from "../../image_assets/general/money_icon.png"
@@ -9,9 +9,7 @@ import pageturn from "../../sound_assets/pageturn.mp3"
 
 function Navbar(props) {
 
-
   const playerCoins = useSelector((state) => state.coins.value)
-
   
    
   function playSound(sound) {

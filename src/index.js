@@ -15,6 +15,7 @@ import powerReducer from "./redux/PowerReducer"
 import playerStatsSlice from "./redux/PlayerSocketReducer"
 import gameStatsSlice from './redux/GameStatsReducer';
 
+
 const store = configureStore({
   reducer: {
     ingredients: ingredientReducer,
@@ -33,11 +34,11 @@ const store = configureStore({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+ // <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+ // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,35 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
+import io from "socket.io-client"
 
-export var PlayerData = {playerName: "", playerPoints: 0,}
+//const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
+
+export var PlayerData = {playerName: "", cards: [0,0,0], gameCode: ""}
+
 
 export const playerStatsSlice = createSlice({
     name: "playerStats",
     initialState: {value: PlayerData},
     reducers: {
-        add_coins: (state) => {
-            state.value.total += state.value.income
+        add_playerStartData: (state, action) => {
+            state.value.playerName = action.payload.playerName
+            state.value.gameCode = action.payload.gameCode
+            state.value.cards = action.payload.cards
+            console.log("playerName", state.value.playerName)
         },
-        add_coins_amount: (state, action) => {
-            state.value.total += action.payload   
-        },
-        reduce_coins: (state) => {
-            state.value.total -= state.value.income
-        },
-        reduce_coins_amount: (state, action) => {
-            state.value.total -= action.payload
-        },
-        change_coins_income: (state, action) => {
-            state.value.income = action.payload
-        },
-        
-        
-      
+
+        add_playerPoints: (state, action) => {
+            state.value.playerPoints += action.payload  
+            console.log("POINTS FOR NEW POTION: ", action.payload, "PLAYERDATA", PlayerData ) 
+            socket.emit("sending_player_data", { player: state.value.playerName, cards: state.value.cards, gameCode: state.value.gameCode });
+        }
     }
     
 })
 
 
-export const {add_coins, add_coins_amount, reduce_coins, reduce_coins_amount, change_coins_income} = playerStatsSlice.actions
+export const {add_playerStartData, add_playerPoints} = playerStatsSlice.actions
 export default playerStatsSlice.reducer
 
 

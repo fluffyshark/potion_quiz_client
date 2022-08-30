@@ -32,7 +32,6 @@ export const ingredientSlice = createSlice({
                     if (ingredient.id === array[i]) {
                         ingredient.amount += 1
                         ingredient.discovered = true
-                        console.log(ingredient.id)
                     }
                 })
             }  
@@ -48,7 +47,6 @@ export const ingredientSlice = createSlice({
                     if (ingredient.id === array[i]) {
                         ingredient.amount += 1
                         ingredient.discovered = true
-                        console.log(ingredient.id)
                     }
                 })
             }  
@@ -64,7 +62,6 @@ export const ingredientSlice = createSlice({
                     if (ingredient.id === array[i]) {
                         ingredient.amount += 1
                         ingredient.discovered = true
-                        console.log(ingredient.id)
                     }
                 })
             }  

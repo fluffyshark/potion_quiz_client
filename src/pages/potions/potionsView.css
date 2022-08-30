@@ -125,6 +125,7 @@
     justify-content: center;
     background-color: #2e1e12;
     position: relative;
+   
 }
 
 .potionView_footer_container {
@@ -134,10 +135,26 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
-    
+  
+}
+.bottom_recipe_container {
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+.footer_ingred_amount {
+    font-size: 10px;
+    width: 20px;
+    margin: 0;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    position: absolute;
+    top: 70.5%;
+    left: 66%;
+    text-align: center;
 }
 
-.card_ingredient {height: 80%;}
+.card_ingredient {height: 100%;}
 .chosen_bottle {height: 90%;}
 
 .potionView_footer_actions {
@@ -173,3 +190,4 @@
     margin-bottom: 10px;
     cursor: pointer;
 }
+

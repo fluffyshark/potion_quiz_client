@@ -24,10 +24,10 @@ function PotionsView() {
     focus: "potions",
   }
 
-  const [recipe, setRecipe] = useState({id: 0, ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0})
+  const [recipe, setRecipe] = useState({id: 0, ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0, amount1: 0, amount2: 0, amount3: 0, amount4: 0})
   const [playerLevel, setPlayerLevel] = useState(1)
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
   const recipeList = useSelector((state) => state.recipe.value)
@@ -65,8 +65,19 @@ function PotionsView() {
     else if (playerLevel === 1 && id > 3) {playSound("nope")}
     else {
       // Display the recipe at the bottom of the page
-      setRecipe({id: id, ingred1: recipeList[id].ing1_id, ingred2: recipeList[id].ing2_id, ingred3: recipeList[id].ing3_id, ingred4: recipeList[id].ing4_id, flask: recipeList[id].potion_image})
-      playSound("blop")
+      setRecipe({
+        id: id, 
+        ingred1: recipeList[id].ing1_id, 
+        ingred2: recipeList[id].ing2_id, 
+        ingred3: recipeList[id].ing3_id, ingred4: 
+        recipeList[id].ing4_id, 
+        flask: recipeList[id].potion_image, 
+        amount1: recipeList[id].ing1_amount, 
+        amount2: recipeList[id].ing2_amount, amount3: 
+        recipeList[id].ing3_amount, 
+        amount4: recipeList[id].ing4_amount})
+      
+        playSound("blop")
     }
   }
 
@@ -219,23 +230,25 @@ function PotionsView() {
         </div>
         
         <div className="potionView_footer">
-          
+       
           <div className="potionView_footer_container">
-            <img src={ingredientsList[recipe.ingred1].image_normal} alt="" className="card_ingredient" />
-            <img src={ingredientsList[recipe.ingred2].image_normal} alt="" className="card_ingredient" />
+            {recipeList[recipe.id].ing1_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred1].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount1}</p></div>) : (<><img src={ingredientsList[recipe.ingred1].image_normal} alt="" className="card_ingredient" /></>)}
+            {recipeList[recipe.id].ing2_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred2].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount2}</p></div>) : (<><img src={ingredientsList[recipe.ingred2].image_normal} alt="" className="card_ingredient" /></>)}
             <img src={recipe.flask} alt="" className="chosen_bottle" />
-            <img src={ingredientsList[recipe.ingred3].image_normal} alt="" className="card_ingredient" />
-            <img src={ingredientsList[recipe.ingred4].image_normal} alt="" className="card_ingredient" />
+            {recipeList[recipe.id].ing3_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred3].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount3}</p></div>) : (<><img src={ingredientsList[recipe.ingred3].image_normal} alt="" className="card_ingredient" /></>)}
+            {recipeList[recipe.id].ing4_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred4].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount4}</p></div>) : (<><img src={ingredientsList[recipe.ingred4].image_normal} alt="" className="card_ingredient" /></>)}          
           </div> 
           
           <div id="potionView_actions" className="potionView_footer_actions">
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => activatePotion()} className="potion_action_btns">USE</motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">SELL</motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">CRAFT</motion.div>
-                </div>
+          </div>
         </div>
     </div>
   )
 }
 
 export default PotionsView
+
+
