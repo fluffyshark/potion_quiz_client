@@ -86,6 +86,7 @@ function Hostboard() {
   
   useEffect(() => {calculateRank()}, [gameStats])
   
+  // Hooks on to global counter, leaderboard switch between two set of statistics every 15 seconds.
   useEffect(() => {
     if (powersList[20].leaderboard_card === "active") {setShowWinMode(true)} 
     if (powersList[20].counter20_card > 15) {
@@ -94,7 +95,7 @@ function Hostboard() {
     }
   },[powersList[20].counter20_card])
 
-
+  // Hooks on to global counter, leaderboard switch between two set of statistics every 15 seconds.
 useEffect(() => {
   if (powersList[21].leaderboard_stats === "active") {setShowWinMode(false)} 
     if (powersList[21].counter21_stats > 15) {
@@ -108,8 +109,6 @@ useEffect(() => {
   console.log(showWinMode)
 
 
- /// NEXT - CONNECT TO THE GLOBAL COUNTER IN POWERREDUCER MIGHT NEED TO CREATE A NEW CLOCK COUNTER
-  /// NEXT - AFTER X SECONDS SWITCH PART OF LEADERBOARD TO WIN PROGRESS
 
   return (
     <div className='leaderboardView'>

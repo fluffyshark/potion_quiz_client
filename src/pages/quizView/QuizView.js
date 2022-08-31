@@ -21,6 +21,8 @@ var randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
 
 function QuizView() {
 
+  var props = {focus: "quiz"}
+
   const [reveal, setReveal] = useState(false)
   const [question, setQuestion] = useState(religionQuestions.questions[randomQuestionNr].question)
   const [answerAlt, setAnswerAlt] = useState(religionQuestions.questions[randomQuestionNr].answerAlt)
@@ -39,7 +41,8 @@ function QuizView() {
   function newQuestion() {
     randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
     setQuestion(religionQuestions.questions[randomQuestionNr].question)
-    setAnswerAlt(religionQuestions.questions[randomQuestionNr].answerAlt)
+    let shuffleAnswer = religionQuestions.questions[randomQuestionNr].answerAlt.sort(() => Math.random() - 0.5);
+    setAnswerAlt(shuffleAnswer)
     setReveal(!reveal)
 
     // Remove navbar-blocker
@@ -47,6 +50,8 @@ function QuizView() {
   }
 
   // CHANGE TO POSITION ANSWER ALT RANDOMLY
+  // CREATE NEW LOCAL ARRAY THAT SHUFFLE ANSWER ALT
+  // 
 
   const answerQuestion = (chosenAnswer) => {
 
@@ -75,7 +80,7 @@ function QuizView() {
     setReveal(!reveal)
 
     /// Changing reveal-answer-text to answer after the question is answered
-    document.getElementById("answerBtn").innerHTML = religionQuestions.questions[randomQuestionNr].answerAlt[chosenAnswer]
+    document.getElementById("answerBtn").innerHTML = religionQuestions.questions[randomQuestionNr].correctAnswer
     document.getElementById("answerBtn").classList.add('disabledbutton');
     document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');
     document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox1');
@@ -89,9 +94,7 @@ function QuizView() {
     }, speed);
   }
 
-  var props = {
-    focus: "quiz",
-  }
+
 
 
 
