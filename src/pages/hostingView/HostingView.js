@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import "./hostingView.css"
 import Hostboard from "./Hostboard.js"
 import Timer from "../../components/timer/Timer.js"
-import { useSelector } from "react-redux"
+import { activate_power, dectivate_power } from "../../redux/PowerReducer"
+import { useSelector, useDispatch } from "react-redux"
 import {motion} from "framer-motion"
 
 // Hosting using Socket.io:
@@ -17,6 +18,7 @@ function HostingView(props) {
 
   let socket = props.socket
 
+  const dispatch = useDispatch()
   const playerStats = useSelector((state) => state.playerStats.value) 
 
   const [startTimer, setStartTimer] = useState(false)
@@ -47,6 +49,7 @@ function HostingView(props) {
     socket.emit("ready_game", playerStats.gameCode);
     setStartTimer(true)
     setGameStarted(true)
+    dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
   }
 
 

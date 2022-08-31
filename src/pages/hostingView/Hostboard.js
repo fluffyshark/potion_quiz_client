@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./hostboard.css"
 import leaderboard from "../../image_assets/general/leaderboard.png"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { activate_power, dectivate_power } from "../../redux/PowerReducer"
 import bronze_card_display from "../../image_assets/general/bronze_card_display.png"
 import silver_card_display from "../../image_assets/general/silver_card_display.png"
 import gold_card_display from "../../image_assets/general/gold_card_display.png"
@@ -19,8 +20,11 @@ function Hostboard() {
     {name: "NO PLAYER", coins: 0, cards: [0,0,0], points: 0},
     {name: "NO PLAYER", coins: 0, cards: [0,0,0], points: 0}
   ])
+
+  const dispatch = useDispatch()
   const [showWinMode, setShowWinMode] = useState(true)
   const gameStats = useSelector((state) => state.GameData.value)
+  const powersList = useSelector((state) => state.powers.value)
 
   let rankPlacement = [
     "leaderboard_containter_rank01", "leaderboard_containter_rank02", "leaderboard_containter_rank03",
@@ -28,7 +32,7 @@ function Hostboard() {
   ]
 
   const calculateRank = () => {
-    let playersPointsAndNames = rankedPlayers
+    let playersPointsAndNames = []
     
     // Award points for each card players have (bronze = 20) (silver = 50) (gold = 150)
     gameStats.map((player) => {
@@ -43,48 +47,78 @@ function Hostboard() {
     for (let i = 0; i < playersPointsAndNames.length; i++) {
       if (playersPointsAndNames.length > 6) {playersPointsAndNames.pop()}
     }
+
+    // if leaderboard not full, then fill up leaderboard with placeholder players
+    if (playersPointsAndNames.length < 6) {
+      for (let i = 0; playersPointsAndNames.length < 6 ; i++) {playersPointsAndNames.push({name: "NO PLAYER", coins: 0, cards: [0,0,0], points: 0})}
+    }
+
     // Set ranked array as state
     setRankedPlayers(playersPointsAndNames) 
   }
 
 
-  // FOR EVERY PLAYER, HOW MANY GOLD CARDS, MAKE THEM SOLID, THE REST TRANSPARENT
+ 
+  // Render out transparent card or visible card depending on how many gold cards each player on the leaderboard have.
+  // Shows how many gold cards each player have left until victory (20 cards).
+  const calculateWinCards = (nr) => {
+    
+    // Declare array with CSS-class that gives all cards a low opacity
+    let cardClassPlayer = [
+      "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent",
+      "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent",
+      "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent",
+      "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent", "winCardTransparent",]
 
-  let cardClassPlayer1 = []
+    // Loop top 6 players as many times as they have they gold cards, to add a CSS-class that restores opasity, to the end of array and then reverse order to make it in front  
+    for (let i = 0; i < rankedPlayers[nr].cards[2]; i++) {cardClassPlayer.push("winCardSolid")}; cardClassPlayer.reverse()
 
-
-  const calculateWinCards = () => {
-    rankedPlayers.map((player) => {
-      let nrOfGoldCards = player.cards[2]
-      for (let i = 0; i < nrOfGoldCards; i++) {
-        cardClassPlayer1[i] = "winCardSolid"
-      }
-    })
+    // Add 20 <img>-tags to declared cardImgCollector, with classes from the the cardClassPlayer 
+    let cardImgCollector = []
+    for (let i = 0; i < 20; i++) {cardImgCollector.push(<img src={small_card} className={cardClassPlayer[i]} alt="" />)}
+     
+    return (
+      <div className='leaderboard_rank_container_cards_winmode'>
+        {cardImgCollector}
+      </div>)
   }
 
-
+  
+  useEffect(() => {calculateRank()}, [gameStats])
+  
   useEffect(() => {
-    console.log("Leaderboard gameStats: ", gameStats)
-    calculateRank()
-    calculateWinCards()
-  }, [gameStats])
+    if (powersList[20].leaderboard_card === "active") {setShowWinMode(true)} 
+    if (powersList[20].counter20_card > 15) {
+      dispatch(activate_power({power_name: "LEADERBOARD STATS"})); 
+      dispatch(dectivate_power({power_name: "LEADERBOARD CARDS"}))
+    }
+  },[powersList[20].counter20_card])
 
 
-  // NEXT - ADD WINCARDS IMAGES AND FUNCTION
+useEffect(() => {
+  if (powersList[21].leaderboard_stats === "active") {setShowWinMode(false)} 
+    if (powersList[21].counter21_stats > 15) {
+      dispatch(dectivate_power({power_name: "LEADERBOARD STATS"}))
+      dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
+    }
+  },[powersList[21].counter21_stats])
+
+  console.log(powersList[20].counter20_card)
+  console.log(powersList[20].leaderboard_card)
+  console.log(showWinMode)
+
+
  /// NEXT - CONNECT TO THE GLOBAL COUNTER IN POWERREDUCER MIGHT NEED TO CREATE A NEW CLOCK COUNTER
   /// NEXT - AFTER X SECONDS SWITCH PART OF LEADERBOARD TO WIN PROGRESS
 
   return (
     <div className='leaderboardView'>
         
-        <div className="leaderboard_middle">
-          <div className="leaderboard_middle_container">
-            <div className="leaderboard_image_container">
+      <div className="leaderboard_middle">
+        <div className="leaderboard_middle_container">
+          <div className="leaderboard_image_container">
               <img src={leaderboard} alt="" />
 
-            
-              
-              
               {showWinMode ? (
               
                 <div>
@@ -96,25 +130,9 @@ function Hostboard() {
                           <div className='leaderboard_rank_container_name_winmode'>
                             <p>{player.name}</p>
                           </div>
-                          
-                          <div className='leaderboard_rank_container_cards_winmode'>
-                            <img src={small_card} className={cardClassPlayer1[0]} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                            <img src={small_card} alt="" /><img src={small_card} alt="" />
-                          </div>
-                          
-                          
+                          {calculateWinCards(i)}   
                       </div>
-                    
                     )})} 
-
                 </div>
               
               ) : (
@@ -148,17 +166,15 @@ function Hostboard() {
 
             )}
               
-            
-              
-
-
-            </div>
+      
           </div>
         </div>
+      </div>
         
-        <div className="leaderboard_footer"></div>
+      <div className="leaderboard_footer"></div>
     </div>
   )
 }
+
 
 export default Hostboard

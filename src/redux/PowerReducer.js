@@ -26,10 +26,12 @@ var PowerData = [
     {id: 17, power_name: "STREAK BONUS", streak: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], counter17: 0},
     {id: 18, power_name: "MASS FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, counter18: 0 },
     {id: 19, power_name: "GOLDEN POINTS", goldenPoints: "inactive", coin_amount: 50, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter19: 0 },
+
+    {id: 20, power_name: "LEADERBOARD CARDS", leaderboard_card: "inactive", counter20_card: 0},
+    {id: 21, power_name: "LEADERBOARD STATS", leaderboard_stats: "inactive", counter21_stats: 0}
 ]
 
 
-/// MAKE THIS FOR POWER
 export const powerSlice = createSlice({
     name: "powers",
     initialState: {value: PowerData},
@@ -43,6 +45,9 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "GOLDEN POINTS" ) {power.goldenPoints = "active"}
                 if (action.payload.power_name === "SPEED UP" ) {power.speedUp = "active"}
                 if (action.payload.power_name === "POINT POISON" ) {power.poison = "active"}
+
+                if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "active"}
+                if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "active"}
             })
         },
 
@@ -55,6 +60,9 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "GOLDEN POINTS" ) {power.goldenPoints = "inactive"; power.counter19 = 0}
                 if (action.payload.power_name === "SPEED UP" ) {power.speedUp = "inactive"; power.counter2 = 0}
                 if (action.payload.power_name === "POINT POISON" ) {power.poison = "inactive"; power.counter6 = 0}
+
+                if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "inactive"; power.counter20_card = 0}
+                if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "inactive"; power.counter21_stats = 0}
             })
         },
 
@@ -66,6 +74,9 @@ export const powerSlice = createSlice({
                 if (power.goldenPoints === "active") {power.counter19 += 1}
                 if (power.poison === "active") {power.counter6 += 1}
                 if (power.protection === "active") {power.counter3 += 1}
+
+                if (power.leaderboard_card === "active") {power.counter20_card += 1}
+                if (power.leaderboard_stats === "active") {power.counter21_stats += 1}
                 
             })
         },
