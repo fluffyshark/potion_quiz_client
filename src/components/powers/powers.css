@@ -41,6 +41,10 @@
   background: rgb(48,247,255);
   background: linear-gradient(180deg, rgba(48,247,255,1) 0%, rgba(3,134,107,1) 79%);
 }
+#fill_blocker {
+  background: rgb(148,248,116);
+  background: linear-gradient(180deg, rgba(148,248,116,1) 0%, rgba(7,85,32,1) 79%);
+}
 
 
 
@@ -67,3 +71,11 @@
   } 
 
 
+  #blocker_big_splash {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    z-index: 500;
+    left: calc(50% - 400px);
+    top: 0
+  }

@@ -14,6 +14,7 @@ import SpeedUp from '../../components/powers/SpeedUp'
 import TripplePoints from '../../components/powers/TripplePoints'
 import GoldenPoints from '../../components/powers/GoldenPoints'
 import PointPoision from '../../components/powers/PointPoison'
+import Blocker from '../../components/powers/Blocker'
 
 
 
@@ -49,9 +50,7 @@ function QuizView() {
     document.getElementById("navbar_blocker").style.display = "none"
   }
 
-  // CHANGE TO POSITION ANSWER ALT RANDOMLY
-  // CREATE NEW LOCAL ARRAY THAT SHUFFLE ANSWER ALT
-  // 
+
 
   const answerQuestion = (chosenAnswer) => {
 
@@ -74,8 +73,9 @@ function QuizView() {
       
     }
 
-    // Div blocks navbar to prevent question-tabbing exploit
+    // Div blocks navbar to prevent question-tabbing exploit and during power blocker
     document.getElementById("navbar_blocker").style.display = "inherit"
+    
    
     setReveal(!reveal)
 
@@ -95,7 +95,7 @@ function QuizView() {
   }
 
 
-
+ 
 
 
   // Potion Effect - SPEED UP
@@ -121,6 +121,7 @@ function QuizView() {
         {powersList[19].goldenPoints === "active" && <GoldenPoints />}
         {powersList[2].speedUp === "active" && <SpeedUp />}
         {powersList[6].poison === "active" && powersList[3].protection !== "active" && <PointPoision />}
+        {powersList[14].blocker === "active" && powersList[3].protection !== "active" && <Blocker />}
       </div>
       
 
@@ -133,8 +134,11 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "FREEZE"}))}>FREEZE</button>
       <button onClick={() => dispatch(activate_power({power_name: "PROTECTION"}))}>PROTECTION</button>
       <button onClick={() => dispatch(activate_power({power_name: "POINT POISON"}))}>POINT POISON</button>
+      <button onClick={() => dispatch(activate_power({power_name: "BLOCKER"}))}>BLOCKER</button>
+
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
+      <div id="power_blocker" className="studentQuiz_navbar_blocker"></div>
       <div className='studentQuiz_questionView'>
         <p>{question}</p>
       </div>

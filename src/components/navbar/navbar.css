@@ -4,7 +4,10 @@
     background-color: #2e1e12;
     display: flex;
     justify-content: space-between;
+    
 }
+
+
 
 .space_filler_left {
     width: 100%;
@@ -33,10 +36,32 @@
     width: 100px;
     background-color: #e8c242;
 }
-#navbar_menu_title_potions {width: 150px;}
-#navbar_menu_title_craft {width: 110px;}
-#navbar_menu_title_buysell {width: 155px;}
-#navbar_menu_title_leaderboard {width: 220px;}
+#navbar_menu_title_potions {width: 150px; position: relative; display: flex; justify-content: center; align-items: center;}
+#navbar_menu_title_craft {width: 110px; position: relative; display: flex; justify-content: center; align-items: center;}
+#navbar_menu_title_buysell {width: 155px; position: relative; display: flex; justify-content: center; align-items: center;}
+#navbar_menu_title_leaderboard {width: 220px; position: relative; display: flex; justify-content: center; align-items: center;}
+
+
+#power_blocker_potion {
+    height: 70%;
+    position: absolute;
+    display: none;
+}
+#power_blocker_craft {
+    height: 70%;
+    position: absolute;
+    display: none;
+}
+#power_blocker_buysell {
+    height: 70%;
+    position: absolute;
+    display: none;
+}
+#power_blocker_leaderboard {
+    height: 70%;
+    position: absolute;
+    display: none;
+}
 
 .link {
     text-decoration: none;
