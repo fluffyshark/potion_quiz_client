@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar"
 import LevelProgressBar from './LevelProgressBar';
+import {Reveal} from "../../components/powers/Reveal"
 import "./potionsView.css"
 import { motion } from "framer-motion";
 // Redux
 import { useSelector, useDispatch } from "react-redux"
 import { activate_power } from "../../redux/PowerReducer"
 import { reduce_potion } from '../../redux/PotionReducer';
+import { golden_ingredient } from "../../redux/PotionRecipeReducer"
 // Images & Sounds
 import card_back from "../../image_assets/general/card_back.png"
 import blop from "../../sound_assets/blop.wav"
@@ -93,6 +95,14 @@ function PotionsView() {
       case 6: dispatch(activate_power({power_name: "POINT POISON"})); playSound("curse"); break;
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
       case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
+      
+      case 13: playSound("blessing"); 
+      const revealIngrd = Reveal(recipeList, potionsList); 
+      console.log("revealIngrd", revealIngrd)
+      dispatch(golden_ingredient({id: revealIngrd[0].id, ingredientNr: revealIngrd[0].golden}))
+      dispatch(golden_ingredient({id: revealIngrd[1].id, ingredientNr: revealIngrd[1].golden}))
+      dispatch(golden_ingredient({id: revealIngrd[2].id, ingredientNr: revealIngrd[2].golden}))
+      break;
     
       default:
         break;

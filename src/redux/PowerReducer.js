@@ -18,7 +18,7 @@ var PowerData = [
     {id: 11, power_name: "PRICE RUNNER", discount_level_1: 10, discount_level_2: 25, discount_level_3: 40, duration: 60, counter11: 0},
     // MASTER
     {id: 12, power_name: "MASS PROTECTION", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter12: 0},
-    {id: 13, power_name: "REVEAL", reveal_level: 1},
+    {id: 13, power_name: "REVEAL", reveal: "inactive", reveal_level: 1, reveal_level: 2, reveal_level: 3},
     {id: 14, power_name: "BLOCKER", blocker: "inactive", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter14: 0},
     {id: 15, power_name: "DOUBLE BATCH", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter15: 0},
     // GRANDMASTER

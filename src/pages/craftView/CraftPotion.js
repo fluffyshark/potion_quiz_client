@@ -71,14 +71,6 @@ function CraftPotion(props) {
                 let craftArray = [craftList[0].selected_id,craftList[1].selected_id,craftList[2].selected_id,craftList[3].selected_id]
                 let resultArray = [0,0,0,0]
                 let sortArr = [200,200,200,200]
-
-                /*
-                console.log("recipeArray unsorted ", recipeArray)
-                console.log("recipeArray amount ", recipeList[matching[0]].ing1_amount, recipeList[matching[0]].ing2_amount, recipeList[matching[0]].ing3_amount, recipeList[matching[0]].ing4_amount)
-
-                console.log("craftArray unsorted ", craftArray)
-                console.log("craftArray amount ", craftList[0].amount,craftList[1].amount,craftList[2].amount,craftList[3].amount)
-                */
              
                 // Finds the index of each craftArray ingredient ID, to be able to match its placement with the ingredient ID at recipleList. 
                 sortArr[0] = craftArray.indexOf(recipeList[matching[0]].ing1_id)

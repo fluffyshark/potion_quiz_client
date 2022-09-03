@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { dectivate_power } from "../../redux/PowerReducer"
 import flasks from "../../image_assets/FlaskImageExport"
