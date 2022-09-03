@@ -71,35 +71,58 @@
     margin: 0;
     width: 80%;
     font-size: 30px;
-    color: white;
     font-weight: bold;
     text-align: center;
 }
 
-#answerAlt_A {
-    background-color: #66a221;;
-    -webkit-box-shadow:inset 0px 0px 0px 6px #589100ff;
-    -moz-box-shadow:inset 0px 0px 0px 6px #589100ff;
-    box-shadow:inset 0px 0px 0px 6px #589100ff;
+.anwserBox_A {
+  background-color: #66a221;;
+  -webkit-box-shadow:inset 0px 0px 0px 6px #589100ff;
+  -moz-box-shadow:inset 0px 0px 0px 6px #589100ff;
+  box-shadow:inset 0px 0px 0px 6px #589100ff;
+  color: white;
 }
-#answerAlt_B {
-    background-color: #d94a42; 
-    -webkit-box-shadow:inset 0px 0px 0px 6px #c63300;
-    -moz-box-shadow:inset 0px 0px 0px 6px #c63300;
-    box-shadow:inset 0px 0px 0px 6px #c63300;
+.anwserBox_B {
+  background-color: #d94a42; 
+  -webkit-box-shadow:inset 0px 0px 0px 6px #c63300;
+  -moz-box-shadow:inset 0px 0px 0px 6px #c63300;
+  box-shadow:inset 0px 0px 0px 6px #c63300;
+  color: white;
 }
-#answerAlt_C {
-    background-color: #2e9e99; 
-    -webkit-box-shadow:inset 0px 0px 0px 6px #2e7e99;
-    -moz-box-shadow:inset 0px 0px 0px 6px #2e7e99;
-    box-shadow:inset 0px 0px 0px 6px #2e7e99;
-    }
-#answerAlt_D {
-    background-color: #e8c242; 
+  .anwserBox_C {
+  background-color: #2e9e99; 
+  -webkit-box-shadow:inset 0px 0px 0px 6px #2e7e99;
+  -moz-box-shadow:inset 0px 0px 0px 6px #2e7e99;
+  box-shadow:inset 0px 0px 0px 6px #2e7e99;
+  color: white;
+}
+.anwserBox_D {
+  background-color: #e8c242; 
     -webkit-box-shadow:inset 0px 0px 0px 6px #dab100;
     -moz-box-shadow:inset 0px 0px 0px 6px #dab100;
     box-shadow:inset 0px 0px 0px 6px #dab100;
-    }
+    color: white;
+}
+
+#answerAlt_A {opacity: 1}
+#answerAlt_B {opacity: 1}
+#answerAlt_C {opacity: 1}
+#answerAlt_D {opacity: 1}
+
+
+    /* POWER FIFTY FIFTY */
+
+.fiftyFifty_darkAnserAlt {
+    background-color: #2c2f2d; 
+    -webkit-box-shadow:inset 0px 0px 0px 6px #000000;
+    -moz-box-shadow:inset 0px 0px 0px 6px #000000;
+    box-shadow:inset 0px 0px 0px 6px #000000;
+    text-decoration: line-through black; 
+    color: #999999;
+  }
+
+
+    /* POWER ICER */
 
     .icer {
         position: absolute;

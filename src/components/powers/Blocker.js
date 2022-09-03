@@ -40,9 +40,6 @@ function Blocker() {
             dispatch(dectivate_power({power_name: "BLOCKER"}))
             document.getElementById("power_blocker").style.display = "none"
         }
-        if (powersList[14].counter14 < 3) {
-        
-        }
     },[powersList[14].counter14])
        
 

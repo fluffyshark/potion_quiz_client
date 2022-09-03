@@ -3,7 +3,7 @@ import "./quizView.css"
 import Navbar from "../../components/navbar/Navbar"
 import { useSelector, useDispatch } from "react-redux"
 import { add_coins, add_coins_amount } from "../../redux/CoinsReducer.js"
-import { activate_power } from "../../redux/PowerReducer"
+import { activate_power, power_special } from "../../redux/PowerReducer"
 import Protection from "../../components/powers/Protection.js"
 import DoublePoints from "../../components/powers/DoublePoints.js"
 import {religionQuestions} from "./questions.js"
@@ -15,6 +15,7 @@ import TripplePoints from '../../components/powers/TripplePoints'
 import GoldenPoints from '../../components/powers/GoldenPoints'
 import PointPoision from '../../components/powers/PointPoison'
 import Blocker from '../../components/powers/Blocker'
+import FiftyFiftyChance from '../../components/powers/FiftyFiftyChance'
 
 
 
@@ -46,9 +47,39 @@ function QuizView() {
     setAnswerAlt(shuffleAnswer)
     setReveal(!reveal)
 
+    // If dark mode, then restore
+    document.getElementById('answerAlt_A').classList.remove('fiftyFifty_darkAnserAlt')
+    document.getElementById('answerAlt_B').classList.remove('fiftyFifty_darkAnserAlt')
+    document.getElementById('answerAlt_C').classList.remove('fiftyFifty_darkAnserAlt')
+    document.getElementById('answerAlt_D').classList.remove('fiftyFifty_darkAnserAlt')
+
+    //Potion power - Fifty Fifty
+    if (powersList[5].fiftyfifty === "active") {
+      
+      // Create and array and fill it with all wrong alternatives
+      let fiftyFityArray = []
+      if (shuffleAnswer[0] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(0)} 
+      if (shuffleAnswer[1] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(1)} 
+      if (shuffleAnswer[2] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(2)} 
+      if (shuffleAnswer[3] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(3)} 
+
+      // Shuffle array of wrong alternatives and remove last one, leaving only two randomly wrong alternativs
+      fiftyFityArray.sort(() => Math.random() - 0.5); fiftyFityArray.pop()
+
+      // Turn two wrong alternatives dark
+      for (let i = 0; i < fiftyFityArray.length; i++) {
+        if (fiftyFityArray[i] === 0) {document.getElementById('answerAlt_A').classList.add('fiftyFifty_darkAnserAlt')} 
+        if (fiftyFityArray[i] === 1) {document.getElementById('answerAlt_B').classList.add('fiftyFifty_darkAnserAlt')} 
+        if (fiftyFityArray[i] === 2) {document.getElementById('answerAlt_C').classList.add('fiftyFifty_darkAnserAlt')} 
+        if (fiftyFityArray[i] === 3) {document.getElementById('answerAlt_D').classList.add('fiftyFifty_darkAnserAlt')} 
+      }
+
+    } // End of fiftyfifty
+    
     // Remove navbar-blocker
     document.getElementById("navbar_blocker").style.display = "none"
-  }
+
+  } // End of newQuestion()
 
 
 
@@ -84,6 +115,7 @@ function QuizView() {
     document.getElementById("answerBtn").classList.add('disabledbutton');
     document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');
     document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox1');
+    dispatch(power_special())
 
     setTimeout(function() {
       document.getElementById("answerBtn").innerHTML = "Continue"
@@ -92,10 +124,9 @@ function QuizView() {
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox2');
       document.getElementById("answerBtn").classList.remove('disabledbutton');
     }, speed);
-  }
+  
+  } // End of answerQuestion
 
-
- 
 
 
   // Potion Effect - SPEED UP
@@ -116,6 +147,7 @@ function QuizView() {
 
       <div className="studentQuiz_powerContainer">
         {powersList[3].protection === "active" && <Protection />}
+        {powersList[5].fiftyfifty === "active" && <FiftyFiftyChance />}
         {powersList[1].doublePoints === "active" && <DoublePoints />}
         {powersList[9].tripplePoints === "active" && <TripplePoints />}
         {powersList[19].goldenPoints === "active" && <GoldenPoints />}
@@ -135,6 +167,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "PROTECTION"}))}>PROTECTION</button>
       <button onClick={() => dispatch(activate_power({power_name: "POINT POISON"}))}>POINT POISON</button>
       <button onClick={() => dispatch(activate_power({power_name: "BLOCKER"}))}>BLOCKER</button>
+      <button onClick={() => dispatch(activate_power({power_name: "FIFTY FIFTY"}))}>FIFTY FIFTY</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
@@ -144,10 +177,10 @@ function QuizView() {
       </div>
       <div className='studentQuiz_answerView'>
         <div className='studentQuiz_answerView_correctAnswerBox1' id="answerBtn" onClick={() => newQuestion()}><p>Oh... You were hoping for me not thinking of this :P</p></div> 
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox' id="answerAlt_A" onClick={() => answerQuestion(0)}><p>{answerAlt[0]}</p></motion.div>
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox' id="answerAlt_B" onClick={() => answerQuestion(1)}><p>{answerAlt[1]}</p></motion.div>
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox' id="answerAlt_C" onClick={() => answerQuestion(2)}><p>{answerAlt[2]}</p></motion.div>
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox' id="answerAlt_D" onClick={() => answerQuestion(3)}><p>{answerAlt[3]}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_A' id="answerAlt_A" onClick={() => answerQuestion(0)}><p>{answerAlt[0]}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_B' id="answerAlt_B" onClick={() => answerQuestion(1)}><p>{answerAlt[1]}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_C' id="answerAlt_C" onClick={() => answerQuestion(2)}><p>{answerAlt[2]}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_D' id="answerAlt_D" onClick={() => answerQuestion(3)}><p>{answerAlt[3]}</p></motion.div>
       </div>
     </div>
   )
