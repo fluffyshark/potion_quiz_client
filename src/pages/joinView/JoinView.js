@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
+import { add_gameStats } from "../../redux/GameStatsReducer"
 import "./joinView.css"
 import potion_rules from "../../image_assets/general/potion_rules.png"
 
@@ -41,8 +42,9 @@ function JoinView(props) {
     // Start game receive
     useEffect(() => {
       socket.on("start_game", (data) => {
+        dispatch(add_gameStats({data}))
         navigate('/quiz')
-        console.log("Start Game Player", data)
+        console.log("Start Game - gameData", data)
       })
   }, [socket]);
 

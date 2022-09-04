@@ -11,7 +11,7 @@ import StartView from "./pages/startView/StartView.js"
 
 import { useEffect, useState } from "react";
 import { power_counter } from "./redux/PowerReducer"
-import { add_players } from "./redux/GameStatsReducer"
+import { add_gameStats } from "./redux/GameStatsReducer"
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 
@@ -45,8 +45,8 @@ function App() {
     // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
   useEffect(() => {
     socket.on("sending_server_gameData", (data) => {
-      dispatch(add_players(data))
-      console.log("FROM SEVER TO APP.js: ", data)
+      dispatch(add_gameStats(data))
+      console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
     })
 
   }, [socket])
