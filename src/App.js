@@ -68,7 +68,7 @@ function App() {
     <Routes>
       <Route path="/" element={<StartView socket={socket} />}></Route>
       <Route path="/quiz" element={<QuizView />}></Route>
-      <Route path="/potions" element={<PotionsView />}></Route>
+      <Route path="/potions" element={<PotionsView socket={socket} />}></Route>
       <Route path="/craft" element={<CraftView socket={socket} />}></Route>
       <Route path="/buysell" element={<BuySell />}></Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>

@@ -17,10 +17,11 @@ import nope from "../../sound_assets/click_01.wav"
 import coindrop from "../../sound_assets/coindrop.mp3"
 import useBlessing from "../../sound_assets/UseBlessing.wav"
 import useCurse from "../../sound_assets/UseCurse.wav"
+import PotionSelectPlayers from './PotionSelectPlayers';
 
 
 
-function PotionsView() {
+function PotionsView(props_socket) {
 
   var props = {
     focus: "potions",
@@ -121,6 +122,7 @@ function PotionsView() {
   return (
     <div className='potionsView'>
         
+        <PotionSelectPlayers socket={props_socket} />
         <Navbar focus={props}/>
         
         <div className="potionView_middle">
