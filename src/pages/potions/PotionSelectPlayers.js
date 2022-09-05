@@ -11,7 +11,7 @@ function PotionSelectPlayers(props) {
     const [chosenPlayers, setChosenPlayers] = useState([])
     const gameStats = useSelector((state) => state.GameData.value)
     const playerStats = useSelector((state) => state.playerStats.value)
-    
+    const potionsList = useSelector((state) => state.potions.value)
 
     useEffect(() => {
         if (props.selectPlayer[0] === "blessing") {document.getElementById("angelOrDemon").className = "potionSelectPlayers_centerSection_angel"}
@@ -25,8 +25,11 @@ function PotionSelectPlayers(props) {
 
 
     function selectChosenPlayers(id, playerName) {
+        let effect = 0
         let potionName = props.selectPlayer[1]
-        socket.emit("potion_effect", { id: id, potionName: potionName, playerName: playerName });
+        if (potionName === "GIFT EXP") {effect = potionsList[0].level}
+        
+        socket.emit("potion_effect", { id: id, potionName: potionName, playerName: playerName, effect: effect});
     }
 
     /// NEXT - REMOVE USER FROM PLAYERLIST

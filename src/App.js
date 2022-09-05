@@ -8,10 +8,10 @@ import Marketplace from "./pages/marketplace/Marketplace";
 import HostingView from "./pages/hostingView/HostingView";
 import JoinView from "./pages/joinView/JoinView";
 import StartView from "./pages/startView/StartView.js"
-
 import { useEffect, useState } from "react";
 import { power_counter } from "./redux/PowerReducer"
 import { add_gameStats } from "./redux/GameStatsReducer"
+import { add_exp_amount } from "./redux/LevelExpReducer"
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 
@@ -25,6 +25,7 @@ function App() {
 
   // Managing the global counter, which time effects can be hocked on.
   const [counter, setCounter] = useState(0)
+
 
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
@@ -49,8 +50,9 @@ function App() {
       console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
     })
 
-    socket.on("potion_curse_blessing", (data) => {
-      console.log("ATTACK OR BLESSING FROM OTHER PLAYER", data.potionName)
+    socket.on("potion_curse_blessing", (potionData) => {
+      console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
+      if (potionData.potionName === "GIFT EXP") {dispatch(add_exp_amount(potionData.effect))}
     })
 
   }, [socket])
