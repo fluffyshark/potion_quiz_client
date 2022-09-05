@@ -29,6 +29,7 @@ function PotionsView(props_socket) {
 
   const [recipe, setRecipe] = useState({id: 0, ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0, amount1: 0, amount2: 0, amount3: 0, amount4: 0})
   const [playerLevel, setPlayerLevel] = useState(1)
+  const [selectPlayer, setSelectPlayer] = useState(["hidden", "hidden", "hidden"])
 
   let navigate = useNavigate()
   const dispatch = useDispatch()
@@ -89,21 +90,23 @@ function PotionsView(props_socket) {
   // Clicking on "USE"
   const activatePotion = () => {
     switch (recipe.id) {
-      case 0: console.log("Potion name: GIVE EXP"); break;
+      case 0: setSelectPlayer(["blessing", "GIFT EXP"]); break;
       case 1: dispatch(activate_power({power_name: "DOUBLE POINTS"})); playSound("blessing"); break;
       case 2: dispatch(activate_power({power_name: "SPEED UP"})); playSound("blessing"); break;
       case 3: dispatch(activate_power({power_name: "PROTECTION"})); playSound("blessing"); break;
-      case 6: dispatch(activate_power({power_name: "POINT POISON"})); playSound("curse"); break;
+      case 4: setSelectPlayer(["curse", "FREEZE"]); break;
+      case 5: dispatch(activate_power({power_name: "FIFTY FIFTY"})); break;
+      case 6: setSelectPlayer(["curse", "POINT POISON"]); playSound("curse"); break;
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
       case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
       
       case 13: playSound("blessing"); 
-      const revealIngrd = Reveal(recipeList, potionsList); 
-      console.log("revealIngrd", revealIngrd)
-      dispatch(golden_ingredient({id: revealIngrd[0].id, ingredientNr: revealIngrd[0].golden}))
-      dispatch(golden_ingredient({id: revealIngrd[1].id, ingredientNr: revealIngrd[1].golden}))
-      dispatch(golden_ingredient({id: revealIngrd[2].id, ingredientNr: revealIngrd[2].golden}))
+                const revealIngrd = Reveal(recipeList, potionsList); 
+                dispatch(golden_ingredient({id: revealIngrd[0].id, ingredientNr: revealIngrd[0].golden}))
+                dispatch(golden_ingredient({id: revealIngrd[1].id, ingredientNr: revealIngrd[1].golden}))
+                dispatch(golden_ingredient({id: revealIngrd[2].id, ingredientNr: revealIngrd[2].golden}))
       break;
+      case 14: setSelectPlayer(["curse", "BLOCKER"]); break;
     
       default:
         break;
@@ -112,17 +115,21 @@ function PotionsView(props_socket) {
     dispatch(reduce_potion({id: recipe.id}))
 
     console.log(potionsList[recipe.id].amount)
-    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 6) {navigate('/quiz')}
+    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 19) {navigate('/quiz')}
     
   }
 
-
+  const hideSelectPlayers = () => {
+    setSelectPlayer(["hidden", "hidden", "hidden"])
+  }
 
 
   return (
     <div className='potionsView'>
         
-        <PotionSelectPlayers socket={props_socket} />
+        {selectPlayer[0] === "blessing" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer} hideSelectPlayers={hideSelectPlayers} />}
+        {selectPlayer[0] === "curse" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer}  hideSelectPlayers={hideSelectPlayers} />}
+        
         <Navbar focus={props}/>
         
         <div className="potionView_middle">

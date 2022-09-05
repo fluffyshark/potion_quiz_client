@@ -9,11 +9,22 @@
     align-items: center;
 }
 
-.potionSelectPlayers_centerSection {
+.potionSelectPlayers_centerSection_angel {
     width: 700px;
     height: 490px;
     position: relative;
     background-image: url("../../image_assets/general/select_player_bless.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.potionSelectPlayers_centerSection_demon {
+    width: 700px;
+    height: 490px;
+    position: relative;
+    background-image: url("../../image_assets/general/select_player_curse.png");
     background-size: cover;
     display: flex;
     flex-direction: column;

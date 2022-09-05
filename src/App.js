@@ -49,6 +49,10 @@ function App() {
       console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
     })
 
+    socket.on("potion_curse_blessing", (data) => {
+      console.log("ATTACK OR BLESSING FROM OTHER PLAYER", data.potionName)
+    })
+
   }, [socket])
 
   useEffect(() => {
