@@ -78,6 +78,22 @@
     font-family: 'Luckiest Guy', cursive;
 }
 
+.potionSelectPlayers_centerSection_collection_playername_selected {
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    background: rgb(6,243,1);
+    background: linear-gradient(180deg, rgba(6,243,1,1) 0%, rgba(34,183,3,1) 79%);
+    text-shadow: 0px 2px black;
+    box-shadow: 0px 2.5px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
 .potionSelectPlayers_centerSection_activateBtn {
     width: 110px;
     margin-top: 10px;

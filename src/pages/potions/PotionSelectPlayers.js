@@ -8,7 +8,7 @@ function PotionSelectPlayers(props) {
 
     let socket = props.socket.socket
 
-    const [chosenPlayers, setChosenPlayers] = useState([])
+    const [emitData, setEmitData] = useState([])
     const gameStats = useSelector((state) => state.GameData.value)
     const playerStats = useSelector((state) => state.playerStats.value)
     const potionsList = useSelector((state) => state.potions.value)
@@ -20,20 +20,57 @@ function PotionSelectPlayers(props) {
     
 
     function handleActivateBtn() {
-       props.hideSelectPlayers()
+        socket.emit("potion_effect", {emitData});
+        props.hideSelectPlayers()
     }
 
 
+    // When clicking on player name buttons, then button should turn green. Clicked player are added to useState and if the chosen potion
+    // allows more players, then user can select more players before being able to press activate button. 
     function selectChosenPlayers(id, playerName) {
         let effect = 0
-        let potionName = props.selectPlayer[1]
-        if (potionName === "GIFT EXP") {effect = potionsList[0].level}
-        
-        socket.emit("potion_effect", { id: id, potionName: potionName, playerName: playerName, effect: effect});
-    }
 
-    /// NEXT - REMOVE USER FROM PLAYERLIST
-    /// NEXT - SELECT ONE PLAYER AND SEND SOCKET EMIT TO HIM
+        // Get the name of the used potion from PotionView
+        let potionName = props.selectPlayer[1]
+
+        // Used for declaring if user clicked to select or deselect player
+        let clickedToSelect = true
+
+        // Add the specific effects for each potion identfied by its name
+        if (potionName === "GIFT EXP") {effect = potionsList[0].level}
+
+        // Turn clicked button green
+        document.getElementById(playerName).className = "potionSelectPlayers_centerSection_collection_playername_selected";
+
+        // If there is no player already selected then add the clicked player
+        if (emitData.length === 0) {setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])}
+        else {
+            for (let i = 0; i < emitData.length; i++) {
+                // if clicked player is already selected (playername stored in useState), then remove clicked player
+                if (emitData[i].playerName === playerName) {
+                    setEmitData(emitData.filter(item => item.playerName !== playerName));
+                    // Returns button "selected" green button to blue
+                    document.getElementById(emitData[i].playerName).className = "potionSelectPlayers_centerSection_collection_playername";
+                    // If playerName is already in the list then player is clicking button to remove player, alas the player sould be prevented from adding at the same time
+                    clickedToSelect = false
+                }   
+            }
+
+            // If this the click is for selecting and not deselecting
+            if (clickedToSelect === true) {
+                setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])
+            }
+
+        } 
+
+    } // End of selectChosenPlayers()
+
+
+    // CREATE NEW FUNCTION FOR ADDING OR REMOVING PLAYERS
+    // LIMIT HOW MANY PLAYER THAT CAN BE SELECTED BASED ON POTION USED
+
+
+    console.log("emitData", emitData)
 
     return (
         <div className='potionSelectPlayers'>
@@ -44,8 +81,8 @@ function PotionSelectPlayers(props) {
                     <div className="potionSelectPlayers_centerSection_collection_scroll">
                         
                         {gameStats.map((player, i) => {
-                            if (player.playerName === playerStats.playerName) {} 
-                            else { return (<motion.div key={i} whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.8 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => selectChosenPlayers(player.id, player.playerName)} className="potionSelectPlayers_centerSection_collection_playername">{player.playerName}</motion.div>)}
+                            if (player.playerName === playerStats.playerName) {} // Removes user himself from list of players
+                            else { return (<motion.div key={i} whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.8 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => selectChosenPlayers(player.id, player.playerName)} id={player.playerName} className="potionSelectPlayers_centerSection_collection_playername">{player.playerName}</motion.div>)}
                         })}
 
                     </div>
