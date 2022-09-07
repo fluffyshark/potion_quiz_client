@@ -9,6 +9,8 @@ function PotionSelectPlayers(props) {
     let socket = props.socket.socket
 
     const [emitData, setEmitData] = useState([])
+    const [maxPlayerTargets, setMaxPlayerTargets] = useState(0)
+
     const gameStats = useSelector((state) => state.GameData.value)
     const playerStats = useSelector((state) => state.playerStats.value)
     const potionsList = useSelector((state) => state.potions.value)
@@ -34,38 +36,46 @@ function PotionSelectPlayers(props) {
         let potionName = props.selectPlayer[1]
 
         // Used for declaring if user clicked to select or deselect player
-        let clickedToSelect = true
+        let clickedToSelect = true        
 
         // Add the specific effects for each potion identfied by its name
         if (potionName === "GIFT EXP") {effect = potionsList[0].level}
 
-        // Turn clicked button green
-        document.getElementById(playerName).className = "potionSelectPlayers_centerSection_collection_playername_selected";
-
         // If there is no player already selected then add the clicked player
-        if (emitData.length === 0) {setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])}
-        else {
+        if (emitData.length === 0) {
+            setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}]) 
+            setMaxPlayerTargets(maxPlayerTargets + 1)
+            // Turn clicked button green
+            document.getElementById(playerName).className = "potionSelectPlayers_centerSection_collection_playername_selected"    
+        } else {
             for (let i = 0; i < emitData.length; i++) {
                 // if clicked player is already selected (playername stored in useState), then remove clicked player
                 if (emitData[i].playerName === playerName) {
                     setEmitData(emitData.filter(item => item.playerName !== playerName));
+                    // Remove one from maxPlayerTargets, thus allowing more players to be selected
+                    setMaxPlayerTargets(maxPlayerTargets - 1)
                     // Returns button "selected" green button to blue
                     document.getElementById(emitData[i].playerName).className = "potionSelectPlayers_centerSection_collection_playername";
                     // If playerName is already in the list then player is clicking button to remove player, alas the player sould be prevented from adding at the same time
                     clickedToSelect = false
                 }   
             }
+                // Limiting how many player the user can target (max is always three)
+                if (maxPlayerTargets < 3) {
+                    // If this the click is for selecting and not deselecting
+                    if (clickedToSelect === true) {
+                        setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])
+                        setMaxPlayerTargets(maxPlayerTargets + 1)
+                        // Turn clicked button green
+                        document.getElementById(playerName).className = "potionSelectPlayers_centerSection_collection_playername_selected";
+                    }
+                }
 
-            // If this the click is for selecting and not deselecting
-            if (clickedToSelect === true) {
-                setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])
-            }
-
-        } 
-
+            } 
+        
     } // End of selectChosenPlayers()
 
-
+    console.log(maxPlayerTargets)
     // CREATE NEW FUNCTION FOR ADDING OR REMOVING PLAYERS
     // LIMIT HOW MANY PLAYER THAT CAN BE SELECTED BASED ON POTION USED
 
