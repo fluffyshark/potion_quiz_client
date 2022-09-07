@@ -1,5 +1,4 @@
 
-/// NEXT - INFORMATION IS CORRECT NOW WHAT HAPPENS IF REVEAL IS LEVEL 2 OR 3
 
 export const Reveal = (recipeList, potionList) => {
     let revealIngredients = []

@@ -41,7 +41,7 @@ function App() {
   },[counter])
 
 
-
+  // NEXT - CONNECT THE DATA REVEIVED TO THE CORRECT POTION EFFECT, USE A NEW FILE IF TOO MUCH CODE
 
     // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
   useEffect(() => {

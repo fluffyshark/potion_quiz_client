@@ -21,10 +21,35 @@ function PotionSelectPlayers(props) {
     }, [props])
     
 
+    // Send data about potion/targets to selected players through server, then return user to PotionView
     function handleActivateBtn() {
         socket.emit("potion_effect", {emitData});
         props.hideSelectPlayers()
     }
+
+
+
+    // Limit the number of players the user can select/target based on the potion type
+    const playerLimitByPotion = (potionName) => {
+        let playerLimit = 1
+
+        switch (potionName) {
+            case "GIFT EXP": playerLimit = 2; break;
+            case "FREEZE": playerLimit = 1; break;
+            case "POINT POISON": playerLimit = 1; break;
+            case "GIVE GIFT": playerLimit = 2; break;
+            case "CONFUSION": playerLimit = 1; break;
+            case "MASS PROTECTION": playerLimit = 3; break;
+            case "BLOCKER": playerLimit = 1; break;
+            case "MASS FREEZE": playerLimit = 3; break;
+
+            default:
+                break;
+        }
+        return playerLimit
+    
+    } // End of playerLimitByPotion()
+
 
 
     // When clicking on player name buttons, then button should turn green. Clicked player are added to useState and if the chosen potion
@@ -61,7 +86,7 @@ function PotionSelectPlayers(props) {
                 }   
             }
                 // Limiting how many player the user can target (max is always three)
-                if (maxPlayerTargets < 3) {
+                if (maxPlayerTargets < playerLimitByPotion(potionName)) {
                     // If this the click is for selecting and not deselecting
                     if (clickedToSelect === true) {
                         setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])
@@ -76,8 +101,8 @@ function PotionSelectPlayers(props) {
     } // End of selectChosenPlayers()
 
     console.log(maxPlayerTargets)
-    // CREATE NEW FUNCTION FOR ADDING OR REMOVING PLAYERS
-    // LIMIT HOW MANY PLAYER THAT CAN BE SELECTED BASED ON POTION USED
+
+    
 
 
     console.log("emitData", emitData)
