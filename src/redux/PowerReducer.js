@@ -7,7 +7,7 @@ var PowerData = [
     {id: 2, power_name: "SPEED UP", speedUp: "inactive", speed_1: 3000, speed_2: 1000, speed_3: 0, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter2: 0 },
     {id: 3, power_name: "PROTECTION", protection: "inactive", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter3: 0 },
     /// APPRENTICE
-    {id: 4, power_name: "FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20 },
+    {id: 4, power_name: "FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel4: 1, },
     {id: 5, power_name: "FIFTY FIFTY", fiftyfifty: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 30, counter5: 0 },
     {id: 6, power_name: "POINT POISON", poison: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, received_duration: 30, counter6: 0 },
     {id: 7, power_name: "GIVE GIFT", gift_amount_1: 5, gift_amount_2: 10, gift_amount_3: 20 },
@@ -97,7 +97,7 @@ export const powerSlice = createSlice({
                 
             })
         },
-         // power_special can't have different valuables to be conditioned to, as they will display UNDEFINED when looped
+        
     }
 })
 

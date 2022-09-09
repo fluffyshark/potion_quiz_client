@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./leaderboard.css"
 import Navbar from '../../components/navbar/Navbar'
 import leaderboard from "../../image_assets/general/leaderboard.png"
+import Icer from "../../components/powers/Icer"
 import { useSelector } from "react-redux"
 import bronze_card_display from "../../image_assets/general/bronze_card_display.png"
 import silver_card_display from "../../image_assets/general/silver_card_display.png"
@@ -25,6 +26,7 @@ function Leaderboard() {
   ])
 
   const gameStats = useSelector((state) => state.GameData.value)
+  const powersList = useSelector((state) => state.powers.value)
 
   let rankPlacement = [
     "leaderboard_containter_rank01", "leaderboard_containter_rank02", "leaderboard_containter_rank03",
@@ -58,11 +60,12 @@ function Leaderboard() {
   }, [gameStats])
 
 
-  // ADD PLAYER COINS TO LEADERBOARD
-
   return (
     <div className='leaderboardView'>
-        <Navbar focus={props}/>
+
+      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+
+      <Navbar focus={props}/>
         
         <div className="leaderboard_middle">
           <div className="leaderboard_middle_container">

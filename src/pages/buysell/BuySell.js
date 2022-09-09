@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import "./buySell.css"
 import { motion } from "framer-motion";
 import Navbar from "../../components/navbar/Navbar"
+import Icer from "../../components/powers/Icer"
 import market_btn from "../../image_assets/general/market_btn.png"
 import buy_one_btn from "../../image_assets/general/buy_one_btn.png"
 import store_buy_one from "../../image_assets/general/store_buy_one.png"
@@ -26,6 +27,8 @@ function BuySell() {
 
   const coinbag = useSelector((state) => state.coins.value)
   const dispatch = useDispatch()
+
+  const powersList = useSelector((state) => state.powers.value)
 
   function playSound(sound) {
     if (sound === "coin") {new Audio(CoinSpend).play()}
@@ -57,7 +60,10 @@ function BuySell() {
  
   return (
     <div className='buySellView'>
-        <Navbar focus={props}/>
+
+      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+      
+      <Navbar focus={props}/>
         
         <div className="buySellView_middle">
           <div className="buySellView_middle_container">

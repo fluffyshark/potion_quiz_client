@@ -64,6 +64,8 @@ function Navbar(props) {
     }
   }, [powersList[14].blocker])
 
+ // useEffect(() => {if (powersList[4].freeze === "active" && powersList[3].protection !== "active") {navigate('/quiz')}}, [powersList[4].freeze])
+
   
 
   return (

@@ -5,6 +5,7 @@ import LevelProgressBar from './LevelProgressBar';
 import {Reveal} from "../../components/powers/Reveal"
 import "./potionsView.css"
 import { motion } from "framer-motion";
+import Icer from "../../components/powers/Icer"
 // Redux
 import { useSelector, useDispatch } from "react-redux"
 import { activate_power } from "../../redux/PowerReducer"
@@ -37,6 +38,7 @@ function PotionsView(props_socket) {
   const recipeList = useSelector((state) => state.recipe.value)
   const ingredientsList = useSelector((state) => state.ingredients.value)
   const levelExp = useSelector((state) => state.levelExp.value)
+  const powersList = useSelector((state) => state.powers.value)
 
   function playSound(sound) {
     if (sound === "blop") {new Audio(blop).play()}
@@ -126,7 +128,9 @@ function PotionsView(props_socket) {
 
   return (
     <div className='potionsView'>
-        
+
+        {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+
         {selectPlayer[0] === "blessing" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer} hideSelectPlayers={hideSelectPlayers} />}
         {selectPlayer[0] === "curse" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer}  hideSelectPlayers={hideSelectPlayers} />}
         

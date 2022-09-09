@@ -2,6 +2,7 @@ import React from 'react'
 import "./craftView.css"
 import CraftPotion from "./CraftPotion.js"
 import { motion } from "framer-motion";
+import Icer from "../../components/powers/Icer"
 import { useSelector, useDispatch } from "react-redux"
 import Navbar from "../../components/navbar/Navbar"
 import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
@@ -30,6 +31,7 @@ function CraftView(props_socket) {
   const dispatch = useDispatch()
   const ingredientsList = useSelector((state) => state.ingredients.value)
   const craftList = useSelector((state) => state.crafting.value) 
+  const powersList = useSelector((state) => state.powers.value)
 
   function playSound(sound) {
     if (sound === "drop01") {new Audio(ingdrop1).play()}
@@ -178,8 +180,12 @@ function CraftView(props_socket) {
 
   return (
     <div className='craftView'>
-        <Navbar focus={props}/>
-        <div className="craftView_middle">
+
+      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+
+      <Navbar focus={props}/>
+
+      <div className="craftView_middle">
         <CraftPotion socket={socket}/>
           <div className="craftView_middle_container">
             <div className="craftView_middle_ingred_container">

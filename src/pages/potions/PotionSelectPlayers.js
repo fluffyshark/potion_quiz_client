@@ -28,6 +28,8 @@ function PotionSelectPlayers(props) {
     }
 
 
+    // NEXT - FULLY IMPLEMENT FREEZE AND MASS FREEZE
+
 
     // Limit the number of players the user can select/target based on the potion type
     const playerLimitByPotion = (potionName) => {
@@ -59,6 +61,7 @@ function PotionSelectPlayers(props) {
         switch (potionName) {
             case "GIFT EXP": effect = potionsList[0].level; break;
             case "BLOCKER": effect = potionsList[14].level; break;
+            case "FREEZE": effect = potionsList[4].level; break;
         
             default: break;
         }

@@ -12,7 +12,6 @@ function Blocker() {
 
      
     const dispatch = useDispatch()
-    const potionsList = useSelector((state) => state.potions.value)
     const powersList = useSelector((state) => state.powers.value)
 
     function playSound(sound) {
@@ -21,15 +20,11 @@ function Blocker() {
 
     
 
-
     function startPower() {
 
         if (powersList[14].attackLevel14 === 1) {duration = powersList[14].duration_level_1}
         if (powersList[14].attackLevel14 === 2) {duration = powersList[14].duration_level_2}
         if (powersList[14].attackLevel14 === 3) {duration = powersList[14].duration_level_3}  
-        
-        console.log("potionsList[14].attackLevel14", potionsList[14].attackLevel14)
-        console.log("DURATION", duration)
 
         document.getElementById("power_blocker").style.display = "inherit"
         document.getElementById("blocker_big_splash").style.display = "inherit"
