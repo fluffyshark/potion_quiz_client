@@ -3,6 +3,7 @@ import "./craftView.css"
 import CraftPotion from "./CraftPotion.js"
 import { motion } from "framer-motion";
 import Icer from "../../components/powers/Icer"
+import MassFreeze from "../../components/powers/MassFreeze.js"
 import { useSelector, useDispatch } from "react-redux"
 import Navbar from "../../components/navbar/Navbar"
 import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
@@ -182,6 +183,7 @@ function CraftView(props_socket) {
     <div className='craftView'>
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
 
       <Navbar focus={props}/>
 

@@ -6,6 +6,7 @@ import {Reveal} from "../../components/powers/Reveal"
 import "./potionsView.css"
 import { motion } from "framer-motion";
 import Icer from "../../components/powers/Icer"
+import MassFreeze from "../../components/powers/MassFreeze.js"
 // Redux
 import { useSelector, useDispatch } from "react-redux"
 import { activate_power } from "../../redux/PowerReducer"
@@ -100,6 +101,7 @@ function PotionsView(props_socket) {
       case 5: dispatch(activate_power({power_name: "FIFTY FIFTY"})); break;
       case 6: setSelectPlayer(["curse", "POINT POISON"]); playSound("curse"); break;
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
+      case 18: setSelectPlayer(["curse", "MASS FREEZE"]); break;
       case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
       
       case 13: playSound("blessing"); 
@@ -130,6 +132,7 @@ function PotionsView(props_socket) {
     <div className='potionsView'>
 
         {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+        {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
 
         {selectPlayer[0] === "blessing" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer} hideSelectPlayers={hideSelectPlayers} />}
         {selectPlayer[0] === "curse" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer}  hideSelectPlayers={hideSelectPlayers} />}

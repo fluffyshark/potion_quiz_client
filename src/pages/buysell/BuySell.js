@@ -3,6 +3,7 @@ import "./buySell.css"
 import { motion } from "framer-motion";
 import Navbar from "../../components/navbar/Navbar"
 import Icer from "../../components/powers/Icer"
+import MassFreeze from "../../components/powers/MassFreeze.js"
 import market_btn from "../../image_assets/general/market_btn.png"
 import buy_one_btn from "../../image_assets/general/buy_one_btn.png"
 import store_buy_one from "../../image_assets/general/store_buy_one.png"
@@ -62,7 +63,8 @@ function BuySell() {
     <div className='buySellView'>
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
-      
+      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+
       <Navbar focus={props}/>
         
         <div className="buySellView_middle">

@@ -3,6 +3,7 @@ import "./leaderboard.css"
 import Navbar from '../../components/navbar/Navbar'
 import leaderboard from "../../image_assets/general/leaderboard.png"
 import Icer from "../../components/powers/Icer"
+import MassFreeze from "../../components/powers/MassFreeze.js"
 import { useSelector } from "react-redux"
 import bronze_card_display from "../../image_assets/general/bronze_card_display.png"
 import silver_card_display from "../../image_assets/general/silver_card_display.png"
@@ -64,6 +65,7 @@ function Leaderboard() {
     <div className='leaderboardView'>
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
 
       <Navbar focus={props}/>
         

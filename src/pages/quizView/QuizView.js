@@ -10,6 +10,7 @@ import {religionQuestions} from "./questions.js"
 import {motion} from "framer-motion"
 import coinGain from "../../sound_assets/CoinGain.wav"
 import Icer from "../../components/powers/Icer.js"
+import MassFreeze from "../../components/powers/MassFreeze.js"
 import SpeedUp from '../../components/powers/SpeedUp'
 import TripplePoints from '../../components/powers/TripplePoints'
 import GoldenPoints from '../../components/powers/GoldenPoints'
@@ -144,6 +145,7 @@ function QuizView() {
     <div className='studentQuiz'>
       
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
+      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
 
       <div className="studentQuiz_powerContainer">
         {powersList[3].protection === "active" && <Protection />}

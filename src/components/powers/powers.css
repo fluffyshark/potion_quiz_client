@@ -58,6 +58,13 @@
     z-index: 1000;
   }
 
+  .power_mass_freeze {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1000;
+  }
+
   .power_effect_container {
     width: 200px;
     height: 40px;

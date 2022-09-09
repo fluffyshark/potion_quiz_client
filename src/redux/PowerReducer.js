@@ -24,7 +24,7 @@ var PowerData = [
     // GRANDMASTER
     {id: 16, power_name: "EPIC CHALLENGE", challenge_level_1: 10, challenge_level_2: 25, challenge_level_3: 50, counter16: 0},
     {id: 17, power_name: "STREAK BONUS", streak: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], counter17: 0},
-    {id: 18, power_name: "MASS FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, counter18: 0 },
+    {id: 18, power_name: "MASS FREEZE", mass_freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel18: 1, counter18: 0 },
     {id: 19, power_name: "GOLDEN POINTS", goldenPoints: "inactive", coin_amount: 50, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter19: 0 },
 
     {id: 20, power_name: "LEADERBOARD CARDS", leaderboard_card: "inactive", counter20_card: 0},
@@ -39,6 +39,7 @@ export const powerSlice = createSlice({
         activate_power: (state, action) => {
             state.value.map((power) => {
                 if (action.payload.power_name === "FREEZE" ) {power.freeze = "active"}
+                if (action.payload.power_name === "MASS FREEZE" ) {power.mass_freeze = "active"}
                 if (action.payload.power_name === "PROTECTION" ) {power.protection = "active"}
                 if (action.payload.power_name === "DOUBLE POINTS" ) {power.doublePoints = "active"}
                 if (action.payload.power_name === "TRIPPLE POINTS" ) {power.tripplePoints = "active"}
@@ -56,6 +57,7 @@ export const powerSlice = createSlice({
         dectivate_power: (state, action) => {
             state.value.map((power) => {
                 if (action.payload.power_name === "FREEZE" ) {power.freeze = "inactive"}
+                if (action.payload.power_name === "MASS FREEZE" ) {power.mass_freeze = "inactive"}
                 if (action.payload.power_name === "PROTECTION" ) {power.protection = "inactive"; power.counter3 = 0}
                 if (action.payload.power_name === "DOUBLE POINTS" ) {power.doublePoints = "inactive"; power.counter1 = 0}
                 if (action.payload.power_name === "TRIPPLE POINTS" ) {power.tripplePoints = "inactive"; power.counter9 = 0}

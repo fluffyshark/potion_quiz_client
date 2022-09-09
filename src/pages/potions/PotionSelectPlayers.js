@@ -62,6 +62,7 @@ function PotionSelectPlayers(props) {
             case "GIFT EXP": effect = potionsList[0].level; break;
             case "BLOCKER": effect = potionsList[14].level; break;
             case "FREEZE": effect = potionsList[4].level; break;
+            case "MASS FREEZE": effect = potionsList[18].level; break;
         
             default: break;
         }
