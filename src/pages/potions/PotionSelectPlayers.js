@@ -52,19 +52,34 @@ function PotionSelectPlayers(props) {
 
 
 
+    // Add the specific effects for each potion, identfied by it's name   
+    const powerEffect = (potionName) => {
+        let effect = 0
+
+        switch (potionName) {
+            case "GIFT EXP": effect = potionsList[0].level; break;
+            case "BLOCKER": effect = potionsList[14].level; break;
+        
+            default: break;
+        }
+
+        return effect
+
+    } // End of powerEffect()
+
+
+
     // When clicking on player name buttons, then button should turn green. Clicked player are added to useState and if the chosen potion
     // allows more players, then user can select more players before being able to press activate button. 
     function selectChosenPlayers(id, playerName) {
-        let effect = 0
 
         // Get the name of the used potion from PotionView
         let potionName = props.selectPlayer[1]
 
+        let effect = powerEffect(potionName)
+
         // Used for declaring if user clicked to select or deselect player
         let clickedToSelect = true        
-
-        // Add the specific effects for each potion identfied by its name
-        if (potionName === "GIFT EXP") {effect = potionsList[0].level}
 
         // If there is no player already selected then add the clicked player
         if (emitData.length === 0) {
@@ -100,9 +115,10 @@ function PotionSelectPlayers(props) {
         
     } // End of selectChosenPlayers()
 
-    console.log(maxPlayerTargets)
 
     
+    // NEXT - MOVE playerLimitByPotion and powerEffect TO A NEW FILE
+    // NEXT - ADD POWER EFFECT TO FUNCTION
 
 
     console.log("emitData", emitData)

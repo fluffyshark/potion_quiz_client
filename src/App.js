@@ -9,7 +9,7 @@ import HostingView from "./pages/hostingView/HostingView";
 import JoinView from "./pages/joinView/JoinView";
 import StartView from "./pages/startView/StartView.js"
 import { useEffect, useState } from "react";
-import { power_counter } from "./redux/PowerReducer"
+import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
 import { add_gameStats } from "./redux/GameStatsReducer"
 import { add_exp_amount } from "./redux/LevelExpReducer"
 import { useDispatch, useSelector } from "react-redux"
@@ -41,7 +41,9 @@ function App() {
   },[counter])
 
 
-  // NEXT - CONNECT THE DATA REVEIVED TO THE CORRECT POTION EFFECT, USE A NEW FILE IF TOO MUCH CODE
+  // NEXT - CONNECT THE DATA REVEIVED (EFFECT) TO THE CORRECT POTION EFFECT, USE A NEW FILE IF TOO MUCH CODE
+  // NEXT - ADD TO POWERREDUCER FIELDS FOR ATTACTING PLAYERS POTION EFFECTS
+  
 
     // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
   useEffect(() => {
@@ -50,9 +52,11 @@ function App() {
       console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
     })
 
+    // Receiving potion effects from other players
     socket.on("potion_curse_blessing", (potionData) => {
       console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
       if (potionData.potionName === "GIFT EXP") {dispatch(add_exp_amount(potionData.effect))}
+      if (potionData.potionName === "BLOCKER") {dispatch(activate_power({power_name: "BLOCKER"})); dispatch(power_special(potionData))}
     })
 
   }, [socket])
