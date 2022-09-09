@@ -9,7 +9,7 @@ var PowerData = [
     /// APPRENTICE
     {id: 4, power_name: "FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel4: 1, },
     {id: 5, power_name: "FIFTY FIFTY", fiftyfifty: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 30, counter5: 0 },
-    {id: 6, power_name: "POINT POISON", poison: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, received_duration: 30, counter6: 0 },
+    {id: 6, power_name: "POINT POISON", poison: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel6: 1, counter6: 0 },
     {id: 7, power_name: "GIVE GIFT", gift_amount_1: 5, gift_amount_2: 10, gift_amount_3: 20 },
     /// EXPERT
     {id: 8, power_name: "CONFUSION", confusion: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 15 },
@@ -94,6 +94,7 @@ export const powerSlice = createSlice({
                 // Check if action.payload has the proporty, otherwise an error will be cast when mapping through all objects
                 if (action.hasOwnProperty('potionName')) {
                     if (action.payload.potionName === "BLOCKER") {power.attackLevel14 = action.payload.effect}
+                    if (action.payload.potionName === "POINT POISON") {power.attackLevel6 = action.payload.effect}
                 }
                 
                 

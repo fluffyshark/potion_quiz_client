@@ -10,15 +10,14 @@ function PointPoision() {
 
      
     const dispatch = useDispatch()
-    const potionsList = useSelector((state) => state.potions.value)
     const powersList = useSelector((state) => state.powers.value)
 
 
     function startPower() {
 
-        if (potionsList[6].level === 1) {duration = powersList[6].duration_level_1}
-        if (potionsList[6].level === 2) {duration = powersList[6].duration_level_2}
-        if (potionsList[6].level === 3) {duration = powersList[6].duration_level_3}  
+        if (powersList[6].attackLevel6 === 1) {duration = powersList[6].duration_level_1}
+        if (powersList[6].attackLevel6 === 2) {duration = powersList[6].duration_level_2}
+        if (powersList[6].attackLevel6 === 3) {duration = powersList[6].duration_level_3}  
     }
     
     useEffect(() => {
@@ -33,7 +32,7 @@ function PointPoision() {
 
     useEffect(() => {
         if (powersList[6].poison === "active") {startPower()} 
-    })
+    }, [powersList[6].poison])
 
     return (
         <div className="power_effect_container">

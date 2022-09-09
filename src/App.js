@@ -59,6 +59,7 @@ function App() {
       if (potionData.potionName === "BLOCKER") {dispatch(activate_power({power_name: "BLOCKER"})); dispatch(power_special(potionData))}
       if (potionData.potionName === "FREEZE") {dispatch(activate_power({power_name: "FREEZE"}))}
       if (potionData.potionName === "MASS FREEZE") {dispatch(activate_power({power_name: "MASS FREEZE"}))}
+      if (potionData.potionName === "POINT POISON") {dispatch(activate_power({power_name: "POINT POISON"}))}
     })
 
   }, [socket])
