@@ -56,6 +56,7 @@ function App() {
     socket.on("potion_curse_blessing", (potionData) => {
       console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
       if (potionData.potionName === "GIFT EXP") {dispatch(add_exp_amount(potionData.effect))}
+      if (potionData.potionName === "GIVE GIFT") {dispatch(power_special(potionData)); dispatch(activate_power({power_name: "GIVE GIFT"}))}
       if (potionData.potionName === "BLOCKER") {dispatch(activate_power({power_name: "BLOCKER"})); dispatch(power_special(potionData))}
       if (potionData.potionName === "FREEZE") {dispatch(activate_power({power_name: "FREEZE"}))}
       if (potionData.potionName === "MASS FREEZE") {dispatch(activate_power({power_name: "MASS FREEZE"}))}

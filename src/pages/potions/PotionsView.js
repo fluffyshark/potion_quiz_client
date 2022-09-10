@@ -20,6 +20,7 @@ import coindrop from "../../sound_assets/coindrop.mp3"
 import useBlessing from "../../sound_assets/UseBlessing.wav"
 import useCurse from "../../sound_assets/UseCurse.wav"
 import PotionSelectPlayers from './PotionSelectPlayers';
+import ReceiveGiveGift from '../../components/powers/GiveGift';
 
 
 
@@ -100,9 +101,8 @@ function PotionsView(props_socket) {
       case 4: setSelectPlayer(["curse", "FREEZE"]); break;
       case 5: dispatch(activate_power({power_name: "FIFTY FIFTY"})); break;
       case 6: setSelectPlayer(["curse", "POINT POISON"]); playSound("curse"); break;
+      case 7: setSelectPlayer(["blessing", "GIVE GIFT"]); break;
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
-      case 18: setSelectPlayer(["curse", "MASS FREEZE"]); break;
-      case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
       
       case 13: playSound("blessing"); 
                 const revealIngrd = Reveal(recipeList, potionsList); 
@@ -111,7 +111,9 @@ function PotionsView(props_socket) {
                 dispatch(golden_ingredient({id: revealIngrd[2].id, ingredientNr: revealIngrd[2].golden}))
       break;
       case 14: setSelectPlayer(["curse", "BLOCKER"]); break;
-    
+      case 18: setSelectPlayer(["curse", "MASS FREEZE"]); break;
+      case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
+
       default:
         break;
     }
@@ -133,6 +135,7 @@ function PotionsView(props_socket) {
 
         {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
         {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+        {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
         {selectPlayer[0] === "blessing" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer} hideSelectPlayers={hideSelectPlayers} />}
         {selectPlayer[0] === "curse" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer}  hideSelectPlayers={hideSelectPlayers} />}

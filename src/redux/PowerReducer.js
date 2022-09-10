@@ -10,7 +10,7 @@ var PowerData = [
     {id: 4, power_name: "FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel4: 1, },
     {id: 5, power_name: "FIFTY FIFTY", fiftyfifty: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 30, counter5: 0 },
     {id: 6, power_name: "POINT POISON", poison: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel6: 1, counter6: 0 },
-    {id: 7, power_name: "GIVE GIFT", gift_amount_1: 5, gift_amount_2: 10, gift_amount_3: 20 },
+    {id: 7, power_name: "GIVE GIFT", gift: "inactive", gift_amount_1: 4, gift_amount_2: 12, gift_amount_3: 20, attackLevel7: 1, },
     /// EXPERT
     {id: 8, power_name: "CONFUSION", confusion: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 15 },
     {id: 9, power_name: "TRIPPLE POINTS", tripplePoints: "inactive", coin_amount: 30, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter9: 0 },
@@ -48,6 +48,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "POINT POISON" ) {power.poison = "active"}
                 if (action.payload.power_name === "BLOCKER" ) {power.blocker = "active"}
                 if (action.payload.power_name === "FIFTY FIFTY" ) {power.fiftyfifty = "active"}
+                if (action.payload.power_name === "GIVE GIFT" ) {power.gift = "active"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "active"}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "active"}
@@ -66,6 +67,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "POINT POISON" ) {power.poison = "inactive"; power.counter6 = 0}
                 if (action.payload.power_name === "BLOCKER" ) {power.blocker = "inactive"; power.counter14 = 0}
                 if (action.payload.power_name === "FIFTY FIFTY" ) {power.fiftyfifty = "inactive"; power.counter5 = 0}
+                if (action.payload.power_name === "GIVE GIFT" ) {power.gift = "inactive"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "inactive"; power.counter20_card = 0}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "inactive"; power.counter21_stats = 0}
@@ -95,6 +97,7 @@ export const powerSlice = createSlice({
                 if (action.hasOwnProperty('potionName')) {
                     if (action.payload.potionName === "BLOCKER") {power.attackLevel14 = action.payload.effect}
                     if (action.payload.potionName === "POINT POISON") {power.attackLevel6 = action.payload.effect}
+                    if (action.payload.potionName === "GIVE GIFT") {power.attackLevel7 = action.payload.effect}
                 }
                 
                 

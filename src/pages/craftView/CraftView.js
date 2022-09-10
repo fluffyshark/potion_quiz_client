@@ -17,6 +17,7 @@ import ingdrop3 from "../../sound_assets/Ingdrop3.wav"
 import ingdrop4 from "../../sound_assets/Ingdrop4.wav"
 import ingdrop5 from "../../sound_assets/Ingdrop5.wav"
 import craftPotionSound from "../../sound_assets/CraftPotion.wav"
+import ReceiveGiveGift from '../../components/powers/GiveGift';
 
 var craftingSlots = [200,200,200,200]
 
@@ -184,6 +185,7 @@ function CraftView(props_socket) {
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+      {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
       <Navbar focus={props}/>
 

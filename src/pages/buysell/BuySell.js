@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../redux/IngredientReducer.js"
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import CoinSpend from "../../sound_assets/CoinSpend.wav"
+import ReceiveGiveGift from '../../components/powers/GiveGift';
 
 
 
@@ -64,6 +65,7 @@ function BuySell() {
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+      {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
       <Navbar focus={props}/>
         

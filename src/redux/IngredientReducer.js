@@ -21,6 +21,19 @@ export const ingredientSlice = createSlice({
                 }
             })
         },
+
+        giveGift_ingredients: (state, action) => {
+            console.log(action.payload.colletArray)
+            for (let i = 0; i < action.payload.colletArray.length; i++) {
+                state.value.map((ingredient) => {
+                    if (ingredient.id === action.payload.colletArray[i]) {
+                        ingredient.amount += 1
+                        ingredient.discovered = true
+                    }
+                })
+            }  
+        },
+
         
         buy_four_ingredients: (state) => {
             let array = []
@@ -71,5 +84,5 @@ export const ingredientSlice = createSlice({
     }
 })
 
-export const {increase_ingredients, decrease_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
+export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
 export default ingredientSlice.reducer

@@ -17,6 +17,7 @@ import GoldenPoints from '../../components/powers/GoldenPoints'
 import PointPoision from '../../components/powers/PointPoison'
 import Blocker from '../../components/powers/Blocker'
 import FiftyFiftyChance from '../../components/powers/FiftyFiftyChance'
+import ReceiveGiveGift from '../../components/powers/GiveGift'
 
 
 
@@ -146,6 +147,7 @@ function QuizView() {
       
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+      {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
       <div className="studentQuiz_powerContainer">
         {powersList[3].protection === "active" && <Protection />}
@@ -156,6 +158,8 @@ function QuizView() {
         {powersList[2].speedUp === "active" && <SpeedUp />}
         {powersList[6].poison === "active" && powersList[3].protection !== "active" && <PointPoision />}
         {powersList[14].blocker === "active" && powersList[3].protection !== "active" && <Blocker />}
+        
+        
       </div>
       
 
@@ -170,6 +174,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "POINT POISON"}))}>POINT POISON</button>
       <button onClick={() => dispatch(activate_power({power_name: "BLOCKER"}))}>BLOCKER</button>
       <button onClick={() => dispatch(activate_power({power_name: "FIFTY FIFTY"}))}>FIFTY FIFTY</button>
+      <button onClick={() => dispatch(activate_power({power_name: "GIVE GIFT"}))}>GIVE GIFT</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>

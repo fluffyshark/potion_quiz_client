@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./potionSelectPlayers.css"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import {motion} from "framer-motion"
 import activateBtn from "../../image_assets/general/select_player_btn.png"
 
@@ -28,8 +28,6 @@ function PotionSelectPlayers(props) {
     }
 
 
-    // NEXT - FULLY IMPLEMENT FREEZE AND MASS FREEZE
-
 
     // Limit the number of players the user can select/target based on the potion type
     const playerLimitByPotion = (potionName) => {
@@ -44,6 +42,7 @@ function PotionSelectPlayers(props) {
             case "MASS PROTECTION": playerLimit = 3; break;
             case "BLOCKER": playerLimit = 1; break;
             case "MASS FREEZE": playerLimit = 3; break;
+            case "GIVE GIFT": playerLimit = 2; break;
 
             default:
                 break;
@@ -60,11 +59,12 @@ function PotionSelectPlayers(props) {
 
         switch (potionName) {
             case "GIFT EXP": effect = potionsList[0].level; break;
-            case "BLOCKER": effect = potionsList[14].level; break;
             case "FREEZE": effect = potionsList[4].level; break;
-            case "MASS FREEZE": effect = potionsList[18].level; break;
             case "POINT POISON": effect = potionsList[6].level; break;
-        
+            case "GIVE GIFT": effect = potionsList[7].level; break;
+            case "BLOCKER": effect = potionsList[14].level; break;
+            case "MASS FREEZE": effect = potionsList[18].level; break;
+
             default: break;
         }
 

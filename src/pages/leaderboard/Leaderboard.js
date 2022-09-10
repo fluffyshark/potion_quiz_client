@@ -9,6 +9,7 @@ import bronze_card_display from "../../image_assets/general/bronze_card_display.
 import silver_card_display from "../../image_assets/general/silver_card_display.png"
 import gold_card_display from "../../image_assets/general/gold_card_display.png"
 import money_icon from "../../image_assets/general/money_icon.png"
+import ReceiveGiveGift from '../../components/powers/GiveGift'
 
 
 function Leaderboard() {
@@ -66,6 +67,7 @@ function Leaderboard() {
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+      {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
       <Navbar focus={props}/>
         
