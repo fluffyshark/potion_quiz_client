@@ -21,6 +21,7 @@ import useBlessing from "../../sound_assets/UseBlessing.wav"
 import useCurse from "../../sound_assets/UseCurse.wav"
 import PotionSelectPlayers from './PotionSelectPlayers';
 import ReceiveGiveGift from '../../components/powers/GiveGift';
+import PotionInfo, {DisplayInfo} from './PotionInfo';
 
 
 
@@ -33,6 +34,7 @@ function PotionsView(props_socket) {
   const [recipe, setRecipe] = useState({id: 0, ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0, amount1: 0, amount2: 0, amount3: 0, amount4: 0})
   const [playerLevel, setPlayerLevel] = useState(1)
   const [selectPlayer, setSelectPlayer] = useState(["hidden", "hidden", "hidden"])
+  const [displayInfo, setDisplayInfo] = useState(false)
 
   let navigate = useNavigate()
   const dispatch = useDispatch()
@@ -132,6 +134,8 @@ function PotionsView(props_socket) {
 
   return (
     <div className='potionsView'>
+
+        <PotionInfo potionID={recipe.id} />
 
         {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
         {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
@@ -270,8 +274,8 @@ function PotionsView(props_socket) {
           
           <div id="potionView_actions" className="potionView_footer_actions">
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => activatePotion()} className="potion_action_btns">USE</motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => DisplayInfo()} className="potion_action_btns">INFO</motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">SELL</motion.div>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">CRAFT</motion.div>
           </div>
         </div>
     </div>

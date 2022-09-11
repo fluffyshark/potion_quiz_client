@@ -5,6 +5,7 @@ import flasks from "../../image_assets/FlaskImageExport"
 
 let duration = 0
 
+// ALSO KNOW AS EASY MODE
 function FiftyFiftyChance() {
 
     const dispatch = useDispatch()
@@ -31,14 +32,12 @@ function FiftyFiftyChance() {
         if (powersList[5].fiftyfifty === "active") {startFiftyFifty()} 
     })
     
-      /// NEED TO BE REUSABLE
-
     return (
         <div className="power_effect_container">
             <div id="fill_fiftyfifty" className="power_fill"></div>
             <div className="power_fill_content">
                 <img src={flasks[5]} alt="" className="power_flask" />
-                FIFTY FIFTY
+                EASY MODE
             </div>
             
         </div>

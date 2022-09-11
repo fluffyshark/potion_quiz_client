@@ -12,15 +12,15 @@ var PowerData = [
     {id: 6, power_name: "POINT POISON", poison: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel6: 1, counter6: 0 },
     {id: 7, power_name: "GIVE GIFT", gift: "inactive", gift_amount_1: 4, gift_amount_2: 12, gift_amount_3: 20, attackLevel7: 1, },
     /// EXPERT
-    {id: 8, power_name: "CONFUSION", confusion: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 15 },
+    {id: 8, power_name: "REDECORATING", confusion: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 15 },
     {id: 9, power_name: "TRIPPLE POINTS", tripplePoints: "inactive", coin_amount: 30, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter9: 0 },
     {id: 10, power_name: "JUKEBOX", playlist_level: 1 },
     {id: 11, power_name: "PRICE RUNNER", discount_level_1: 10, discount_level_2: 25, discount_level_3: 40, duration: 60, counter11: 0},
     // MASTER
     {id: 12, power_name: "MASS PROTECTION", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter12: 0},
     {id: 13, power_name: "REVEAL", reveal: "inactive", reveal_level: 1, reveal_level: 2, reveal_level: 3},
-    {id: 14, power_name: "BLOCKER", blocker: "inactive", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, attackLevel14: 1, counter14: 0},
-    {id: 15, power_name: "DOUBLE BATCH", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter15: 0},
+    {id: 14, power_name: "BLOCKER", blocker: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel14: 1, counter14: 0},
+    {id: 15, power_name: "DOUBLE BATCH", duration_level_1: 30, duration_level_2: 60, duration_level_3: 180, counter15: 0},
     // GRANDMASTER
     {id: 16, power_name: "EPIC CHALLENGE", challenge_level_1: 10, challenge_level_2: 25, challenge_level_3: 50, counter16: 0},
     {id: 17, power_name: "STREAK BONUS", streak: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], counter17: 0},

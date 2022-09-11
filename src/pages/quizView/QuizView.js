@@ -32,7 +32,7 @@ function QuizView() {
   const [answerAlt, setAnswerAlt] = useState(religionQuestions.questions[randomQuestionNr].answerAlt)
   
   // POTIONS EFFECTS
-  const [speed, setSpeed] = useState(5000)
+  const [speed, setSpeed] = useState(4000)
   
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
