@@ -2,7 +2,7 @@ import potion_cards from "../image_assets/PotionImageExport.js"
 
 export const PotionData = [
     /// NOVICE
-    {id: 0, image_bronze: potion_cards[0], image_silver: potion_cards[20], image_gold: potion_cards[40], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "GIFT EXP"},
+    {id: 0, image_bronze: potion_cards[0], image_silver: potion_cards[20], image_gold: potion_cards[40], amount: 1, discovered: true, level: 1, earnedPoints: 0, name: "GIFT EXP"},
     {id: 1, image_bronze: potion_cards[1], image_silver: potion_cards[21], image_gold: potion_cards[41], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "DOUBLE POINTS"},
     {id: 2, image_bronze: potion_cards[2], image_silver: potion_cards[22], image_gold: potion_cards[42], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "SPEED UP"},
     {id: 3, image_bronze: potion_cards[3], image_silver: potion_cards[23], image_gold: potion_cards[43], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "PROTECTION"},

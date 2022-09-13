@@ -181,13 +181,15 @@
     color: white;
     font-family: 'Luckiest Guy', cursive;
     border-radius: 5px;
-    background: rgb(246,232,174);
-    background: radial-gradient(circle, rgba(246,232,174,1) 0%, rgba(225,176,13,1) 100%);
+    background: #2e1e12;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
     cursor: pointer;
+}
+.potion_action_btns:hover {
+    background: #e8c242;
 }
 
