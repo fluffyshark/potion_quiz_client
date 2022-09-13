@@ -20,7 +20,7 @@ var PowerData = [
     {id: 12, power_name: "MASS PROTECTION", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter12: 0},
     {id: 13, power_name: "REVEAL", reveal: "inactive", reveal_level: 1, reveal_level: 2, reveal_level: 3},
     {id: 14, power_name: "BLOCKER", blocker: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel14: 1, counter14: 0},
-    {id: 15, power_name: "DOUBLE BATCH", duration_level_1: 30, duration_level_2: 60, duration_level_3: 180, counter15: 0},
+    {id: 15, power_name: "DOUBLE BATCH", batch: "inactive", duration_level_1: 30, duration_level_2: 120, duration_level_3: 200, counter15: 0},
     // GRANDMASTER
     {id: 16, power_name: "EPIC CHALLENGE", challenge_level_1: 10, challenge_level_2: 25, challenge_level_3: 50, counter16: 0},
     {id: 17, power_name: "STREAK BONUS", streak: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], counter17: 0},
@@ -49,6 +49,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "BLOCKER" ) {power.blocker = "active"}
                 if (action.payload.power_name === "FIFTY FIFTY" ) {power.fiftyfifty = "active"}
                 if (action.payload.power_name === "GIVE GIFT" ) {power.gift = "active"}
+                if (action.payload.power_name === "DOUBLE BATCH" ) {power.batch = "active"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "active"}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "active"}
@@ -68,6 +69,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "BLOCKER" ) {power.blocker = "inactive"; power.counter14 = 0}
                 if (action.payload.power_name === "FIFTY FIFTY" ) {power.fiftyfifty = "inactive"; power.counter5 = 0}
                 if (action.payload.power_name === "GIVE GIFT" ) {power.gift = "inactive"}
+                if (action.payload.power_name === "DOUBLE BATCH" ) {power.batch = "inactive"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "inactive"; power.counter20_card = 0}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "inactive"; power.counter21_stats = 0}
@@ -83,6 +85,7 @@ export const powerSlice = createSlice({
                 if (power.poison === "active") {power.counter6 += 1}
                 if (power.protection === "active") {power.counter3 += 1}
                 if (power.blocker === "active") {power.counter14 += 1}
+                if (power.batch === "active") {power.counter15 += 1}
 
                 if (power.leaderboard_card === "active") {power.counter20_card += 1}
                 if (power.leaderboard_stats === "active") {power.counter21_stats += 1}

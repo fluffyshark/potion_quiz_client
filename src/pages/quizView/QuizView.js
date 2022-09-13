@@ -18,6 +18,7 @@ import PointPoision from '../../components/powers/PointPoison'
 import Blocker from '../../components/powers/Blocker'
 import FiftyFiftyChance from '../../components/powers/FiftyFiftyChance'
 import ReceiveGiveGift from '../../components/powers/GiveGift'
+import DoubleBatch from '../../components/powers/DoubleBatch'
 
 
 
@@ -158,7 +159,7 @@ function QuizView() {
         {powersList[2].speedUp === "active" && <SpeedUp />}
         {powersList[6].poison === "active" && powersList[3].protection !== "active" && <PointPoision />}
         {powersList[14].blocker === "active" && powersList[3].protection !== "active" && <Blocker />}
-        
+        {powersList[15].batch === "active" && <DoubleBatch />}
         
       </div>
       

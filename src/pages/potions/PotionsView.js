@@ -113,6 +113,7 @@ function PotionsView(props_socket) {
                 dispatch(golden_ingredient({id: revealIngrd[2].id, ingredientNr: revealIngrd[2].golden}))
       break;
       case 14: setSelectPlayer(["curse", "BLOCKER"]); break;
+      case 15: dispatch(activate_power({power_name: "DOUBLE BATCH"})); playSound("blessing"); break;
       case 18: setSelectPlayer(["curse", "MASS FREEZE"]); break;
       case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
 
@@ -123,7 +124,7 @@ function PotionsView(props_socket) {
     dispatch(reduce_potion({id: recipe.id}))
 
     console.log(potionsList[recipe.id].amount)
-    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 19) {navigate('/quiz')}
+    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 15 || recipe.id === 19) {navigate('/quiz')}
     
   }
 

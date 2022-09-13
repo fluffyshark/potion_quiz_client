@@ -195,8 +195,8 @@ const potionInfoData = [
     flaskImage: flasks[15],
     effectTitle: "DURATION",
     effectBronze: "Bronze: 30 seconds", 
-    effectSilver: "Silver: 60 seconds", 
-    effectGold: "Gold: 180 seconds", 
+    effectSilver: "Silver: 120 seconds", 
+    effectGold: "Gold: 200 seconds", 
   },
   {
     name: "EPIC CHALLENGE",

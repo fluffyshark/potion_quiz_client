@@ -18,7 +18,8 @@ function CraftPotion(props) {
     const recipeList = useSelector((state) => state.recipe.value) 
     const potionList = useSelector((state) => state.potions.value) 
     const playerStats = useSelector((state) => state.playerStats.value) 
-    
+    const powersList = useSelector((state) => state.powers.value)
+
     const matchRecipe = () => {
         
         let matching = []
@@ -59,6 +60,8 @@ function CraftPotion(props) {
                 // A bronze potion will only be made if you are at level 1, otherwise failing to reach silver or gold quality will end in failure
                 if (potionList[matching[0]].level === 1) {
                     dispatch(add_potion({id: matching[0]}))
+                    // If DOUBLE BATCH is active, then add another potion
+                    if (powersList[15].batch === "active") {dispatch(add_potion({id: matching[0]}))}
                     document.getElementById("craftedPotionCard").src = potionList[matching[0]].image_bronze
                 }
                 
@@ -110,7 +113,11 @@ function CraftPotion(props) {
                     }
 
                     // A silver potion will only be made if you are at level 2 or level 1, otherwise at level 3 failing to reach gold quality will end in failure
-                    if (potionList[matching[0]].level === 2) {dispatch(add_potion({id: matching[0]}))}
+                    if (potionList[matching[0]].level === 2) {
+                        dispatch(add_potion({id: matching[0]}))
+                        // If DOUBLE BATCH is active, then add another potion
+                        if (powersList[15].batch === "active") {dispatch(add_potion({id: matching[0]}))}
+                    }
                     
                     // If resultArray has a value of, then player got all four ingredients amount correct -> it's golden card 
                     if (result === 4) {

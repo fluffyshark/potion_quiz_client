@@ -49,6 +49,10 @@
   background: rgb(179,134,99);
   background: linear-gradient(180deg, rgba(179,134,99,1) 0%, rgba(43,11,10,1) 79%);
 }
+#fill_doubleBatch {
+  background: rgb(212,177,250);
+  background: linear-gradient(180deg, rgba(212,177,250,1) 0%, rgba(79,45,164,1) 79%);
+}
 
 
 .power_icer {
