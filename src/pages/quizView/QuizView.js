@@ -19,6 +19,7 @@ import Blocker from '../../components/powers/Blocker'
 import FiftyFiftyChance from '../../components/powers/FiftyFiftyChance'
 import ReceiveGiveGift from '../../components/powers/GiveGift'
 import DoubleBatch from '../../components/powers/DoubleBatch'
+import PriceRunner from '../../components/powers/PriceRunner'
 
 
 
@@ -160,6 +161,7 @@ function QuizView() {
         {powersList[6].poison === "active" && powersList[3].protection !== "active" && <PointPoision />}
         {powersList[14].blocker === "active" && powersList[3].protection !== "active" && <Blocker />}
         {powersList[15].batch === "active" && <DoubleBatch />}
+        {powersList[11].price === "active" && <PriceRunner />}
         
       </div>
       
@@ -176,6 +178,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "BLOCKER"}))}>BLOCKER</button>
       <button onClick={() => dispatch(activate_power({power_name: "FIFTY FIFTY"}))}>FIFTY FIFTY</button>
       <button onClick={() => dispatch(activate_power({power_name: "GIVE GIFT"}))}>GIVE GIFT</button>
+      <button onClick={() => dispatch(activate_power({power_name: "PRICE RUNNER"}))}>PRICE RUNNER</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>

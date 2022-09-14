@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./buySell.css"
 import { motion } from "framer-motion";
 import Navbar from "../../components/navbar/Navbar"
@@ -11,6 +11,15 @@ import store_buy_ten from "../../image_assets/general/store_buy_ten.png"
 import store_buy_ten_btn from "../../image_assets/general/store_buy_ten_btn.png"
 import store_buy_four from "../../image_assets/general/store_buy_four.png"
 import store_buy_four_btn from "../../image_assets/general/store_buy_four_btn.png"
+import buy_one_10_btn from "../../image_assets/general/buy_one_10_btn.png"
+import store_buy_ten_10_btn from "../../image_assets/general/store_buy_ten_10_btn.png"
+import store_buy_four_10_btn from "../../image_assets/general/store_buy_four_10_btn.png"
+import buy_one_25_btn from "../../image_assets/general/buy_one_25_btn.png"
+import store_buy_ten_25_btn from "../../image_assets/general/store_buy_ten_25_btn.png"
+import store_buy_four_25_btn from "../../image_assets/general/store_buy_four_25_btn.png"
+import buy_one_40_btn from "../../image_assets/general/buy_one_40_btn.png"
+import store_buy_ten_40_btn from "../../image_assets/general/store_buy_ten_40_btn.png"
+import store_buy_four_40_btn from "../../image_assets/general/store_buy_four_40_btn.png"
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import {buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../redux/IngredientReducer.js"
@@ -27,15 +36,28 @@ function BuySell() {
     
   }
 
-  const coinbag = useSelector((state) => state.coins.value)
-  const dispatch = useDispatch()
 
+  const [prices, setPrices] = useState({price_blue: 50, price_purple: 100, price_gold: 300, blue_btn: buy_one_btn, purple_btn: store_buy_four_btn, gold_btn: store_buy_ten_btn})
+
+  const dispatch = useDispatch()
+  const coinbag = useSelector((state) => state.coins.value)
   const powersList = useSelector((state) => state.powers.value)
+  const potionsList = useSelector((state) => state.potions.value)
+
 
   function playSound(sound) {
     if (sound === "coin") {new Audio(CoinSpend).play()}
   }
 
+  useEffect(() => {
+    if (powersList[11].price === "active") {
+      if (potionsList[11].level === 1) {setPrices({price_blue: 45, price_purple: 90, price_gold: 270, blue_btn: buy_one_10_btn, purple_btn: store_buy_four_10_btn, gold_btn: store_buy_ten_10_btn})}
+      else  if (potionsList[11].level === 2) {setPrices({price_blue: 40, price_purple: 75, price_gold: 225, blue_btn: buy_one_25_btn, purple_btn: store_buy_four_25_btn, gold_btn: store_buy_ten_25_btn})}
+      else if (potionsList[11].level === 3) {setPrices({price_blue: 30, price_purple: 60, price_gold: 180, blue_btn: buy_one_40_btn, purple_btn: store_buy_four_40_btn, gold_btn: store_buy_ten_40_btn})}
+    } else {
+      setPrices({price_blue: 50, price_purple: 100, price_gold: 300, blue_btn: buy_one_btn, purple_btn: store_buy_four_btn, gold_btn: store_buy_ten_btn})
+    }
+  }, [powersList[11].price])
 
 
   useEffect(() => {
@@ -49,9 +71,9 @@ function BuySell() {
   },[coinbag.total])
 
   const buyIngredients = (amount) => {
-    if (amount === 4) {dispatch(buy_four_ingredients()); dispatch(reduce_coins_amount(50))}
-    if (amount === 14) {dispatch(buy_fourteen_ingredients()); dispatch(reduce_coins_amount(100))}
-    if (amount === 50) {dispatch(buy_fifty_ingredients()); dispatch(reduce_coins_amount(300))}
+      if (amount === 4) {dispatch(buy_four_ingredients()); dispatch(reduce_coins_amount(prices.price_blue))}
+      if (amount === 14) {dispatch(buy_fourteen_ingredients()); dispatch(reduce_coins_amount(prices.price_purple))}
+      if (amount === 50) {dispatch(buy_fifty_ingredients()); dispatch(reduce_coins_amount(prices.price_gold))}
 
     playSound("coin")
 
@@ -75,17 +97,17 @@ function BuySell() {
               
               <div className="buySellView_lottery_box">
                 <img src={store_buy_one} alt="" className="lottery_items" />
-                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} id="lottery_btn01" onClick={() => buyIngredients(4)} src={buy_one_btn} alt="" className="lottery_btns" />
+                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} id="lottery_btn01" onClick={() => buyIngredients(4)} src={prices.blue_btn} alt="" className="lottery_btns" />
                 <p className="buySellView_lottery_desc">BUY 4 INGREDIENTS</p>
               </div>
               <div className="buySellView_lottery_box">
                 <img src={store_buy_four} alt="" className="lottery_items" />
-                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} id="lottery_btn02" onClick={() => buyIngredients(14)} src={store_buy_four_btn} alt="" className="lottery_btns" />
+                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} id="lottery_btn02" onClick={() => buyIngredients(14)} src={prices.purple_btn} alt="" className="lottery_btns" />
                 <p className="buySellView_lottery_desc">BUY 14 INGREDIENTS</p>
               </div>
               <div className="buySellView_lottery_box">
                 <img src={store_buy_ten} alt="" className="lottery_items" />
-                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} id="lottery_btn03" onClick={() => buyIngredients(50)} src={store_buy_ten_btn} alt="" className="lottery_btns" />
+                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} id="lottery_btn03" onClick={() => buyIngredients(50)} src={prices.gold_btn} alt="" className="lottery_btns" />
                 <p className="buySellView_lottery_desc">BUY 50 INGREDIENTS</p>
               </div>
 
