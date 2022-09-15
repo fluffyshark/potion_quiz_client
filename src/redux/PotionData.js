@@ -15,7 +15,7 @@ export const PotionData = [
     {id: 8, image_bronze: potion_cards[8], image_silver: potion_cards[28], image_gold: potion_cards[48], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "CONFUSION"},
     {id: 9, image_bronze: potion_cards[9], image_silver: potion_cards[29], image_gold: potion_cards[49], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "TRIPPLE POINTS"},
     {id: 10, image_bronze: potion_cards[10], image_silver: potion_cards[30], image_gold: potion_cards[50], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "JUKEBOX"},
-    {id: 11, image_bronze: potion_cards[11], image_silver: potion_cards[31], image_gold: potion_cards[51], amount: 1, discovered: false, level: 1, earnedPoints: 0, name: "PRICE RUNNER"},
+    {id: 11, image_bronze: potion_cards[11], image_silver: potion_cards[31], image_gold: potion_cards[51], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "PRICE RUNNER"},
     // MASTER
     {id: 12, image_bronze: potion_cards[12], image_silver: potion_cards[32], image_gold: potion_cards[52], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "MASS PROTECTION"},
     {id: 13, image_bronze: potion_cards[13], image_silver: potion_cards[33], image_gold: potion_cards[53], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "REVEAL"},

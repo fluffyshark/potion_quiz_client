@@ -47,7 +47,10 @@
 .craftPotion_image {
     height: 100%;
     cursor: pointer;
+    opacity: 0.2;
 }
+
+
 
 .craftPotion_ingredientsholder {
     width: 100%;

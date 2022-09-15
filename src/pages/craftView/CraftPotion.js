@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./craftPotion.css"
 import card_back from "../../image_assets/general/card_back.png"
 import { useSelector, useDispatch } from "react-redux"
@@ -6,12 +6,14 @@ import {remove_for_crafting } from "../../redux/CraftReducer"
 import {add_potion, add_discovery_points, increase_potion_level } from "../../redux/PotionReducer"
 import {golden_ingredient} from "../../redux/PotionRecipeReducer"
 import {add_playerPoints} from "../../redux/PlayerSocketReducer"
+import FlipCard from './FlipCard'
 
 
 function CraftPotion(props) {
 
     let socket = props.socket  
 
+    const [showCard, setShowCard] = useState(false)
 
     const dispatch = useDispatch()
     const craftList = useSelector((state) => state.crafting.value)
@@ -62,7 +64,7 @@ function CraftPotion(props) {
                     dispatch(add_potion({id: matching[0]}))
                     // If DOUBLE BATCH is active, then add another potion
                     if (powersList[15].batch === "active") {dispatch(add_potion({id: matching[0]}))}
-                    document.getElementById("craftedPotionCard").src = potionList[matching[0]].image_bronze
+                    document.getElementById("flipCardImg").src = potionList[matching[0]].image_bronze
                 }
                 
                 
@@ -125,15 +127,15 @@ function CraftPotion(props) {
                         // If player has not been rewarded with points for silver card yet
                         if (potionList[matching[0]].earnedPoints < 100) {dispatch(add_discovery_points({id: matching[0], earnedPoints: 100})); dispatch(add_playerPoints(100))}
 
-                        document.getElementById("craftedPotionCard").src = potionList[matching[0]].image_gold
+                        document.getElementById("flipCardImg").src = potionList[matching[0]].image_gold
                         dispatch(increase_potion_level({id: matching[0], potion_Level: "gold"}))
                     } else {
                         // if not a gold card then at least a silver card
-                        document.getElementById("craftedPotionCard").src = potionList[matching[0]].image_silver
+                        document.getElementById("flipCardImg").src = potionList[matching[0]].image_silver
                     }
 
                 } 
-
+                
                
                     
             }
@@ -141,20 +143,20 @@ function CraftPotion(props) {
 
             // COVER NAVBAR DURING CRAFT WAIT, OTHERWISE INGREDIENTS WILL NOT DISSAPEAR
             // NO PLAYER POINTS ARE DISPLAYED
-            
+
+            setShowCard(true)
 
             setTimeout(function() {
-                document.getElementById("craftedPotionCard").src = card_back
                 document.getElementById("craftPotion").style.display = "none"
                 dispatch(remove_for_crafting())
                 console.log("PLAYERDATA after 5 sec: ", playerStats)
-              }, 5000);
+                setShowCard(false)
+              }, 5000); 
               
 
-        
     } // End of matchRecipe()
 
-
+   
 
 
   return (
@@ -164,8 +166,8 @@ function CraftPotion(props) {
             <div className="craftPotion_textholder">
                 <p id="revealCard_text">YOU CRAFTED</p>
             </div>
-            <div className="craftPotion_imageholder">
-                <img id="craftedPotionCard" onClick={() => {matchRecipe()}} src={card_back} alt="" className="craftPotion_image" />
+            <div className="craftPotion_imageholder" onClick={() => matchRecipe()}>
+                <FlipCard reveal={showCard} />
             </div>
             <div className="craftPotion_ingredientsholder">
                 <div className="craftPotion_ingredientwrapper">
