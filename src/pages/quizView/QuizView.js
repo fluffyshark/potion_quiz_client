@@ -20,6 +20,7 @@ import FiftyFiftyChance from '../../components/powers/FiftyFiftyChance'
 import ReceiveGiveGift from '../../components/powers/GiveGift'
 import DoubleBatch from '../../components/powers/DoubleBatch'
 import PriceRunner from '../../components/powers/PriceRunner'
+import StreakBonus from '../../components/powers/StreakBonus'
 
 
 
@@ -32,6 +33,7 @@ function QuizView() {
   const [reveal, setReveal] = useState(false)
   const [question, setQuestion] = useState(religionQuestions.questions[randomQuestionNr].question)
   const [answerAlt, setAnswerAlt] = useState(religionQuestions.questions[randomQuestionNr].answerAlt)
+  const [answerCount, setAnswerCount] = useState({totalQuestions: 0, correct: 0, wrong:0})
   
   // POTIONS EFFECTS
   const [speed, setSpeed] = useState(4000)
@@ -91,11 +93,14 @@ function QuizView() {
 
     playSound("click")
 
+    // If correct 
     if (religionQuestions.questions[randomQuestionNr].answerAlt[chosenAnswer] === religionQuestions.questions[randomQuestionNr].correctAnswer) {
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox1');
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox3');
       
+      setAnswerCount({totalQuestions: answerCount.totalQuestions + 1, correct: answerCount.correct + 1, wrong: answerCount.wrong})
+
       setTimeout(function() {
         playSound("coin")
         // Effect for potions DOUBLE POINTS, TRIPPLE POINTS, GOLDEN POINTS
@@ -104,12 +109,17 @@ function QuizView() {
         else if (powersList[19].goldenPoints === "active") {dispatch(add_coins_amount(50))}
         else {dispatch(add_coins())}
         
+
       }, 1000);
       
+    } else {
+      setAnswerCount({totalQuestions: answerCount.totalQuestions + 1, correct: answerCount.correct, wrong: answerCount.wrong + 1})
     }
 
     // Div blocks navbar to prevent question-tabbing exploit and during power blocker
     document.getElementById("navbar_blocker").style.display = "inherit"
+
+
     
    
     setReveal(!reveal)
@@ -162,6 +172,7 @@ function QuizView() {
         {powersList[14].blocker === "active" && powersList[3].protection !== "active" && <Blocker />}
         {powersList[15].batch === "active" && <DoubleBatch />}
         {powersList[11].price === "active" && <PriceRunner />}
+        {powersList[17].streak === "active" && <StreakBonus answerCount={answerCount} />}
         
       </div>
       
@@ -179,6 +190,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "FIFTY FIFTY"}))}>FIFTY FIFTY</button>
       <button onClick={() => dispatch(activate_power({power_name: "GIVE GIFT"}))}>GIVE GIFT</button>
       <button onClick={() => dispatch(activate_power({power_name: "PRICE RUNNER"}))}>PRICE RUNNER</button>
+      <button onClick={() => dispatch(activate_power({power_name: "STREAK BONUS"}))}>STREAK BONUS</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>

@@ -23,7 +23,7 @@ var PowerData = [
     {id: 15, power_name: "DOUBLE BATCH", batch: "inactive", duration_level_1: 30, duration_level_2: 120, duration_level_3: 200, counter15: 0},
     // GRANDMASTER
     {id: 16, power_name: "EPIC CHALLENGE", challenge_level_1: 10, challenge_level_2: 25, challenge_level_3: 50, counter16: 0},
-    {id: 17, power_name: "STREAK BONUS", streak: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], counter17: 0},
+    {id: 17, power_name: "STREAK BONUS", streak: "inactive", streak_level_1: 1, streak_level_2: 2, streak_level_3: 5, current_bonus: 0},
     {id: 18, power_name: "MASS FREEZE", mass_freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel18: 1, counter18: 0 },
     {id: 19, power_name: "GOLDEN POINTS", goldenPoints: "inactive", coin_amount: 50, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter19: 0 },
 
@@ -51,6 +51,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "GIVE GIFT" ) {power.gift = "active"}
                 if (action.payload.power_name === "DOUBLE BATCH" ) {power.batch = "active"}
                 if (action.payload.power_name === "PRICE RUNNER" ) {power.price = "active"}
+                if (action.payload.power_name === "STREAK BONUS" ) {power.streak = "active"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "active"}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "active"}
@@ -72,6 +73,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "GIVE GIFT" ) {power.gift = "inactive"}
                 if (action.payload.power_name === "DOUBLE BATCH" ) {power.batch = "inactive"}
                 if (action.payload.power_name === "PRICE RUNNER" ) {power.price = "inactive"}
+                if (action.payload.power_name === "STREAK BONUS" ) {power.streak = "inactive"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "inactive"; power.counter20_card = 0}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "inactive"; power.counter21_stats = 0}

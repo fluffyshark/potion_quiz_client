@@ -57,6 +57,9 @@
   background: rgb(134,236,160);
   background: linear-gradient(180deg, rgba(134,236,160,1) 0%, rgba(25,133,119,1) 79%);
 }
+#fill_streakBonus {
+  width: 100%;
+}
 
 
 .power_icer {
@@ -158,4 +161,39 @@
 .give_gift_scroll_wrap_herbs {
   height: 65px;
   
+}
+
+
+.power_fill_streakBonus {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+ justify-content: space-between;
+}
+.streakBonus_bonusContainer {
+  display: flex;
+  gap: 5px;
+}
+.streakBonus_text {
+  margin-left: 10px;
+  font-size: 15px;
+}
+.streakBonus_bonus {
+  margin: 0;
+  font-size: 17px;
+  color: #00ff00;
+}
+.streakBonus_money_icon {
+  height: 22px;
+  margin-right: 5px;
+}
+.streakBonus_normal {
+  background: rgb(251,47,49);
+  background: linear-gradient(180deg, rgba(251,47,49,1) 0%, rgba(141,8,8,1) 79%);
+}
+.streakBonus_success {
+  background: rgb(148,248,116);
+  background: linear-gradient(180deg, rgba(148,248,116,1) 0%, rgba(7,85,32,1) 79%);
 }
