@@ -104,6 +104,7 @@ function PotionsView(props_socket) {
       case 5: dispatch(activate_power({power_name: "FIFTY FIFTY"})); break;
       case 6: setSelectPlayer(["curse", "POINT POISON"]); playSound("curse"); break;
       case 7: setSelectPlayer(["blessing", "GIVE GIFT"]); break;
+      case 8: dispatch(activate_power({power_name: "TRANSMUTATION"})); break;
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
       case 11: dispatch(activate_power({power_name: "PRICE RUNNER"})); playSound("blessing"); break;
       case 13: playSound("blessing"); 

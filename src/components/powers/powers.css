@@ -197,3 +197,57 @@
   background: rgb(148,248,116);
   background: linear-gradient(180deg, rgba(148,248,116,1) 0%, rgba(7,85,32,1) 79%);
 }
+
+
+.transmute_scroll_wrap {
+  width: 70%;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  
+  overflow: scroll;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+}
+.transmute_imageHolder {
+  width: auto;
+  height: 65px;
+  position: relative;
+}
+.transmute_imageHolder>p {
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 10px;
+  margin: 0;
+  position: absolute;
+  top: 66%;
+  left: 73%;
+}
+.transmute_scroll_wrap_herbs {
+  cursor: pointer;
+  height: 65px;
+}
+.transmute_scroll_wrap::-webkit-scrollbar {
+display: none; /* for Chrome, Safari, and Opera */
+}
+.transmute_nextBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Luckiest Guy', cursive;
+  cursor: pointer;
+  margin-top: 20px;
+  position: relative;
+}
+.transmute_nextBtn>img {
+  height: 36px;
+}
+.transmute_nextBtn>p {
+  height: 36px;
+  position: absolute;
+  margin-top: 25px;
+}

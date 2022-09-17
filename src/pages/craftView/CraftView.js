@@ -171,10 +171,6 @@ function CraftView(props_socket) {
     document.getElementById("craftPotion").style.display = "inherit"
 
     playSound("craftPotionSound")
-      
-    // REMOVE FIRST WHEN RETURNING TO CRAFTVIEW
-  //  setTimeout(function() {dispatch(remove_for_crafting()) }, 5000);
-     
 
   } // End of craftPotion
 

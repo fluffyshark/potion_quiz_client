@@ -12,7 +12,7 @@ var PowerData = [
     {id: 6, power_name: "POINT POISON", poison: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel6: 1, counter6: 0 },
     {id: 7, power_name: "GIVE GIFT", gift: "inactive", gift_amount_1: 4, gift_amount_2: 12, gift_amount_3: 20, attackLevel7: 1, },
     /// EXPERT
-    {id: 8, power_name: "REDECORATING", confusion: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 15 },
+    {id: 8, power_name: "TRANSMUTATION", transmute: "inactive", amount_level_1: 12, amount_level_2: 8, amount_level_3: 4 },
     {id: 9, power_name: "TRIPPLE POINTS", tripplePoints: "inactive", coin_amount: 30, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter9: 0 },
     {id: 10, power_name: "JUKEBOX", playlist_level: 1 },
     {id: 11, power_name: "PRICE RUNNER", price: "inactive", discount_level_1: 10, discount_level_2: 25, discount_level_3: 40, duration: 60, counter11: 0},
@@ -52,6 +52,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "DOUBLE BATCH" ) {power.batch = "active"}
                 if (action.payload.power_name === "PRICE RUNNER" ) {power.price = "active"}
                 if (action.payload.power_name === "STREAK BONUS" ) {power.streak = "active"}
+                if (action.payload.power_name === "TRANSMUTATION" ) {power.transmute = "active"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "active"}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "active"}
@@ -74,6 +75,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "DOUBLE BATCH" ) {power.batch = "inactive"}
                 if (action.payload.power_name === "PRICE RUNNER" ) {power.price = "inactive"}
                 if (action.payload.power_name === "STREAK BONUS" ) {power.streak = "inactive"}
+                if (action.payload.power_name === "TRANSMUTATION" ) {power.transmute = "inactive"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "inactive"; power.counter20_card = 0}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "inactive"; power.counter21_stats = 0}

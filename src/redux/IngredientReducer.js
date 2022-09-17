@@ -13,6 +13,7 @@ export const ingredientSlice = createSlice({
                 }
             })
         },
+        
         decrease_ingredients: (state, action) => {
             state.value.map((ingredient) => {
                 if (ingredient.id === action.payload.id) {
@@ -34,6 +35,21 @@ export const ingredientSlice = createSlice({
             }  
         },
 
+        transmute_ingredients: (state, action) => {
+                state.value.map((ingredient, i) => {
+                    if (ingredient.id === action.payload.chosenID) {
+                        ingredient.amount += 1
+                        ingredient.discovered = true
+                    }  
+                }) 
+                state.value.map((ingredient) => {
+                    for (let i = 0; i < action.payload.discardingIDs.length; i++) {
+                        if (ingredient.id === action.payload.discardingIDs[i]) {
+                            ingredient.amount -= 1
+                        }
+                    }
+                })
+        },
         
         buy_four_ingredients: (state) => {
             let array = []
@@ -84,5 +100,5 @@ export const ingredientSlice = createSlice({
     }
 })
 
-export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
+export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
 export default ingredientSlice.reducer

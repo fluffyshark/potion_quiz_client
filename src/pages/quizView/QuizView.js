@@ -21,6 +21,7 @@ import ReceiveGiveGift from '../../components/powers/GiveGift'
 import DoubleBatch from '../../components/powers/DoubleBatch'
 import PriceRunner from '../../components/powers/PriceRunner'
 import StreakBonus from '../../components/powers/StreakBonus'
+import Transmutation from '../../components/powers/Transmutation'
 
 
 
@@ -160,6 +161,7 @@ function QuizView() {
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
       {powersList[7].gift === "active" && <ReceiveGiveGift />}
+      {powersList[8].transmute === "active" && <Transmutation />}
 
       <div className="studentQuiz_powerContainer">
         {powersList[3].protection === "active" && <Protection />}
@@ -191,6 +193,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "GIVE GIFT"}))}>GIVE GIFT</button>
       <button onClick={() => dispatch(activate_power({power_name: "PRICE RUNNER"}))}>PRICE RUNNER</button>
       <button onClick={() => dispatch(activate_power({power_name: "STREAK BONUS"}))}>STREAK BONUS</button>
+      <button onClick={() => dispatch(activate_power({power_name: "TRANSMUTATION"}))}>TRANSMUTATION</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
