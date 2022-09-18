@@ -60,6 +60,12 @@
 #fill_streakBonus {
   width: 100%;
 }
+#fill_epic {
+  background: rgb(245,120,205);
+  background: linear-gradient(180deg, rgba(245,120,205,1) 0%, rgba(20,143,198,1) 79%);
+
+}
+
 
 
 .power_icer {

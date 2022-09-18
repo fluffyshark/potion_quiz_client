@@ -50,6 +50,21 @@ export const ingredientSlice = createSlice({
                     }
                 })
         },
+
+        epic_challenge_ingredients: (state, action) => {
+            let array = []
+            for (let i = 0; i < action.payload; i++) {
+                array.push(Math.floor(Math.random() * 180))
+            }  
+            for (let i = 0; i < action.payload; i++) {
+                state.value.map((ingredient) => {
+                    if (ingredient.id === array[i]) {
+                        ingredient.amount += 1
+                        ingredient.discovered = true
+                    }
+                })
+            }  
+        },
         
         buy_four_ingredients: (state) => {
             let array = []
@@ -100,5 +115,5 @@ export const ingredientSlice = createSlice({
     }
 })
 
-export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
+export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, epic_challenge_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
 export default ingredientSlice.reducer

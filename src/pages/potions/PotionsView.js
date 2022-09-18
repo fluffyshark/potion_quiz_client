@@ -115,6 +115,7 @@ function PotionsView(props_socket) {
       break;
       case 14: setSelectPlayer(["curse", "BLOCKER"]); break;
       case 15: dispatch(activate_power({power_name: "DOUBLE BATCH"})); playSound("blessing"); break;
+      case 16: dispatch(activate_power({power_name: "EPIC CHALLENGE"})); playSound("blessing"); break;
       case 17: dispatch(activate_power({power_name: "STREAK BONUS"})); playSound("blessing"); break;
       case 18: setSelectPlayer(["curse", "MASS FREEZE"]); break;
       case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
@@ -127,7 +128,7 @@ function PotionsView(props_socket) {
     dispatch(reduce_potion({id: recipe.id}))
 
     console.log(potionsList[recipe.id].amount)
-    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 11 || recipe.id === 15 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
+    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
     
   }
 

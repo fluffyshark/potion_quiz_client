@@ -22,7 +22,7 @@ var PowerData = [
     {id: 14, power_name: "BLOCKER", blocker: "inactive", duration_level_1: 30, duration_level_2: 60, duration_level_3: 120, attackLevel14: 1, counter14: 0},
     {id: 15, power_name: "DOUBLE BATCH", batch: "inactive", duration_level_1: 30, duration_level_2: 120, duration_level_3: 200, counter15: 0},
     // GRANDMASTER
-    {id: 16, power_name: "EPIC CHALLENGE", challenge_level_1: 10, challenge_level_2: 25, challenge_level_3: 50, counter16: 0},
+    {id: 16, power_name: "EPIC CHALLENGE", epic: "inactive", challenge_level_1: 10, challenge_level_2: 25, challenge_level_3: 50},
     {id: 17, power_name: "STREAK BONUS", streak: "inactive", streak_level_1: 1, streak_level_2: 2, streak_level_3: 5, current_bonus: 0},
     {id: 18, power_name: "MASS FREEZE", mass_freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel18: 1, counter18: 0 },
     {id: 19, power_name: "GOLDEN POINTS", goldenPoints: "inactive", coin_amount: 50, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter19: 0 },
@@ -53,6 +53,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "PRICE RUNNER" ) {power.price = "active"}
                 if (action.payload.power_name === "STREAK BONUS" ) {power.streak = "active"}
                 if (action.payload.power_name === "TRANSMUTATION" ) {power.transmute = "active"}
+                if (action.payload.power_name === "EPIC CHALLENGE" ) {power.epic = "active"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "active"}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "active"}
@@ -76,6 +77,7 @@ export const powerSlice = createSlice({
                 if (action.payload.power_name === "PRICE RUNNER" ) {power.price = "inactive"}
                 if (action.payload.power_name === "STREAK BONUS" ) {power.streak = "inactive"}
                 if (action.payload.power_name === "TRANSMUTATION" ) {power.transmute = "inactive"}
+                if (action.payload.power_name === "EPIC CHALLENGE" ) {power.epic = "inactive"}
 
                 if (action.payload.power_name === "LEADERBOARD CARDS" ) {power.leaderboard_card = "inactive"; power.counter20_card = 0}
                 if (action.payload.power_name === "LEADERBOARD STATS" ) {power.leaderboard_stats = "inactive"; power.counter21_stats = 0}

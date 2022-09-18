@@ -22,6 +22,7 @@ import DoubleBatch from '../../components/powers/DoubleBatch'
 import PriceRunner from '../../components/powers/PriceRunner'
 import StreakBonus from '../../components/powers/StreakBonus'
 import Transmutation from '../../components/powers/Transmutation'
+import EpicChallenge from '../../components/powers/EpicChallenge'
 
 
 
@@ -175,6 +176,7 @@ function QuizView() {
         {powersList[15].batch === "active" && <DoubleBatch />}
         {powersList[11].price === "active" && <PriceRunner />}
         {powersList[17].streak === "active" && <StreakBonus answerCount={answerCount} />}
+        {powersList[16].epic === "active" && <EpicChallenge answerCount={answerCount} />}
         
       </div>
       
@@ -194,6 +196,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "PRICE RUNNER"}))}>PRICE RUNNER</button>
       <button onClick={() => dispatch(activate_power({power_name: "STREAK BONUS"}))}>STREAK BONUS</button>
       <button onClick={() => dispatch(activate_power({power_name: "TRANSMUTATION"}))}>TRANSMUTATION</button>
+      <button onClick={() => dispatch(activate_power({power_name: "EPIC CHALLENGE"}))}>EPIC CHALLENGE</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
