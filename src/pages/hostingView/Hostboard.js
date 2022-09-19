@@ -104,9 +104,7 @@ useEffect(() => {
     }
   },[powersList[21].counter21_stats])
 
-  console.log(powersList[20].counter20_card)
-  console.log(powersList[20].leaderboard_card)
-  console.log(showWinMode)
+  
 
 
 

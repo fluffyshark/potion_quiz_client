@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react'
 import "./hostingView.css"
 import Hostboard from "./Hostboard.js"
 import Timer from "../../components/timer/Timer.js"
-import { activate_power, dectivate_power } from "../../redux/PowerReducer"
+import { activate_power } from "../../redux/PowerReducer"
 import { useSelector, useDispatch } from "react-redux"
 import {motion} from "framer-motion"
+import jukebox00 from "../../sound_assets/jukebox00.mp3"
+import jukebox01 from "../../sound_assets/jukebox01.mp3"
+import jukebox02 from "../../sound_assets/jukebox02.mp3"
+import jukebox03 from "../../sound_assets/jukebox03.mp3"
+import jukebox04 from "../../sound_assets/jukebox04.mp3"
+import jukebox05 from "../../sound_assets/jukebox05.mp3"
 
 // Hosting using Socket.io:
 // - Sockets are initiated at App.js and passed down to all children using props.
@@ -42,6 +48,14 @@ function HostingView(props) {
       console.log("FROM SERVER TO HOST.JS: ", data)
       socket.emit("gameData_from_host", data);
     })
+
+    socket.on("sending_jukebox_to_host", (data) => {
+      console.log("FROM JUKEBOX: ", data)
+      playSound(data.melody)
+    })
+
+
+    
 }, [socket])
 
 
@@ -53,7 +67,15 @@ function HostingView(props) {
   }
 
 
- 
+  function playSound(sound) {
+    if (sound === "jukebox00") {new Audio(jukebox00).play()}
+    if (sound === "jukebox01") {new Audio(jukebox01).play()}
+    if (sound === "jukebox02") {new Audio(jukebox02).play()}
+    if (sound === "jukebox03") {new Audio(jukebox03).play()}
+    if (sound === "jukebox04") {new Audio(jukebox04).play()}
+    if (sound === "jukebox05") {new Audio(jukebox05).play()}
+  }
+
 
   return (
     

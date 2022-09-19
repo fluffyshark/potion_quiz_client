@@ -106,6 +106,7 @@ function PotionsView(props_socket) {
       case 7: setSelectPlayer(["blessing", "GIVE GIFT"]); break;
       case 8: dispatch(activate_power({power_name: "TRANSMUTATION"})); break;
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
+      case 10: dispatch(activate_power({power_name: "JUKEBOX"})); playSound("blessing"); break;
       case 11: dispatch(activate_power({power_name: "PRICE RUNNER"})); playSound("blessing"); break;
       case 13: playSound("blessing"); 
                 const revealIngrd = Reveal(recipeList, potionsList); 
@@ -128,7 +129,7 @@ function PotionsView(props_socket) {
     dispatch(reduce_potion({id: recipe.id}))
 
     console.log(potionsList[recipe.id].amount)
-    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
+    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 10 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
     
   }
 

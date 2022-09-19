@@ -23,14 +23,18 @@ import PriceRunner from '../../components/powers/PriceRunner'
 import StreakBonus from '../../components/powers/StreakBonus'
 import Transmutation from '../../components/powers/Transmutation'
 import EpicChallenge from '../../components/powers/EpicChallenge'
+import JukeBox from '../../components/powers/JukeBox'
 
 
 
 var randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
 
-function QuizView() {
+function QuizView(all_props) {
 
   var props = {focus: "quiz"}
+  let socket = all_props.socket
+  let hostID = all_props.hostID
+  
 
   const [reveal, setReveal] = useState(false)
   const [question, setQuestion] = useState(religionQuestions.questions[randomQuestionNr].question)
@@ -163,6 +167,7 @@ function QuizView() {
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
       {powersList[7].gift === "active" && <ReceiveGiveGift />}
       {powersList[8].transmute === "active" && <Transmutation />}
+      {powersList[10].jukebox === "active" && <JukeBox socket={socket} hostID={hostID} />}
 
       <div className="studentQuiz_powerContainer">
         {powersList[3].protection === "active" && <Protection />}
@@ -197,6 +202,7 @@ function QuizView() {
       <button onClick={() => dispatch(activate_power({power_name: "STREAK BONUS"}))}>STREAK BONUS</button>
       <button onClick={() => dispatch(activate_power({power_name: "TRANSMUTATION"}))}>TRANSMUTATION</button>
       <button onClick={() => dispatch(activate_power({power_name: "EPIC CHALLENGE"}))}>EPIC CHALLENGE</button>
+      <button onClick={() => dispatch(activate_power({power_name: "JUKEBOX"}))}>JUKEBOX</button>
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>

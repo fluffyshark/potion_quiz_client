@@ -19,7 +19,7 @@ import io from "socket.io-client"
 //const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
  const socket = io.connect("http://localhost:3001")
 
-
+let ourHostID = ""
 
 function App() {
 
@@ -52,6 +52,8 @@ function App() {
       console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
     })
 
+    socket.on("host_id", (hostID) => {ourHostID = hostID})
+
     // Receiving potion effects from other players
     socket.on("potion_curse_blessing", (potionData) => {
       console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
@@ -81,7 +83,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<StartView socket={socket} />}></Route>  
-      <Route path="/quiz" element={<QuizView />}></Route>
+      <Route path="/quiz" element={<QuizView socket={socket} hostID={ourHostID} />}></Route>
       <Route path="/potions" element={<PotionsView socket={socket} />}></Route>
       <Route path="/craft" element={<CraftView socket={socket} />}></Route>
       <Route path="/buysell" element={<BuySell />}></Route>
