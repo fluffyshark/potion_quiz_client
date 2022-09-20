@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import io from "socket.io-client"
 
-//const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://potion-quiz-server.herokuapp.com/")
+//const socket = io.connect("http://localhost:3001")
 
 export var PlayerData = {playerName: "", cards: [0,0,0], gameCode: ""}
 
