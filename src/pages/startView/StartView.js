@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import "./startView.css"
-import "./responsive/ipadAir2.css"
+import "./responsive/tablet.css"
 import logo from  "../../image_assets/general/logo.png"
 import joinBtn from "../../image_assets/general/joinbtn.png"
 import hostBtn from "../../image_assets/general/hostbtn.png"

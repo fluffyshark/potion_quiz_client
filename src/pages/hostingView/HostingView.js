@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./hostingView.css"
+import "./responsive/tablet.css"
 import Hostboard from "./Hostboard.js"
 import Timer from "../../components/timer/Timer.js"
 import { activate_power } from "../../redux/PowerReducer"
