@@ -35,14 +35,26 @@ function Leaderboard() {
     "leaderboard_containter_rank04", "leaderboard_containter_rank05", "leaderboard_containter_rank06"
   ]
 
+
   const calculateRank = () => {
     let playersPointsAndNames = rankedPlayers
-    
-    // Award points for each card players have (bronze = 20) (silver = 50) (gold = 150)
-    gameStats.map((player) => {
-      let points = (player.cards[0] * 20) + (player.cards[1] * 50) + (player.cards[2] * 150)
-      playersPointsAndNames.push({name: player.playerName, coins: player.coins, cards: player.cards, points: points})
-    })
+
+    // Before any player crafted a card, gameStats is not an Array. But will become when gameStats is sent from server, at first potion crafted.
+    if (gameStats.hasOwnProperty('data')) {
+       // Award points for each card players have (bronze = 20) (silver = 50) (gold = 150)
+      gameStats.data.map((player) => {
+        let points = (player.cards[0] * 20) + (player.cards[1] * 50) + (player.cards[2] * 150)
+        playersPointsAndNames.push({name: player.playerName, coins: player.coins, cards: player.cards, points: points})
+      })
+    } else {
+      // Award points for each card players have (bronze = 20) (silver = 50) (gold = 150)
+      gameStats.map((player) => {
+        let points = (player.cards[0] * 20) + (player.cards[1] * 50) + (player.cards[2] * 150)
+        playersPointsAndNames.push({name: player.playerName, coins: player.coins, cards: player.cards, points: points})
+      })
+    } 
+
+   
     // Rank the array of players based of the amount of points
     playersPointsAndNames.sort((a, b) => b.points - a.points);
     console.log("playersPointsAndNames: ", playersPointsAndNames)
@@ -56,12 +68,19 @@ function Leaderboard() {
   }
 
 
+  // NEXT - FIX LEADERBOARD 
+  // 1. gameStats is not an array at start, no players have been .pushed yet
+  // 2. server not removing old players from other gameCodes
+
+
   useEffect(() => {
     console.log("Leaderboard gameStats: ", gameStats)
-    calculateRank()
+    setTimeout(function() {
+      calculateRank()
+    }, 1000);
   }, [gameStats])
 
-
+  
   return (
     <div className='leaderboardView'>
 
@@ -85,7 +104,7 @@ function Leaderboard() {
               rankedPlayers.map((player, i) => {
                 return (
                   
-                  <div className="leaderboard_rank_container" id={rankPlacement[i]} >
+                  <div key={i} className="leaderboard_rank_container" id={rankPlacement[i]} >
                       <div className='leaderboard_rank_container_name'>
                         <p>{player.name}</p>
                       </div>
