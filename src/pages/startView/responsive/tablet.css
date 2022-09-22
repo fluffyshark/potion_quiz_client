@@ -1,13 +1,24 @@
 /* iPad Air 2 - Safari viewport size: 768px x 921px, screen size: 768px x 1024px  */
 
-.startView {
-    width: 100%;
-    height: 100vh;
-}
-
 
 @media only screen and (max-width: 1000px) {
     
+
+    body {
+        min-height: 100vh;
+        /* mobile viewport bug fix */
+        min-height: -webkit-fill-available;
+      }
+      
+      html {
+        height: -webkit-fill-available;
+      }
+
+    .startView {
+        width: 100%;
+        height: 100vh;  
+    }
+
     .startView_top {
         width: 100%;
         height: 5%;

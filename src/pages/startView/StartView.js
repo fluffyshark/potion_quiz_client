@@ -12,6 +12,10 @@ import BackgroundMusic from "../../sound_assets/IntroBackgroundMusic.wav"
 import {motion} from "framer-motion"
 
 
+
+console.log("window.innerHeight", window.innerHeight)
+
+
 function StartView(props) {
 
   let socket = props.socket
