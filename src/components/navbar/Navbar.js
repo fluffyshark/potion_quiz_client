@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import "./navbar.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import money_icon from "../../image_assets/general/money_icon.png"
 import { useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'

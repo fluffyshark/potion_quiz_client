@@ -1,4 +1,7 @@
-.studentQuiz {
+
+
+
+  .studentQuiz {
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -224,5 +227,12 @@
       .disabledbutton {
         pointer-events: none;
     }
+
+
+
+
+
+
+
 
   

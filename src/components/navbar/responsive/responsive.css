@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1551px) { 
+@media screen and (max-width: 1550px) and (min-width: 1001px) { 
 
 
 
@@ -75,7 +75,7 @@
         align-items: center;
         justify-content: flex-end;
         justify-self: flex-end;
-       
+      
     
     }
     
@@ -96,6 +96,5 @@
 
 
 
+
 }
-
-
