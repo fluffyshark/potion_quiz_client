@@ -26,6 +26,7 @@
         color: white;
         font-size: 15px;
         margin-right: 30px;
+        margin-left: -15px;
         border: none;
         cursor: pointer;
         position: absolute;
@@ -219,7 +220,7 @@
     /*--WINMODE--*/
     
     .leaderboard_rank_container_name_winmode {
-        width: 26%;
+        width: 31%;
         height: 100%;
         display: flex;
         align-items: center;

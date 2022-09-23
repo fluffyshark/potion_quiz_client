@@ -114,8 +114,6 @@ function QuizView(all_props) {
         else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30))}
         else if (powersList[19].goldenPoints === "active") {dispatch(add_coins_amount(50))}
         else {dispatch(add_coins())}
-        
-
       }, 1000);
       
     } else {
@@ -187,8 +185,9 @@ function QuizView(all_props) {
       
 
       <Navbar focus={props} />
+{/*  
 
-      <button onClick={() => dispatch(activate_power({power_name: "SPEED UP"}))}>SPEED UP</button>
+<button onClick={() => dispatch(activate_power({power_name: "SPEED UP"}))}>SPEED UP</button>
       <button onClick={() => dispatch(activate_power({power_name: "DOUBLE POINTS"}))}>DOUBLE POTIONS</button>
       <button onClick={() => dispatch(activate_power({power_name: "TRIPPLE POINTS"}))}>TRIPPLE POTIONS</button>
       <button onClick={() => dispatch(activate_power({power_name: "GOLDEN POINTS"}))}>GOLDEN POTIONS</button>
@@ -203,6 +202,10 @@ function QuizView(all_props) {
       <button onClick={() => dispatch(activate_power({power_name: "TRANSMUTATION"}))}>TRANSMUTATION</button>
       <button onClick={() => dispatch(activate_power({power_name: "EPIC CHALLENGE"}))}>EPIC CHALLENGE</button>
       <button onClick={() => dispatch(activate_power({power_name: "JUKEBOX"}))}>JUKEBOX</button>
+
+
+*/}
+      
 
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>

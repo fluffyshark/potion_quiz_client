@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import "./timer.css"
+import "./responsive/tablet.css"
 
 
 

@@ -1,5 +1,4 @@
-@media only screen and (min-width: 1551px) { 
-
+@media screen and (max-width: 1550px) and (min-width: 1001px) {
 
     .startView {
         width: 100%;
@@ -15,19 +14,19 @@
     .startView_middle {
         width: 100%;
         height: 80%;
-        background-image: url("../../image_assets/general/background_image.png");
+        background-image: url("../../../image_assets/general/background_image.png");
         background-repeat: no-repeat;
         background-size: cover;
         display: flex;
+        align-items: center;
         flex-direction: column;
         align-items: center;
-        position: relative;
-        align-items: center;
         justify-content: center;
+        position: relative;
     }
     
     .startView_logo {
-       width: 770px;
+       width: 570px;
        position: absolute;
        top: 10px;
     }
@@ -40,12 +39,12 @@
     }
     
     .startView_btns {
-        width: 550px;
+        width: 400px;
         
     }
     
     .startView_or {
-        width: 60px;
+        width: 55px;
     }
     
     .startView_bottom {
@@ -53,6 +52,7 @@
         height: 10%;
         background-color: #2e1e12;
     }
+
 
 
 }

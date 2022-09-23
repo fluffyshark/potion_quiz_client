@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import { add_gameStats } from "../../redux/GameStatsReducer"
 import "./joinView.css"
+import "./responsive/tablet.css"
 import potion_rules from "../../image_assets/general/potion_rules.png"
 
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import "./startView.css"
+import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import logo from  "../../image_assets/general/logo.png"
 import joinBtn from "../../image_assets/general/joinbtn.png"
@@ -10,10 +11,6 @@ import hostBtn from "../../image_assets/general/hostbtn.png"
 import or from "../../image_assets/general/or.png"
 import BackgroundMusic from "../../sound_assets/IntroBackgroundMusic.wav"
 import {motion} from "framer-motion"
-
-
-
-console.log("window.innerHeight", window.innerHeight)
 
 
 function StartView(props) {
@@ -57,9 +54,12 @@ function StartView(props) {
       <div className="startView_top"></div>
       <div className="startView_middle">
         <img src={logo} alt="" className="startView_logo" />
-        <Link to="/join"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns" /></Link>
-        <img src={or} alt="" className="startView_or" />
-        <Link to="/host"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} src={hostBtn} alt="" className="startView_btns" /></Link>
+
+        <div className="startView_centerBtns">
+          <Link to="/join"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns" /></Link>
+          <img src={or} alt="" className="startView_or" />
+          <Link to="/host"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} src={hostBtn} alt="" className="startView_btns" /></Link>
+        </div>
       </div>
       <div className="startView_bottom"></div>
     </div>
