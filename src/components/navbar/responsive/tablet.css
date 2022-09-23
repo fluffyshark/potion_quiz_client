@@ -29,19 +29,19 @@
         justify-content: center;
         align-items: center;
         font-family: 'Luckiest Guy', cursive;
-        font-size: 20px;
+        font-size: 18px;
         color: white;
     }
     
     
     #navbar_title_quiz {
-        width: 80px;
+        width: 60px;
         background-color: #e8c242;
     }
-    #navbar_menu_title_potions {width: 115px; position: relative; display: flex; justify-content: center; align-items: center;}
-    #navbar_menu_title_craft {width: 85px; position: relative; display: flex; justify-content: center; align-items: center;}
-    #navbar_menu_title_buysell {width: 110px; position: relative; display: flex; justify-content: center; align-items: center;}
-    #navbar_menu_title_leaderboard {width: 150px; position: relative; display: flex; justify-content: center; align-items: center;}
+    #navbar_menu_title_potions {width: 100px; position: relative; display: flex; justify-content: center; align-items: center;}
+    #navbar_menu_title_craft {width: 75px; position: relative; display: flex; justify-content: center; align-items: center;}
+    #navbar_menu_title_buysell {width: 100px; position: relative; display: flex; justify-content: center; align-items: center;}
+    #navbar_menu_title_leaderboard {width: 135px; position: relative; display: flex; justify-content: center; align-items: center;}
     
     
     #power_blocker_potion {
@@ -82,14 +82,13 @@
     
     .player_money>img {
         height: 30px;
-        margin-right: 20px;
+        margin-right: 10px;
     }
     
     .player_money>p {
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'Luckiest Guy', cursive;
         color: white;
-        margin-right: 10px;
     }
 
 

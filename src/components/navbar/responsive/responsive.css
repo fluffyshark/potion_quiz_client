@@ -75,7 +75,7 @@
         align-items: center;
         justify-content: flex-end;
         justify-self: flex-end;
-      
+        gap: 10px;
     
     }
     
@@ -89,7 +89,6 @@
         font-family: 'Luckiest Guy', cursive;
         color: white;
         margin: 0;
-        margin-right: 10px;
     }
 
 

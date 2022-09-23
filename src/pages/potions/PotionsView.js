@@ -4,6 +4,8 @@ import Navbar from "../../components/navbar/Navbar"
 import LevelProgressBar from './LevelProgressBar';
 import {Reveal} from "../../components/powers/Reveal"
 import "./potionsView.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import { motion } from "framer-motion";
 import Icer from "../../components/powers/Icer"
 import MassFreeze from "../../components/powers/MassFreeze.js"
