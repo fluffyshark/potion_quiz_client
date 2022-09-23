@@ -1,3 +1,5 @@
+@media only screen and (min-width: 1551px) {  
+
 .mainContainer {
     position: relative;
     width: 228px;
@@ -35,4 +37,9 @@
 }
 .theBack>img {
     width: 228px;
+}
+
+
+
+
 }

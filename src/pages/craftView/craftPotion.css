@@ -1,3 +1,5 @@
+@media only screen and (min-width: 1551px) {  
+
 .craftPotion {
     width: 100%;
     height: calc(100vh - 10%);
@@ -80,4 +82,10 @@
     left: 74%;
     margin: 0;
     
+}
+
+
+
+
+
 }

@@ -1,5 +1,7 @@
 import React from 'react'
 import "./craftView.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import CraftPotion from "./CraftPotion.js"
 import { motion } from "framer-motion";
 import Icer from "../../components/powers/Icer"
@@ -62,7 +64,7 @@ function CraftView(props_socket) {
         if (craftingSlots[1] !== selected_id && craftingSlots[2] !== selected_id && craftingSlots[3] !== selected_id) {
           if (ingredientsList[selected_id].amount > 0) {
             dispatch(select_ingredients({id:0, selected_id: selected_id, total:ingredientsList[selected_id].amount, image: ingredientsList[selected_id].image_normal}))
-            document.getElementById("craftAmount1").style.display = "inherit"
+            document.getElementById("craftAmount1").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[0] = selected_id 
             dropIngredSound()
@@ -73,7 +75,7 @@ function CraftView(props_socket) {
         if (craftingSlots[0] !== selected_id && craftingSlots[2] !== selected_id && craftingSlots[3] !== selected_id) {
           if (ingredientsList[selected_id].amount > 0) {
             dispatch(select_ingredients({id:1, selected_id: selected_id, total:ingredientsList[selected_id].amount, image: ingredientsList[selected_id].image_normal}))  
-            document.getElementById("craftAmount2").style.display = "inherit"
+            document.getElementById("craftAmount2").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[1] = selected_id 
             dropIngredSound()
@@ -84,7 +86,7 @@ function CraftView(props_socket) {
         if (craftingSlots[0] !== selected_id && craftingSlots[1] !== selected_id && craftingSlots[3] !== selected_id) {
           if (ingredientsList[selected_id].amount > 0) {
             dispatch(select_ingredients({id:2, selected_id: selected_id, total:ingredientsList[selected_id].amount, image: ingredientsList[selected_id].image_normal})); 
-            document.getElementById("craftAmount3").style.display = "inherit"
+            document.getElementById("craftAmount3").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[2] = selected_id
             dropIngredSound() 
@@ -95,7 +97,7 @@ function CraftView(props_socket) {
         if (craftingSlots[0] !== selected_id && craftingSlots[1] !== selected_id && craftingSlots[2] !== selected_id) {
           if (ingredientsList[selected_id].amount > 0) {
             dispatch(select_ingredients({id:3, selected_id: selected_id, total:ingredientsList[selected_id].amount, image: ingredientsList[selected_id].image_normal})); 
-            document.getElementById("craftAmount4").style.display = "inherit"
+            document.getElementById("craftAmount4").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[3] = selected_id 
             dropIngredSound()

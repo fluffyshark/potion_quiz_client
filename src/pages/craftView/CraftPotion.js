@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./craftPotion.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import card_back from "../../image_assets/general/card_back.png"
 import { useSelector, useDispatch } from "react-redux"
 import {remove_for_crafting } from "../../redux/CraftReducer"
