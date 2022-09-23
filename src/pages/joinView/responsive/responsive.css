@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1551px) { 
+@media screen and (max-width: 1550px) and (min-width: 1001px) {
 
 
 
@@ -41,6 +41,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+       
     }
     
     .joinView_inputTitle {
@@ -48,6 +49,7 @@
         color: white;
         font-size: 35px;
         font-weight: bold;
+        
     }
     
     .joinView_inputfield {
@@ -85,10 +87,12 @@
     
     
     .rules_of_the_game {
-        width: 666px;
+        width: 490px;
     }
 
 
 
-}
 
+
+
+}
