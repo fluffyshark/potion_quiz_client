@@ -17,7 +17,7 @@
     }
     
     .potionView_middle_container {
-        width: 1024px;
+        width: 800px;
         height: 100%;
         background: rgb(190,146,116);
         background: radial-gradient(circle, rgba(190,146,116,1) 0%, rgba(109,89,76,1) 100%);
@@ -68,7 +68,7 @@
     
     
     .potionView_middle_level_btn {
-        width: 200px;
+        width: 175px;
         cursor: pointer;
         margin-top: 5px;
     }
@@ -81,7 +81,7 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 3%; 
+        gap: 2%; 
         margin-top: 10px;
     }
     
@@ -100,8 +100,8 @@
     .cards_amount_text {
         width: 20px;
         position: absolute;
-        top: 85%;
-        left: 9.2%;
+        top: 84%;
+        left: 8.2%;
         color: white;
         font-family: 'Luckiest Guy', cursive;
         font-size: 15px;
@@ -141,9 +141,12 @@
       
     }
     .bottom_recipe_container {
+        justify-content: center;
         height: 100%;
         width: auto;
+        display: flex;
         position: relative;
+        align-items: center;
     }
     .footer_ingred_amount {
         font-size: 10px;
@@ -152,13 +155,13 @@
         color: white;
         font-family: 'Luckiest Guy', cursive;
         position: absolute;
-        top: 70.5%;
-        left: 66%;
+        top: 63.5%;
+        left: 61%;
         text-align: center;
     }
     
-    .card_ingredient {height: 100%;}
-    .chosen_bottle {height: 90%;}
+    .card_ingredient {height: 90%;}
+    .chosen_bottle {height: 85%;}
     
     .potionView_footer_actions {
         height: 60px;
@@ -166,7 +169,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        gap: 15px;
+        gap: 10px;
         position: absolute;
         top: -60px;
         z-index: 100;
@@ -178,9 +181,9 @@
     }
     
     .potion_action_btns {
-        width: 120px;
-        height: 35px;
-        font-size: 20px;
+        width: 110px;
+        height: 30px;
+        font-size: 18px;
         color: white;
         font-family: 'Luckiest Guy', cursive;
         border-radius: 5px;
@@ -189,13 +192,96 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 10px;
+        margin-bottom: 6px;
         cursor: pointer;
     }
     .potion_action_btns:hover {
         background: #e8c242;
     }
+
+
+
+
+
+    /*  POTION INFO    */
+
+
+
+    .potionInfo_container {
+        z-index: 500;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+    }
     
+    #potionInfo {
+        display: none;
+    }
+    
+    .potionInfo_scroll {
+        width: 360px;
+        height: 507px;
+        background-image: url("../../../image_assets/general/scroll.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+    .potionInfo_scroll_top {
+      width: 100%; 
+      height: 90px; 
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .potionInfo_scroll_top>img {height: 35px; margin-right: 30px; cursor: pointer;}
+    .potionInfo_scroll_title {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;  
+      flex-direction: column;
+      font-size: 28px;
+      font-family: 'Luckiest Guy', cursive;
+    }
+    .potionInfo_scroll_description {
+      width: 84%;
+      height: auto;
+      text-align: center;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 17px;
+    }
+    .potionInfo_scroll_flask {
+      width: 85%;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .potionInfo_scroll_flask>img {height: 90px;}
+    .potionInfo_scroll_effect {
+      width: 85%;
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    #effectTitle {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 19px;
+      margin-bottom: 5px;
+    }
+    .potionInfo_scroll_effect>p {
+      margin: 0;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 16px;
+    }
 
 
 }
