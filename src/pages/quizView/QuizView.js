@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./quizView.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import Navbar from "../../components/navbar/Navbar"
 import { useSelector, useDispatch } from "react-redux"
 import { add_coins, add_coins_amount } from "../../redux/CoinsReducer.js"
@@ -185,9 +187,10 @@ function QuizView(all_props) {
       
 
       <Navbar focus={props} />
-{/*  
+  
+    {/* 
 
-<button onClick={() => dispatch(activate_power({power_name: "SPEED UP"}))}>SPEED UP</button>
+      <button onClick={() => dispatch(activate_power({power_name: "SPEED UP"}))}>SPEED UP</button>
       <button onClick={() => dispatch(activate_power({power_name: "DOUBLE POINTS"}))}>DOUBLE POTIONS</button>
       <button onClick={() => dispatch(activate_power({power_name: "TRIPPLE POINTS"}))}>TRIPPLE POTIONS</button>
       <button onClick={() => dispatch(activate_power({power_name: "GOLDEN POINTS"}))}>GOLDEN POTIONS</button>
@@ -203,8 +206,8 @@ function QuizView(all_props) {
       <button onClick={() => dispatch(activate_power({power_name: "EPIC CHALLENGE"}))}>EPIC CHALLENGE</button>
       <button onClick={() => dispatch(activate_power({power_name: "JUKEBOX"}))}>JUKEBOX</button>
 
-
 */}
+
       
 
       
