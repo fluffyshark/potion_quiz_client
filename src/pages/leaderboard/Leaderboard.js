@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./leaderboard.css"
+import "./responsive/responsive.css"
+import "./responsive/leaderboardTablet.css"
 import Navbar from '../../components/navbar/Navbar'
 import leaderboard from "../../image_assets/general/leaderboard.png"
 import Icer from "../../components/powers/Icer"
@@ -31,8 +33,8 @@ function Leaderboard() {
   const powersList = useSelector((state) => state.powers.value)
 
   let rankPlacement = [
-    "leaderboard_containter_rank01", "leaderboard_containter_rank02", "leaderboard_containter_rank03",
-    "leaderboard_containter_rank04", "leaderboard_containter_rank05", "leaderboard_containter_rank06"
+    "scoreboard_containter_rank01", "scoreboard_containter_rank02", "scoreboard_containter_rank03",
+    "scoreboard_containter_rank04", "scoreboard_containter_rank05", "scoreboard_containter_rank06"
   ]
 
 
@@ -82,7 +84,7 @@ function Leaderboard() {
 
   
   return (
-    <div className='leaderboardView'>
+    <div className='scoreboardView'>
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
@@ -91,11 +93,11 @@ function Leaderboard() {
       <Navbar focus={props}/>
         
         <div className="leaderboard_middle">
-          <div className="leaderboard_middle_container">
-            <div className="leaderboard_image_container">
-              <img src={leaderboard} alt="" />
+          <div id="leaderboard_middle_container_id" className="leaderboard_middle_container">
+            <div className="scoreboard_image_container">
+              <img id="leaderboardImage" src={leaderboard} alt="" />
 
-              <p className="leaderboard_your_rank">YOUR RANK 10 - 98 456</p>
+              <p className="player_leaderboard_your_rank">YOUR RANK 10 - 98 456</p>
 
 
               {
@@ -104,12 +106,12 @@ function Leaderboard() {
               rankedPlayers.map((player, i) => {
                 return (
                   
-                  <div key={i} className="leaderboard_rank_container" id={rankPlacement[i]} >
-                      <div className='leaderboard_rank_container_name'>
+                  <div key={i} className="scoreboard_rank_container" id={rankPlacement[i]} >
+                      <div className='scoreboard_rank_container_name'>
                         <p>{player.name}</p>
                       </div>
                       
-                      <div className='leaderboard_rank_container_cards'>
+                      <div className='scoreboard_rank_container_cards'>
                         <p className='leaderboard_bronze_cards'>{player.cards[0]}x</p>
                         <img src={bronze_card_display} alt="" />
                         <p className='leaderboard_silver_cards'>{player.cards[1]}x</p>
@@ -118,7 +120,7 @@ function Leaderboard() {
                         <img src={gold_card_display} alt="" />
                       </div>
                       
-                      <div className='leaderboard_rank_container_coins'>
+                      <div className='scoreboard_rank_container_coins'>
                         <p>{player.coins}</p>
                         <img src={money_icon} alt="" />
                       </div>

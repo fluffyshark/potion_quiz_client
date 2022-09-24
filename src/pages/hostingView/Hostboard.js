@@ -139,7 +139,7 @@ useEffect(() => {
                   {rankedPlayers.map((player, i) => {
                     return (
                     
-                      <div className="leaderboard_rank_container" id={rankPlacement[i]} >
+                      <div key={i} className="leaderboard_rank_container" id={rankPlacement[i]} >
                           <div className='leaderboard_rank_container_name'>
                             <p>{player.name}</p>
                           </div>

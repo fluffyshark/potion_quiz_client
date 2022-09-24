@@ -156,6 +156,13 @@
         margin-left: 10px;
         text-shadow: 0px 3px #d59629;
     } 
+    .leaderboard_rank_container_cards {
+        width: 36%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
     
     .leaderboard_rank_container_cards>img {
         height: 50%;
