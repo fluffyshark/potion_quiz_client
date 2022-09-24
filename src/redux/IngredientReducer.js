@@ -24,7 +24,7 @@ export const ingredientSlice = createSlice({
         },
 
         giveGift_ingredients: (state, action) => {
-            console.log(action.payload.colletArray)
+         //   console.log(action.payload.colletArray)
             for (let i = 0; i < action.payload.colletArray.length; i++) {
                 state.value.map((ingredient) => {
                     if (ingredient.id === action.payload.colletArray[i]) {

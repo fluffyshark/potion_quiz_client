@@ -64,7 +64,7 @@
     
     .footer_cauldrun {
         height: 175%; 
-        transform: translateY(-50px); 
+        transform: translateY(-40px); 
         cursor: pointer;
         opacity: 0.5;
         pointer-events:none;
@@ -93,7 +93,7 @@
     }
 
     .craftView_middle_ingred_container {
-        width: 315px;
+        width: 335px;
         height: 100%;
         display: flex;
         flex-wrap: wrap;
@@ -111,6 +111,8 @@
         position: relative;
         text-align: center;
         cursor: pointer;
+        margin-left: 5px;
+        margin-top: 5px;
     }
 
     .craftView_ingred_amount {
@@ -143,6 +145,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-left: 5px;
     }
 
     .selected_ingredients_amount {

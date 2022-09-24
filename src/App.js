@@ -49,14 +49,14 @@ function App() {
   useEffect(() => {
     socket.on("sending_server_gameData", (data) => {
       dispatch(add_gameStats(data))
-      console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
+    //  console.log("NEW CARD - FROM SEVER TO APP.js: ", data)
     })
 
     socket.on("host_id", (hostID) => {ourHostID = hostID})
 
     // Receiving potion effects from other players
     socket.on("potion_curse_blessing", (potionData) => {
-      console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
+    //  console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
       if (potionData.potionName === "GIFT EXP") {dispatch(add_exp_amount(potionData.effect))}
       if (potionData.potionName === "GIVE GIFT") {dispatch(power_special(potionData)); dispatch(activate_power({power_name: "GIVE GIFT"}))}
       if (potionData.potionName === "BLOCKER") {dispatch(activate_power({power_name: "BLOCKER"})); dispatch(power_special(potionData))}

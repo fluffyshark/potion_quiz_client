@@ -73,7 +73,7 @@
     
     .footer_cauldrun {
         height: 200%; 
-        transform: translateY(-50px); 
+        transform: translateY(-40px); 
         cursor: pointer;
         opacity: 0.5;
         pointer-events:none;

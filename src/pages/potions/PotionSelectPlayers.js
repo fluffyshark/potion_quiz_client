@@ -121,12 +121,7 @@ function PotionSelectPlayers(props) {
     } // End of selectChosenPlayers()
 
 
-    
-    // NEXT - MOVE playerLimitByPotion and powerEffect TO A NEW FILE
-    // NEXT - ADD POWER EFFECT TO FUNCTION
 
-
-    console.log("emitData", emitData)
 
     return (
         <div className='potionSelectPlayers'>

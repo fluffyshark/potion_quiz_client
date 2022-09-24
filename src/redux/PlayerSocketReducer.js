@@ -15,12 +15,12 @@ export const playerStatsSlice = createSlice({
             state.value.playerName = action.payload.playerName
             state.value.gameCode = action.payload.gameCode
             state.value.cards = action.payload.cards
-            console.log("playerName", state.value.playerName)
+        //    console.log("playerName", state.value.playerName)
         },
 
         add_playerPoints: (state, action) => {
             state.value.playerPoints += action.payload  
-            console.log("POINTS FOR NEW POTION: ", action.payload, "PLAYERDATA", PlayerData ) 
+         //   console.log("POINTS FOR NEW POTION: ", action.payload, "PLAYERDATA", PlayerData ) 
             socket.emit("sending_player_data", { player: state.value.playerName, cards: state.value.cards, gameCode: state.value.gameCode });
         }
     }

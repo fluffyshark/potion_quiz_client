@@ -36,7 +36,6 @@ function PotionsView(props_socket) {
   const [recipe, setRecipe] = useState({id: 0, ingred1: 0, ingred2: 0, ingred3: 0, ingred4: 0, flask: 0, amount1: 0, amount2: 0, amount3: 0, amount4: 0})
   const [playerLevel, setPlayerLevel] = useState(1)
   const [selectPlayer, setSelectPlayer] = useState(["hidden", "hidden", "hidden"])
-  const [displayInfo, setDisplayInfo] = useState(false)
 
   let navigate = useNavigate()
   const dispatch = useDispatch()
@@ -94,7 +93,6 @@ function PotionsView(props_socket) {
   }
 
   
-  // CONTINUE CONNECTING POTIONS WITH POWER EFFECTS
   // Clicking on "USE"
   const activatePotion = () => {
     switch (recipe.id) {
@@ -128,9 +126,10 @@ function PotionsView(props_socket) {
 
     }
 
+    // Removes one potion from user
     dispatch(reduce_potion({id: recipe.id}))
 
-    console.log(potionsList[recipe.id].amount)
+    // If potion used is on self, then navigate to "QuizView"
     if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 10 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
     
   }

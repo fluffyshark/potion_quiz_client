@@ -83,13 +83,15 @@
         align-items: center;
         justify-content: center;
         gap: 2%; 
-        margin-top: 10px;
+        margin-top: -10px;
     }
     
     .cardBox {
         width: 20%;
         position: relative;
         text-align: center;
+        margin-left: 10px;
+        margin-top: 10px;
     }
     
     .cards {

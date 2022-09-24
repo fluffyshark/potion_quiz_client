@@ -36,7 +36,7 @@ function JoinView(props) {
     const joinRoom = () => {
       if (gameCode !== "") {
         socket.emit("join_room", gameCode);
-        console.log("JOIN join room working")
+      //  console.log("JOIN join room working")
       }
     };
 
@@ -46,7 +46,7 @@ function JoinView(props) {
       socket.on("start_game", (data) => {
         dispatch(add_gameStats({data}))
         navigate('/quiz')
-        console.log("Start Game - gameData", data)
+     //   console.log("Start Game - gameData", data)
       })
   }, [socket]);
 

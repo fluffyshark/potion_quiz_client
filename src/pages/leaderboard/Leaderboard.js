@@ -59,7 +59,7 @@ function Leaderboard() {
    
     // Rank the array of players based of the amount of points
     playersPointsAndNames.sort((a, b) => b.points - a.points);
-    console.log("playersPointsAndNames: ", playersPointsAndNames)
+  //  console.log("playersPointsAndNames: ", playersPointsAndNames)
 
     // Remove all players except to top 6
     for (let i = 0; i < playersPointsAndNames.length; i++) {
@@ -76,7 +76,7 @@ function Leaderboard() {
 
 
   useEffect(() => {
-    console.log("Leaderboard gameStats: ", gameStats)
+  //  console.log("Leaderboard gameStats: ", gameStats)
     setTimeout(function() {
       calculateRank()
     }, 1000);
