@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1000px) { 
+@media only screen and (max-width: 1100px) { 
 
 
 
@@ -230,14 +230,49 @@
         }
 
 
+        /* PREVENTS LANDSCAPE MODE FOR TABLETS */
+        @media screen and (orientation: landscape) {
+          html {
+              background-color: #a88269;
+              background-image: url("../../../image_assets/general/turn_device.png");
+              background-repeat: no-repeat;
+              background-position: center;
+              background-attachment: fixed;
+              background-size: 20%;
+          }
+          
+          .studentQuiz {display: none;}
+          .potionsView {display: none;}
+          .craftView {display: none;}
+          .buySellView {display: none;}
+          .scoreboardView {display: none;}
+        }
 
 
-    
 
-    
+        /* PREVENTS SMARTPHONES */
+        @media only screen and (max-width: 699px) { 
 
-    
+          html {
+            background-color: #a88269;
+            background-image: url("../../../image_assets/general/no_phone.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: 50%;
+        }
+        
+        .studentQuiz {display: none;}
+        .potionsView {display: none;}
+        .craftView {display: none;}
+        .buySellView {display: none;}
+        .scoreboardView {display: none;}
+      }
+
+        
 
 
 
 }
+
+
