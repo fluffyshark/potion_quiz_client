@@ -50,9 +50,20 @@
      .startView_or {
          width: 60px;
      }
-  }
+
+     
+     
+     @media screen and (orientation:landscape) { 
+        .startView {
+            display: none;
+            transform: rotate(90 deg)
+        }
+    }
+  
+    }
 
 
 
+ 
 
 
