@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./buySell.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import { motion } from "framer-motion";
 import Navbar from "../../components/navbar/Navbar"
 import Icer from "../../components/powers/Icer"
