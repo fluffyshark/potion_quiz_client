@@ -10,7 +10,7 @@ import Protection from "../../components/powers/Protection.js"
 import DoublePoints from "../../components/powers/DoublePoints.js"
 import {religionQuestions} from "./questions.js"
 import {motion} from "framer-motion"
-import coinGain from "../../sound_assets/CoinGain.wav"
+import coinGain from "../../sound_assets/CoinGain.mp3"
 import Icer from "../../components/powers/Icer.js"
 import MassFreeze from "../../components/powers/MassFreeze.js"
 import SpeedUp from '../../components/powers/SpeedUp'

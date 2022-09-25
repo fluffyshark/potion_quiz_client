@@ -13,12 +13,12 @@ import no_ingred from "../../image_assets/general/no_ingred.png"
 import caldrun from "../../image_assets/general/caldrun.png"
 import {select_ingredients, deSelect_ingredients} from "../../redux/CraftReducer"
 import { increase_ingredients, decrease_ingredients } from "../../redux/IngredientReducer.js"
-import ingdrop1 from "../../sound_assets/Ingdrop1.wav"
-import ingdrop2 from "../../sound_assets/Ingdrop2.wav"
-import ingdrop3 from "../../sound_assets/Ingdrop3.wav"
-import ingdrop4 from "../../sound_assets/Ingdrop4.wav"
-import ingdrop5 from "../../sound_assets/Ingdrop5.wav"
-import craftPotionSound from "../../sound_assets/CraftPotion.wav"
+import ingdrop1 from "../../sound_assets/Ingdrop1.mp3"
+import ingdrop2 from "../../sound_assets/Ingdrop2.mp3"
+import ingdrop3 from "../../sound_assets/Ingdrop3.mp3"
+import ingdrop4 from "../../sound_assets/Ingdrop4.mp3"
+import ingdrop5 from "../../sound_assets/Ingdrop5.mp3"
+import craftPotionSound from "../../sound_assets/CraftPotion.mp3"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 
 var craftingSlots = [200,200,200,200]

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { dectivate_power } from "../../redux/PowerReducer"
 import flasks from "../../image_assets/FlaskImageExport"
-import splash from "../../sound_assets/splash.wav"
+import splash from "../../sound_assets/splash.mp3"
 import blocker4 from "../../image_assets/general/slime_blocker4.png"
 import {motion} from "framer-motion"
 

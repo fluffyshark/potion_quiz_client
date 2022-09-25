@@ -9,7 +9,6 @@ import logo from  "../../image_assets/general/logo.png"
 import joinBtn from "../../image_assets/general/joinbtn.png"
 import hostBtn from "../../image_assets/general/hostbtn.png"
 import or from "../../image_assets/general/or.png"
-import BackgroundMusic from "../../sound_assets/IntroBackgroundMusic.wav"
 import {motion} from "framer-motion"
 
 
@@ -18,11 +17,11 @@ function StartView(props) {
   let socket = props.socket
   const dispatch = useDispatch()
   
-  
+  /*
   function playSound(sound) {
     if (sound === "BackgroundMusic") {new Audio(BackgroundMusic).play()}
   }
-
+*/
 
   function hostGame() {
     
@@ -46,7 +45,7 @@ function StartView(props) {
     // Send host data to redux
     dispatch(add_playerStartData({playerName: "HOST", playerPoints: 0, gameCode: String(hostCode), displayCode: displayCode}))
 
-    playSound("BackgroundMusic")
+//    playSound("BackgroundMusic")
   }
 
 
