@@ -77,6 +77,25 @@
   .scoreboardView {display: none;}
 }
 
+@media only screen and (max-height: 500px) { 
+
+    html {
+      background-color: #a88269;
+      background-image: url("../../../image_assets/general/no_phone.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: 50%;
+  }
+  
+  .startView {display:none}
+  .studentQuiz {display: none;}
+  .potionsView {display: none;}
+  .craftView {display: none;}
+  .buySellView {display: none;}
+  .scoreboardView {display: none;}
+}
+
 
  
 
