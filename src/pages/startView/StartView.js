@@ -26,24 +26,25 @@ function StartView(props) {
 
   function hostGame() {
     
-    // Generate random number
-    const randomNum = (Math.floor(Math.random() * 999999999))
-        
+    // Generate random number, that will be the gameCode (now called hostCode)
+    const hostCode = (Math.floor(Math.random() * 999999999))
+
     // Turn number into array
     let myFunc = num => Number(num);
-    var intArr = Array.from(String(randomNum), myFunc);
+    var intArr = Array.from(String(hostCode), myFunc);
   
     // Add space between numbers
     intArr.splice(3, 0, " ");
     intArr.splice(7, 0, " ");
-  
+    
     // Turn array into string
-    let hostCode = intArr.join("")
+    let displayCode = intArr.join("")
 
     // Host also need to join the same socket.io room to communicate with players in the room
-    socket.emit("join_room", hostCode);
+    socket.emit("join_room", String(hostCode));
 
-    dispatch(add_playerStartData({playerName: "HOST", playerPoints: 0, gameCode: hostCode}))
+    // Send host data to redux
+    dispatch(add_playerStartData({playerName: "HOST", playerPoints: 0, gameCode: String(hostCode), displayCode: displayCode}))
 
     playSound("BackgroundMusic")
   }

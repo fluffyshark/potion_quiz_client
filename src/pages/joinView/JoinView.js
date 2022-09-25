@@ -31,6 +31,12 @@ function JoinView(props) {
       socket.emit("player_joining", { nickname, cards: [0,0,0], gameCode });
       dispatch(add_playerStartData({playerName: nickname, cards: [0,0,0], gameCode: gameCode}))
     };
+
+    const configureGameCode = (playerGameCode) => {
+      // Remove potiontial whitespace from gameCode
+      const gameCodeNoWhitespace = playerGameCode.replace(/ /g,'')
+      setGameCode(gameCodeNoWhitespace)
+    }
   
     // Join room send
     const joinRoom = () => {
@@ -39,6 +45,8 @@ function JoinView(props) {
       //  console.log("JOIN join room working")
       }
     };
+
+    // NEXT - REMOVE SPACES FROM PLAYER WRITTEN GAMECODE IF ANY
 
 
     // Start game receive
@@ -62,7 +70,7 @@ function JoinView(props) {
         { viewContent === "gamecode" &&
            <div className="joinView_inputContainer">
                 <p className="joinView_inputTitle">Game Code</p>
-                <input type="text" className="joinView_inputfield" placeholder='Enter code here...' onChange={(e) => setGameCode(e.target.value)}/>
+                <input type="text" className="joinView_inputfield" placeholder='Enter code here...' onChange={(e) => configureGameCode(e.target.value)}/>
                 <div onClick={() => {switchViewContent()}} className="joinView_inputBtn">Next</div>
            </div>
         }

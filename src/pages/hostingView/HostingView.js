@@ -15,11 +15,11 @@ import jukebox05 from "../../sound_assets/jukebox05.mp3"
 
 // Hosting using Socket.io:
 // - Sockets are initiated at App.js and passed down to all children using props.
-// - At StartView, when clicking host button a random 9 digit number (gameCode) are generated and passed to playerStats by redux.
+// - At StartView, when clicking host button a random 9 digit number (gameCode and edited displayCode) are generated and passed to playerStats by redux.
 // - At StartView, clicking host button also make that client join socket room using the gameCode as room code.
-// - At HostView, the gameCode is collected by redux and displayed in view.
-// - At JoinView, the players write the gameCode that are visually displayed in HostView on another device (projector or other monitor)
-// - At JoinView, players join the same room as the host using the gameCode and their nickname are displayed on the host's view via socket.io.
+// - At HostView, the displayCode is collected by redux and displayed in view.
+// - At JoinView, the players write the displayCode that are visually displayed in HostView on another device (projector or other monitor)
+// - At JoinView, players join the same room as the host using the displayCode (turned into gameCode) and their nickname are displayed on the host's view via socket.io.
 
 function HostingView(props) {
 
@@ -37,6 +37,7 @@ function HostingView(props) {
   // Show players who joined room
   useEffect(() => {
     socket.on("player_accepted", (data) => {
+      console.log("player_accepted", data)
       setPlayersJoined(playersJoined => [...playersJoined, data.nickname]);
     })
 
@@ -100,8 +101,8 @@ function HostingView(props) {
           <>
 
             <div className="hostingView_middle">
-              <p className="joinDesc">Go to magicpotions.com/join and enter:</p>
-              <p className="joinCode">{playerStats.gameCode}</p>
+              <p className="joinDesc">Go to potionquiz.com and enter:</p>
+              <p className="joinCode">{playerStats.displayCode}</p>
             </div>
             
             <div className="hostingView_bottom">
