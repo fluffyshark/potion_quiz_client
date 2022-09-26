@@ -70,23 +70,54 @@ function Navbar(props) {
     console.log(playerCoins.total)
   }, [powersList[6].poison] )
 
+
+  function changePage(page) {
+    playSound("page")
+    
+    setTimeout(function() {
+      if (page === "quiz") {navigate('/quiz')}
+      if (page === "potions") {navigate('/potions')}
+      if (page === "craft") {navigate('/craft')}
+      if (page === "buysell") {navigate('/buysell')}
+      if (page === "leaderboard") {navigate('/leaderboard')}
+    }, 10);
+  }
+ 
+
   return (
     <div className='navbar'>
 
         
 
       <div className="space_filler_left"></div>
-        <div className='navbar_menu' >
-          <Link onClick={() => playSound("page")} className='link' to="/quiz"><div className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div></Link>
-          <Link onClick={() => playSound("page")} className='link' to="/potions"><div className="navbar_menu_title" id="navbar_menu_title_potions">POTIONS <img id="power_blocker_potion" src={blocker1} alt="" /></div></Link>
-          <Link onClick={() => playSound("page")} className='link' to="/craft"><div className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT <img id="power_blocker_craft" src={blocker2} alt="" /></div></Link>
-          <Link onClick={() => playSound("page")} className='link' to="/buysell"><div className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL <img id="power_blocker_buysell" src={blocker3} alt="" /></div></Link>
-          <Link onClick={() => playSound("page")} className='link' to="/leaderboard"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD <img id="power_blocker_leaderboard" src={blocker4} alt="" /></div></Link>
-        </div>
-        <div className="player_money">
-          <p id="money_points">{playerCoins.total}</p>
-          <img src={money_icon} alt="" />
-        </div>
+
+
+    {/* JUST TO TEST TO QUEUE SOUND
+      <div className='navbar_menu' >
+        <Link onClick={() => playSound("page")} className='link' to="/quiz"><div className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div></Link>
+        <Link onClick={() => playSound("page")} className='link' to="/potions"><div className="navbar_menu_title" id="navbar_menu_title_potions">POTIONS <img id="power_blocker_potion" src={blocker1} alt="" /></div></Link>
+        <Link onClick={() => playSound("page")} className='link' to="/craft"><div className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT <img id="power_blocker_craft" src={blocker2} alt="" /></div></Link>
+        <Link onClick={() => playSound("page")} className='link' to="/buysell"><div className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL <img id="power_blocker_buysell" src={blocker3} alt="" /></div></Link>
+        <Link onClick={() => playSound("page")} className='link' to="/leaderboard"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD <img id="power_blocker_leaderboard" src={blocker4} alt="" /></div></Link>
+      </div>
+  */}
+
+      <div className='navbar_menu' >
+        <div onClick={() => changePage("quiz")} className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div>
+        <div onClick={() => changePage("potions")} className="navbar_menu_title" id="navbar_menu_title_potions">POTIONS <img id="power_blocker_potion" src={blocker1} alt="" /></div>
+        <div onClick={() => changePage("craft")} className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT <img id="power_blocker_craft" src={blocker2} alt="" /></div>
+        <div onClick={() => changePage("buysell")} className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL <img id="power_blocker_buysell" src={blocker3} alt="" /></div>
+        <div onClick={() => changePage("leaderboard")} className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD <img id="power_blocker_leaderboard" src={blocker4} alt="" /></div>
+      </div>
+
+
+
+
+      <div className="player_money">
+        <p id="money_points">{playerCoins.total}</p>
+        <img src={money_icon} alt="" />
+      </div>
+
     </div>
   )
 }
