@@ -18,7 +18,7 @@
       var AudioContext = window.AudioContext || window.webkitAudioContext;
       var context = new AudioContext(); // Make it crossbrowser
       var gainNode = context.createGain();
-      gainNode.gain.value = 0.1; // set volume to 100%
+      gainNode.gain.value = 1; // set volume to 100%
       var yodelBuffer = void 0;
 
       // The Promise-based syntax for BaseAudioContext.decodeAudioData() is not supported in Safari(Webkit).
