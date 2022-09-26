@@ -57,7 +57,6 @@
         font-family: 'Luckiest Guy', cursive;
         margin: 0;
         margin-left: 10px;
-        text-shadow: 0px 3px #d59629;
     } 
 
     .scoreboard_rank_container_cards {
@@ -77,10 +76,12 @@
         color: white;
     }
     
+    /*
     .leaderboard_bronze_cards {text-shadow: 0px 3px #d59629;}
     .leaderboard_silver_cards {text-shadow: 0px 3px #929394;}
     .leaderboard_gold_cards {text-shadow: 0px 3px #e2b00d;}
-    
+    */
+
     .scoreboard_rank_container_coins {
         width: 19%;
         height: 100%;
@@ -94,7 +95,6 @@
         font-family: 'Luckiest Guy', cursive;
         margin: 0;
         margin-right: 10px;
-        text-shadow: 0px 3px #d59629;
     }
     .scoreboard_rank_container_coins>img {
         height: 40%;

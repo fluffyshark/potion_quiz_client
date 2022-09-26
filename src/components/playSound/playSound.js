@@ -38,11 +38,11 @@
           case "jukebox03": url = "https://potionquiz.com/sounds/jukebox03.mp3"; break;
           case "jukebox04": url = "https://potionquiz.com/sounds/jukebox04.mp3"; break;
           case "jukebox05": url = "https://potionquiz.com/sounds/jukebox05.mp3"; break;
-          case "Ingdrop1": url = "https://potionquiz.com/sounds/Ingdrop1.mp3"; break;
-          case "Ingdrop2": url = "https://potionquiz.com/sounds/Ingdrop2.mp3"; break;
-          case "Ingdrop3": url = "https://potionquiz.com/sounds/Ingdrop3.mp3"; break;
-          case "Ingdrop4": url = "https://potionquiz.com/sounds/Ingdrop4.mp3"; break;
-          case "Ingdrop5": url = "https://potionquiz.com/sounds/Ingdrop5.mp3"; break;
+          case "drop01": url = "https://potionquiz.com/sounds/Ingdrop1.mp3"; break;
+          case "drop02": url = "https://potionquiz.com/sounds/Ingdrop2.mp3"; break;
+          case "drop03": url = "https://potionquiz.com/sounds/Ingdrop3.mp3"; break;
+          case "drop04": url = "https://potionquiz.com/sounds/Ingdrop4.mp3"; break;
+          case "drop05": url = "https://potionquiz.com/sounds/Ingdrop5.mp3"; break;
           case "craftPotionSound": url = "https://potionquiz.com/sounds/CraftPotion.mp3"; break;
           case "CoinSpend": url = "https://potionquiz.com/sounds/CoinSpend.mp3"; break;
           default:
@@ -70,9 +70,6 @@
       window.setTimeout(function(){
         play(yodelBuffer);
       }, 100);
-      
-      
-
       
    
 

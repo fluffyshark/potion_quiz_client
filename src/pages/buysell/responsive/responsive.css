@@ -81,6 +81,8 @@
     .buySellView_visit_market {
         width: 200px;
         cursor: pointer;
+        pointer-events: none;
+        opacity: 0.4;
     }
     
     
