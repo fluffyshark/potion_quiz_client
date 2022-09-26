@@ -31,12 +31,13 @@
             break;
             
         }
+        console.log("url", url)
         return url
       }
       
 
       // The Promise-based syntax for BaseAudioContext.decodeAudioData() is not supported in Safari(Webkit).
-      window.fetch(soundEffect)
+      window.fetch(soundEffect())
         .then(response => response.arrayBuffer())
         .then(arrayBuffer => context.decodeAudioData(arrayBuffer,
            audioBuffer => {
