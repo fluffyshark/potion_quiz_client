@@ -21,8 +21,8 @@ function Navbar(props) {
   const playerCoins = useSelector((state) => state.coins.value)
   const powersList = useSelector((state) => state.powers.value)
   
-  const audioContext = new AudioContext()
-  const audio = new Audio(pageturn)
+  //const audioContext = new AudioContext()
+  //const audio = new Audio(pageturn)
 
   function playSound(sound) {
  //   if (audioContext.state === "suspended") {
