@@ -1,5 +1,5 @@
 
-  (function () {
+  export function playYoddle () {
 
     // Check if the browser supports web audio. Safari wants a prefix.
     if ('AudioContext' in window || 'webkitAudioContext' in window) {
@@ -19,7 +19,7 @@
       var context = new AudioContext(); // Make it crossbrowser
       var gainNode = context.createGain();
       gainNode.gain.value = 1; // set volume to 100%
-      var playButton = document.querySelector('#play');
+    //  var playButton = document.querySelector('#play');
       var yodelBuffer = void 0;
 
       // The Promise-based syntax for BaseAudioContext.decodeAudioData() is not supported in Safari(Webkit).
@@ -33,10 +33,10 @@
               console.error(error)
           ))
 
-      playButton.onclick = function () {
-        return play(yodelBuffer);
-      };
-
+    //  playButton.onclick = function () {
+    //    return play(yodelBuffer);
+    //  };
+      play(yodelBuffer)
       // Play the file every 2 seconds. You won't hear it in iOS until the audio context is unlocked.
       window.setInterval(function(){
         play(yodelBuffer);
@@ -77,4 +77,3 @@
       unlock();
     }
   }
-)();

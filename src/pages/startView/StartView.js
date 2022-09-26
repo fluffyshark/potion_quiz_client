@@ -10,6 +10,7 @@ import joinBtn from "../../image_assets/general/joinbtn.png"
 import hostBtn from "../../image_assets/general/hostbtn.png"
 import or from "../../image_assets/general/or.png"
 import {motion} from "framer-motion"
+import {playYoddle} from "../../components/playSound/playSound"
 
 
 function StartView(props) {
@@ -49,6 +50,8 @@ function StartView(props) {
   }
 
 
+
+
   return (
     <div className='startView'>
       <div className="startView_top"></div>
@@ -56,7 +59,7 @@ function StartView(props) {
         <img src={logo} alt="" className="startView_logo" />
 
         <div className="startView_centerBtns">
-          <Link to="/join" id="unmute"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns" /></Link>
+          <Link to="/join" id="unmute"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns" onClick={() => {playYoddle()}}  id="play"/></Link>
           <img src={or} alt="" className="startView_or" />
           <Link to="/host"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} src={hostBtn} alt="" className="startView_btns" /></Link>
         </div>
