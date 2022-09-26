@@ -1,5 +1,5 @@
 
-  export function playSound () {
+  export function playSound() {
 
     // Check if the browser supports web audio. Safari wants a prefix.
     if ('AudioContext' in window || 'webkitAudioContext' in window) {
@@ -31,19 +31,18 @@
             error =>
               console.error(error)
           ))
-            console.log(URL)
-    
-          
+       
+  
      
       // Play the file every 2 seconds. You won't hear it in iOS until the audio context is unlocked.
-   //   window.setInterval(function(){
-   //     play(yodelBuffer);
-   //   }, 5000);
-
-      
       window.setTimeout(function(){
         play(yodelBuffer);
-      }, 100)
+      }, 100);
+      
+      
+
+      
+   
 
       //////////////////////////////////////////////////
       // Here's the part for unlocking the audio context, probably for iOS only
@@ -82,3 +81,4 @@
   }
 
   
+

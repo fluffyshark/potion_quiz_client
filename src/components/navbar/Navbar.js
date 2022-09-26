@@ -68,8 +68,7 @@ function Navbar(props) {
   return (
     <div className='navbar'>
 
-        
-
+      
       <div className="space_filler_left"></div>
 
       <div className='navbar_menu' >
