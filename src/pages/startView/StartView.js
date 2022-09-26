@@ -25,7 +25,6 @@ function StartView(props) {
 */
 
   function hostGame() {
-    
     // Generate random number, that will be the gameCode (now called hostCode)
     const hostCode = (Math.floor(Math.random() * 999999999))
 
@@ -51,7 +50,6 @@ function StartView(props) {
 
 
 
-
   return (
     <div className='startView'>
       <div className="startView_top"></div>
@@ -59,9 +57,9 @@ function StartView(props) {
         <img src={logo} alt="" className="startView_logo" />
 
         <div className="startView_centerBtns">
-          <Link to="/join" id="unmute"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns" onClick={() => {playYoddle()}}  id="play"/></Link>
+          <Link to="/join"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns"/></Link>
           <img src={or} alt="" className="startView_or" />
-          <Link to="/host"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} src={hostBtn} alt="" className="startView_btns" /></Link>
+          <Link to="/host"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} src={hostBtn} alt="" className="startView_btns"  id="play2" /></Link>
         </div>
       </div>
       <div className="startView_bottom"></div>

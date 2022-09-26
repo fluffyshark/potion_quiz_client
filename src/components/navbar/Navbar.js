@@ -6,13 +6,11 @@ import "./responsive/tablet.css"
 import money_icon from "../../image_assets/general/money_icon.png"
 import { useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'
-import pageturn from "../../sound_assets/pageturn.mp3"
 import blocker1 from "../../image_assets/general/slime_blocker2.png"
 import blocker2 from "../../image_assets/general/slime_blocker3.png"
 import blocker3 from "../../image_assets/general/slime_blocker1.png"
 import blocker4 from "../../image_assets/general/slime_blocker4.png"
-
-
+import {playSound} from "../playSound/playSound"
 
 
 function Navbar(props) {
@@ -21,16 +19,6 @@ function Navbar(props) {
   const playerCoins = useSelector((state) => state.coins.value)
   const powersList = useSelector((state) => state.powers.value)
   
-
-
-
-
-  function playSound(sound) {
-  //  if (sound === "page") {new Audio(pageturn).play()}
-  }
-
-
-
 
   useEffect(() => {
     document.getElementById("navbar_title_quiz").style.backgroundColor = "#2e1e12"
@@ -76,7 +64,6 @@ function Navbar(props) {
     console.log(playerCoins.total)
   }, [powersList[6].poison] )
 
- 
 
   return (
     <div className='navbar'>
@@ -86,7 +73,7 @@ function Navbar(props) {
       <div className="space_filler_left"></div>
 
       <div className='navbar_menu' >
-        <Link onClick={() => playSound("page")} className='link' to="/quiz"><div className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div></Link>
+        <Link onClick={() => playSound("page")} id="unmute" className='link' to="/quiz"><div className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div></Link>
         <Link onClick={() => playSound("page")} className='link' to="/potions"><div className="navbar_menu_title" id="navbar_menu_title_potions">POTIONS <img id="power_blocker_potion" src={blocker1} alt="" /></div></Link>
         <Link onClick={() => playSound("page")} className='link' to="/craft"><div className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT <img id="power_blocker_craft" src={blocker2} alt="" /></div></Link>
         <Link onClick={() => playSound("page")} className='link' to="/buysell"><div className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL <img id="power_blocker_buysell" src={blocker3} alt="" /></div></Link>
