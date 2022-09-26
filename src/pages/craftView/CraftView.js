@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./craftView.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
@@ -42,6 +42,18 @@ function CraftView(props_socket) {
       default: break;
     }
   }
+
+  useEffect(() => {
+    // Show selected ingredient amount when entering CraftView
+    window.setTimeout(function(){
+      if (craftList[0].amount === 200 || craftList[0].amount === 0) {document.getElementById("craftAmount1").style.display = "none"} else {document.getElementById("craftAmount1").style.display = "inherit"} 
+      if (craftList[1].amount === 200 || craftList[1].amount === 0) {document.getElementById("craftAmount2").style.display = "none"} else {document.getElementById("craftAmount2").style.display = "inherit"} 
+      if (craftList[2].amount === 200 || craftList[2].amount === 0) {document.getElementById("craftAmount3").style.display = "none"} else {document.getElementById("craftAmount3").style.display = "inherit"} 
+      if (craftList[3].amount === 200 || craftList[3].amount === 0) {document.getElementById("craftAmount4").style.display = "none"} else {document.getElementById("craftAmount4").style.display = "inherit"} 
+    }, 500);
+  }, [craftList])
+  
+
 
   const selectIngredient = (addRemove, nr, selected_id) => {
    

@@ -16,8 +16,8 @@ import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 

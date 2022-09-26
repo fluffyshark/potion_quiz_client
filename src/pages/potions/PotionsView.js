@@ -76,6 +76,7 @@ function PotionsView(props_socket) {
         amount4: recipeList[id].ing4_amount})
       
         playSound("blop")
+        console.log(recipe)
     }
   }
 
@@ -118,8 +119,16 @@ function PotionsView(props_socket) {
 
     // If potion used is on self, then navigate to "QuizView"
     if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 10 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
-    
+
   }
+
+  useEffect(() => {
+    // Show potion ingredient are hidden if potion card not selected
+    window.setTimeout(function(){
+      if (recipe.ingred1 === 0) {document.getElementById("potionView_footer_display").style.display = "none"} else {document.getElementById("potionView_footer_display").style.display = "flex"}  
+    }, 500);
+  }, [recipe])
+  
 
   const hideSelectPlayers = () => {
     setSelectPlayer(["hidden", "hidden", "hidden"])
@@ -258,7 +267,7 @@ function PotionsView(props_socket) {
         
         <div className="potionView_footer">
        
-          <div className="potionView_footer_container">
+          <div className="potionView_footer_container" id="potionView_footer_display">
             {recipeList[recipe.id].ing1_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred1].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount1}</p></div>) : (<><img src={ingredientsList[recipe.ingred1].image_normal} alt="" className="card_ingredient" /></>)}
             {recipeList[recipe.id].ing2_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred2].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount2}</p></div>) : (<><img src={ingredientsList[recipe.ingred2].image_normal} alt="" className="card_ingredient" /></>)}
             <img src={recipe.flask} alt="" className="chosen_bottle" />

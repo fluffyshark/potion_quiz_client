@@ -134,7 +134,7 @@
     .potionView_footer_container {
         width: 500px;
         height: 100%;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         gap: 5px;
