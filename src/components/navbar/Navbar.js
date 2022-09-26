@@ -25,10 +25,10 @@ function Navbar(props) {
   const audio = new Audio(pageturn)
 
   function playSound(sound) {
-    if (audioContext.state === "suspended") {
-      audioContext.resume()
-    }
-    audio.play()
+ //   if (audioContext.state === "suspended") {
+ //     audioContext.resume()
+ //   }
+ //   audio.play()
   //  if (sound === "page") {new Audio(pageturn).play()}
   }
 
