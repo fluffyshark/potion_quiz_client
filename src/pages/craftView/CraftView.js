@@ -13,13 +13,8 @@ import no_ingred from "../../image_assets/general/no_ingred.png"
 import caldrun from "../../image_assets/general/caldrun.png"
 import {select_ingredients, deSelect_ingredients} from "../../redux/CraftReducer"
 import { increase_ingredients, decrease_ingredients } from "../../redux/IngredientReducer.js"
-import ingdrop1 from "../../sound_assets/Ingdrop1.mp3"
-import ingdrop2 from "../../sound_assets/Ingdrop2.mp3"
-import ingdrop3 from "../../sound_assets/Ingdrop3.mp3"
-import ingdrop4 from "../../sound_assets/Ingdrop4.mp3"
-import ingdrop5 from "../../sound_assets/Ingdrop5.mp3"
-import craftPotionSound from "../../sound_assets/CraftPotion.mp3"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
+import {playSound} from "../../components/playSound/playSound"
 
 var craftingSlots = [200,200,200,200]
 
@@ -36,15 +31,6 @@ function CraftView(props_socket) {
   const ingredientsList = useSelector((state) => state.ingredients.value)
   const craftList = useSelector((state) => state.crafting.value) 
   const powersList = useSelector((state) => state.powers.value)
-
-  function playSound(sound) {
-    if (sound === "drop01") {new Audio(ingdrop1).play()}
-    if (sound === "drop02") {new Audio(ingdrop2).play()}
-    if (sound === "drop03") {new Audio(ingdrop3).play()}
-    if (sound === "drop04") {new Audio(ingdrop4).play()}
-    if (sound === "drop05") {new Audio(ingdrop5).play()}
-    if (sound === "craftPotionSound") {new Audio(craftPotionSound).play()}
-  }
 
   const dropIngredSound = () => {
     switch (Math.floor(Math.random() * 5)) {

@@ -10,7 +10,6 @@ import Protection from "../../components/powers/Protection.js"
 import DoublePoints from "../../components/powers/DoublePoints.js"
 import {religionQuestions} from "./questions.js"
 import {motion} from "framer-motion"
-import coinGain from "../../sound_assets/CoinGain.mp3"
 import Icer from "../../components/powers/Icer.js"
 import MassFreeze from "../../components/powers/MassFreeze.js"
 import SpeedUp from '../../components/powers/SpeedUp'
@@ -26,6 +25,7 @@ import StreakBonus from '../../components/powers/StreakBonus'
 import Transmutation from '../../components/powers/Transmutation'
 import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
+import {playSound} from "../../components/playSound/playSound"
 
 
 
@@ -49,10 +49,6 @@ function QuizView(all_props) {
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
   const powersList = useSelector((state) => state.powers.value)
-
-  function playSound(sound) {
-    if (sound === "coin") {new Audio(coinGain).play()}
-  }
 
   function newQuestion() {
     randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
@@ -110,7 +106,7 @@ function QuizView(all_props) {
       setAnswerCount({totalQuestions: answerCount.totalQuestions + 1, correct: answerCount.correct + 1, wrong: answerCount.wrong})
 
       setTimeout(function() {
-        playSound("coin")
+        playSound("coinGain")
         // Effect for potions DOUBLE POINTS, TRIPPLE POINTS, GOLDEN POINTS
         if (powersList[1].doublePoints === "active") {dispatch(add_coins_amount(20))}
         else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30))}

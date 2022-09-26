@@ -22,20 +22,18 @@ import store_buy_four_25_btn from "../../image_assets/general/store_buy_four_25_
 import buy_one_40_btn from "../../image_assets/general/buy_one_40_btn.png"
 import store_buy_ten_40_btn from "../../image_assets/general/store_buy_ten_40_btn.png"
 import store_buy_four_40_btn from "../../image_assets/general/store_buy_four_40_btn.png"
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import {buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../redux/IngredientReducer.js"
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
-import CoinSpend from "../../sound_assets/CoinSpend.mp3"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
+import {playSound} from "../../components/playSound/playSound"
 
 
 
 function BuySell() {
 
   var props = {
-    focus: "buysell",
-    
+    focus: "buysell", 
   }
 
 
@@ -46,10 +44,6 @@ function BuySell() {
   const powersList = useSelector((state) => state.powers.value)
   const potionsList = useSelector((state) => state.potions.value)
 
-
-  function playSound(sound) {
-    if (sound === "coin") {new Audio(CoinSpend).play()}
-  }
 
   useEffect(() => {
     if (powersList[11].price === "active") {
@@ -77,7 +71,7 @@ function BuySell() {
       if (amount === 14) {dispatch(buy_fourteen_ingredients()); dispatch(reduce_coins_amount(prices.price_purple))}
       if (amount === 50) {dispatch(buy_fifty_ingredients()); dispatch(reduce_coins_amount(prices.price_gold))}
 
-    playSound("coin")
+    playSound("CoinSpend")
 
   }
 

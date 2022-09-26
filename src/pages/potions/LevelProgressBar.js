@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { motion } from "framer-motion";
 import levelBtn from "../../image_assets/general/level_btn.png"
-import coindrop from "../../sound_assets/coindrop.mp3"
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import { add_exp_amount } from "../../redux/LevelExpReducer"
 import progressbar_fill from "../../image_assets/general/progressbar_fill.png"
+import {playSound} from "../../components/playSound/playSound"
 
 function LevelProgressBar() {
 
@@ -14,14 +14,11 @@ function LevelProgressBar() {
     const levelExp = useSelector((state) => state.levelExp.value)
 
 
-    function playSound(sound) {if (sound === "coin") {new Audio(coindrop).play()}}
-
-
       // When pressing levelBtn
     const buyLevel = () => {
     dispatch(reduce_coins_amount(50))
     dispatch(add_exp_amount(1))
-    playSound("coin")   
+    playSound("coindrop")   
   }
 
 

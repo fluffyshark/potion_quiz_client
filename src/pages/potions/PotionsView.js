@@ -16,15 +16,10 @@ import { reduce_potion } from '../../redux/PotionReducer';
 import { golden_ingredient } from "../../redux/PotionRecipeReducer"
 // Images & Sounds
 import card_back from "../../image_assets/general/card_back.png"
-import blop from "../../sound_assets/blop.mp3"
-import nope from "../../sound_assets/click_01.mp3"
-import coindrop from "../../sound_assets/coindrop.mp3"
-import useBlessing from "../../sound_assets/UseBlessing.mp3"
-import useCurse from "../../sound_assets/UseCurse.mp3"
 import PotionSelectPlayers from './PotionSelectPlayers';
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import PotionInfo, {DisplayInfo} from './PotionInfo';
-
+import {playSound} from "../../components/playSound/playSound"
 
 
 function PotionsView(props_socket) {
@@ -45,14 +40,6 @@ function PotionsView(props_socket) {
   const levelExp = useSelector((state) => state.levelExp.value)
   const powersList = useSelector((state) => state.powers.value)
 
-  function playSound(sound) {
-    if (sound === "blop") {new Audio(blop).play()}
-    if (sound === "nope") {new Audio(nope).play()}
-    if (sound === "coin") {new Audio(coindrop).play()}
-    if (sound === "blessing") {new Audio(useBlessing).play()}
-    if (sound === "curse") {new Audio(useCurse).play()}
-  }
-  
 
   useEffect(() => {
     setPlayerLevel(levelExp.currentLevel)

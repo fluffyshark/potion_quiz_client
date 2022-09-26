@@ -1,6 +1,5 @@
 
   export function playSound(sound) {
-    console.log(sound)
     // Check if the browser supports web audio. Safari wants a prefix.
     if ('AudioContext' in window || 'webkitAudioContext' in window) {
 
@@ -26,12 +25,30 @@
 
         switch (sound) {
           case "navbar_menu": url = "https://potionquiz.com/sounds/pageturn.mp3"; break;
-        
+          case "splash": url = "https://potionquiz.com/sounds/splash.mp3"; break;
+          case "coinGain": url = "https://potionquiz.com/sounds/CoinGain.mp3"; break;
+          case "nope": url = "https://potionquiz.com/sounds/click_01.mp3"; break;
+          case "blop": url = "https://potionquiz.com/sounds/blop.mp3"; break;
+          case "blessing": url = "https://potionquiz.com/sounds/UseBlessing.mp3"; break;
+          case "curse": url = "https://potionquiz.com/sounds/UseCurse.mp3"; break;
+          case "coindrop": url = "https://potionquiz.com/sounds/coindrop.mp3"; break;
+          case "jukebox00": url = "https://potionquiz.com/sounds/jukebox00.mp3"; break;
+          case "jukebox01": url = "https://potionquiz.com/sounds/jukebox01.mp3"; break;
+          case "jukebox02": url = "https://potionquiz.com/sounds/jukebox02.mp3"; break;
+          case "jukebox03": url = "https://potionquiz.com/sounds/jukebox03.mp3"; break;
+          case "jukebox04": url = "https://potionquiz.com/sounds/jukebox04.mp3"; break;
+          case "jukebox05": url = "https://potionquiz.com/sounds/jukebox05.mp3"; break;
+          case "Ingdrop1": url = "https://potionquiz.com/sounds/Ingdrop1.mp3"; break;
+          case "Ingdrop2": url = "https://potionquiz.com/sounds/Ingdrop2.mp3"; break;
+          case "Ingdrop3": url = "https://potionquiz.com/sounds/Ingdrop3.mp3"; break;
+          case "Ingdrop4": url = "https://potionquiz.com/sounds/Ingdrop4.mp3"; break;
+          case "Ingdrop5": url = "https://potionquiz.com/sounds/Ingdrop5.mp3"; break;
+          case "craftPotionSound": url = "https://potionquiz.com/sounds/CraftPotion.mp3"; break;
+          case "CoinSpend": url = "https://potionquiz.com/sounds/CoinSpend.mp3"; break;
           default:
             break;
             
         }
-        console.log("url", url)
         return url
       }
       
