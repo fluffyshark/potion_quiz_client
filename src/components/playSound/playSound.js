@@ -22,7 +22,7 @@
       var yodelBuffer = void 0;
 
       // The Promise-based syntax for BaseAudioContext.decodeAudioData() is not supported in Safari(Webkit).
-      window.fetch("http://localhost:3000/pageturn.mp3")
+      window.fetch("http://potionquiz.com/pageturn.mp3")
         .then(response => response.arrayBuffer())
         .then(arrayBuffer => context.decodeAudioData(arrayBuffer,
            audioBuffer => {
