@@ -21,16 +21,21 @@ function Navbar(props) {
   const playerCoins = useSelector((state) => state.coins.value)
   const powersList = useSelector((state) => state.powers.value)
   
-  //const audioContext = new AudioContext()
-  //const audio = new Audio(pageturn)
+
+
+
 
   function playSound(sound) {
- //   if (audioContext.state === "suspended") {
- //     audioContext.resume()
- //   }
- //   audio.play()
+    const audioContext = new AudioContext()
+    const audio = new Audio(pageturn)
+    if (audioContext.state === "suspended") {
+      audioContext.resume()
+    }
+    audio.play()
   //  if (sound === "page") {new Audio(pageturn).play()}
   }
+
+
 
 
   useEffect(() => {
