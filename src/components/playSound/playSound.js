@@ -1,6 +1,6 @@
 
-  export function playSound() {
-
+  export function playSound(sound) {
+    console.log(sound)
     // Check if the browser supports web audio. Safari wants a prefix.
     if ('AudioContext' in window || 'webkitAudioContext' in window) {
 
@@ -21,8 +21,22 @@
       gainNode.gain.value = 1; // set volume to 100%
       var yodelBuffer = void 0;
 
+      const soundEffect = () => {
+        let url = ""
+
+        switch (sound) {
+          case "navbar_menu": url = "https://potionquiz.com/sounds/pageturn.mp3"; break;
+        
+          default:
+            break;
+            
+        }
+        return url
+      }
+      
+
       // The Promise-based syntax for BaseAudioContext.decodeAudioData() is not supported in Safari(Webkit).
-      window.fetch("https://potionquiz.com/sounds/pageturn.mp3")
+      window.fetch(soundEffect)
         .then(response => response.arrayBuffer())
         .then(arrayBuffer => context.decodeAudioData(arrayBuffer,
            audioBuffer => {

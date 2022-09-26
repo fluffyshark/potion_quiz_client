@@ -72,11 +72,11 @@ function Navbar(props) {
       <div className="space_filler_left"></div>
 
       <div className='navbar_menu' >
-        <Link onClick={() => playSound("page")} id="unmute" className='link' to="/quiz"><div className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div></Link>
-        <Link onClick={() => playSound("page")} className='link' to="/potions"><div className="navbar_menu_title" id="navbar_menu_title_potions">POTIONS <img id="power_blocker_potion" src={blocker1} alt="" /></div></Link>
-        <Link onClick={() => playSound("page")} className='link' to="/craft"><div className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT <img id="power_blocker_craft" src={blocker2} alt="" /></div></Link>
-        <Link onClick={() => playSound("page")} className='link' to="/buysell"><div className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL <img id="power_blocker_buysell" src={blocker3} alt="" /></div></Link>
-        <Link onClick={() => playSound("page")} className='link' to="/leaderboard"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD <img id="power_blocker_leaderboard" src={blocker4} alt="" /></div></Link>
+        <Link onClick={() => playSound("navbar_menu")} id="unmute" className='link' to="/quiz"><div className="navbar_menu_title" id="navbar_title_quiz">QUIZ</div></Link>
+        <Link onClick={() => playSound("navbar_menu")} className='link' to="/potions"><div className="navbar_menu_title" id="navbar_menu_title_potions">POTIONS <img id="power_blocker_potion" src={blocker1} alt="" /></div></Link>
+        <Link onClick={() => playSound("navbar_menu")} className='link' to="/craft"><div className="navbar_menu_title" id="navbar_menu_title_craft">CRAFT <img id="power_blocker_craft" src={blocker2} alt="" /></div></Link>
+        <Link onClick={() => playSound("navbar_menu")} className='link' to="/buysell"><div className="navbar_menu_title" id="navbar_menu_title_buysell" >BUY/SELL <img id="power_blocker_buysell" src={blocker3} alt="" /></div></Link>
+        <Link onClick={() => playSound("navbar_menu")} className='link' to="/leaderboard"><div className="navbar_menu_title" id="navbar_menu_title_leaderboard" >LEADERBOARD <img id="power_blocker_leaderboard" src={blocker4} alt="" /></div></Link>
       </div>
 
       <div className="player_money">
