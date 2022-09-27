@@ -166,9 +166,11 @@
 
     .craftPotion {
         width: 100%;
-        height: calc(100vh - 10%);
+        height: 100vh;
         background-color: rgba(0,0,0,0.7);
         position: absolute;
+        top: 0;
+        left: 0;
         z-index: 500;
         display: flex;
         justify-content: center;
@@ -201,7 +203,6 @@
     .craftPotion_contentcontainer {
         width: 318px;
         height: 456px;
-        transform: translateY(-40px);
         background-image: url("../../../image_assets/general/potion_reveal_background.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -341,6 +342,8 @@
         height: 97vh;
         background-color: rgba(0,0,0,0.7);
         position: absolute;
+        top: 0;
+        left: 0;
         z-index: 500;
         display: flex;
         justify-content: center;
@@ -382,6 +385,8 @@
         height: 93vh;
         background-color: rgba(0,0,0,0.7);
         position: absolute;
+        top: 0;
+        left: 0;
         z-index: 500;
         display: flex;
         justify-content: center;

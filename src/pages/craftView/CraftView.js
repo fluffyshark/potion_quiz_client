@@ -168,7 +168,7 @@ function CraftView(props_socket) {
     craftingSlots[2] = 200
     craftingSlots[3] = 200
    
-    document.getElementById("craftPotion").style.display = "inherit"
+    document.getElementById("craftPotion").style.display = "flex"
 
     playSound("craftPotionSound")
 
@@ -184,9 +184,10 @@ function CraftView(props_socket) {
       {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
       <Navbar focus={props}/>
+      <CraftPotion socket={socket}/>
 
       <div className="craftView_middle">
-        <CraftPotion socket={socket}/>
+        
           <div className="craftView_middle_container">
             <div className="craftView_middle_ingred_container">
             <div className="craftView_extra_space_top"></div>
