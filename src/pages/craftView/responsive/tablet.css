@@ -33,8 +33,6 @@
         display: none; /* for Chrome, Safari, and Opera */
     }
     
-
-
     
     .craftView_footer {
         width: 100%;
@@ -75,8 +73,6 @@
         transform: translateY(-55px);
     }
     
-
-
 
     .craftView_middle_container {
         width: 100%;
@@ -325,7 +321,13 @@
  /* iPad 9-inch */
 
 /* Exact metric for iPad 9"-inch portrait Safari brower (no extra files) */
-@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { .craftView {overflow: hidden; height: 97vh;}}
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { 
+    .craftView {overflow: hidden; height: 97vh;}
+    .craftPotion {overflow: hidden; height: 97vh;}
+}
 
 /* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
-@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { .craftView {overflow: hidden; height: 93vh;}}
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { 
+    .craftView {overflow: hidden; height: 93vh;}
+    .craftPotion {overflow: hidden; height: 97vh;}
+}

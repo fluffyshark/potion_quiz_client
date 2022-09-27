@@ -2,7 +2,7 @@
 
 .craftPotion {
     width: 100%;
-    height: calc(100vh - 10%);
+    height: 100vh;
     background-color: rgba(0,0,0,0.7);
     position: absolute;
     z-index: 500;
