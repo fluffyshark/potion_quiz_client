@@ -99,10 +99,19 @@
 
  
 
-
+/* Exact metric for iPad 9"-inch portrait (no extra files) */
 @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { 
     .startView {
-        display:none;
+        background-color: blue;
     }
 
 }
+
+/* Exact metric for iPad 9"-inch portrait (with extra files) */
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { 
+    .startView {
+        background-color: red;
+    }
+
+}
+
