@@ -305,6 +305,8 @@
 
 
 
+
+
  /* iPad 9-inch (PORTRAITE ONLY) */
 
 /* Exact metric for iPad 9"-inch portrait Safari brower (no extra files) */
@@ -334,7 +336,18 @@
         display: none;
         justify-content: center;
     }
-    .craftPotion {overflow: hidden; height: 97vh;}
+    .craftPotion {
+        width: 100%;
+        height: 97vh;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        z-index: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        overflow: hidden;
+    }
 }
 
 /* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
@@ -344,7 +357,7 @@
     .craftView_ingred_amount {
         width: 20px;
         position: absolute;
-        top: 65.4%;
+        top: 65.6%;
         left: 64.4%;
         color: white;
         font-family: 'Luckiest Guy', cursive;
@@ -359,10 +372,21 @@
         font-weight: bold;
         font-family: 'Luckiest Guy', cursive;
         position: absolute;
-        top: 57.2%;
+        top: 57.4%;
         left: 67%;
         display: none;
         justify-content: center;
     }
-    .craftPotion {overflow: hidden; height: 93vh;}
+    .craftPotion {
+        width: 100%;
+        height: 93vh;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        z-index: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        overflow: hidden;
+    }
 }
