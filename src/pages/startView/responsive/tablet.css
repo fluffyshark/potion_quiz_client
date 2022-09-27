@@ -112,7 +112,7 @@
 @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { 
     .startView {
         overflow: hidden;
-        height: 94vh;
+        height: 93vh;
     }
 
 }
