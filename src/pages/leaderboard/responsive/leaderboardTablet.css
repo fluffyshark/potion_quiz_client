@@ -133,3 +133,14 @@
 
 
 }
+
+
+
+
+ /* iPad 9-inch */
+
+/* Exact metric for iPad 9"-inch portrait Safari brower (no extra files) */
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { .scoreboardView {overflow: hidden; height: 97vh;}}
+
+/* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { .scoreboardView {overflow: hidden; height: 93vh;}}
