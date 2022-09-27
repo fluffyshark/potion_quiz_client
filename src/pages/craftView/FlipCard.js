@@ -3,6 +3,7 @@ import "./flipcard.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import card_front from "../../image_assets/potions/cards/potion2_gold.png"
+import potion_fail from "../../image_assets/general/potion_fail.png"
 import card_back from "../../image_assets/general/card_back.png"
 
 function FlipCard(props) {
@@ -22,7 +23,7 @@ function FlipCard(props) {
 
             <div className="theFront"><img src={card_back} alt="" /></div>
 
-            <div className="theBack"><img id="flipCardImg" src={card_front} alt="" /></div>
+            <div className="theBack"><img id="flipCardImg" src={potion_fail} alt="" /></div>
 
         </div>
 
