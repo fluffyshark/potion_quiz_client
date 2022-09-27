@@ -66,10 +66,13 @@
        
   
      
-      // Play the file every 2 seconds. You won't hear it in iOS until the audio context is unlocked.
-      window.setTimeout(function(){
-        play(yodelBuffer);
-      }, 100);
+      // Removes sound from tablets
+      if (window.innerWidth > 1400) {
+        window.setTimeout(function(){
+          play(yodelBuffer);
+        }, 100);
+      }
+      
       
    
 

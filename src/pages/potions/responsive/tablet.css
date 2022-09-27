@@ -196,6 +196,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 10px;
+        margin-right: 10px;
         cursor: pointer;
     }
     .potion_action_btns:hover {
