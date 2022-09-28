@@ -317,7 +317,7 @@
     .craftView_ingred_amount {
         width: 20px;
         position: absolute;
-        top: 66%;
+        top: 66.5%;
         left: 64.4%;
         color: white;
         font-family: 'Luckiest Guy', cursive;
@@ -332,7 +332,7 @@
         font-weight: bold;
         font-family: 'Luckiest Guy', cursive;
         position: absolute;
-        top: 58%;
+        top: 58.5%;
         left: 67%;
         display: none;
         justify-content: center;
@@ -360,7 +360,7 @@
     .craftView_ingred_amount {
         width: 20px;
         position: absolute;
-        top: 66%;
+        top: 66.5%;
         left: 64.4%;
         color: white;
         font-family: 'Luckiest Guy', cursive;
@@ -375,7 +375,7 @@
         font-weight: bold;
         font-family: 'Luckiest Guy', cursive;
         position: absolute;
-        top: 58%;
+        top: 58.5%;
         left: 67%;
         display: none;
         justify-content: center;
