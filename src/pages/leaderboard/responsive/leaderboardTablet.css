@@ -144,3 +144,11 @@
 
 /* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
 @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { .scoreboardView {overflow: hidden; height: 93vh;}}
+
+/* iPad 10.2-inch - Safari */
+
+/* Exact metric for iPad 10.2"-inch portrait Safari brower (no extra files) */
+@media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 977px) and (min-height: 977px)  { .scoreboardView {overflow: hidden; height: 94vh;}}
+
+/* Exact metric for iPad 10.2"-inch portrait Safari brower (with extra files) */
+@media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 1010px) and (min-height: 1010px)  { .scoreboardView {overflow: hidden; height: 97vh;}}
