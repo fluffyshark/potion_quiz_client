@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./potionSelectPlayers.css"
+import "./responsive/tablet.css"
 import { useSelector } from "react-redux"
 import {motion} from "framer-motion"
 import activateBtn from "../../image_assets/general/select_player_btn.png"
