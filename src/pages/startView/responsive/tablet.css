@@ -99,17 +99,11 @@
 
  /* iPad 9-inch */
 
-/* Exact metric for iPad 9"-inch portrait Safari brower (no extra files) */
-@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { .startView {overflow: hidden; height: 97vh;}}
-
-/* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
-@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { .startView {overflow: hidden; height: 93vh;}}
+/* Safari brower (no extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { .startView {overflow: hidden; height: 97vh;}}
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { .startView {overflow: hidden; height: 93vh;}}
 
  /* iPad 10.2-inch */
 
-/* Exact metric for iPad 10.2"-inch portrait Safari brower (no extra files) */
-@media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 977px) and (min-height: 977px)  { .startView {overflow: hidden; height: 94vh;}}
-
-/* Exact metric for iPad 10.2"-inch portrait Safari brower (with extra files) */
-@media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 1010px) and (min-height: 1010px)  { .startView {overflow: hidden; height: 97vh;}}
-
+/* Safari brower (no extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 977px) and (min-height: 977px)  { .startView {overflow: hidden; height: 94vh;}}
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 1010px) and (min-height: 1010px)  { .startView {overflow: hidden; height: 97vh;}}
+/* Chrome brower (no extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 965px) and (min-height: 965px)  { .startView {overflow: hidden; height: 94vh;}}

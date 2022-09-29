@@ -108,7 +108,7 @@
     .craftView_ingred_amount {
         width: 20px;
         position: absolute;
-        top: 65.2%;
+        top: 66.8%;
         left: 64.4%;
         color: white;
         font-family: 'Luckiest Guy', cursive;
@@ -146,7 +146,7 @@
         font-weight: bold;
         font-family: 'Luckiest Guy', cursive;
         position: absolute;
-        top: 57%;
+        top: 58.8%;
         left: 67%;
         display: none;
         justify-content: center;
@@ -314,29 +314,6 @@
 @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { 
     .craftView {overflow: hidden; height: 97vh;}
     
-    .craftView_ingred_amount {
-        width: 20px;
-        position: absolute;
-        top: 66.5%;
-        left: 64.4%;
-        color: white;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 10px;
-        margin: 0;
-    }
-    .selected_ingredients_amount {
-        width: 20px;
-        text-align: center;
-        color: white;
-        font-size: 9px;
-        font-weight: bold;
-        font-family: 'Luckiest Guy', cursive;
-        position: absolute;
-        top: 58.5%;
-        left: 67%;
-        display: none;
-        justify-content: center;
-    }
     .craftPotion {
         width: 100%;
         height: 97vh;
@@ -357,29 +334,6 @@
 @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { 
     .craftView {overflow: hidden; height: 93vh;}
 
-    .craftView_ingred_amount {
-        width: 20px;
-        position: absolute;
-        top: 66.5%;
-        left: 64.4%;
-        color: white;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 10px;
-        margin: 0;
-    }
-    .selected_ingredients_amount {
-        width: 20px;
-        text-align: center;
-        color: white;
-        font-size: 9px;
-        font-weight: bold;
-        font-family: 'Luckiest Guy', cursive;
-        position: absolute;
-        top: 58.5%;
-        left: 67%;
-        display: none;
-        justify-content: center;
-    }
     .craftPotion {
         width: 100%;
         height: 93vh;
@@ -403,29 +357,6 @@
 @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 977px) and (min-height: 977px)  { 
     .craftView {overflow: hidden; height: 94vh;}
 
-    .craftView_ingred_amount {
-        width: 20px;
-        position: absolute;
-        top: 66.5%;
-        left: 64.4%;
-        color: white;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 10px;
-        margin: 0;
-    }
-    .selected_ingredients_amount {
-        width: 20px;
-        text-align: center;
-        color: white;
-        font-size: 9px;
-        font-weight: bold;
-        font-family: 'Luckiest Guy', cursive;
-        position: absolute;
-        top: 58.5%;
-        left: 67%;
-        display: none;
-        justify-content: center;
-    }
     .craftPotion {
         width: 100%;
         height: 97vh;
@@ -446,29 +377,6 @@
 @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 1010px) and (min-height: 1010px)  { 
     .craftView {overflow: hidden; height: 97vh;}
 
-    .craftView_ingred_amount {
-        width: 20px;
-        position: absolute;
-        top: 66.5%;
-        left: 64.4%;
-        color: white;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 10px;
-        margin: 0;
-    }
-    .selected_ingredients_amount {
-        width: 20px;
-        text-align: center;
-        color: white;
-        font-size: 9px;
-        font-weight: bold;
-        font-family: 'Luckiest Guy', cursive;
-        position: absolute;
-        top: 58.5%;
-        left: 67%;
-        display: none;
-        justify-content: center;
-    }
     .craftPotion {
         width: 100%;
         height: 97vh;
