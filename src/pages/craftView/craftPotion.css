@@ -30,6 +30,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.craftPotion_textholder_exitBtn {
+    width: 40px;
+    position: absolute;
+    left: 84.5%;
+    cursor: pointer;
 }
 
 #revealCard_text {

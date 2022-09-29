@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./craftPotion.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
-import card_back from "../../image_assets/general/card_back.png"
+import exitBtn from "../../image_assets/general/exit_btn.png"
 import { useSelector, useDispatch } from "react-redux"
 import {remove_for_crafting } from "../../redux/CraftReducer"
 import {add_potion, add_discovery_points, increase_potion_level } from "../../redux/PotionReducer"
@@ -147,17 +147,16 @@ function CraftPotion(props) {
             // NO PLAYER POINTS ARE DISPLAYED
 
             setShowCard(true)
-
-            setTimeout(function() {
-                document.getElementById("craftPotion").style.display = "none"
-                dispatch(remove_for_crafting())
-                console.log("PLAYERDATA after 5 sec: ", playerStats)
-                setShowCard(false)
-              }, 5000); 
               
 
     } // End of matchRecipe()
 
+    function exitPotionCraft() {
+        document.getElementById("craftPotion").style.display = "none"
+        dispatch(remove_for_crafting())
+    //    console.log("PLAYERDATA after 5 sec: ", playerStats)
+        setShowCard(false)
+    }
    
 
 
@@ -167,6 +166,7 @@ function CraftPotion(props) {
         <div className="craftPotion_contentcontainer">
             <div className="craftPotion_textholder">
                 <p id="revealCard_text">YOU CRAFTED</p>
+                <img src={exitBtn} alt="" className="craftPotion_textholder_exitBtn" onClick={() => {exitPotionCraft()}} />
             </div>
             <div className="craftPotion_imageholder" onClick={() => matchRecipe()}>
                 <FlipCard reveal={showCard} />
