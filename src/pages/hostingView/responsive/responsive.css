@@ -154,6 +154,7 @@
         font-family: 'Luckiest Guy', cursive;
         margin: 0;
         margin-left: 10px;
+        margin-top: 5px;
       
     } 
 
@@ -172,6 +173,7 @@
         margin-left: 10px;
         margin-right: 5px;
         color: white;
+        margin-top: 5px;
     }
 
     .leaderboard_bronze_cards {text-shadow: 0px 0px #d59629;}
@@ -191,6 +193,7 @@
         font-family: 'Luckiest Guy', cursive;
         margin: 0;
         margin-right: 10px;
+        margin-top: 5px;
     }
     .leaderboard_rank_container_coins>img {
         height: 40%;
@@ -225,7 +228,7 @@
     /*--WINMODE--*/
     
     .leaderboard_rank_container_name_winmode {
-        width: 22%;
+        width: 21%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -236,7 +239,7 @@
         font-family: 'Luckiest Guy', cursive;
         margin: 0;
         margin-left: 10px;
-        margin-top: 5px;
+        margin-top: 7px;
     } 
     
     .leaderboard_rank_container_cards_winmode {
@@ -246,6 +249,7 @@
         align-items: center;
         display: flex;
         gap: 1.8px;
+        margin-top: 3px;
     }
     .leaderboard_rank_container_cards_winmode>img {
         height: 34.5%;
