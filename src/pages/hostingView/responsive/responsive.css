@@ -236,6 +236,7 @@
         font-family: 'Luckiest Guy', cursive;
         margin: 0;
         margin-left: 10px;
+        margin-top: 5px;
     } 
     
     .leaderboard_rank_container_cards_winmode {
@@ -244,7 +245,7 @@
         display: flex;
         align-items: center;
         display: flex;
-        gap: 2px;
+        gap: 1.8px;
     }
     .leaderboard_rank_container_cards_winmode>img {
         height: 34.5%;
