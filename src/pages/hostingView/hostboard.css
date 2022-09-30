@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1001px) { 
+@media only screen and (min-width: 1551px) { 
 
 
 
@@ -65,8 +65,6 @@
         display: flex;
         align-items: center;
     }
-    
-    
     
     .leaderboard_rank_container_cards>img {
         height: 60%;

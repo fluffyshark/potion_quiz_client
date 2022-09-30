@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./hostboard.css"
 import "./responsive/tablet.css"
+import "./responsive/responsive.css"
 import leaderboard from "../../image_assets/general/leaderboard.png"
 import { useSelector, useDispatch } from "react-redux"
 import { activate_power, dectivate_power } from "../../redux/PowerReducer"
