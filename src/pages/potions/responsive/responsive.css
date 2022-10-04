@@ -285,3 +285,32 @@
 
 
 }
+
+
+
+@media screen and (max-width: 1300px) and (min-width: 1250px) and (max-height: 670px) and (min-height: 620px) { 
+
+    .cards_amount_text {
+        width: 20px;
+        position: absolute;
+        top: 85.5%;
+        left: 8.2%;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .footer_ingred_amount {
+        font-size: 10px;
+        width: 20px;
+        margin: 0;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        position: absolute;
+        top: 68.5%;
+        left: 61%;
+        text-align: center;
+    }
+
+}
