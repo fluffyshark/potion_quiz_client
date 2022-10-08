@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import io from "socket.io-client"
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 export var PlayerData = {playerName: "", cards: [0,0,0], gameCode: "", displayCode: 0}
 
@@ -21,7 +21,6 @@ export const playerStatsSlice = createSlice({
 
         add_playerPoints: (state, action) => {
             state.value.playerPoints += action.payload  
-         //   console.log("POINTS FOR NEW POTION: ", action.payload, "PLAYERDATA", PlayerData ) 
             socket.emit("sending_player_data", { player: state.value.playerName, cards: state.value.cards, gameCode: state.value.gameCode });
         }
     }

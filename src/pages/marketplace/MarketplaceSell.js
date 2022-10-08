@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
 import { useSelector } from "react-redux"
 
 
-function MarketplaceSell() {
+function MarketplaceSell({setSelectedID}) {
 
   const ingredientsList = useSelector((state) => state.ingredients.value)
-
 
 
   return (
@@ -18,7 +17,7 @@ function MarketplaceSell() {
           if (ingredient.amount > 0) {
             return (
               <div key={i} className="craftView_ingredBox">
-                <img  src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
+                <img onClick={() => {setSelectedID(i)}} src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
                 <p className="craftView_ingred_amount">{ingredient.amount}</p>
               </div>
             )

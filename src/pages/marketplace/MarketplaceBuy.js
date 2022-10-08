@@ -11,8 +11,7 @@ function MarketplaceBuy() {
   const dispatch = useDispatch()
   const [ingredOffering, setIngredOffering] = useState(gameStats.ingredients_for_sale)
 
-  console.log("gamestat", gameStats.ingredients_for_sale)
-
+  
 
 
   function buyIngred(offeringID) {

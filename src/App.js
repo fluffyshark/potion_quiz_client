@@ -16,8 +16,8 @@ import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -40,12 +40,9 @@ function App() {
     dispatch(power_counter())
   },[counter])
 
-
-  // NEXT - CONNECT THE DATA REVEIVED (EFFECT) TO THE CORRECT POTION EFFECT, USE A NEW FILE IF TOO MUCH CODE
-  // NEXT - ADD TO POWERREDUCER FIELDS FOR ATTACTING PLAYERS POTION EFFECTS
   
 
-    // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
+  // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
   useEffect(() => {
     socket.on("sending_server_gameData", (data) => {
       dispatch(add_gameStats(data))
@@ -65,8 +62,15 @@ function App() {
       if (potionData.potionName === "POINT POISON") {dispatch(activate_power({power_name: "POINT POISON"}))}
     })
 
+    socket.on("sending_marketData_to_players", (marketData) => {
+      console.log("sending_marketData_to_players", marketData)
+    })
+
   }, [socket])
 
+
+
+  
   useEffect(() => {
     let levelsCounter = [0,0,0]
     potionsList.map((potion) => {
@@ -76,6 +80,8 @@ function App() {
     })
     socket.emit("sending_player_cards", {playerName: playerStats.playerName, cards: levelsCounter, coins: coinList.total});
   }, [potionsList])
+
+  
 
   
   
@@ -88,7 +94,7 @@ function App() {
       <Route path="/craft" element={<CraftView socket={socket} />}></Route>
       <Route path="/buysell" element={<BuySell />}></Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
-      <Route path="/marketplace" element={<Marketplace />}></Route>
+      <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
       <Route path="/host" element={<HostingView socket={socket} />}></Route>
       <Route path="/join" element={<JoinView socket={socket} />}></Route>
     </Routes>

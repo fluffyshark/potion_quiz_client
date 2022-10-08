@@ -8,40 +8,24 @@ import no_ingred from "../../image_assets/general/no_ingred.png"
 import add_btn from "../../image_assets/general/add_btn.png"
 import reduce_btn from "../../image_assets/general/reduce_btn.png"
 import done_btn from "../../image_assets/general/done_btn.png"
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
-function Marketplace() {
+function Marketplace(props) {
 
+  let socket = props.socket
+
+  const [selectedID, setSelectedID] = useState(200)
+  const [sellIngredient, setSellIngredient] = useState({image: no_ingred, ingredient: selectedID, price: 10, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
   const [marketIsBuy, setmarketIsBuy] = useState(true)
 
+  const ingredientsList = useSelector((state) => state.ingredients.value)
+  const playerStats = useSelector((state) => state.playerStats.value) 
+  const gameStats = useSelector((state) => state.GameData.value)
 
-  const buyOrSellFooter = (buyOrSell) => {
-    var footerContent = <></>
-
-    const sell = <>
-                  <p className='marketplace_offer_text1'>OFFER TO SELL</p>
-                  <img src={no_ingred} alt="" className="marketplace_offer_ingred" />
-                  <p className='marketplace_offer_text2'>FOR</p>
-                  <img src={add_btn} alt="" className="marketplace_offer_btns" />
-                  <p className='marketplace_offer_text3'>100</p>
-                  <img src={reduce_btn} alt="" className="marketplace_offer_btns" />
-                  <img src={done_btn} alt="" className="marketplace_offer_done_btn" />
-                </>
-
-    const buy = <>
-                  <p className='marketplace_footer_buy_process'>NO PURCHASE MADE YET...</p>
-                </>
-
-
-    if (buyOrSell === sell) {footerContent = sell} else {footerContent = buy}
-
-    return footerContent
-
-  }
 
   useEffect(() => {
-    
     if (marketIsBuy) {
       document.getElementById("marketplace_menu_sell").style.backgroundColor = "#1f80e0"
       document.getElementById("marketplace_menu_buy").style.backgroundColor = "#1c62b3"
@@ -49,12 +33,47 @@ function Marketplace() {
       document.getElementById("marketplace_menu_sell").style.backgroundColor = "#1c62b3"
       document.getElementById("marketplace_menu_buy").style.backgroundColor = "#1f80e0"
     }
-  });
+  }, [marketIsBuy]);
   
-  var props = {
-    focus: "buysell",
+
+
+  useEffect(() => {
+    if (selectedID === 200) {
+      setSellIngredient({image: no_ingred, price: sellIngredient.price, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
+    } else {
+      setSellIngredient({image: ingredientsList[selectedID].image_normal, price: sellIngredient.price, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
+    }
+  }, [selectedID])
+
+
+
+  function changePrice(direction) {
+    if (direction === "increase") {
+      setSellIngredient(prev => ({...prev, price: prev.price + 1}))
+    } else if (direction === "decrease") {
+      setSellIngredient(prev => ({...prev, price: prev.price - 1}))
+      if (sellIngredient.price < 1) {setSellIngredient(prev => ({...prev, price: prev.price = 1}))}
+    }
   }
 
+
+  // NEXT - COMPLETE MARKET DATA TO BE SENT TO ALL PLAYERS
+  // NEXT - SEND MARKET DATA TO MARKET REDUCER
+  // NEXT - BUILD BUY MARKET
+  // NEXT - REMOVE INGREDIENTS THAT BEING SOLD
+
+
+  function placeSellOrder() {
+    // Get Player ID
+    let playerID = []
+    if (gameStats.hasOwnProperty('data')) {playerID = gameStats.data.filter(player => player.playerName === playerStats.playerName)} else {playerID = gameStats.filter(player => player.playerName === playerStats.playerName)}
+    // Send sell order to server by socket.io
+    socket.emit("sending_player_sellorder", {playerID: playerID[0].id, playerName: playerStats.playerName, ingredient: selectedID, price: sellIngredient.price, gameCode: playerStats.gameCode, sellID: sellIngredient.sellID})
+    // Reset state and render 
+    setSellIngredient({image: no_ingred, ingredient: selectedID, price: 10, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
+  }
+
+  
 
   return (
     <div className='marketplace'>
@@ -76,7 +95,7 @@ function Marketplace() {
                 </div>
             </div>
               
-            {marketIsBuy ? ( <MarketplaceBuy /> ) : ( <MarketplaceSell /> )}
+            {marketIsBuy ? ( <MarketplaceBuy /> ) : ( <MarketplaceSell setSelectedID={setSelectedID} /> )}
            
           </div>
         </div>
@@ -93,12 +112,12 @@ function Marketplace() {
             
               <>
                 <p className='marketplace_offer_text1'>OFFER TO SELL</p>
-                <img src={no_ingred} alt="" className="marketplace_offer_ingred" />
+                <img src={sellIngredient.image} alt="" className="marketplace_offer_ingred" />
                 <p className='marketplace_offer_text2'>FOR</p>
-                <img src={add_btn} alt="" className="marketplace_offer_btns" />
-                <p className='marketplace_offer_text3'>100</p>
-                <img src={reduce_btn} alt="" className="marketplace_offer_btns" />
-                <img src={done_btn} alt="" className="marketplace_offer_done_btn" />
+                <img onClick={() => {changePrice("increase")}} src={add_btn} alt="" className="marketplace_offer_btns" />
+                <p className='marketplace_offer_text3'>{sellIngredient.price}</p>
+                <img onClick={() => {changePrice("decrease")}} src={reduce_btn} alt="" className="marketplace_offer_btns" />
+                <img onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn" />
               </>
 
             )}

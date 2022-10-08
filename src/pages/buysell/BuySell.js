@@ -27,6 +27,7 @@ import {buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } 
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import {playSound} from "../../components/playSound/playSound"
+import { Link } from 'react-router-dom';
 
 
 
@@ -109,9 +110,9 @@ function BuySell() {
 
             </div>
             <p className="buySellView_or">OR</p>
-          {/*   <Link className='link' to="/marketplace">  */}
-              <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={market_btn} alt="" className="buySellView_visit_market" />
-          {/*   </Link>  */}
+              <Link className='link' to="/marketplace"> 
+                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={market_btn} alt="" className="buySellView_visit_market" />
+              </Link> 
           </div>
         </div>
         
