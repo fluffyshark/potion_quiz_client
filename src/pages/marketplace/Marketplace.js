@@ -9,6 +9,7 @@ import add_btn from "../../image_assets/general/add_btn.png"
 import reduce_btn from "../../image_assets/general/reduce_btn.png"
 import done_btn from "../../image_assets/general/done_btn.png"
 import { useDispatch, useSelector } from 'react-redux'
+import { decrease_ingredients } from '../../redux/IngredientReducer'
 
 
 
@@ -20,6 +21,7 @@ function Marketplace(props) {
   const [sellIngredient, setSellIngredient] = useState({image: no_ingred, ingredient: selectedID, price: 10, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
   const [marketIsBuy, setmarketIsBuy] = useState(true)
 
+  const dispatch = useDispatch()
   const ingredientsList = useSelector((state) => state.ingredients.value)
   const playerStats = useSelector((state) => state.playerStats.value) 
   const gameStats = useSelector((state) => state.GameData.value)
@@ -57,10 +59,8 @@ function Marketplace(props) {
   }
 
 
-  // NEXT - COMPLETE MARKET DATA TO BE SENT TO ALL PLAYERS
-  // NEXT - SEND MARKET DATA TO MARKET REDUCER
   // NEXT - BUILD BUY MARKET
-  // NEXT - REMOVE INGREDIENTS THAT BEING SOLD
+
 
 
   function placeSellOrder() {
@@ -69,8 +69,11 @@ function Marketplace(props) {
     if (gameStats.hasOwnProperty('data')) {playerID = gameStats.data.filter(player => player.playerName === playerStats.playerName)} else {playerID = gameStats.filter(player => player.playerName === playerStats.playerName)}
     // Send sell order to server by socket.io
     socket.emit("sending_player_sellorder", {playerID: playerID[0].id, playerName: playerStats.playerName, ingredient: selectedID, price: sellIngredient.price, gameCode: playerStats.gameCode, sellID: sellIngredient.sellID})
+    // Reduce the amount for the sold ingredient
+    dispatch(decrease_ingredients({id:selectedID}))
     // Reset state and render 
     setSellIngredient({image: no_ingred, ingredient: selectedID, price: 10, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
+    setSelectedID(200)
   }
 
   
@@ -117,7 +120,9 @@ function Marketplace(props) {
                 <img onClick={() => {changePrice("increase")}} src={add_btn} alt="" className="marketplace_offer_btns" />
                 <p className='marketplace_offer_text3'>{sellIngredient.price}</p>
                 <img onClick={() => {changePrice("decrease")}} src={reduce_btn} alt="" className="marketplace_offer_btns" />
-                <img onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn" />
+
+                {selectedID === 200 ? <img onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn_no_ingred" />   :   <img onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn" /> }
+           
               </>
 
             )}

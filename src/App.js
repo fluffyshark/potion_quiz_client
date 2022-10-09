@@ -14,6 +14,7 @@ import { add_gameStats } from "./redux/GameStatsReducer"
 import { add_exp_amount } from "./redux/LevelExpReducer"
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
+import { update_market } from "./redux/MarketplaceReducer";
 
 
 //const socket = io.connect("https://server-potionquiz.herokuapp.com/")
@@ -63,8 +64,9 @@ function App() {
     })
 
     socket.on("sending_marketData_to_players", (marketData) => {
-      console.log("sending_marketData_to_players", marketData)
-    })
+     // console.log("sending_marketData_to_players", marketData)
+      dispatch(update_market(marketData))
+    }) 
 
   }, [socket])
 

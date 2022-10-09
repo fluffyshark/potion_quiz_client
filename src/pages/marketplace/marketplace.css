@@ -192,6 +192,12 @@
     margin-left: 30px;
     cursor: pointer;
 }
+.marketplace_offer_done_btn_no_ingred {
+    width: 80px;
+    margin-left: 30px;
+    opacity: 0.3;
+    pointer-events: none;
+}
 
 .marketplace_footer_buy_process {
     width: 400px;

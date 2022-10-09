@@ -30,7 +30,7 @@ function MarketplaceSell({setSelectedID}) {
           } else {
           return (
             <div key={i} className="craftView_ingredBox">
-              <img src={hidden_ingred} alt="" className="marketplace_ingred" /> 
+              <img src={hidden_ingred} alt="" className="marketplace_ingred marketplace_no_ingred" /> 
             </div>
           )
         }
