@@ -10,7 +10,7 @@ import reduce_btn from "../../image_assets/general/reduce_btn.png"
 import done_btn from "../../image_assets/general/done_btn.png"
 import { useDispatch, useSelector } from 'react-redux'
 import { decrease_ingredients } from '../../redux/IngredientReducer'
-
+import { motion } from "framer-motion";
 
 
 function Marketplace(props) {
@@ -59,8 +59,7 @@ function Marketplace(props) {
   }
 
 
-  // NEXT - BUILD BUY MARKET
-
+ 
 
 
   function placeSellOrder() {
@@ -98,7 +97,7 @@ function Marketplace(props) {
                 </div>
             </div>
               
-            {marketIsBuy ? ( <MarketplaceBuy /> ) : ( <MarketplaceSell setSelectedID={setSelectedID} /> )}
+            {marketIsBuy ? ( <MarketplaceBuy socket={socket} /> ) : ( <MarketplaceSell setSelectedID={setSelectedID} /> )}
            
           </div>
         </div>
@@ -117,11 +116,14 @@ function Marketplace(props) {
                 <p className='marketplace_offer_text1'>OFFER TO SELL</p>
                 <img src={sellIngredient.image} alt="" className="marketplace_offer_ingred" />
                 <p className='marketplace_offer_text2'>FOR</p>
-                <img onClick={() => {changePrice("increase")}} src={add_btn} alt="" className="marketplace_offer_btns" />
+                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {changePrice("increase")}} src={add_btn} alt="" className="marketplace_offer_btns" />
                 <p className='marketplace_offer_text3'>{sellIngredient.price}</p>
-                <img onClick={() => {changePrice("decrease")}} src={reduce_btn} alt="" className="marketplace_offer_btns" />
+                <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {changePrice("decrease")}} src={reduce_btn} alt="" className="marketplace_offer_btns" />
 
-                {selectedID === 200 ? <img onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn_no_ingred" />   :   <img onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn" /> }
+                {selectedID === 200 ?  
+                  <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn_no_ingred" />   
+                  :    
+                  <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {placeSellOrder()}} src={done_btn} alt="" className="marketplace_offer_done_btn" /> }
            
               </>
 

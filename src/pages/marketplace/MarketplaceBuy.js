@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react'
 import "./marketplace.css"
 import gameStats from "../../gameStats/GameStats.js"
 import herbs from "../../image_assets/HerbImageExport"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { increase_ingredients } from "../../redux/IngredientReducer.js"
+import {Offerings} from "./MarketPlaceData"
 
 
-function MarketplaceBuy() {
+function MarketplaceBuy(props) {
+
+  let socket = props.socket
+
+  const [sellOffering, setSellOffering] = useState([{ingredient: 0, sellID: 0, price: 0}])
 
   const dispatch = useDispatch()
-  const [ingredOffering, setIngredOffering] = useState(gameStats.ingredients_for_sale)
+  const ingredientsList = useSelector((state) => state.ingredients.value)
+  const marketData = useSelector((state) => state.theMarket.value)
 
-  
-
-
+  /*
   function buyIngred(offeringID) {
     
     // Visually removing clicked ingredient
@@ -30,21 +34,39 @@ function MarketplaceBuy() {
     
     dispatch(increase_ingredients({id:offeringID}))
   }
+  */
+
+
+  function placeBuyOrder(sellID) {
+      
+    let offering = marketData.filter(offer => offer.sellID === sellID);
+    socket.emit("sending_player_buyorder", offering)
+      console.log(offering)
+  }
+
+
+  useEffect(() => {
+    setSellOffering(Offerings(marketData))
+  }, [marketData])
+
+ // console.log("BUY MAKETDATA", sellOffering)
+
+
+  // NEXT - REMOVED OR REPLACED WHEN CLICKED
 
   
-
   return (
     
     <div className="marketplace_middle_ingred_container">
           
         {
-          ingredOffering.map((item, i) => {
+          sellOffering.map((item, i) => {
              return (
-              <div className='marketplace_offering' key={i} id={`item${item.id}`} onClick={() => buyIngred(item.id)}>
-                <img src={herbs[item.imageNr]} key={i} alt="" className="marketplace_ingred" />
+              <div className='marketplace_offering' key={i} id={`item${i}`} onClick={() => placeBuyOrder(item.sellID)}>
+                <img src={herbs[item.ingredient]} key={i} alt="" className="marketplace_ingred" />
                 <div className="marketplace_offering_price_btn">{item.price}</div>
               </div>
-              
+                
              )
              
           })

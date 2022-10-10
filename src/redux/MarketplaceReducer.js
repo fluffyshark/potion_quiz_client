@@ -12,7 +12,7 @@ export const marketSlice = createSlice({
     reducers: {
         update_market: (state, action) => {
             state.value = action.payload
-            console.log("MARKETREDUCER", state.value)
+          //  console.log("MARKETREDUCER", state.value)
         },
        
         

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
 import { useSelector } from "react-redux"
+import { motion } from "framer-motion";
+
 
 
 function MarketplaceSell({setSelectedID}) {
@@ -17,7 +19,7 @@ function MarketplaceSell({setSelectedID}) {
           if (ingredient.amount > 0) {
             return (
               <div key={i} className="craftView_ingredBox">
-                <img onClick={() => {setSelectedID(i)}} src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
+                 <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {setSelectedID(i)}} src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
                 <p className="craftView_ingred_amount">{ingredient.amount}</p>
               </div>
             )
