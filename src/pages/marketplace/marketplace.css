@@ -138,6 +138,7 @@
 
 .marketplace_no_ingred {
     opacity: 0.5;
+    pointer-events: none;
 }
 
 .marketplace_footer {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./marketplace.css"
-import gameStats from "../../gameStats/GameStats.js"
 import herbs from "../../image_assets/HerbImageExport"
 import { useDispatch, useSelector } from "react-redux"
 import { increase_ingredients } from "../../redux/IngredientReducer.js"
+import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import {Offerings} from "./MarketPlaceData"
 
 
@@ -14,34 +14,19 @@ function MarketplaceBuy(props) {
   const [sellOffering, setSellOffering] = useState([{ingredient: 0, sellID: 0, price: 0}])
 
   const dispatch = useDispatch()
-  const ingredientsList = useSelector((state) => state.ingredients.value)
   const marketData = useSelector((state) => state.theMarket.value)
-
-  /*
-  function buyIngred(offeringID) {
-    
-    // Visually removing clicked ingredient
-    document.getElementById(`item${offeringID}`).style.display = "none"
-
-    // Finds the index of the clicked ingredient
-    const index = gameStats.ingredients_for_sale.findIndex(x => x.id === offeringID)
-
-    // Remove remove ingredient from array at index
-    gameStats.ingredients_for_sale.splice(index, 1);
-
-    // Update new list and new indexes
-    setIngredOffering(gameStats.ingredients_for_sale)
-    
-    dispatch(increase_ingredients({id:offeringID}))
-  }
-  */
+  const playerCoins = useSelector((state) => state.coins.value)
 
 
   function placeBuyOrder(sellID) {
-      
+    // Filter marketData to get only the object with the sellID
     let offering = marketData.filter(offer => offer.sellID === sellID);
+    // Send object to server via socket.io
     socket.emit("sending_player_buyorder", offering)
-      console.log(offering)
+    // Reduce coin amount for player
+    dispatch(reduce_coins_amount(offering[0].price))
+    // Add the ingredient to player 
+    dispatch(increase_ingredients({id: offering[0].ingredient}))
   }
 
 
@@ -49,10 +34,6 @@ function MarketplaceBuy(props) {
     setSellOffering(Offerings(marketData))
   }, [marketData])
 
- // console.log("BUY MAKETDATA", sellOffering)
-
-
-  // NEXT - REMOVED OR REPLACED WHEN CLICKED
 
   
   return (
@@ -61,16 +42,25 @@ function MarketplaceBuy(props) {
           
         {
           sellOffering.map((item, i) => {
-             return (
-              <div className='marketplace_offering' key={i} id={`item${i}`} onClick={() => placeBuyOrder(item.sellID)}>
-                <img src={herbs[item.ingredient]} key={i} alt="" className="marketplace_ingred" />
-                <div className="marketplace_offering_price_btn">{item.price}</div>
-              </div>
-                
-             )
-             
+            if (playerCoins.total >= item.price) {
+              return (
+                <div className='marketplace_offering' key={i} id={`item${i}`} onClick={() => placeBuyOrder(item.sellID)}>
+                  <img src={herbs[item.ingredient]} key={i} alt="" className="marketplace_ingred" />
+                  <div className="marketplace_offering_price_btn">{item.price}</div>
+                </div>
+               )
+            } else {
+              return (
+                <div className='marketplace_offering' key={i} id={`item${i}`} >
+                  <img src={herbs[item.ingredient]} key={i} alt="" className="marketplace_ingred marketplace_no_ingred" />
+                  <div className="marketplace_offering_price_btn">{item.price}</div>
+                </div>
+              )
+            }
+              
           })
         }
+      
       
         <div className="marketplace_extra_space_bottom"></div>  
       </div>
