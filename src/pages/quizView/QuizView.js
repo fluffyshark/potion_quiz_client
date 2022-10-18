@@ -26,7 +26,7 @@ import Transmutation from '../../components/powers/Transmutation'
 import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
 import {playSound} from "../../components/playSound/playSound"
-
+import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
 
 
 var randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
@@ -105,12 +105,16 @@ function QuizView(all_props) {
       
       setAnswerCount({totalQuestions: answerCount.totalQuestions + 1, correct: answerCount.correct + 1, wrong: answerCount.wrong})
 
+      if (powersList[1].doublePoints === "active") {CoinGainEffect(20)}
+      else if (powersList[9].tripplePoints === "active") {CoinGainEffect(30)}
+      else {CoinGainEffect(10)}
+
       setTimeout(function() {
         playSound("coinGain")
         // Effect for potions DOUBLE POINTS, TRIPPLE POINTS, GOLDEN POINTS
-        if (powersList[1].doublePoints === "active") {dispatch(add_coins_amount(20))}
-        else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30))}
-        else if (powersList[19].goldenPoints === "active") {dispatch(add_coins_amount(50))}
+        if (powersList[1].doublePoints === "active") {dispatch(add_coins_amount(20)); CoinGainEffect(20)}
+        else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30)); CoinGainEffect(30)}
+        else if (powersList[19].goldenPoints === "active") {dispatch(add_coins_amount(50)); CoinGainEffect(50)}
         else {dispatch(add_coins())}
       }, 1000);
       
