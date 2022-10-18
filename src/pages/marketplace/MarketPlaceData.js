@@ -29,7 +29,7 @@ export const Offerings = (marketData) => {
         (order, index) => index === allSellOrders.findIndex(other => order.ingredient === other.ingredient));
 
 
-    console.log("IngredientID", offering)
+  //  console.log("IngredientID", offering)
     return offering
 }
 

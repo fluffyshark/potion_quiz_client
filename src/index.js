@@ -15,6 +15,7 @@ import powerReducer from "./redux/PowerReducer"
 import playerStatsSlice from "./redux/PlayerSocketReducer"
 import gameStatsSlice from './redux/GameStatsReducer';
 import marketSlice from './redux/MarketplaceReducer';
+import buyLetterSlice from './redux/LetterReducer';
 
 
 const store = configureStore({
@@ -28,7 +29,8 @@ const store = configureStore({
     powers: powerReducer,
     playerStats: playerStatsSlice,
     GameData: gameStatsSlice,
-    theMarket: marketSlice
+    theMarket: marketSlice,
+    buyletter: buyLetterSlice
   }
 })
 

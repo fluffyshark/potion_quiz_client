@@ -15,6 +15,7 @@ import { add_exp_amount } from "./redux/LevelExpReducer"
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 import { update_market } from "./redux/MarketplaceReducer";
+import { add_buyLetter } from './redux/LetterReducer'
 
 
 //const socket = io.connect("https://server-potionquiz.herokuapp.com/")
@@ -68,8 +69,9 @@ function App() {
       dispatch(update_market(marketData))
     }) 
 
-  }, [socket])
+    socket.on("sending_successfull_sale", (sale) => {dispatch(add_buyLetter(sale))}) 
 
+  }, [socket])
 
 
   

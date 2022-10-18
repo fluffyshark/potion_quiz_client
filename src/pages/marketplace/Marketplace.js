@@ -10,7 +10,11 @@ import reduce_btn from "../../image_assets/general/reduce_btn.png"
 import done_btn from "../../image_assets/general/done_btn.png"
 import { useDispatch, useSelector } from 'react-redux'
 import { decrease_ingredients } from '../../redux/IngredientReducer'
+import { add_coins_amount } from "../../redux/CoinsReducer.js"
 import { motion } from "framer-motion";
+import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
+import envelope from "../../image_assets/general/envelope.png"
+import { remove_buyLetter } from '../../redux/LetterReducer'
 
 
 function Marketplace(props) {
@@ -20,11 +24,13 @@ function Marketplace(props) {
   const [selectedID, setSelectedID] = useState(200)
   const [sellIngredient, setSellIngredient] = useState({image: no_ingred, ingredient: selectedID, price: 10, sellID: Math.floor((Math.random() * 9999999) + 1000000)})
   const [marketIsBuy, setmarketIsBuy] = useState(true)
+  const [buyLetters, setBuyLetters] = useState([])
 
   const dispatch = useDispatch()
   const ingredientsList = useSelector((state) => state.ingredients.value)
   const playerStats = useSelector((state) => state.playerStats.value) 
   const gameStats = useSelector((state) => state.GameData.value)
+  const buyletter = useSelector((state) => state.buyletter.value)
 
 
   useEffect(() => {
@@ -59,7 +65,29 @@ function Marketplace(props) {
   }
 
 
- 
+
+// Add sold ingredient price to state 
+  useEffect(() => { 
+    setBuyLetters(buyletter) 
+    console.log("buyletter", buyletter)
+    console.log("buyLetters", buyLetters)
+  }, [buyletter])
+
+
+
+  function clickOnLetter(letterprice, index) {
+    // Add money popup animation at mouse potition
+    CoinGainEffect(letterprice)
+    // Removing price stored in useState. Envelope image with it. NOT WORKING
+  //  setBuyLetters([...buyLetters.slice(0, index), ...buyLetters.slice(index + 1, buyLetters.length)]);
+    // Removing price stored in reducer. 
+    dispatch(remove_buyLetter(index))
+    // Increase coins with the buy price
+    dispatch(add_coins_amount(letterprice))
+  }
+
+
+  // NEXT - CREATE REDUCER TO MAKE ENVELOPE STAY WHEN SWITCING VIEWS
 
 
   function placeSellOrder() {
@@ -106,8 +134,13 @@ function Marketplace(props) {
 
 
             {marketIsBuy ? ( 
+              
               <>
-                <p className='marketplace_footer_buy_process'>NO PURCHASE MADE YET...</p>
+                {
+                buyLetters.length <= 0 ? <p className='marketplace_footer_buy_process'>NO NEW SALES</p> 
+                : 
+                buyLetters.map((letter, i) => {return (<motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} onClick={() => {clickOnLetter(letter, i)}} src={envelope} className="marketplace_letterImg" />)})
+                }
               </>
               
             ) : ( 
