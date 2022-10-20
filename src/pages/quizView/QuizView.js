@@ -95,7 +95,7 @@ function QuizView(all_props) {
 
   const answerQuestion = (chosenAnswer) => {
 
-  //  playSound("click")
+    playSound("page")
 
     // If correct 
     if (religionQuestions.questions[randomQuestionNr].answerAlt[chosenAnswer] === religionQuestions.questions[randomQuestionNr].correctAnswer) {
