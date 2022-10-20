@@ -67,11 +67,11 @@
   
      
       // Removes sound from tablets
-      if (window.innerWidth > 1400) {
+    //  if (window.innerWidth > 1400) {
         window.setTimeout(function(){
           play(yodelBuffer);
         }, 100);
-      }
+    //  }
       
       
    

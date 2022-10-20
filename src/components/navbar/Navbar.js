@@ -65,6 +65,9 @@ function Navbar(props) {
   }, [powersList[6].poison] )
 
 
+
+
+
   return (
     <div className='navbar'>
 

@@ -21,11 +21,6 @@
     z-index: 100;
     display: flex;
     flex-direction: column;
-    
-    
-    display: flex;
-    
-    justify-content: center;
     align-items: center;
 }
 
@@ -34,7 +29,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -114,7 +108,7 @@
 
 .marketplace_middle_ingred_container {
     width: 420px;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

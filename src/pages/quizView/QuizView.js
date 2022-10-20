@@ -95,7 +95,7 @@ function QuizView(all_props) {
 
   const answerQuestion = (chosenAnswer) => {
 
-    playSound("click")
+  //  playSound("click")
 
     // If correct 
     if (religionQuestions.questions[randomQuestionNr].answerAlt[chosenAnswer] === religionQuestions.questions[randomQuestionNr].correctAnswer) {
@@ -157,6 +157,8 @@ function QuizView(all_props) {
         if (potionsList[2].level === 3) {setSpeed(powersList[2].speed_3)}
       }
     }, [powersList[2].speedUp])
+
+
 
 
 
