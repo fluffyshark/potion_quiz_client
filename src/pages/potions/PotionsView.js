@@ -15,7 +15,7 @@ import { activate_power } from "../../redux/PowerReducer"
 import { reduce_potion } from '../../redux/PotionReducer';
 import { golden_ingredient } from "../../redux/PotionRecipeReducer"
 // Images & Sounds
-import card_back from "../../image_assets/general/card_back.png"
+import card_back from "../../image_assets/general/card_back1.webp"
 import PotionSelectPlayers from './PotionSelectPlayers';
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import PotionInfo, {DisplayInfo} from './PotionInfo';
