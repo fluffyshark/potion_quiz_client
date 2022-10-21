@@ -7,23 +7,17 @@ import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import Logo from  "../../image_assets/general/Logo"
 import JoinBtn from  "../../image_assets/general/JoinBtn"
-import Icon from "./Icon"
 import or from "../../image_assets/general/or.png"
 import {motion} from "framer-motion"
-import {playYoddle} from "../../components/playSound/playSound"
 import HostBtn from '../../image_assets/general/HostBtn'
+
 
 
 function StartView(props) {
 
   let socket = props.socket
   const dispatch = useDispatch()
-  
-  /*
-  function playSound(sound) {
-    if (sound === "BackgroundMusic") {new Audio(BackgroundMusic).play()}
-  }
-*/
+
 
   function hostGame() {
     // Generate random number, that will be the gameCode (now called hostCode)
@@ -48,6 +42,8 @@ function StartView(props) {
 
 //    playSound("BackgroundMusic")
   }
+
+
 
 
 

@@ -2,7 +2,7 @@ import potion_cards from "../image_assets/PotionImageExport.js"
 
 export const PotionData = [
     /// NOVICE
-    {id: 0, image_bronze: potion_cards[0], image_silver: potion_cards[20], image_gold: potion_cards[40], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "GIFT EXP"},
+    {id: 0, image_bronze: potion_cards[0], image_silver: potion_cards[20], image_gold: potion_cards[40], amount: 10, discovered: true, level: 1, earnedPoints: 0, name: "GIFT EXP"},
     {id: 1, image_bronze: potion_cards[1], image_silver: potion_cards[21], image_gold: potion_cards[41], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "DOUBLE POINTS"},
     {id: 2, image_bronze: potion_cards[2], image_silver: potion_cards[22], image_gold: potion_cards[42], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "SPEED UP"},
     {id: 3, image_bronze: potion_cards[3], image_silver: potion_cards[23], image_gold: potion_cards[43], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "PROTECTION"},
@@ -10,7 +10,7 @@ export const PotionData = [
     {id: 4, image_bronze: potion_cards[4], image_silver: potion_cards[24], image_gold: potion_cards[44], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "FREEZE"},
     {id: 5, image_bronze: potion_cards[5], image_silver: potion_cards[25], image_gold: potion_cards[45], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "INSANITY"},
     {id: 6, image_bronze: potion_cards[6], image_silver: potion_cards[26], image_gold: potion_cards[46], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "POINT POISON"},
-    {id: 7, image_bronze: potion_cards[7], image_silver: potion_cards[27], image_gold: potion_cards[47], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "GIVE GIFT"},
+    {id: 7, image_bronze: potion_cards[7], image_silver: potion_cards[27], image_gold: potion_cards[47], amount: 2, discovered: true, level: 1, earnedPoints: 0, name: "GIVE GIFT"},
     /// EXPERT
     {id: 8, image_bronze: potion_cards[8], image_silver: potion_cards[28], image_gold: potion_cards[48], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "TRANSMUTATION"},
     {id: 9, image_bronze: potion_cards[9], image_silver: potion_cards[29], image_gold: potion_cards[49], amount: 0, discovered: false, level: 1, earnedPoints: 0, name: "TRIPPLE POINTS"},
