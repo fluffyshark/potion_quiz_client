@@ -123,7 +123,7 @@
 .give_gift_scroll {
   width: 400px;
   height: 565px;
-  background-image: url("../../image_assets/general/scroll.png");
+  background-image: url("../../image_assets/general/scroll.webp");
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;

@@ -229,7 +229,7 @@
     .potionInfo_scroll {
       width: 400px;
       height: 565px;
-      background-image: url("../../../image_assets/general/scroll.png");
+      background-image: url("../../../image_assets/general/scroll.webp");
       background-repeat: no-repeat;
       background-size: contain;
       display: flex;
@@ -298,7 +298,7 @@
         width: 700px;
         height: 490px;
         position: relative;
-        background-image: url("../../../image_assets/general/select_player_bless.png");
+        background-image: url("../../../image_assets/general/select_player_bless.webp");
         background-size: cover;
         display: flex;
         flex-direction: column;
@@ -309,7 +309,7 @@
         width: 700px;
         height: 490px;
         position: relative;
-        background-image: url("../../../image_assets/general/select_player_curse.png");
+        background-image: url("../../../image_assets/general/select_player_curse.webp");
         background-size: cover;
         display: flex;
         flex-direction: column;

@@ -8,9 +8,9 @@ import Icer from "../../components/powers/Icer"
 import MassFreeze from "../../components/powers/MassFreeze.js"
 import { useSelector, useDispatch } from "react-redux"
 import Navbar from "../../components/navbar/Navbar"
-import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
+import hidden_ingred from "../../image_assets/general/hidden_ingred.webp"
 import no_ingred from "../../image_assets/general/no_ingred.png"
-import caldrun from "../../image_assets/general/caldrun.png"
+import caldrun from "../../image_assets/general/caldrun.webp"
 import {select_ingredients, deSelect_ingredients} from "../../redux/CraftReducer"
 import { increase_ingredients, decrease_ingredients } from "../../redux/IngredientReducer.js"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
@@ -196,10 +196,10 @@ function CraftView(props_socket) {
                 {ingredientsList.map((ingredient, i) => {
                    if (ingredient.amount > 0) {
                      return (
-                      <div key={i} onClick={() => selectIngredient("add", 200, ingredient.id)} className="craftView_ingredBox">
-                        <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} src={ingredient.image_normal} alt="" className="craftView_ingred" /> 
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} key={i} onClick={() => selectIngredient("add", 200, ingredient.id)} className="craftView_ingredBox">
+                        <img src={ingredient.image_normal} alt="" className="craftView_ingred" /> 
                         <p className="craftView_ingred_amount">{ingredient.amount}</p>
-                      </div>
+                      </motion.div>
                      )
                    } else if (ingredient.discovered === false) {
                      return (

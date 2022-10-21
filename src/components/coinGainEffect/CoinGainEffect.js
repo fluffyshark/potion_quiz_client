@@ -1,5 +1,5 @@
 import "./coinGainEffect.css"
-import moneyIcon from "../../image_assets/general/money_icon.png"
+import moneyIcon from "../../image_assets/general/money_icon.webp"
 
 
 export function CoinGainEffect(amount) {

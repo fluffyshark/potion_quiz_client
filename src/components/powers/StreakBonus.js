@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { dectivate_power } from "../../redux/PowerReducer"
-import money_icon from "../../image_assets/general/money_icon.png"
+import money_icon from "../../image_assets/general/money_icon.webp"
 import { add_coins_amount } from "../../redux/CoinsReducer.js"
 
 function StreakBonus(props) {

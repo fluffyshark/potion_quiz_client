@@ -3,14 +3,14 @@ import "./leaderboard.css"
 import "./responsive/responsive.css"
 import "./responsive/leaderboardTablet.css"
 import Navbar from '../../components/navbar/Navbar'
-import leaderboard from "../../image_assets/general/leaderboard.png"
+import leaderboard from "../../image_assets/general/leaderboard.webp"
 import Icer from "../../components/powers/Icer"
 import MassFreeze from "../../components/powers/MassFreeze.js"
 import { useSelector } from "react-redux"
 import bronze_card_display from "../../image_assets/general/bronze_card_display.png"
 import silver_card_display from "../../image_assets/general/silver_card_display.png"
 import gold_card_display from "../../image_assets/general/gold_card_display.png"
-import money_icon from "../../image_assets/general/money_icon.png"
+import money_icon from "../../image_assets/general/money_icon.webp"
 import ReceiveGiveGift from '../../components/powers/GiveGift'
 
 

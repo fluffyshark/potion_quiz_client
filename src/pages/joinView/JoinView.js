@@ -7,7 +7,7 @@ import { add_gameStats } from "../../redux/GameStatsReducer"
 import "./joinView.css"
 import "./responsive/tablet.css"
 import "./responsive/responsive.css"
-import potion_rules from "../../image_assets/general/potion_rules.png"
+import potion_rules from "../../image_assets/general/potion_rules.webp"
 
 
 

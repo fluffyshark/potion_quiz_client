@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import hidden_ingred from "../../image_assets/general/hidden_ingred.png"
+import hidden_ingred from "../../image_assets/general/hidden_ingred.webp"
 import { useSelector } from "react-redux"
 import { motion } from "framer-motion";
 

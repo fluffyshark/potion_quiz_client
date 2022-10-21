@@ -1,7 +1,7 @@
 import "./powers.css";
 import { useSelector, useDispatch } from "react-redux"
 import { dectivate_power } from "../../redux/PowerReducer.js"
-import icer from "../../image_assets/powers/icer.png"
+import icer from "../../image_assets/powers/icer.webp"
 import { motion } from "framer-motion";
 
 

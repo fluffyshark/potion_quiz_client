@@ -13,7 +13,7 @@
     width: 700px;
     height: 490px;
     position: relative;
-    background-image: url("../../image_assets/general/select_player_bless.png");
+    background-image: url("../../image_assets/general/select_player_bless.webp");
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     width: 700px;
     height: 490px;
     position: relative;
-    background-image: url("../../image_assets/general/select_player_curse.png");
+    background-image: url("../../image_assets/general/select_player_curse.webp");
     background-size: cover;
     display: flex;
     flex-direction: column;

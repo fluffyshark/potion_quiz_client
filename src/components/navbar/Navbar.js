@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import "./navbar.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
-import money_icon from "../../image_assets/general/money_icon.png"
+import money_icon from "../../image_assets/general/money_icon.webp"
 import { useSelector } from "react-redux"
 import { useNavigate } from 'react-router-dom'
 import blocker1 from "../../image_assets/general/slime_blocker2.png"

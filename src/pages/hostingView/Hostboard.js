@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import "./hostboard.css"
 import "./responsive/tablet.css"
 import "./responsive/responsive.css"
-import leaderboard from "../../image_assets/general/leaderboard.png"
+import leaderboard from "../../image_assets/general/leaderboard.webp"
 import { useSelector, useDispatch } from "react-redux"
 import { activate_power, dectivate_power } from "../../redux/PowerReducer"
 import bronze_card_display from "../../image_assets/general/bronze_card_display.png"
 import silver_card_display from "../../image_assets/general/silver_card_display.png"
 import gold_card_display from "../../image_assets/general/gold_card_display.png"
-import money_icon from "../../image_assets/general/money_icon.png"
+import money_icon from "../../image_assets/general/money_icon.webp"
 import small_card from "../../image_assets/general/small_card.png"
 
 

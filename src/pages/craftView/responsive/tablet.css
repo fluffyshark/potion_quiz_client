@@ -203,7 +203,7 @@
     .craftPotion_contentcontainer {
         width: 318px;
         height: 456px;
-        background-image: url("../../../image_assets/general/potion_reveal_background.png");
+        background-image: url("../../../image_assets/general/potion_reveal_background.webp");
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 7px;
