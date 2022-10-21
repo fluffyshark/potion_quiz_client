@@ -5,13 +5,15 @@ import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import "./startView.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
-import logo from  "../../image_assets/general/logo.png"
+import Logo from  "../../image_assets/general/Logo"
+import JoinBtn from  "../../image_assets/general/JoinBtn"
 import Icon from "./Icon"
 import joinBtn from "../../image_assets/general/joinbtn.png"
 import hostBtn from "../../image_assets/general/hostbtn.png"
 import or from "../../image_assets/general/or.png"
 import {motion} from "framer-motion"
 import {playYoddle} from "../../components/playSound/playSound"
+import HostBtn from '../../image_assets/general/HostBtn'
 
 
 function StartView(props) {
@@ -55,17 +57,12 @@ function StartView(props) {
     <div className='startView'>
       <div className="startView_top"></div>
       <div className="startView_middle">
-        <img src={logo} alt="" className="startView_logo" />
-
-        <div className="iconbox">
-        <Icon />
-        </div>
-        
+      <div className="startView_logo"><Logo /></div>
 
         <div className="startView_centerBtns">
-          <Link to="/join"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns"/></Link>
+          <Link to="/join"><motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="startView_btns"><JoinBtn /></motion.div></Link>
           <img src={or} alt="" className="startView_or" />
-          <Link to="/host"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} src={hostBtn} alt="" className="startView_btns"  id="play2" /></Link>
+          <Link to="/host"><motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} className="startView_btns" id="play2"><HostBtn /></motion.div></Link>
         </div>
       </div>
       <div className="startView_bottom"></div>
