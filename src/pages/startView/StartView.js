@@ -6,6 +6,7 @@ import "./startView.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import logo from  "../../image_assets/general/logo.png"
+import Icon from "./Icon"
 import joinBtn from "../../image_assets/general/joinbtn.png"
 import hostBtn from "../../image_assets/general/hostbtn.png"
 import or from "../../image_assets/general/or.png"
@@ -55,6 +56,11 @@ function StartView(props) {
       <div className="startView_top"></div>
       <div className="startView_middle">
         <img src={logo} alt="" className="startView_logo" />
+
+        <div className="iconbox">
+        <Icon />
+        </div>
+        
 
         <div className="startView_centerBtns">
           <Link to="/join"><motion.img  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} src={joinBtn} alt="" className="startView_btns"/></Link>
