@@ -48,14 +48,14 @@ function MarketplaceBuy(props) {
               return (
                 <div className='marketplace_offering' key={i} id={`item${i}`} onClick={() => placeBuyOrder(item.sellID)}>
                   <img src={herbs[item.ingredient]} key={i} alt="" className="marketplace_ingred" />
-                  <div className="marketplace_offering_price_btn">{item.price}</div>
+                  <div className="marketplace_offering_price_btn"><p>{item.price}</p></div>
                 </div>
                )
             } else {
               return (
                 <div className='marketplace_offering' key={i} id={`item${i}`} >
                   <img src={herbs[item.ingredient]} key={i} alt="" className="marketplace_ingred marketplace_no_ingred" />
-                  <div className="marketplace_offering_price_btn">{item.price}</div>
+                  <div className="marketplace_offering_price_btn"><p>{item.price}</p></div>
                 </div>
               )
             }

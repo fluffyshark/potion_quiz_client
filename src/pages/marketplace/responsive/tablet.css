@@ -257,6 +257,9 @@
         font-size: 17px;
         padding-bottom: 1px;
     }
+    .marketplace_offering_price_btn>p {
+        transform: translateY(3px);
+    }
     
     .marketplace_letterImg {
         height: 80%;
