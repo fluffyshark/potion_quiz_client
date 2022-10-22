@@ -30,7 +30,9 @@
         font-family: 'Luckiest Guy', cursive;
         font-size: 25px;
         color: white;
-        padding-top: 5px;
+    }
+    .navbar_menu_title>p{
+        transform: translateY(5px);
     }
     
     

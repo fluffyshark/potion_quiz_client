@@ -95,6 +95,9 @@
         font-size: 20px;
         cursor: pointer;
     }
+    .menu_buysell_text>p {
+        transform: translateY(3px);
+    }
     
     #marketplace_menu_buy {
         width: 60px;

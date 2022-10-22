@@ -32,6 +32,9 @@
         font-size: 18px;
         color: white;
     }
+    .navbar_menu_title>p{
+        transform: translateY(3px);
+    }
     
     
     #navbar_title_quiz {

@@ -203,6 +203,9 @@
     .potion_action_btns:hover {
         background: #e8c242;
     }
+    .potion_action_btns>p {
+        transform: translateY(3px);
+    }
     
 
 
