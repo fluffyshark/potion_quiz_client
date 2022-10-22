@@ -117,12 +117,12 @@ function Marketplace(props) {
                 <div className="marketplace_menu">
                     <div className="marketplace_menu_filler_left"></div>
                     <div className="marketplace_menu_potions_ingreds">
-                        <div className="marketplace_menu_potions_btn market_menu_btns">POTIONS</div>
-                        <div className="marketplace_menu_indredients_btn market_menu_btns">INGREDIENTS</div>
+                        <div className="marketplace_menu_potions_btn market_menu_btns"><p>POTIONS</p></div>
+                        <div className="marketplace_menu_indredients_btn market_menu_btns"><p>INGREDIENTS</p></div>
                     </div>
                     <div className="marketplace_menu_buysell">
-                    <div className="menu_buysell_text" id="marketplace_menu_buy" onClick={() => setmarketIsBuy(true)}>BUY</div>
-                        <div className="menu_buysell_text" id="marketplace_menu_sell" onClick={() => setmarketIsBuy(false)}>SELL</div>
+                    <div className="menu_buysell_text" id="marketplace_menu_buy" onClick={() => setmarketIsBuy(true)}><p>BUY</p></div>
+                        <div className="menu_buysell_text" id="marketplace_menu_sell" onClick={() => setmarketIsBuy(false)}><p>SELL</p></div>
                     </div>
                 </div>
             </div>

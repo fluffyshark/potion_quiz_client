@@ -113,7 +113,7 @@ function QuizView(all_props) {
       else {CoinGainEffect(10)}
 
       setTimeout(function() {
-        playSound("coinGain")
+    //    playSound("coinGain")
         // Effect for potions DOUBLE POINTS, TRIPPLE POINTS, GOLDEN POINTS
         if (powersList[1].doublePoints === "active") {dispatch(add_coins_amount(20)); CoinGainEffect(20)}
         else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30)); CoinGainEffect(30)}

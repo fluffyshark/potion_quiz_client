@@ -69,6 +69,7 @@
         font-family: 'Luckiest Guy', cursive;
         color: white;
         margin: 0;
+        margin-bottom: 10px;
     }
     
     
@@ -84,8 +85,8 @@
     .buySellView_visit_market {
         width: 250px;
         cursor: pointer;
-        pointer-events: none;
-        opacity: 0.4;
+    /*    pointer-events: none; */
+        opacity: 1;
     }
     
     
