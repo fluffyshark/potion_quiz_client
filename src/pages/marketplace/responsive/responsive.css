@@ -73,7 +73,7 @@
         cursor: pointer;
     }
     .market_menu_btns>p{
-        transform: translateY(5px);
+        transform: translateY(4px);
     }
     
     .marketplace_menu_potions_btn {
@@ -96,7 +96,7 @@
         cursor: pointer;
     }
     .menu_buysell_text>p {
-        transform: translateY(5px);
+        transform: translateY(4px);
     }
     
     #marketplace_menu_buy {
@@ -190,18 +190,21 @@
         font-family: 'Luckiest Guy', cursive;
         font-size: 25px;
         text-align: center;
+        transform: translateY(4px);
     }
-    .marketplace_offer_ingred {height: 90%;}
+    .marketplace_offer_ingred {height: 90%; transform: translateY(2px);}
+    
     .marketplace_offer_text2 {
         width: 60px;
         color: white;
         font-family: 'Luckiest Guy', cursive;
         font-size: 25px;
         text-align: center;
+        transform: translateY(4px);
     }
     .marketplace_offer_btns {
         width: 40px;
-        transform: translateY(2px);
+        transform: translateY(3px);
         cursor: pointer;
     }
     .marketplace_offer_text3 {
@@ -210,6 +213,7 @@
         font-family: 'Luckiest Guy', cursive;
         font-size: 35px;
         text-align: center;
+        transform: translateY(4px);
     }
     .marketplace_offer_done_btn {
         width: 80px;
@@ -229,6 +233,7 @@
         font-family: 'Luckiest Guy', cursive;
         font-size: 25px;
         text-align: center;
+        transform: translateY(5px);
     }
     
     
