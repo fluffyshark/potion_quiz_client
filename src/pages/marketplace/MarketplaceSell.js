@@ -21,20 +21,20 @@ function MarketplaceSell({setSelectedID}) {
       {ingredientsList.map((ingredient, i) => {
           if (ingredient.amount > 0) {
             return (
-              <div key={i} className="craftView_ingredBox">
+              <div key={i} className="marketplace_ingredBox">
                  <motion.img whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {setSelectedID(i)}} src={ingredient.image_normal} alt="" className="marketplace_ingred" /> 
-                <p className="craftView_ingred_amount">{ingredient.amount}</p>
+                <p className="marketplace_ingred_amount">{ingredient.amount}</p>
               </div>
             )
           } else if (ingredient.discovered === false) {
             return (
-              <div key={i} className="craftView_ingredBox">
+              <div key={i} className="marketplace_ingredBox">
                 <img src={hidden_ingred} alt="" className="marketplace_ingred marketplace_no_ingred" /> 
               </div>
             )
           } else {
           return (
-            <div key={i} className="craftView_ingredBox">
+            <div key={i} className="marketplace_ingredBox">
               <img src={hidden_ingred} alt="" className="marketplace_ingred marketplace_no_ingred" /> 
             </div>
           )

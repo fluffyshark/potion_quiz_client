@@ -139,6 +139,25 @@
         opacity: 0.5;
         pointer-events: none;
     }
+
+    .marketplace_ingredBox {
+        width: 90px;
+        height: 90px;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .marketplace_ingred_amount {
+        width: 20px;
+        position: absolute;
+        top: 69%;
+        left: 66.2%;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 10px;
+        margin: 0;
+    }
     
     .marketplace_footer {
         width: 100%;
