@@ -335,6 +335,19 @@
         display: none;
         overflow: hidden;
     }
+
+    .craftPotion_amount_text {
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        position: absolute;
+        top: 50%; /* 60% */
+        left: 64%;
+        margin: 0;
+        text-align: center;
+        width: 20px;
+    }
+
 }
 
 /* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
