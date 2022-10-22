@@ -336,17 +336,18 @@
         overflow: hidden;
     }
 
-    .craftPotion_amount_text {
-        color: white;
-        font-size: 10px;
-        font-weight: bold;
-        position: absolute;
-        top: 50%; /* 60% */
-        left: 64%;
-        margin: 0;
-        text-align: center;
+    .craftView_ingred_amount {
         width: 20px;
+        position: absolute;
+        top: 60%; /* 66.8% */
+        left: 64.4%;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 10px;
+        margin: 0;
     }
+
+ 
 
 }
 
