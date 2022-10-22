@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "../../components/navbar/Navbar"
 import "./marketplace.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import Navbar from "../../components/navbar/Navbar"
 import MarketplaceSell from "./MarketplaceSell.js"
 import MarketplaceBuy from './MarketplaceBuy'
