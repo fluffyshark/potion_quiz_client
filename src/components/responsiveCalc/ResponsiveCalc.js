@@ -20,13 +20,19 @@ console.log("width: ", window.innerWidth)
 // - Safari brower (with extra tabs) - 810x1010 - 97vh
 // - Chrome brower (no extra tabs) - 810x965 - 94vh
 
-// 969px = 69% | 57% on selected
+// Craft ingred amounts
+// 969px = 69% | 57% on selected (My computer) 
+// 954px = 66.8% | 58.8% in selected (iPad 9.7-inch) 
+// 668px = 68.8% | 56.5% in selected (Ubuntu 1292x668)
 
 export const ingredAmountTop = (height, width) => {
     let amountTop = 100
 
 
+// 969 - 668 = 301
+// 14.0435 - 9.7093 = 4.3342
 
+// 969 - 954 = 15
 
 
     return amountTop

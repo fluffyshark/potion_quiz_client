@@ -336,18 +336,6 @@
         overflow: hidden;
     }
 
-    .craftView_ingred_amount {
-        width: 20px;
-        position: absolute;
-        top: 60%; /* 66.8% */
-        left: 64.4%;
-        color: white;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 10px;
-        margin: 0;
-    }
-
- 
 
 }
 
