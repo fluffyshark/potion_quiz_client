@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./marketplace.css"
+import "./responsive/responsive.css"
+import "./responsive/tablet.css"
 import herbs from "../../image_assets/HerbImageExport"
 import { useDispatch, useSelector } from "react-redux"
 import { increase_ingredients } from "../../redux/IngredientReducer.js"
