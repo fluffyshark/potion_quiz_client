@@ -32,7 +32,7 @@
         color: white;
     }
     .navbar_menu_title>p{
-        transform: translateY(5px);
+        transform: translateY(4px);
     }
     
     
@@ -92,6 +92,7 @@
         font-family: 'Luckiest Guy', cursive;
         color: white;
         margin: 0;
+        transform: translateY(4px);
     }
 
 
