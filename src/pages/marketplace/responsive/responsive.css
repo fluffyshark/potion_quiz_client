@@ -72,6 +72,9 @@
         font-size: 23px;
         cursor: pointer;
     }
+    .market_menu_btns>p{
+        transform: translateY(5px);
+    }
     
     .marketplace_menu_potions_btn {
         width: 110px; 

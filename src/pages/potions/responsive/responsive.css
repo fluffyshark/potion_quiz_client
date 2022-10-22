@@ -194,6 +194,7 @@
         justify-content: center;
         margin-bottom: 6px;
         cursor: pointer;
+        padding-top: 4px;
     }
     .potion_action_btns:hover {
         background: #e8c242;

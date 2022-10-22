@@ -281,9 +281,9 @@ function PotionsView(props_socket) {
           </div> 
           
           <div id="potionView_actions" className="potionView_footer_actions">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => activatePotion()} className="potion_action_btns">USE</motion.div>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => DisplayInfo()} className="potion_action_btns">INFO</motion.div>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns">SELL</motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => activatePotion()} className="potion_action_btns"><p>USE</p></motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => DisplayInfo()} className="potion_action_btns"><p>INFO</p></motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="potion_action_btns"><p>SELL</p></motion.div>
           </div>
         </div>
     </div>
