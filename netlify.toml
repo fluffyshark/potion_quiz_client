@@ -1,1 +1,4 @@
-
+[[redirects]]
+  from = "/*"
+  to = "https://potionquiz.com/"
+  status = 200
