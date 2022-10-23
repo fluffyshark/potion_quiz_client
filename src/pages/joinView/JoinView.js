@@ -30,6 +30,7 @@ function JoinView(props) {
     const sendNickname = () => {
       socket.emit("player_joining", { nickname, cards: [0,0,0], gameCode });
       dispatch(add_playerStartData({playerName: nickname, cards: [0,0,0], gameCode: gameCode}))
+      localStorage.setItem("gameCode", gameCode)
     };
 
     const configureGameCode = (playerGameCode) => {
@@ -59,6 +60,7 @@ function JoinView(props) {
   }, [socket]);
 
     
+
 
   return (
     <div className='joinView'>

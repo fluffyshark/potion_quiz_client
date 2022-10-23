@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import PotionsView from "./pages/potions/PotionsView";
 import QuizView from "./pages/quizView/QuizView"
 import CraftView from "./pages/craftView/CraftView"
@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 import { update_market } from "./redux/MarketplaceReducer";
 import { add_buyLetter } from './redux/LetterReducer'
-import PageNotFound from "./pages/pageNotFound/PageNotFound";
+import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
 
 
 const socket = io.connect("https://server-potionquiz.herokuapp.com/")
@@ -28,7 +28,6 @@ function App() {
 
   // Managing the global counter, which time effects can be hocked on.
   const [counter, setCounter] = useState(0)
-
 
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
@@ -44,7 +43,6 @@ function App() {
   },[counter])
 
   
-
   // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
   useEffect(() => {
     socket.on("sending_server_gameData", (data) => {
@@ -75,7 +73,6 @@ function App() {
   }, [socket])
 
 
-  
   useEffect(() => {
     let levelsCounter = [0,0,0]
     potionsList.map((potion) => {
@@ -85,8 +82,6 @@ function App() {
     })
     socket.emit("sending_player_cards", {playerName: playerStats.playerName, cards: levelsCounter, coins: coinList.total});
   }, [potionsList])
-
-  
 
   
   
@@ -102,7 +97,8 @@ function App() {
       <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
       <Route path="/host" element={<HostingView socket={socket} />}></Route>
       <Route path="/join" element={<JoinView socket={socket} />}></Route>
-      <Route path="/*" element={<PageNotFound />}></Route>
+      <Route path="/disconnected" element={<DisconnectedView />}></Route>
+      <Route path="/*" element={<StartView />}></Route>
     </Routes>
   </BrowserRouter>
   );

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import "./startView.css"
@@ -42,10 +42,7 @@ function StartView(props) {
 
 //    playSound("BackgroundMusic")
   }
-
-
-
-
+  
 
   return (
     <div className='startView'>
