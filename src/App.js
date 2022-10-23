@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 import { update_market } from "./redux/MarketplaceReducer";
 import { add_buyLetter } from './redux/LetterReducer'
+import PageNotFound from "./pages/pageNotFound/PageNotFound";
 
 
 const socket = io.connect("https://server-potionquiz.herokuapp.com/")
@@ -101,6 +102,7 @@ function App() {
       <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
       <Route path="/host" element={<HostingView socket={socket} />}></Route>
       <Route path="/join" element={<JoinView socket={socket} />}></Route>
+      <Route path="/*" element={<PageNotFound />}></Route>
     </Routes>
   </BrowserRouter>
   );
