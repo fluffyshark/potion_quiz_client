@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./navbar.css"
 import "./responsive/responsive.css"
@@ -18,8 +18,9 @@ function Navbar(props) {
   let navigate = useNavigate();
   const playerCoins = useSelector((state) => state.coins.value)
   const powersList = useSelector((state) => state.powers.value)
-  
+  const playerStats = useSelector((state) => state.playerStats.value)
 
+  
   useEffect(() => {
     document.getElementById("navbar_title_quiz").style.backgroundColor = "#2e1e12"
     document.getElementById("navbar_menu_title_potions").style.backgroundColor = "#2e1e12"
@@ -40,7 +41,6 @@ function Navbar(props) {
   }, [props.focus.focus]);
 
 
-  // ADD BIG SLIME SPLASH ON SCREEN
   // ADD SPASH MUSIC
   
 
@@ -66,6 +66,15 @@ function Navbar(props) {
 
 
 
+   // Check if player are disconnected from game by matching current gameCode with localStorage.
+  // If not matching, then navigate player to pageNotFound and help them reconnect if game is still on.
+  useEffect(() => {
+  //  const playerData = JSON.parse(localStorage.getItem("storedPlayerData"))
+  //  console.log("playerData", playerData)
+  //  if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {console.log("GAMECODE MATCH !!!!")} 
+    }, [])
+
+    
 
 
   return (

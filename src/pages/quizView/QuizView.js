@@ -52,7 +52,7 @@ function QuizView(all_props) {
   const dispatch = useDispatch()
   const potionsList = useSelector((state) => state.potions.value)
   const powersList = useSelector((state) => state.powers.value)
-  const playerStats = useSelector((state) => state.playerStats.value)
+  
 
   function newQuestion() {
     randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
@@ -175,12 +175,6 @@ function QuizView(all_props) {
 
 
 
-  // Check if player are disconnected from game by matching current gameCode with localStorage.
-  // If not matching, then navigate player to pageNotFound and help them reconnect if game is still on.
-  useEffect(() => {
-    const gameCode = localStorage.getItem("gameCode")
-      if (playerStats.gameCode !== gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {console.log("GAMECODE MATCH !!!!")} 
-    }, [])
 
 
   return (

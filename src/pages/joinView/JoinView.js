@@ -26,11 +26,14 @@ function JoinView(props) {
     if (nickname !== "") {setViewContent("readyAndWaiting"); sendNickname()}
     }
 
-    // Nickname send
+    // Send Player data to server, host, redux, and localStorage
     const sendNickname = () => {
       socket.emit("player_joining", { nickname, cards: [0,0,0], gameCode });
+      
       dispatch(add_playerStartData({playerName: nickname, cards: [0,0,0], gameCode: gameCode}))
-      localStorage.setItem("gameCode", gameCode)
+      
+  //    const storedPlayerData = {playerName : nickname,cards : [0,0,0],gameCode : gameCode, coins : 0}
+  //    localStorage.setItem("storedPlayerData", JSON.stringify(storedPlayerData))
     };
 
     const configureGameCode = (playerGameCode) => {

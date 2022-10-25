@@ -17,6 +17,7 @@ import io from "socket.io-client"
 import { update_market } from "./redux/MarketplaceReducer";
 import { add_buyLetter } from './redux/LetterReducer'
 import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
+import {AutoSave} from "./components/autoSave/AutoSave"
 
 
 const socket = io.connect("https://server-potionquiz.herokuapp.com/")
@@ -33,14 +34,42 @@ function App() {
   const potionsList = useSelector((state) => state.potions.value)
   const playerStats = useSelector((state) => state.playerStats.value)
   const coinList = useSelector((state) => state.coins.value)
+  const powersList = useSelector((state) => state.powers.value)
+  const ingredientsList = useSelector((state) => state.ingredients.value)
+  const craftList = useSelector((state) => state.crafting.value) 
+  const levelExp = useSelector((state) => state.levelExp.value)
+  const marketData = useSelector((state) => state.theMarket.value)
+  const gameStats = useSelector((state) => state.GameData.value)
+  const buyletter = useSelector((state) => state.buyletter.value)
+  const recipeList = useSelector((state) => state.recipe.value) 
+
 
   setInterval(function(){ 
    setCounter(new Date().getSeconds())
   }, 1000);
 
+
   useEffect(() => {
     dispatch(power_counter())
+    console.log("counter", counter)
+    if (counter === 55) {AutoSave(playerStats, gameStats, coinList, potionsList, powersList, levelExp, ingredientsList, recipeList, craftList, marketData, buyletter)}
   },[counter])
+
+
+
+  // NOT WORKING , DO NOT UPDATE ONLY REPLACE
+    // When page is about to refresh, alert the user so it' not happening by mistake
+    useEffect(() => {
+      window.addEventListener("beforeunload", alertUser);
+      return () => {
+
+        window.removeEventListener("beforeunload", alertUser);
+      };
+    }, []);
+    const alertUser = (e) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
 
   
   // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
@@ -83,7 +112,7 @@ function App() {
     socket.emit("sending_player_cards", {playerName: playerStats.playerName, cards: levelsCounter, coins: coinList.total});
   }, [potionsList])
 
-  
+
   
   return (
     <BrowserRouter>

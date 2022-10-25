@@ -18,7 +18,6 @@ function StartView(props) {
   let socket = props.socket
   const dispatch = useDispatch()
 
-
   function hostGame() {
     // Generate random number, that will be the gameCode (now called hostCode)
     const hostCode = (Math.floor(Math.random() * 999999999))
@@ -42,7 +41,9 @@ function StartView(props) {
 
 //    playSound("BackgroundMusic")
   }
-  
+
+
+
 
   return (
     <div className='startView'>
