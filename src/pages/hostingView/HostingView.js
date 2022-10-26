@@ -62,6 +62,7 @@ function HostingView(props) {
     setStartTimer(true)
     setGameStarted(true)
     dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
+    
   }
 
 

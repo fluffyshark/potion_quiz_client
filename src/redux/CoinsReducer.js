@@ -11,6 +11,7 @@ export const coinSlice = createSlice({
         },
         add_coins_amount: (state, action) => {
             state.value.total += action.payload
+            console.log("action.payload", action.payload)
             
         },
         reduce_coins: (state) => {

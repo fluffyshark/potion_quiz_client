@@ -33,10 +33,13 @@ export const levelExpSlice = createSlice({
         reduce_exp_amount: (state, action) => {
             state.value -= action.payload
         },
+        localStorage_import_exp: (state, action) => {
+            state.value = action.payload
+        },
         
       
     }
 })
 
-export const {add_exp, add_exp_amount, reduce_exp, reduce_exp_amount} = levelExpSlice.actions
+export const {add_exp, add_exp_amount, reduce_exp, reduce_exp_amount, localStorage_import_exp} = levelExpSlice.actions
 export default levelExpSlice.reducer

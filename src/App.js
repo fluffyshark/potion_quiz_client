@@ -1,4 +1,8 @@
-import {BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import io from "socket.io-client"
+// Pages
 import PotionsView from "./pages/potions/PotionsView";
 import QuizView from "./pages/quizView/QuizView"
 import CraftView from "./pages/craftView/CraftView"
@@ -8,22 +12,24 @@ import Marketplace from "./pages/marketplace/Marketplace";
 import HostingView from "./pages/hostingView/HostingView";
 import JoinView from "./pages/joinView/JoinView";
 import StartView from "./pages/startView/StartView.js"
-import { useEffect, useState } from "react";
+import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
+// Redux
 import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
 import { add_gameStats } from "./redux/GameStatsReducer"
 import { add_exp_amount } from "./redux/LevelExpReducer"
-import { useDispatch, useSelector } from "react-redux"
-import io from "socket.io-client"
 import { update_market } from "./redux/MarketplaceReducer";
 import { add_buyLetter } from './redux/LetterReducer'
-import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
+
+// Component functions
 import {AutoSave} from "./components/autoSave/AutoSave"
+
 
 
 const socket = io.connect("https://server-potionquiz.herokuapp.com/")
 //const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
+
 
 function App() {
 

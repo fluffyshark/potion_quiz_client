@@ -98,7 +98,6 @@ function QuizView(all_props) {
 
 
   const answerQuestion = (chosenAnswer) => {
-
   //   playSound("page")
     setTimeout(function() {
       clickMe()

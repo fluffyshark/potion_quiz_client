@@ -39,6 +39,9 @@ function StartView(props) {
     // Send host data to redux
     dispatch(add_playerStartData({playerName: "HOST", playerPoints: 0, gameCode: String(hostCode), displayCode: displayCode}))
 
+    // Disconnected status set to false, to allow player stats to be save at localStorage
+    localStorage.setItem("disconnected", "connected")
+
 //    playSound("BackgroundMusic")
   }
 

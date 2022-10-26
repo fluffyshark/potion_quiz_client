@@ -1,24 +1,39 @@
 
 export const AutoSave = (playerStats, gameStats, coinList, potionsList, powersList, levelExp, ingredientsList, recipeList, craftList, marketData, buyletter) => {
 
-    storePlayerStats(playerStats)
-    storeGameStats(gameStats)
-    storeCoinList(coinList)
-
-    storePotionsList(potionsList)
-    storePowersList(powersList)
-    storeLevelExp(levelExp)
+     // Setting disconnected to true, letting autosave know not to overwrite player progress
+    let disconnected = localStorage.getItem("disconnected")
+    console.log("isDisconnected", disconnected)
     
-    storeIngredientsList(ingredientsList)
-    storeRecipeList(recipeList)
-    storeCraftList(craftList)
-
-    storeMarketData(marketData)
-    storeBuyletter(buyletter)
-
-//    clearLocalStorage()
-
-//    checkSizeOfLocalStorage()
+    setTimeout(function() {
+        if (disconnected === "disconnected") {
+            console.log("Disconnected - Data save discontinued")
+        }
+        if (disconnected === "connected") {
+            console.log("Connected - Data saved")
+    
+            storePlayerStats(playerStats)
+            storeGameStats(gameStats)
+            storeCoinList(coinList)
+        
+            storePotionsList(potionsList)
+            //storePowersList(powersList)
+            storeLevelExp(levelExp)
+            
+            storeIngredientsList(ingredientsList)
+            storeRecipeList(recipeList)
+            storeCraftList(craftList)
+        
+            storeMarketData(marketData)
+            storeBuyletter(buyletter)
+        
+        //    clearLocalStorage()
+        
+        //    checkSizeOfLocalStorage()
+        }
+      }, 1000);
+    
+    
 
 }
 
@@ -28,8 +43,10 @@ function storePlayerStats(playerStats) {localStorage.setItem("playerStats", JSON
 
 function storeGameStats(gameStats) {localStorage.setItem("gameStats", JSON.stringify(gameStats))}
 
-function storeCoinList(coinList) {localStorage.setItem("coinList", JSON.stringify(coinList))}
-
+function storeCoinList(coinList) {
+    console.log("coinlist.total", coinList.total)
+    localStorage.setItem("coinList", JSON.stringify(coinList.total))
+}
 
 // Potion related
 function storePotionsList(potionsList) {
@@ -40,7 +57,8 @@ function storePotionsList(potionsList) {
     localStorage.setItem("potionsList", JSON.stringify(storedPotionList))
 }
 
-function storePowersList(powersList) {localStorage.setItem("powersList", JSON.stringify(powersList))}
+// Powerlist is read-only, player interaction dosn't change any values, therefore not needed to be included in localStorage
+//function storePowersList(powersList) {localStorage.setItem("powersList", JSON.stringify(powersList))}
 
 function storeLevelExp(levelExp) {localStorage.setItem("levelExp", JSON.stringify(levelExp))}
 
@@ -56,7 +74,10 @@ function storeRecipeList(recipeList) {
     localStorage.setItem("recipeList", JSON.stringify(storedRecipeList))
 }
 
-function storeCraftList(craftList) {localStorage.setItem("craftList", JSON.stringify(craftList))}
+function storeCraftList(craftList) {
+    const storedCraftList = craftList.map(({ image, ...rest }) => rest)
+    localStorage.setItem("craftList", JSON.stringify(storedCraftList))
+}
 
 
 // Market related

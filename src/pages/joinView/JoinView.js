@@ -30,10 +30,15 @@ function JoinView(props) {
     const sendNickname = () => {
       socket.emit("player_joining", { nickname, cards: [0,0,0], gameCode });
       
+      // Send player data to redux
       dispatch(add_playerStartData({playerName: nickname, cards: [0,0,0], gameCode: gameCode}))
       
-  //    const storedPlayerData = {playerName : nickname,cards : [0,0,0],gameCode : gameCode, coins : 0}
-  //    localStorage.setItem("storedPlayerData", JSON.stringify(storedPlayerData))
+      // Save initial player data to localStorage
+      const storedPlayerData = {playerName : nickname,cards : [0,0,0],gameCode : gameCode, coins : 0}
+      localStorage.setItem("playerStats", JSON.stringify(storedPlayerData))
+
+      // Disconnected status set to false, to allow player stats to be save at localStorage
+      localStorage.setItem("disconnected", "connected")
     };
 
     const configureGameCode = (playerGameCode) => {
@@ -50,15 +55,12 @@ function JoinView(props) {
       }
     };
 
-    // NEXT - REMOVE SPACES FROM PLAYER WRITTEN GAMECODE IF ANY
-
 
     // Start game receive
     useEffect(() => {
       socket.on("start_game", (data) => {
         dispatch(add_gameStats({data}))
         navigate('/quiz')
-     //   console.log("Start Game - gameData", data)
       })
   }, [socket]);
 

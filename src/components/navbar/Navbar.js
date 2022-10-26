@@ -67,11 +67,10 @@ function Navbar(props) {
 
 
    // Check if player are disconnected from game by matching current gameCode with localStorage.
-  // If not matching, then navigate player to pageNotFound and help them reconnect if game is still on.
+  // If not matching, then navigate player to DisconnectedView and help them reconnect if game is still on.
   useEffect(() => {
-  //  const playerData = JSON.parse(localStorage.getItem("storedPlayerData"))
-  //  console.log("playerData", playerData)
-  //  if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {console.log("GAMECODE MATCH !!!!")} 
+    const playerData = JSON.parse(localStorage.getItem("playerStats"))
+    if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {console.log("GAMECODE MATCH !!!!")} 
     }, [])
 
     
