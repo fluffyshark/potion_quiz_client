@@ -111,9 +111,12 @@ export const ingredientSlice = createSlice({
             }  
         },
         
+        retrive_ingreidentData: (state, action) => {
+            state.value = action.payload
+        },
 
     }
 })
 
-export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, epic_challenge_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients} = ingredientSlice.actions
+export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, epic_challenge_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients, retrive_ingreidentData} = ingredientSlice.actions
 export default ingredientSlice.reducer

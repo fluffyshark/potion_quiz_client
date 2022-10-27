@@ -10,6 +10,9 @@ export const buyLetterSlice = createSlice({
         },
         remove_buyLetter: (state, action) => {
             state.value.splice(action.payload, 1)
+        },
+        retrive_buyLetter: (state, action) => {
+            state.value = action.payload
         }
        
     }
@@ -17,5 +20,5 @@ export const buyLetterSlice = createSlice({
 })
 
 
-export const {add_buyLetter, remove_buyLetter} = buyLetterSlice.actions
+export const {add_buyLetter, remove_buyLetter, retrive_buyLetter} = buyLetterSlice.actions
 export default buyLetterSlice.reducer

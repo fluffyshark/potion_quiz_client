@@ -42,7 +42,6 @@ export const potionSlice = createSlice({
                         potion.earnedPoints += action.payload.earnedPoints
                     }
 
-                   
                 }
             })
         },
@@ -56,9 +55,13 @@ export const potionSlice = createSlice({
             }) 
         },
 
+        retrive_potionData: (state, action) => {
+            state.value = action.payload
+        },
+
         
     }
 })
 
-export const {add_potion, reduce_potion, add_discovery_points, increase_potion_level } = potionSlice.actions
+export const {add_potion, reduce_potion, add_discovery_points, increase_potion_level, retrive_potionData } = potionSlice.actions
 export default potionSlice.reducer

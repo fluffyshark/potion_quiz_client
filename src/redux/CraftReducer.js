@@ -39,6 +39,10 @@ export const craftSlice = createSlice({
                     ingredient.image = no_ingred
             })
         },
+
+        retrive_craftlist: (state, action) => {
+            state.value = action.payload
+        },
         
        
 
@@ -46,5 +50,5 @@ export const craftSlice = createSlice({
     }
 })
 
-export const {select_ingredients, deSelect_ingredients, remove_for_crafting} = craftSlice.actions
+export const {select_ingredients, deSelect_ingredients, remove_for_crafting, retrive_craftlist} = craftSlice.actions
 export default craftSlice.reducer

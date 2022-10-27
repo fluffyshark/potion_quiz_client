@@ -43,17 +43,11 @@ function storePlayerStats(playerStats) {localStorage.setItem("playerStats", JSON
 
 function storeGameStats(gameStats) {localStorage.setItem("gameStats", JSON.stringify(gameStats))}
 
-function storeCoinList(coinList) {
-    console.log("coinlist.total", coinList.total)
-    localStorage.setItem("coinList", JSON.stringify(coinList.total))
-}
+function storeCoinList(coinList) {localStorage.setItem("coinList", JSON.stringify(coinList.total))}
 
 // Potion related
 function storePotionsList(potionsList) {
     const storedPotionList = potionsList.map(({ image_bronze, image_silver, image_gold, ...rest }) => rest)
-   
-    console.log("storedPotionList", storedPotionList)
-   
     localStorage.setItem("potionsList", JSON.stringify(storedPotionList))
 }
 
@@ -75,8 +69,8 @@ function storeRecipeList(recipeList) {
 }
 
 function storeCraftList(craftList) {
-    const storedCraftList = craftList.map(({ image, ...rest }) => rest)
-    localStorage.setItem("craftList", JSON.stringify(storedCraftList))
+//    const storedCraftList = craftList.map(({ image, ...rest }) => rest)
+    localStorage.setItem("craftList", JSON.stringify(craftList))
 }
 
 

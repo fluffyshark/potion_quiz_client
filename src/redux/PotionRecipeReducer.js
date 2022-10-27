@@ -82,7 +82,17 @@ export const recipeSlice = createSlice({
                 }
             })
         },
-        
+
+        retrive_potionRecipe: (state, action) => {
+          state.value.map((recipe, i) => {
+              recipe.ing1_id = action.payload[i].ing1_id; recipe.ing2_id = action.payload[i].ing2_id; recipe.ing3_id = action.payload[i].ing3_id; recipe.ing4_id = action.payload[i].ing4_id
+              
+              recipe.ing1_amount = action.payload[i].ing1_amount; recipe.ing2_amount = action.payload[i].ing2_amount; recipe.ing3_amount = action.payload[i].ing3_amount; recipe.ing4_amount = action.payload[i].ing4_amount
+              
+              recipe.ing1_golden = action.payload[i].ing1_golden; recipe.ing2_golden = action.payload[i].ing2_golden; recipe.ing3_golden = action.payload[i].ing3_golden; recipe.ing4_golden = action.payload[i].ing4_golden      
+          })
+      },
+      
         
        
 
@@ -90,5 +100,5 @@ export const recipeSlice = createSlice({
     }
 })
 
-export const {golden_ingredient} = recipeSlice.actions
+export const {golden_ingredient, retrive_potionRecipe} = recipeSlice.actions
 export default recipeSlice.reducer
