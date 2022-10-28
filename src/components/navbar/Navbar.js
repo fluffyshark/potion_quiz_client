@@ -10,6 +10,7 @@ import blocker1 from "../../image_assets/general/slime_blocker2.png"
 import blocker2 from "../../image_assets/general/slime_blocker3.png"
 import blocker3 from "../../image_assets/general/slime_blocker1.png"
 import blocker4 from "../../image_assets/general/slime_blocker4.png"
+import { playSound } from '../playSound/playSound'
 
 
 
@@ -37,7 +38,9 @@ function Navbar(props) {
       default:
         console.log("no menu title for this one")
     }
-    
+
+    playSound("page")
+
   }, [props.focus.focus]);
 
 

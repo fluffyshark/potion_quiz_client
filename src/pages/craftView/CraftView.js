@@ -34,11 +34,10 @@ function CraftView(props_socket) {
 
   const dropIngredSound = () => {
     switch (Math.floor(Math.random() * 5)) {
-      case 0: playSound("drop01"); break;
-      case 1: playSound("drop02"); break;
-      case 2: playSound("drop03"); break;
-      case 3: playSound("drop04"); break;
-      case 4: playSound("drop05"); break;
+      case 0: playSound("ingredDrop01"); break;
+      case 1: playSound("ingredDrop02"); break;
+      case 2: playSound("ingredDrop03"); break;
+      case 3: playSound("ingredDrop04"); break;
       default: break;
     }
   }
@@ -188,7 +187,7 @@ function CraftView(props_socket) {
    
     document.getElementById("craftPotion").style.display = "flex"
 
-    playSound("craftPotionSound")
+    playSound("craftPotion")
 
   } // End of craftPotion
 
