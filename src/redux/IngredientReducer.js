@@ -115,8 +115,17 @@ export const ingredientSlice = createSlice({
             state.value = action.payload
         },
 
+        return_craftIngrediets: (state, action) => {
+            state.value.map((ingredient) => {
+                if (ingredient.id === action.payload.id) {
+                        ingredient.amount += action.payload.amount
+                        ingredient.discovered = true
+                }
+            })
+        },
+
     }
 })
 
-export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, epic_challenge_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients, retrive_ingreidentData} = ingredientSlice.actions
+export const {increase_ingredients, decrease_ingredients, giveGift_ingredients, transmute_ingredients, epic_challenge_ingredients, buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients, retrive_ingreidentData, return_craftIngrediets} = ingredientSlice.actions
 export default ingredientSlice.reducer

@@ -69,8 +69,9 @@ function storeRecipeList(recipeList) {
 }
 
 function storeCraftList(craftList) {
-//    const storedCraftList = craftList.map(({ image, ...rest }) => rest)
-    localStorage.setItem("craftList", JSON.stringify(craftList))
+    const storedCraftList = craftList.map(({ image, ...rest }) => rest)
+    localStorage.setItem("craftList", JSON.stringify(storedCraftList))
+    console.log("craftList SAVE", storedCraftList)
 }
 
 

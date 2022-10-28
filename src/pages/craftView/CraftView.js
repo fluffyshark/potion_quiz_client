@@ -58,13 +58,21 @@ function CraftView(props_socket) {
   const selectIngredient = (addRemove, nr, selected_id) => {
    
   if (addRemove === "add") {
+    // If redux or useState for first slot is empty
       if (craftList[0].selected_id === 200 || craftingSlots[0] === selected_id ) {
+        // If clicked ingredient is not already in any other slot
         if (craftingSlots[1] !== selected_id && craftingSlots[2] !== selected_id && craftingSlots[3] !== selected_id) {
+          // If player owns at least one unit of clicked ingredient
           if (ingredientsList[selected_id].amount > 0) {
+            // Send data of clicked ingredient to CraftReducer (redux)
             dispatch(select_ingredients({id:0, selected_id: selected_id, total:ingredientsList[selected_id].amount, image: ingredientsList[selected_id].image_normal}))
+            // Unhide slot amount text
             document.getElementById("craftAmount1").style.display = "flex"
+            // Remove one unit of the clicked ingredient in redux
             dispatch(decrease_ingredients({id:selected_id}))
+            // Add clicked ingredient id to useState
             craftingSlots[0] = selected_id 
+            // Play sound effect
             dropIngredSound()
           } 
         }
@@ -153,6 +161,16 @@ function CraftView(props_socket) {
     
   } // End of selectIngredient
 
+
+  useEffect(() => {
+    if (!craftingSlots.includes(200)) {
+      document.getElementById("caldrun").style.opacity = 1;
+      document.getElementById("caldrun").style.pointerEvents = "inherit"
+  } else {
+    document.getElementById("caldrun").style.opacity = 0.5;
+    document.getElementById("caldrun").style.pointerEvents = "none"
+  }
+  })
 
 
 

@@ -10,23 +10,21 @@ import { localStorage_import_exp } from "../../redux/LevelExpReducer"
 import { retrive_potionData } from "../../redux/PotionReducer"
 import { PotionData } from "../../redux/PotionData.js"
 import { IngredientData } from "../../redux/IngredientData.js"
-import { retrive_ingreidentData } from "../../redux/IngredientReducer"
+import { retrive_ingreidentData, return_craftIngrediets } from "../../redux/IngredientReducer"
 import { retrive_potionRecipe } from "../../redux/PotionRecipeReducer"
-import { retrive_craftlist } from "../../redux/CraftReducer"
 import { update_market } from "../../redux/MarketplaceReducer"
 import { retrive_buyLetter } from "../../redux/LetterReducer"
 
 
-// NEXT - ADD RECONNECTING FUNCTIONALITY WHEN CLICK BUTTON, POPULATE REDUX FROM LOCALSTORAGE
 // NEXT - FIX TIMER 
 // NEXT - ADD FUNCTIONALLIY TO END GAME
 // NEXT - BACKGROUND IMAGE NEED TO BE WEBP 
 // NEXT - LOOP IN POTION IMAGES INTO REDUX
+
 // NEXT - CRAFTLIST ARE RETRIVED BUT THE USESTATE IS NOT IN SYNC
 // NEXT - CHECK THAT MARKETDATA AND BUYLETTER ARE RETRIVED
 // NEXT - CHECK IF PLAYER ARE JOINED IN SOCKET ROOM AFTER RECONNECT
 
-// NEXT - AUTOLOAD ALL TO REDUX
 
 
 
@@ -77,19 +75,23 @@ function DisconnectedView() {
     const retrivedPotionRecipe = JSON.parse(localStorage.getItem("recipeList"))
     dispatch(retrive_potionRecipe(retrivedPotionRecipe))
 
-
-    // Retrive CraftList
-    const retrivedCraftList = JSON.parse(localStorage.getItem("craftList"))
-    dispatch(retrive_craftlist(retrivedCraftList))
-
     // Retrive MarketData
     const retrivedMarketData = JSON.parse(localStorage.getItem("marketData"))
     dispatch(update_market(retrivedMarketData))
 
     // Retrive BuyLetter
     const retrivedBuyLetter = JSON.parse(localStorage.getItem("buyletter"))
-    dispatch(update_market(retrivedBuyLetter))
-    
+    dispatch(retrive_buyLetter(retrivedBuyLetter))
+ 
+    // CHECK WHY CRAFTLIST NOT WORKING
+
+    // Retrive CraftList and return ingredients (if any) to ingredientList
+    setTimeout(function() {
+      const retrivedCraftList = JSON.parse(localStorage.getItem("craftList"))
+      console.log("retrivedCraftList", retrivedCraftList)
+      retrivedCraftList.map((item) => {if (item.amount >= 1) {dispatch(return_craftIngrediets({id:item.selected_id, amount: item.amount}))}})
+  }, 6000);
+
 
     setTimeout(function() {
       navigate('/quiz')

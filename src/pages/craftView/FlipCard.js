@@ -7,7 +7,6 @@ import potion_fail from "../../image_assets/general/potion_fail.png"
 import card_back from "../../image_assets/general/card_back1.webp"
 
 function FlipCard(props) {
-  console.log("CARD PROPS", props.reveal)
 
   useEffect(() => {
     if (props.reveal === true) {document.getElementById("theCard2").style.transform = "rotateY(180deg)"} 

@@ -32,25 +32,16 @@ function CraftPotion(props) {
         for (let i = 0; i < recipeList.length; i++) {
         
             if (recipeList[i].ing1_id === craftList[0].selected_id || recipeList[i].ing1_id === craftList[1].selected_id || recipeList[i].ing1_id === craftList[2].selected_id || recipeList[i].ing1_id === craftList[3].selected_id)
-            {
-                matching.push(i)
-             
-            }
+            {matching.push(i)}
+            
             if (recipeList[i].ing2_id === craftList[0].selected_id || recipeList[i].ing2_id === craftList[1].selected_id || recipeList[i].ing2_id === craftList[2].selected_id || recipeList[i].ing2_id === craftList[3].selected_id)
-            {
-                matching.push(i)
-             
-            }
+            {matching.push(i)}
+
             if (recipeList[i].ing3_id === craftList[0].selected_id || recipeList[i].ing3_id === craftList[1].selected_id || recipeList[i].ing3_id === craftList[2].selected_id || recipeList[i].ing3_id === craftList[3].selected_id)
-            {
-                matching.push(i)
-              
-            }
+            {matching.push(i)}
+            
             if (recipeList[i].ing4_id === craftList[0].selected_id || recipeList[i].ing4_id === craftList[1].selected_id || recipeList[i].ing4_id === craftList[2].selected_id || recipeList[i].ing4_id === craftList[3].selected_id)
-            {
-                matching.push(i)
-               
-            }
+            {matching.push(i)}
             
         }
 
@@ -139,22 +130,19 @@ function CraftPotion(props) {
                 } 
                 
                
-                    
             }
 
-
-            // COVER NAVBAR DURING CRAFT WAIT, OTHERWISE INGREDIENTS WILL NOT DISSAPEAR
-            // NO PLAYER POINTS ARE DISPLAYED
 
             setShowCard(true)
               
 
     } // End of matchRecipe()
 
+    
+
     function exitPotionCraft() {
         document.getElementById("craftPotion").style.display = "none"
         dispatch(remove_for_crafting())
-    //    console.log("PLAYERDATA after 5 sec: ", playerStats)
         setShowCard(false)
     }
    
