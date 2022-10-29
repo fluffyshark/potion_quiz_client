@@ -34,6 +34,7 @@ function MarketplaceBuy(props) {
 
   useEffect(() => {
     setSellOffering(Offerings(marketData))
+    console.log("marketData in MarketPlaceBuy.js", marketData)
   }, [marketData])
 
 

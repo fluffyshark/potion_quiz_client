@@ -34,7 +34,10 @@ function StartView(props) {
     let displayCode = intArr.join("")
 
     // Host also need to join the same socket.io room to communicate with players in the room
-    socket.emit("join_room", String(hostCode));
+  //  socket.emit("join_room", String(hostCode));
+
+    // Host create room named same as the gameCode. This gameCode will be be the name of the object thread where the game data will be managed.
+    socket.emit("host_creating_room", String(hostCode));
 
     // Send host data to redux
     dispatch(add_playerStartData({playerName: "HOST", playerPoints: 0, gameCode: String(hostCode), displayCode: displayCode}))

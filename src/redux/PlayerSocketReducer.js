@@ -4,7 +4,7 @@ import io from "socket.io-client"
 const socket = io.connect("https://server-potionquiz.herokuapp.com/")
 //const socket = io.connect("http://localhost:3001")
 
-export var PlayerData = {playerName: "", cards: [0,0,0], gameCode: "", displayCode: 0}
+export var PlayerData = {playerID: "", playerName: "", cards: [0,0,0], gameCode: "", displayCode: 0}
 
 
 export const playerStatsSlice = createSlice({
@@ -15,6 +15,7 @@ export const playerStatsSlice = createSlice({
             state.value.playerName = action.payload.playerName
             state.value.gameCode = action.payload.gameCode
             state.value.cards = action.payload.cards
+            state.value.playerID = action.payload.playerID
             if (action.payload.hasOwnProperty('displayCode')) { state.value.displayCode = action.payload.displayCode}
             console.log("playerData", action.payload)
         },

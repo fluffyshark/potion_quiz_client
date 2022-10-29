@@ -99,7 +99,7 @@ function App() {
     })
 
     socket.on("sending_marketData_to_players", (marketData) => {
-     // console.log("sending_marketData_to_players", marketData)
+      console.log("sending_marketData_to_players", marketData)
       dispatch(update_market(marketData))
     }) 
 
@@ -115,7 +115,9 @@ function App() {
     if (potion.level === 2) {levelsCounter[1] += 1}
     if (potion.level === 3) {levelsCounter[2] += 1}
     })
-    socket.emit("sending_player_cards", {playerName: playerStats.playerName, cards: levelsCounter, coins: coinList.total});
+    if (levelsCounter[0] > 0 || levelsCounter[1] > 0 || levelsCounter[2] > 0 ) {
+      socket.emit("sending_player_cards", {playerName: playerStats.playerName, cards: levelsCounter, coins: coinList.total, gameCode: playerStats.gameCode})
+    }
   }, [potionsList])
 
 

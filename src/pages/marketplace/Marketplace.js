@@ -89,15 +89,13 @@ function Marketplace(props) {
   }
 
 
-  // NEXT - CREATE REDUCER TO MAKE ENVELOPE STAY WHEN SWITCING VIEWS
-
 
   function placeSellOrder() {
     // Get Player ID
-    let playerID = []
-    if (gameStats.hasOwnProperty('data')) {playerID = gameStats.data.filter(player => player.playerName === playerStats.playerName)} else {playerID = gameStats.filter(player => player.playerName === playerStats.playerName)}
+  //  let playerID = []
+    //if (gameStats.hasOwnProperty('data')) {playerID = gameStats.data.filter(player => player.playerName === playerStats.playerName)} else {playerID = gameStats.filter(player => player.playerName === playerStats.playerName)}
     // Send sell order to server by socket.io
-    socket.emit("sending_player_sellorder", {playerID: playerID[0].id, playerName: playerStats.playerName, ingredient: selectedID, price: sellIngredient.price, gameCode: playerStats.gameCode, sellID: sellIngredient.sellID})
+    socket.emit("sending_player_sellorder", {playerID: playerStats.playerID, playerName: playerStats.playerName, ingredient: selectedID, price: sellIngredient.price, gameCode: playerStats.gameCode, sellID: sellIngredient.sellID})
     // Reduce the amount for the sold ingredient
     dispatch(decrease_ingredients({id:selectedID}))
     // Reset state and render 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import { add_gameStats } from "../../redux/GameStatsReducer"
 import "./joinView.css"
@@ -21,6 +21,8 @@ function JoinView(props) {
   const [gameCode, setGameCode] = useState("")
   const [nickname, setNickname] = useState("")
 
+  const playerStats = useSelector((state) => state.playerStats.value) 
+
    function switchViewContent() {
     if (gameCode !== "") {setViewContent("enterName"); joinRoom()}
     if (nickname !== "") {setViewContent("readyAndWaiting"); sendNickname()}
@@ -28,18 +30,33 @@ function JoinView(props) {
 
     // Send Player data to server, host, redux, and localStorage
     const sendNickname = () => {
-      socket.emit("player_joining", { nickname, cards: [0,0,0], gameCode });
-      
+      socket.emit("player_joining", { nickname, cards: [0,0,0], gameCode, coins: 0 });
+
       // Send player data to redux
-      dispatch(add_playerStartData({playerName: nickname, cards: [0,0,0], gameCode: gameCode}))
+      dispatch(add_playerStartData({playerName: nickname, cards: [0,0,0], gameCode: gameCode, coins : 0}))
       
       // Save initial player data to localStorage
-      const storedPlayerData = {playerName : nickname,cards : [0,0,0],gameCode : gameCode, coins : 0}
+      const storedPlayerData = {playerName : nickname, cards : [0,0,0], gameCode : gameCode, coins : 0}
       localStorage.setItem("playerStats", JSON.stringify(storedPlayerData))
 
       // Disconnected status set to false, to allow player stats to be save at localStorage
       localStorage.setItem("disconnected", "connected")
     };
+
+    function updatePlayerStats(playerID) {
+      // Get player data from localStorage, as useState will be empty because of input onchange will make it so
+      let playerData = JSON.parse(localStorage.getItem("playerStats"))
+      
+      // Send player data updated with socket.id/playerID to redux
+      dispatch(add_playerStartData({playerID: playerID, playerName: playerData.playerName, cards: playerData.cards, gameCode: playerData.gameCode, coins : playerData.coins}))
+
+      // Save initial player data to localStorage
+      const storedPlayerData = {playerID: playerID, playerName :  playerData.playerName, cards : playerData.cards, gameCode : playerData.gameCode, coins: playerData.coins}
+      localStorage.setItem("playerStats", JSON.stringify(storedPlayerData))
+
+    }
+
+    
 
     const configureGameCode = (playerGameCode) => {
       // Remove potiontial whitespace from gameCode
@@ -62,9 +79,13 @@ function JoinView(props) {
         dispatch(add_gameStats({data}))
         navigate('/quiz')
       })
+
+      socket.on("sending_playerID", (socketID) => {
+        setTimeout(function() {updatePlayerStats(socketID)}, 1000);
+      })
   }, [socket]);
 
-    
+  
 
 
   return (

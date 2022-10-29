@@ -27,7 +27,6 @@ function HostingView(props) {
   const [startTimer, setStartTimer] = useState(false)
   const [playersJoined, setPlayersJoined] = useState([])
   const [gameStarted, setGameStarted] = useState(false)
-  const [letLateIn, setLetLateIn] = useState(false)
 
 
   // Show players who joined room
@@ -66,10 +65,7 @@ function HostingView(props) {
   }
 
   function endGame() {
-  //  socket.emit("end_game", playerStats.gameCode);
     socket.emit("end_game", playerStats.gameCode);
- 
-   
   }
 
 
