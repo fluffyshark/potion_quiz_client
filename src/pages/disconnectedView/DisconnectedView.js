@@ -20,13 +20,15 @@ import { retrive_buyLetter } from "../../redux/LetterReducer"
 // NEXT - ADD FUNCTIONALLIY TO END GAME
 
 // NEXT - CHECK THAT MARKETDATA AND BUYLETTER ARE RETRIVED
-// NEXT - CHECK IF PLAYER ARE JOINED IN SOCKET ROOM AFTER RECONNECT
+// NEXT - CHECK IF PLAYER ARE JOINED IN SOCKET ROOM AFTER RECONNECT, IF NOT REJOIN
 // NEXT - ADD SOUND EFFECT AGAIN
 // NEXT - ADD JUKEBOX SOUND TO HOSTBOARD VIA SOCKET
 
 
 
-function DisconnectedView() {
+function DisconnectedView(props) {
+
+  let socket = props.socket
 
   let navigate = useNavigate();
   const dispatch = useDispatch()
@@ -39,7 +41,8 @@ function DisconnectedView() {
     // Retrive Coinsreducer
     dispatch(add_coins_amount(JSON.parse(localStorage.getItem("coinList"))))
     // Retrive PlayerSocketReducer
-    dispatch(add_playerStartData(JSON.parse(localStorage.getItem("playerStats"))))
+    const playerStats = JSON.parse(localStorage.getItem("playerStats"))
+    dispatch(add_playerStartData(playerStats))
     // Retrive GameStatsReducer
     dispatch(add_gameStats(JSON.parse(localStorage.getItem("gameStats"))))
     // Retrive LevelExpReducer
@@ -88,7 +91,11 @@ function DisconnectedView() {
       const retrivedCraftList = JSON.parse(localStorage.getItem("craftList"))
       console.log("retrivedCraftList", retrivedCraftList)
       retrivedCraftList.map((item) => {if (item.amount >= 1) {dispatch(return_craftIngrediets({id:item.selected_id, amount: item.amount}))}})
-  }, 6000);
+    }, 6000);
+
+ 
+    socket.emit("join_room", playerStats.gameCode);
+    socket.emit("player_joining", { nickname: playerStats.playerName, cards: playerStats.cards, gameCode: playerStats.gameCode });
 
 
     setTimeout(function() {

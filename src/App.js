@@ -25,8 +25,8 @@ import {AutoSave} from "./components/autoSave/AutoSave"
 
 
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -132,7 +132,7 @@ function App() {
       <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
       <Route path="/host" element={<HostingView socket={socket} />}></Route>
       <Route path="/join" element={<JoinView socket={socket} />}></Route>
-      <Route path="/disconnected" element={<DisconnectedView />}></Route>
+      <Route path="/disconnected" element={<DisconnectedView socket={socket} />}></Route>
       <Route path="/*" element={<StartView />}></Route>
     </Routes>
   </BrowserRouter>

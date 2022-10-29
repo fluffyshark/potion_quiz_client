@@ -65,6 +65,13 @@ function HostingView(props) {
     
   }
 
+  function endGame() {
+  //  socket.emit("end_game", playerStats.gameCode);
+    socket.emit("end_game", playerStats.gameCode);
+ 
+   
+  }
+
 
 
   return (
@@ -76,7 +83,7 @@ function HostingView(props) {
             <Timer startTimer={startTimer} />
             
             {gameStarted ? (
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => startGame()}>LET LATE IN</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => endGame()}>END GAME</motion.button>
             ) : (
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}  className='hostView_startBtn' onClick={() => startGame()}>START GAME</motion.button>
             )}
