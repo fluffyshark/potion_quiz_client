@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import "./disconnectedView.css"
 import {motion} from "framer-motion"
@@ -32,9 +32,15 @@ function DisconnectedView(props) {
 
   let navigate = useNavigate();
   const dispatch = useDispatch()
+  const [gameOver, setGameOver] = useState(false)
 
   // Setting disconnected to true, letting autosave know not to overwrite player progress
-  useEffect(() => {localStorage.setItem("disconnected", "disconnected")}, [])
+  useEffect(() => {
+    if (localStorage.getItem("disconnected") === "EndGame") {setGameOver(true)} 
+    setTimeout(function() {localStorage.setItem("disconnected", "disconnected")}, 500);
+  }, [])
+
+
 
   function reconnect() {
     
@@ -84,7 +90,6 @@ function DisconnectedView(props) {
     const retrivedBuyLetter = JSON.parse(localStorage.getItem("buyletter"))
     dispatch(retrive_buyLetter(retrivedBuyLetter))
  
-    // CHECK WHY CRAFTLIST NOT WORKING
 
     // Retrive CraftList and return ingredients (if any) to ingredientList
     setTimeout(function() {
@@ -103,9 +108,14 @@ function DisconnectedView(props) {
       localStorage.setItem("disconnected", "connected")
     }, 3000);
     
-  }
+  } // End of reconnect()
 
+
+
+  function backToStartView() {navigate('/')}
   
+
+
     return (
 
     <div className='disconnectedView'>
@@ -114,11 +124,26 @@ function DisconnectedView(props) {
 
         <div className="disconnectedView_bottom">
 
-           <div className="disconnectedView_boxContainer">
+        {gameOver ? 
+          ( 
+
+            <div className="disconnectedView_boxContainer">
+                <p className="disconnectedView_title_endgame">The Game Has Ended</p>
+                <motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => {backToStartView()}} className="disconnectedView_reconnectBtn"><p>Back To Start</p></motion.div>
+           </div>
+
+          ) : (
+
+            <div className="disconnectedView_boxContainer">
                 <p className="disconnectedView_title">You're disconnected</p>
                 <p className="disconnectedView_smalldescription">If the game is still on, would you like to reconnect ?</p>
                 <motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => {reconnect()}} className="disconnectedView_reconnectBtn"><p>Reconnect</p></motion.div>
            </div>
+
+          )
+        }
+
+           
 
         </div>
 
