@@ -13,6 +13,7 @@ import HostingView from "./pages/hostingView/HostingView";
 import JoinView from "./pages/joinView/JoinView";
 import StartView from "./pages/startView/StartView.js"
 import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
+import {EndGame} from "./components/endGame/EndGame"
 // Redux
 import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
 import { add_gameStats } from "./redux/GameStatsReducer"
@@ -25,8 +26,8 @@ import {AutoSave} from "./components/autoSave/AutoSave"
 
 
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -104,6 +105,11 @@ function App() {
     }) 
 
     socket.on("sending_successfull_sale", (sale) => {dispatch(add_buyLetter(sale))}) 
+
+    socket.on("host_to_player_to_end_game", (gameCode) => {
+      EndGame(socket, gameCode)
+    }) 
+    
 
   }, [socket])
 

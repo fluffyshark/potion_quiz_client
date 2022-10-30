@@ -8,6 +8,7 @@ import { activate_power } from "../../redux/PowerReducer"
 import { useSelector, useDispatch } from "react-redux"
 import {motion} from "framer-motion"
 import {playSound} from "../../components/playSound/playSound"
+import {EndGame} from "../../components/endGame/EndGame"
 
 // Hosting using Socket.io:
 // - Sockets are initiated at App.js and passed down to all children using props.
@@ -64,8 +65,11 @@ function HostingView(props) {
     
   }
 
-  function endGame() {
-    socket.emit("end_game", playerStats.gameCode);
+  function hostEndGame() {
+    // Host leave socket room and delete server-side game data
+    socket.emit("host_end_game", playerStats.gameCode);
+    // Deletes game data from localStorage and sends to all players to leave socket room delete their localStorage
+    EndGame(socket, playerStats.gameCode)
   }
 
 
@@ -79,7 +83,7 @@ function HostingView(props) {
             <Timer startTimer={startTimer} />
             
             {gameStarted ? (
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => endGame()}>END GAME</motion.button>
+              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => hostEndGame()}>END GAME</motion.button>
             ) : (
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}  className='hostView_startBtn' onClick={() => startGame()}>START GAME</motion.button>
             )}

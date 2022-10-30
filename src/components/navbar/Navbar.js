@@ -74,6 +74,9 @@ function Navbar(props) {
   useEffect(() => {
     const playerData = JSON.parse(localStorage.getItem("playerStats"))
     if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {console.log("GAMECODE MATCH !!!!")} 
+    const gameStatus = localStorage.getItem("disconnected")
+    if (gameStatus === "EndGame") {navigate('/disconnected'); console.log("GAME ENDED")} else {console.log("GAME CONTINUES !!!!")} 
+    
     }, [])
 
     
