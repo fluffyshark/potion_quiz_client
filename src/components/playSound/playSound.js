@@ -19,8 +19,8 @@ soundPlayer.addSound('ingredDrop04', ingredDrop04())
 
 soundPlayer.addSound('craftPotion', craftPotion())
 soundPlayer.addSound('splash', splash())
-soundPlayer.addSound('useBlessing', sound_useBlessing())
-soundPlayer.addSound('useCurse', sound_useCurse())
+soundPlayer.addSound('blessing', sound_useBlessing())
+soundPlayer.addSound('curse', sound_useCurse())
 soundPlayer.addSound('freeze', freeze())
 
 soundPlayer.addSound('jukebox00', jukebox00())

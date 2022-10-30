@@ -121,7 +121,9 @@ function PotionsView(props_socket) {
     // If potion used is on self, then navigate to "QuizView"
     if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 10 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
 
-  }
+  } // End of activatePotion()
+
+
 
   useEffect(() => {
     // Show potion ingredient are hidden if potion card not selected

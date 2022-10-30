@@ -5,6 +5,8 @@ import flasks from "../../image_assets/FlaskImageExport"
 
 let duration = 0
 
+// Functionality - Fix Double Points, so card dissarpear on use and player is navigated to quiz page
+
 function DoublePoints() {
 
     const dispatch = useDispatch()

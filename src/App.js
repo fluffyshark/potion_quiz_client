@@ -26,8 +26,8 @@ import {AutoSave} from "./components/autoSave/AutoSave"
 
 
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     dispatch(power_counter())
-    console.log("counter", counter)
+ //   console.log("counter", counter)
     if (counter === 55) {AutoSave(playerStats, gameStats, coinList, potionsList, powersList, levelExp, ingredientsList, recipeList, craftList, marketData, buyletter)}
   },[counter])
 
