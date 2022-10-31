@@ -1,19 +1,21 @@
 import {BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState, lazy } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 // Pages
 import StartView from "./pages/startView/StartView.js"
 import QuizView from "./pages/quizView/QuizView"
-import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
 import {EndGame} from "./components/endGame/EndGame"
+import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
+//import HostingView from "./pages/hostingView/HostingView";
+// import JoinView from "./pages/joinView/JoinView";
 // import PotionsView from "./pages/potions/PotionsView";
 // import CraftView from "./pages/craftView/CraftView"
 // import BuySell from "./pages/buysell/BuySell";
 // import Leaderboard from "./pages/leaderboard/Leaderboard";
 // import Marketplace from "./pages/marketplace/Marketplace";
-// import HostingView from "./pages/hostingView/HostingView";
-// import JoinView from "./pages/joinView/JoinView";
+
+
 
 // Redux
 import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
@@ -34,8 +36,8 @@ const HostingView = lazy(() => import("./pages/hostingView/HostingView"))
 const JoinView = lazy(() => import("./pages/joinView/JoinView"))
 
 
-const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("https://server-potionquiz.herokuapp.com/")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -138,19 +140,21 @@ function App() {
   
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<StartView socket={socket} />}></Route>  
-      <Route path="/quiz" element={<QuizView socket={socket} hostID={ourHostID} />}></Route>
-      <Route path="/potions" element={<PotionsView socket={socket} />}></Route>
-      <Route path="/craft" element={<CraftView socket={socket} />}></Route>
-      <Route path="/buysell" element={<BuySell />}></Route>
-      <Route path="/leaderboard" element={<Leaderboard />}></Route>
-      <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
-      <Route path="/host" element={<HostingView socket={socket} />}></Route>
-      <Route path="/join" element={<JoinView socket={socket} />}></Route>
-      <Route path="/disconnected" element={<DisconnectedView socket={socket} />}></Route>
-      <Route path="/*" element={<StartView />}></Route>
-    </Routes>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <Routes>
+        <Route path="/" element={<StartView socket={socket} />}></Route>  
+        <Route path="/quiz" element={<QuizView socket={socket} hostID={ourHostID} />}></Route>
+        <Route path="/potions" element={<PotionsView socket={socket} />}></Route>
+        <Route path="/craft" element={<CraftView socket={socket} />}></Route>
+        <Route path="/buysell" element={<BuySell />}></Route>
+        <Route path="/leaderboard" element={<Leaderboard />}></Route>
+        <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
+        <Route path="/host" element={<HostingView socket={socket} />}></Route>
+        <Route path="/join" element={<JoinView socket={socket} />}></Route>
+        <Route path="/disconnected" element={<DisconnectedView socket={socket} />}></Route>
+        <Route path="/*" element={<StartView />}></Route>
+      </Routes>
+    </Suspense>
   </BrowserRouter>
   );
 }
