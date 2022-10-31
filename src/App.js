@@ -1,19 +1,20 @@
 import {BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 // Pages
-import PotionsView from "./pages/potions/PotionsView";
-import QuizView from "./pages/quizView/QuizView"
-import CraftView from "./pages/craftView/CraftView"
-import BuySell from "./pages/buysell/BuySell";
-import Leaderboard from "./pages/leaderboard/Leaderboard";
-import Marketplace from "./pages/marketplace/Marketplace";
-import HostingView from "./pages/hostingView/HostingView";
-import JoinView from "./pages/joinView/JoinView";
 import StartView from "./pages/startView/StartView.js"
+import QuizView from "./pages/quizView/QuizView"
 import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
 import {EndGame} from "./components/endGame/EndGame"
+// import PotionsView from "./pages/potions/PotionsView";
+// import CraftView from "./pages/craftView/CraftView"
+// import BuySell from "./pages/buysell/BuySell";
+// import Leaderboard from "./pages/leaderboard/Leaderboard";
+// import Marketplace from "./pages/marketplace/Marketplace";
+// import HostingView from "./pages/hostingView/HostingView";
+// import JoinView from "./pages/joinView/JoinView";
+
 // Redux
 import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
 import { add_gameStats } from "./redux/GameStatsReducer"
@@ -24,6 +25,13 @@ import { add_buyLetter } from './redux/LetterReducer'
 // Component functions
 import {AutoSave} from "./components/autoSave/AutoSave"
 
+const PotionsView = lazy(() => import("./pages/potions/PotionsView"))
+const CraftView = lazy(() => import("./pages/craftView/CraftView"))
+const BuySell = lazy(() => import("./pages/buysell/BuySell"))
+const Leaderboard = lazy(() => import("./pages/leaderboard/Leaderboard"))
+const Marketplace = lazy(() => import("./pages/marketplace/Marketplace"))
+const HostingView = lazy(() => import("./pages/hostingView/HostingView"))
+const JoinView = lazy(() => import("./pages/joinView/JoinView"))
 
 
 const socket = io.connect("https://server-potionquiz.herokuapp.com/")
