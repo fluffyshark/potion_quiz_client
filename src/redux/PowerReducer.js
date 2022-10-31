@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 var PowerData = [
     // NOVICE
     {id: 0, power_name: "GIFT EXP", exp_level_1: 1, exp_level_2: 2, exp_level_3: 3, received_level1: 1},
-    {id: 1, power_name: "DOUBLE POINTS", doublePoints: "inactive", coin_amount: 20, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter1: 0 },
-    {id: 2, power_name: "SPEED UP", speedUp: "inactive", speed_1: 3000, speed_2: 1000, speed_3: 0, duration_level_1: 60, duration_level_2: 120, duration_level_3: 200, counter2: 0 },
-    {id: 3, power_name: "PROTECTION", protection: "inactive", duration_level_1: 60, duration_level_2: 180, duration_level_3: 300, counter3: 0 },
+    {id: 1, power_name: "DOUBLE POINTS", doublePoints: "inactive", coin_amount: 20, duration_level_1: 100, duration_level_2: 200, duration_level_3: 400, counter1: 0 },
+    {id: 2, power_name: "SPEED UP", speedUp: "inactive", speed_1: 3000, speed_2: 1000, speed_3: 0, duration_level_1: 100, duration_level_2: 200, duration_level_3: 500, counter2: 0 },
+    {id: 3, power_name: "PROTECTION", protection: "inactive", duration_level_1: 100, duration_level_2: 250, duration_level_3: 500, counter3: 0 },
     /// APPRENTICE
     {id: 4, power_name: "FREEZE", freeze: "inactive", duration_level_1: 10, duration_level_2: 15, duration_level_3: 20, attackLevel4: 1, },
     {id: 5, power_name: "FIFTY FIFTY", fiftyfifty: "inactive", duration_level_1: 5, duration_level_2: 10, duration_level_3: 30, counter5: 0 },

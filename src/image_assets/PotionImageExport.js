@@ -1,24 +1,24 @@
-import pb1 from "./potions/cards/potion1_bronze.png"; import ps1 from "./potions/cards/potion1_silver.png"; import pg1 from "./potions/cards/potion1_gold.png";
-import pb2 from "./potions/cards/potion2_bronze.png"; import ps2 from "./potions/cards/potion2_silver.png"; import pg2 from "./potions/cards/potion2_gold.png";
-import pb3 from "./potions/cards/potion3_bronze.png"; import ps3 from "./potions/cards/potion3_silver.png"; import pg3 from "./potions/cards/potion3_gold.png";
-import pb4 from "./potions/cards/potion4_bronze.png"; import ps4 from "./potions/cards/potion4_silver.png"; import pg4 from "./potions/cards/potion4_gold.png";
-import pb5 from "./potions/cards/potion5_bronze.png"; import ps5 from "./potions/cards/potion5_silver.png"; import pg5 from "./potions/cards/potion5_gold.png";
-import pb6 from "./potions/cards/potion6_bronze.png"; import ps6 from "./potions/cards/potion6_silver.png"; import pg6 from "./potions/cards/potion6_gold.png";
-import pb7 from "./potions/cards/potion7_bronze.png"; import ps7 from "./potions/cards/potion7_silver.png"; import pg7 from "./potions/cards/potion7_gold.png";
-import pb8 from "./potions/cards/potion8_bronze.png"; import ps8 from "./potions/cards/potion8_silver.png"; import pg8 from "./potions/cards/potion8_gold.png";
-import pb9 from "./potions/cards/potion9_bronze.png"; import ps9 from "./potions/cards/potion9_silver.png"; import pg9 from "./potions/cards/potion9_gold.png";
-import pb10 from "./potions/cards/potion10_bronze.png"; import ps10 from "./potions/cards/potion10_silver.png"; import pg10 from "./potions/cards/potion10_gold.png";
+import pb1 from "./potions/cards/potion1_bronze.webp"; import ps1 from "./potions/cards/potion1_silver.webp"; import pg1 from "./potions/cards/potion1_gold.webp";
+import pb2 from "./potions/cards/potion2_bronze.webp"; import ps2 from "./potions/cards/potion2_silver.webp"; import pg2 from "./potions/cards/potion2_gold.webp";
+import pb3 from "./potions/cards/potion3_bronze.webp"; import ps3 from "./potions/cards/potion3_silver.webp"; import pg3 from "./potions/cards/potion3_gold.webp";
+import pb4 from "./potions/cards/potion4_bronze.webp"; import ps4 from "./potions/cards/potion4_silver.webp"; import pg4 from "./potions/cards/potion4_gold.webp";
+import pb5 from "./potions/cards/potion5_bronze.webp"; import ps5 from "./potions/cards/potion5_silver.webp"; import pg5 from "./potions/cards/potion5_gold.webp";
+import pb6 from "./potions/cards/potion6_bronze.webp"; import ps6 from "./potions/cards/potion6_silver.webp"; import pg6 from "./potions/cards/potion6_gold.webp";
+import pb7 from "./potions/cards/potion7_bronze.webp"; import ps7 from "./potions/cards/potion7_silver.webp"; import pg7 from "./potions/cards/potion7_gold.webp";
+import pb8 from "./potions/cards/potion8_bronze.webp"; import ps8 from "./potions/cards/potion8_silver.webp"; import pg8 from "./potions/cards/potion8_gold.webp";
+import pb9 from "./potions/cards/potion9_bronze.webp"; import ps9 from "./potions/cards/potion9_silver.webp"; import pg9 from "./potions/cards/potion9_gold.webp";
+import pb10 from "./potions/cards/potion10_bronze.webp"; import ps10 from "./potions/cards/potion10_silver.webp"; import pg10 from "./potions/cards/potion10_gold.webp";
 
-import pb11 from "./potions/cards/potion11_bronze.png"; import ps11 from "./potions/cards/potion11_silver.png"; import pg11 from "./potions/cards/potion11_gold.png";
-import pb12 from "./potions/cards/potion12_bronze.png"; import ps12 from "./potions/cards/potion12_silver.png"; import pg12 from "./potions/cards/potion12_gold.png";
-import pb13 from "./potions/cards/potion13_bronze.png"; import ps13 from "./potions/cards/potion13_silver.png"; import pg13 from "./potions/cards/potion13_gold.png";
-import pb14 from "./potions/cards/potion14_bronze.png"; import ps14 from "./potions/cards/potion14_silver.png"; import pg14 from "./potions/cards/potion14_gold.png";
-import pb15 from "./potions/cards/potion15_bronze.png"; import ps15 from "./potions/cards/potion15_silver.png"; import pg15 from "./potions/cards/potion15_gold.png";
-import pb16 from "./potions/cards/potion16_bronze.png"; import ps16 from "./potions/cards/potion16_silver.png"; import pg16 from "./potions/cards/potion16_gold.png";
-import pb17 from "./potions/cards/potion17_bronze.png"; import ps17 from "./potions/cards/potion17_silver.png"; import pg17 from "./potions/cards/potion17_gold.png";
-import pb18 from "./potions/cards/potion18_bronze.png"; import ps18 from "./potions/cards/potion18_silver.png"; import pg18 from "./potions/cards/potion18_gold.png";
-import pb19 from "./potions/cards/potion19_bronze.png"; import ps19 from "./potions/cards/potion19_silver.png"; import pg19 from "./potions/cards/potion19_gold.png";
-import pb20 from "./potions/cards/potion20_bronze.png"; import ps20 from "./potions/cards/potion20_silver.png"; import pg20 from "./potions/cards/potion20_gold.png";
+import pb11 from "./potions/cards/potion11_bronze.webp"; import ps11 from "./potions/cards/potion11_silver.webp"; import pg11 from "./potions/cards/potion11_gold.webp";
+import pb12 from "./potions/cards/potion12_bronze.webp"; import ps12 from "./potions/cards/potion12_silver.webp"; import pg12 from "./potions/cards/potion12_gold.webp";
+import pb13 from "./potions/cards/potion13_bronze.webp"; import ps13 from "./potions/cards/potion13_silver.webp"; import pg13 from "./potions/cards/potion13_gold.webp";
+import pb14 from "./potions/cards/potion14_bronze.webp"; import ps14 from "./potions/cards/potion14_silver.webp"; import pg14 from "./potions/cards/potion14_gold.webp";
+import pb15 from "./potions/cards/potion15_bronze.webp"; import ps15 from "./potions/cards/potion15_silver.webp"; import pg15 from "./potions/cards/potion15_gold.webp";
+import pb16 from "./potions/cards/potion16_bronze.webp"; import ps16 from "./potions/cards/potion16_silver.webp"; import pg16 from "./potions/cards/potion16_gold.webp";
+import pb17 from "./potions/cards/potion17_bronze.webp"; import ps17 from "./potions/cards/potion17_silver.webp"; import pg17 from "./potions/cards/potion17_gold.webp";
+import pb18 from "./potions/cards/potion18_bronze.webp"; import ps18 from "./potions/cards/potion18_silver.webp"; import pg18 from "./potions/cards/potion18_gold.webp";
+import pb19 from "./potions/cards/potion19_bronze.webp"; import ps19 from "./potions/cards/potion19_silver.webp"; import pg19 from "./potions/cards/potion19_gold.webp";
+import pb20 from "./potions/cards/potion20_bronze.webp"; import ps20 from "./potions/cards/potion20_silver.webp"; import pg20 from "./potions/cards/potion20_gold.webp";
 
 const potion_cards = [
     pb1,pb2,pb3,pb4,pb5,pb6,pb7,pb8,pb9,pb10,pb11,pb12,pb13,pb14,pb15,pb16,pb17,pb18,pb19,pb20,

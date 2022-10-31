@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import "./flipcard.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
-import card_front from "../../image_assets/potions/cards/potion2_gold.png"
 import potion_fail from "../../image_assets/general/potion_fail.png"
 import card_back from "../../image_assets/general/card_back1.webp"
 
