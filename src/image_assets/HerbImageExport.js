@@ -1,110 +1,110 @@
-import hn1 from "./herbs/normal/ingred1.png"; import hn6 from "./herbs/normal/ingred6.png";
-import hn2 from "./herbs/normal/ingred2.png"; import hn7 from "./herbs/normal/ingred7.png";
-import hn3 from "./herbs/normal/ingred3.png"; import hn8 from "./herbs/normal/ingred8.png";
-import hn4 from "./herbs/normal/ingred4.png"; import hn9 from "./herbs/normal/ingred9.png";
-import hn5 from "./herbs/normal/ingred5.png"; import hn10 from "./herbs/normal/ingred10.png";
+import hn1 from "./herbs/normal/ingred1.webp"; import hn6 from "./herbs/normal/ingred6.webp";
+import hn2 from "./herbs/normal/ingred2.webp"; import hn7 from "./herbs/normal/ingred7.webp";
+import hn3 from "./herbs/normal/ingred3.webp"; import hn8 from "./herbs/normal/ingred8.webp";
+import hn4 from "./herbs/normal/ingred4.webp"; import hn9 from "./herbs/normal/ingred9.webp";
+import hn5 from "./herbs/normal/ingred5.webp"; import hn10 from "./herbs/normal/ingred10.webp";
 
-import hn11 from "./herbs/normal/ingred11.png"; import hn16 from "./herbs/normal/ingred16.png";
-import hn12 from "./herbs/normal/ingred12.png"; import hn17 from "./herbs/normal/ingred17.png";
-import hn13 from "./herbs/normal/ingred13.png"; import hn18 from "./herbs/normal/ingred18.png";
-import hn14 from "./herbs/normal/ingred14.png"; import hn19 from "./herbs/normal/ingred19.png";
-import hn15 from "./herbs/normal/ingred15.png"; import hn20 from "./herbs/normal/ingred20.png";
+import hn11 from "./herbs/normal/ingred11.webp"; import hn16 from "./herbs/normal/ingred16.webp";
+import hn12 from "./herbs/normal/ingred12.webp"; import hn17 from "./herbs/normal/ingred17.webp";
+import hn13 from "./herbs/normal/ingred13.webp"; import hn18 from "./herbs/normal/ingred18.webp";
+import hn14 from "./herbs/normal/ingred14.webp"; import hn19 from "./herbs/normal/ingred19.webp";
+import hn15 from "./herbs/normal/ingred15.webp"; import hn20 from "./herbs/normal/ingred20.webp";
 
-import hn21 from "./herbs/normal/ingred21.png"; import hn26 from "./herbs/normal/ingred26.png";
-import hn22 from "./herbs/normal/ingred22.png"; import hn27 from "./herbs/normal/ingred27.png";
-import hn23 from "./herbs/normal/ingred23.png"; import hn28 from "./herbs/normal/ingred28.png";
-import hn24 from "./herbs/normal/ingred24.png"; import hn29 from "./herbs/normal/ingred29.png";
-import hn25 from "./herbs/normal/ingred25.png"; import hn30 from "./herbs/normal/ingred30.png";
+import hn21 from "./herbs/normal/ingred21.webp"; import hn26 from "./herbs/normal/ingred26.webp";
+import hn22 from "./herbs/normal/ingred22.webp"; import hn27 from "./herbs/normal/ingred27.webp";
+import hn23 from "./herbs/normal/ingred23.webp"; import hn28 from "./herbs/normal/ingred28.webp";
+import hn24 from "./herbs/normal/ingred24.webp"; import hn29 from "./herbs/normal/ingred29.webp";
+import hn25 from "./herbs/normal/ingred25.webp"; import hn30 from "./herbs/normal/ingred30.webp";
 
-import hn31 from "./herbs/normal/ingred31.png"; import hn36 from "./herbs/normal/ingred36.png";
-import hn32 from "./herbs/normal/ingred32.png"; import hn37 from "./herbs/normal/ingred37.png";
-import hn33 from "./herbs/normal/ingred33.png"; import hn38 from "./herbs/normal/ingred38.png";
-import hn34 from "./herbs/normal/ingred34.png"; import hn39 from "./herbs/normal/ingred39.png";
-import hn35 from "./herbs/normal/ingred35.png"; import hn40 from "./herbs/normal/ingred40.png";
+import hn31 from "./herbs/normal/ingred31.webp"; import hn36 from "./herbs/normal/ingred36.webp";
+import hn32 from "./herbs/normal/ingred32.webp"; import hn37 from "./herbs/normal/ingred37.webp";
+import hn33 from "./herbs/normal/ingred33.webp"; import hn38 from "./herbs/normal/ingred38.webp";
+import hn34 from "./herbs/normal/ingred34.webp"; import hn39 from "./herbs/normal/ingred39.webp";
+import hn35 from "./herbs/normal/ingred35.webp"; import hn40 from "./herbs/normal/ingred40.webp";
 
-import hn41 from "./herbs/normal/ingred41.png"; import hn46 from "./herbs/normal/ingred46.png";
-import hn42 from "./herbs/normal/ingred42.png"; import hn47 from "./herbs/normal/ingred47.png";
-import hn43 from "./herbs/normal/ingred43.png"; import hn48 from "./herbs/normal/ingred48.png";
-import hn44 from "./herbs/normal/ingred44.png"; import hn49 from "./herbs/normal/ingred49.png";
-import hn45 from "./herbs/normal/ingred45.png"; import hn50 from "./herbs/normal/ingred50.png";
+import hn41 from "./herbs/normal/ingred41.webp"; import hn46 from "./herbs/normal/ingred46.webp";
+import hn42 from "./herbs/normal/ingred42.webp"; import hn47 from "./herbs/normal/ingred47.webp";
+import hn43 from "./herbs/normal/ingred43.webp"; import hn48 from "./herbs/normal/ingred48.webp";
+import hn44 from "./herbs/normal/ingred44.webp"; import hn49 from "./herbs/normal/ingred49.webp";
+import hn45 from "./herbs/normal/ingred45.webp"; import hn50 from "./herbs/normal/ingred50.webp";
 
-import hn51 from "./herbs/normal/ingred51.png"; import hn56 from "./herbs/normal/ingred56.png";
-import hn52 from "./herbs/normal/ingred52.png"; import hn57 from "./herbs/normal/ingred57.png";
-import hn53 from "./herbs/normal/ingred53.png"; import hn58 from "./herbs/normal/ingred58.png";
-import hn54 from "./herbs/normal/ingred54.png"; import hn59 from "./herbs/normal/ingred59.png";
-import hn55 from "./herbs/normal/ingred55.png"; import hn60 from "./herbs/normal/ingred60.png";
+import hn51 from "./herbs/normal/ingred51.webp"; import hn56 from "./herbs/normal/ingred56.webp";
+import hn52 from "./herbs/normal/ingred52.webp"; import hn57 from "./herbs/normal/ingred57.webp";
+import hn53 from "./herbs/normal/ingred53.webp"; import hn58 from "./herbs/normal/ingred58.webp";
+import hn54 from "./herbs/normal/ingred54.webp"; import hn59 from "./herbs/normal/ingred59.webp";
+import hn55 from "./herbs/normal/ingred55.webp"; import hn60 from "./herbs/normal/ingred60.webp";
 
-import hn61 from "./herbs/normal/ingred61.png"; import hn66 from "./herbs/normal/ingred66.png";
-import hn62 from "./herbs/normal/ingred62.png"; import hn67 from "./herbs/normal/ingred67.png";
-import hn63 from "./herbs/normal/ingred63.png"; import hn68 from "./herbs/normal/ingred68.png";
-import hn64 from "./herbs/normal/ingred64.png"; import hn69 from "./herbs/normal/ingred69.png";
-import hn65 from "./herbs/normal/ingred65.png"; import hn70 from "./herbs/normal/ingred70.png";
+import hn61 from "./herbs/normal/ingred61.webp"; import hn66 from "./herbs/normal/ingred66.webp";
+import hn62 from "./herbs/normal/ingred62.webp"; import hn67 from "./herbs/normal/ingred67.webp";
+import hn63 from "./herbs/normal/ingred63.webp"; import hn68 from "./herbs/normal/ingred68.webp";
+import hn64 from "./herbs/normal/ingred64.webp"; import hn69 from "./herbs/normal/ingred69.webp";
+import hn65 from "./herbs/normal/ingred65.webp"; import hn70 from "./herbs/normal/ingred70.webp";
 
-import hn71 from "./herbs/normal/ingred71.png"; import hn76 from "./herbs/normal/ingred76.png";
-import hn72 from "./herbs/normal/ingred72.png"; import hn77 from "./herbs/normal/ingred77.png";
-import hn73 from "./herbs/normal/ingred73.png"; import hn78 from "./herbs/normal/ingred78.png";
-import hn74 from "./herbs/normal/ingred74.png"; import hn79 from "./herbs/normal/ingred79.png";
-import hn75 from "./herbs/normal/ingred75.png"; import hn80 from "./herbs/normal/ingred80.png";
+import hn71 from "./herbs/normal/ingred71.webp"; import hn76 from "./herbs/normal/ingred76.webp";
+import hn72 from "./herbs/normal/ingred72.webp"; import hn77 from "./herbs/normal/ingred77.webp";
+import hn73 from "./herbs/normal/ingred73.webp"; import hn78 from "./herbs/normal/ingred78.webp";
+import hn74 from "./herbs/normal/ingred74.webp"; import hn79 from "./herbs/normal/ingred79.webp";
+import hn75 from "./herbs/normal/ingred75.webp"; import hn80 from "./herbs/normal/ingred80.webp";
 
-import hn81 from "./herbs/normal/ingred81.png"; import hn86 from "./herbs/normal/ingred86.png";
-import hn82 from "./herbs/normal/ingred82.png"; import hn87 from "./herbs/normal/ingred87.png";
-import hn83 from "./herbs/normal/ingred83.png"; import hn88 from "./herbs/normal/ingred88.png";
-import hn84 from "./herbs/normal/ingred84.png"; import hn89 from "./herbs/normal/ingred89.png";
-import hn85 from "./herbs/normal/ingred85.png"; import hn90 from "./herbs/normal/ingred90.png";
+import hn81 from "./herbs/normal/ingred81.webp"; import hn86 from "./herbs/normal/ingred86.webp";
+import hn82 from "./herbs/normal/ingred82.webp"; import hn87 from "./herbs/normal/ingred87.webp";
+import hn83 from "./herbs/normal/ingred83.webp"; import hn88 from "./herbs/normal/ingred88.webp";
+import hn84 from "./herbs/normal/ingred84.webp"; import hn89 from "./herbs/normal/ingred89.webp";
+import hn85 from "./herbs/normal/ingred85.webp"; import hn90 from "./herbs/normal/ingred90.webp";
 
-import hn91 from "./herbs/normal/ingred91.png"; import hn96 from "./herbs/normal/ingred96.png";
-import hn92 from "./herbs/normal/ingred92.png"; import hn97 from "./herbs/normal/ingred97.png";
-import hn93 from "./herbs/normal/ingred93.png"; import hn98 from "./herbs/normal/ingred98.png";
-import hn94 from "./herbs/normal/ingred94.png"; import hn99 from "./herbs/normal/ingred99.png";
-import hn95 from "./herbs/normal/ingred95.png"; import hn100 from "./herbs/normal/ingred100.png";
+import hn91 from "./herbs/normal/ingred91.webp"; import hn96 from "./herbs/normal/ingred96.webp";
+import hn92 from "./herbs/normal/ingred92.webp"; import hn97 from "./herbs/normal/ingred97.webp";
+import hn93 from "./herbs/normal/ingred93.webp"; import hn98 from "./herbs/normal/ingred98.webp";
+import hn94 from "./herbs/normal/ingred94.webp"; import hn99 from "./herbs/normal/ingred99.webp";
+import hn95 from "./herbs/normal/ingred95.webp"; import hn100 from "./herbs/normal/ingred100.webp";
 
-import hn101 from "./herbs/normal/ingred101.png"; import hn106 from "./herbs/normal/ingred106.png";
-import hn102 from "./herbs/normal/ingred102.png"; import hn107 from "./herbs/normal/ingred107.png";
-import hn103 from "./herbs/normal/ingred103.png"; import hn108 from "./herbs/normal/ingred108.png";
-import hn104 from "./herbs/normal/ingred104.png"; import hn109 from "./herbs/normal/ingred109.png";
-import hn105 from "./herbs/normal/ingred105.png"; import hn110 from "./herbs/normal/ingred110.png";
+import hn101 from "./herbs/normal/ingred101.webp"; import hn106 from "./herbs/normal/ingred106.webp";
+import hn102 from "./herbs/normal/ingred102.webp"; import hn107 from "./herbs/normal/ingred107.webp";
+import hn103 from "./herbs/normal/ingred103.webp"; import hn108 from "./herbs/normal/ingred108.webp";
+import hn104 from "./herbs/normal/ingred104.webp"; import hn109 from "./herbs/normal/ingred109.webp";
+import hn105 from "./herbs/normal/ingred105.webp"; import hn110 from "./herbs/normal/ingred110.webp";
 
-import hn111 from "./herbs/normal/ingred111.png"; import hn116 from "./herbs/normal/ingred116.png";
-import hn112 from "./herbs/normal/ingred112.png"; import hn117 from "./herbs/normal/ingred117.png";
-import hn113 from "./herbs/normal/ingred113.png"; import hn118 from "./herbs/normal/ingred118.png";
-import hn114 from "./herbs/normal/ingred114.png"; import hn119 from "./herbs/normal/ingred119.png";
-import hn115 from "./herbs/normal/ingred115.png"; import hn120 from "./herbs/normal/ingred120.png";
+import hn111 from "./herbs/normal/ingred111.webp"; import hn116 from "./herbs/normal/ingred116.webp";
+import hn112 from "./herbs/normal/ingred112.webp"; import hn117 from "./herbs/normal/ingred117.webp";
+import hn113 from "./herbs/normal/ingred113.webp"; import hn118 from "./herbs/normal/ingred118.webp";
+import hn114 from "./herbs/normal/ingred114.webp"; import hn119 from "./herbs/normal/ingred119.webp";
+import hn115 from "./herbs/normal/ingred115.webp"; import hn120 from "./herbs/normal/ingred120.webp";
 
-import hn121 from "./herbs/normal/ingred121.png"; import hn126 from "./herbs/normal/ingred126.png";
-import hn122 from "./herbs/normal/ingred122.png"; import hn127 from "./herbs/normal/ingred127.png";
-import hn123 from "./herbs/normal/ingred123.png"; import hn128 from "./herbs/normal/ingred128.png";
-import hn124 from "./herbs/normal/ingred124.png"; import hn129 from "./herbs/normal/ingred129.png";
-import hn125 from "./herbs/normal/ingred125.png"; import hn130 from "./herbs/normal/ingred130.png";
+import hn121 from "./herbs/normal/ingred121.webp"; import hn126 from "./herbs/normal/ingred126.webp";
+import hn122 from "./herbs/normal/ingred122.webp"; import hn127 from "./herbs/normal/ingred127.webp";
+import hn123 from "./herbs/normal/ingred123.webp"; import hn128 from "./herbs/normal/ingred128.webp";
+import hn124 from "./herbs/normal/ingred124.webp"; import hn129 from "./herbs/normal/ingred129.webp";
+import hn125 from "./herbs/normal/ingred125.webp"; import hn130 from "./herbs/normal/ingred130.webp";
 
-import hn131 from "./herbs/normal/ingred131.png"; import hn136 from "./herbs/normal/ingred136.png";
-import hn132 from "./herbs/normal/ingred132.png"; import hn137 from "./herbs/normal/ingred137.png";
-import hn133 from "./herbs/normal/ingred133.png"; import hn138 from "./herbs/normal/ingred138.png";
-import hn134 from "./herbs/normal/ingred134.png"; import hn139 from "./herbs/normal/ingred139.png";
-import hn135 from "./herbs/normal/ingred135.png"; import hn140 from "./herbs/normal/ingred140.png";
+import hn131 from "./herbs/normal/ingred131.webp"; import hn136 from "./herbs/normal/ingred136.webp";
+import hn132 from "./herbs/normal/ingred132.webp"; import hn137 from "./herbs/normal/ingred137.webp";
+import hn133 from "./herbs/normal/ingred133.webp"; import hn138 from "./herbs/normal/ingred138.webp";
+import hn134 from "./herbs/normal/ingred134.webp"; import hn139 from "./herbs/normal/ingred139.webp";
+import hn135 from "./herbs/normal/ingred135.webp"; import hn140 from "./herbs/normal/ingred140.webp";
 
-import hn141 from "./herbs/normal/ingred141.png"; import hn146 from "./herbs/normal/ingred146.png";
-import hn142 from "./herbs/normal/ingred142.png"; import hn147 from "./herbs/normal/ingred147.png";
-import hn143 from "./herbs/normal/ingred143.png"; import hn148 from "./herbs/normal/ingred148.png";
-import hn144 from "./herbs/normal/ingred144.png"; import hn149 from "./herbs/normal/ingred149.png";
-import hn145 from "./herbs/normal/ingred145.png"; import hn150 from "./herbs/normal/ingred150.png";
+import hn141 from "./herbs/normal/ingred141.webp"; import hn146 from "./herbs/normal/ingred146.webp";
+import hn142 from "./herbs/normal/ingred142.webp"; import hn147 from "./herbs/normal/ingred147.webp";
+import hn143 from "./herbs/normal/ingred143.webp"; import hn148 from "./herbs/normal/ingred148.webp";
+import hn144 from "./herbs/normal/ingred144.webp"; import hn149 from "./herbs/normal/ingred149.webp";
+import hn145 from "./herbs/normal/ingred145.webp"; import hn150 from "./herbs/normal/ingred150.webp";
 
-import hn151 from "./herbs/normal/ingred151.png"; import hn156 from "./herbs/normal/ingred156.png";
-import hn152 from "./herbs/normal/ingred152.png"; import hn157 from "./herbs/normal/ingred157.png";
-import hn153 from "./herbs/normal/ingred153.png"; import hn158 from "./herbs/normal/ingred158.png";
-import hn154 from "./herbs/normal/ingred154.png"; import hn159 from "./herbs/normal/ingred159.png";
-import hn155 from "./herbs/normal/ingred155.png"; import hn160 from "./herbs/normal/ingred160.png";
+import hn151 from "./herbs/normal/ingred151.webp"; import hn156 from "./herbs/normal/ingred156.webp";
+import hn152 from "./herbs/normal/ingred152.webp"; import hn157 from "./herbs/normal/ingred157.webp";
+import hn153 from "./herbs/normal/ingred153.webp"; import hn158 from "./herbs/normal/ingred158.webp";
+import hn154 from "./herbs/normal/ingred154.webp"; import hn159 from "./herbs/normal/ingred159.webp";
+import hn155 from "./herbs/normal/ingred155.webp"; import hn160 from "./herbs/normal/ingred160.webp";
 
-import hn161 from "./herbs/normal/ingred161.png"; import hn166 from "./herbs/normal/ingred166.png";
-import hn162 from "./herbs/normal/ingred162.png"; import hn167 from "./herbs/normal/ingred167.png";
-import hn163 from "./herbs/normal/ingred163.png"; import hn168 from "./herbs/normal/ingred168.png";
-import hn164 from "./herbs/normal/ingred164.png"; import hn169 from "./herbs/normal/ingred169.png";
-import hn165 from "./herbs/normal/ingred165.png"; import hn170 from "./herbs/normal/ingred170.png";
+import hn161 from "./herbs/normal/ingred161.webp"; import hn166 from "./herbs/normal/ingred166.webp";
+import hn162 from "./herbs/normal/ingred162.webp"; import hn167 from "./herbs/normal/ingred167.webp";
+import hn163 from "./herbs/normal/ingred163.webp"; import hn168 from "./herbs/normal/ingred168.webp";
+import hn164 from "./herbs/normal/ingred164.webp"; import hn169 from "./herbs/normal/ingred169.webp";
+import hn165 from "./herbs/normal/ingred165.webp"; import hn170 from "./herbs/normal/ingred170.webp";
 
-import hn171 from "./herbs/normal/ingred171.png"; import hn176 from "./herbs/normal/ingred176.png";
-import hn172 from "./herbs/normal/ingred172.png"; import hn177 from "./herbs/normal/ingred177.png";
-import hn173 from "./herbs/normal/ingred173.png"; import hn178 from "./herbs/normal/ingred178.png";
-import hn174 from "./herbs/normal/ingred174.png"; import hn179 from "./herbs/normal/ingred179.png";
-import hn175 from "./herbs/normal/ingred175.png"; import hn180 from "./herbs/normal/ingred180.png";
+import hn171 from "./herbs/normal/ingred171.webp"; import hn176 from "./herbs/normal/ingred176.webp";
+import hn172 from "./herbs/normal/ingred172.webp"; import hn177 from "./herbs/normal/ingred177.webp";
+import hn173 from "./herbs/normal/ingred173.webp"; import hn178 from "./herbs/normal/ingred178.webp";
+import hn174 from "./herbs/normal/ingred174.webp"; import hn179 from "./herbs/normal/ingred179.webp";
+import hn175 from "./herbs/normal/ingred175.webp"; import hn180 from "./herbs/normal/ingred180.webp";
 
 
 
