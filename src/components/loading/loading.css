@@ -22,10 +22,9 @@
 }
 
 .loading_bottle_content {
-    opacity: 0;
-    animation: bottle_content_opacity 3s ease;
+    opacity: 1;
+    animation: bottle_content_opacity 0.7s ease;
     animation-iteration-count: 8;
-    animation-delay: 0.5s
 }
 
 .bubble {
