@@ -19,10 +19,10 @@ import { retrive_buyLetter } from "../../redux/LetterReducer"
 // NEXT - FIX TIMER 
 // NEXT - ADD FUNCTIONALLIY TO END GAME
 
-// NEXT - CHECK THAT MARKETDATA AND BUYLETTER ARE RETRIVED
 // NEXT - CHECK IF PLAYER ARE JOINED IN SOCKET ROOM AFTER RECONNECT, IF NOT REJOIN
-// NEXT - ADD SOUND EFFECT AGAIN
 // NEXT - ADD JUKEBOX SOUND TO HOSTBOARD VIA SOCKET
+
+// NEXT - REMOVE OLD PLAYER AFTER RECCONNECT
 
 
 
@@ -54,6 +54,7 @@ function DisconnectedView(props) {
     // Retrive LevelExpReducer
     dispatch(localStorage_import_exp(JSON.parse(localStorage.getItem("levelExp"))))
     
+
     // Retrive PotionData
     const storedPotionData = JSON.parse(localStorage.getItem("potionsList"))
     let retrivedPotionData = JSON.parse(JSON.stringify(PotionData))

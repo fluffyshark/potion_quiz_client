@@ -30,7 +30,7 @@ import {playSound} from "../../components/playSound/playSound"
 import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
 
 
-var randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+var randomQuestionNr = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
 
 function QuizView(all_props) {
 
@@ -54,7 +54,7 @@ function QuizView(all_props) {
   
 
   function newQuestion() {
-    randomQuestionNr = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+    randomQuestionNr = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
     setQuestion(religionQuestions.questions[randomQuestionNr].question)
     let shuffleAnswer = religionQuestions.questions[randomQuestionNr].answerAlt.sort(() => Math.random() - 0.5);
     setAnswerAlt(shuffleAnswer)
