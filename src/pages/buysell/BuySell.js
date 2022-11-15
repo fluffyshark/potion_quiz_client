@@ -60,7 +60,7 @@ function BuySell() {
   useEffect(() => {
     if (coinbag.total < 50) {document.getElementById("lottery_btn01").style.opacity = 0.5; document.getElementById("lottery_btn01").style.pointerEvents = "none"}
     if (coinbag.total < 100) {document.getElementById("lottery_btn02").style.opacity = 0.5; document.getElementById("lottery_btn02").style.pointerEvents = "none" }
-    if (coinbag.total < 300) {document.getElementById("lottery_btn03").style.opacity = 0.5; document.getElementById("lottery_btn03").style.pointerEvents = "none"}
+  //  if (coinbag.total < 300) {document.getElementById("lottery_btn03").style.opacity = 0.5; document.getElementById("lottery_btn03").style.pointerEvents = "none"}
 
     if (coinbag.total > 49) {document.getElementById("lottery_btn01").style.opacity = 1; document.getElementById("lottery_btn01").style.pointerEvents = "auto"}
     if (coinbag.total > 99) {document.getElementById("lottery_btn02").style.opacity = 1; document.getElementById("lottery_btn02").style.pointerEvents = "auto"}

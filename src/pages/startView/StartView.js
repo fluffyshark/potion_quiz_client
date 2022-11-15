@@ -18,7 +18,10 @@ function StartView(props) {
   let socket = props.socket
   const dispatch = useDispatch()
 
+
+
   function hostGame() {
+    
     // Generate random number, that will be the gameCode (now called hostCode)
     const hostCode = (Math.floor(Math.random() * 999999999))
 
@@ -60,7 +63,7 @@ function StartView(props) {
         <div className="startView_centerBtns">
           <Link to="/join"><motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="startView_btns"><JoinBtn /></motion.div></Link>
           <img src={or} alt="" className="startView_or" />
-          <Link to="/host"><motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} className="startView_btns" id="play2"><HostBtn /></motion.div></Link>
+          <Link to="/login"><motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => hostGame()} className="startView_btns" id="play2"><HostBtn /></motion.div></Link>
         </div>
       </div>
       <div className="startView_bottom"></div>

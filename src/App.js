@@ -27,6 +27,7 @@ import { add_buyLetter } from './redux/LetterReducer'
 // Component functions
 import {AutoSave} from "./components/autoSave/AutoSave"
 import Loading from "./components/loading/Loading.js";
+import LoginView from "./pages/loginView/LoginView.js";
 
 const PotionsView = lazy(() => import("./pages/potions/PotionsView"))
 const CraftView = lazy(() => import("./pages/craftView/CraftView"))
@@ -150,6 +151,7 @@ function App() {
         <Route path="/buysell" element={<BuySell />}></Route>
         <Route path="/leaderboard" element={<Leaderboard />}></Route>
         <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
+        <Route path="/login" element={<LoginView/>}></Route>
         <Route path="/host" element={<HostingView socket={socket} />}></Route>
         <Route path="/join" element={<JoinView socket={socket} />}></Route>
         <Route path="/disconnected" element={<DisconnectedView socket={socket} />}></Route>
