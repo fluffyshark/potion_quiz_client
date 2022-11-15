@@ -280,14 +280,11 @@
 @media screen and (max-width: 1550px) and (min-width: 1001px) and (max-height: 700px) and (min-height: 501px) { 
     .market_menu_btns>p{transform: translateY(1px);}
     .menu_buysell_text>p {transform: translateY(1px);}
-    .marketplace_ingred_amount {
-        width: 20px;
-        position: absolute;
-        top: 80%;
-        left: 80%;
-        color: white;
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 10px;
-        margin: 0;
-    }
+    .marketplace_ingred_amount {width: 20px; position: absolute; top: 80%; left: 80%; color: white; font-family: 'Luckiest Guy', cursive; font-size: 10px; margin: 0;}
+}
+
+/* Ubunto 1292x668 */
+@media screen and (max-width: 1300px) and (min-width: 1280px) and (max-height: 670px) and (min-height: 660px) {
+    .marketplace_ingred_amount {width: 20px; position: absolute; top: 82%; left: 81%; color: white; font-family: 'Luckiest Guy', cursive; font-size: 11px; margin: 0;}
+    .market_menu_btns>p{transform: translateY(4px);}
 }
