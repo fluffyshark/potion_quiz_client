@@ -315,3 +315,13 @@
     }
 
 }
+
+
+
+/* My small computer 1366x647 */ 
+@media screen and (max-width: 1550px) and (min-width: 1301px) and (max-height: 700px) and (min-height: 501px) { 
+    .footer_ingred_amount {font-size: 9px; width: 20px; margin: 0; color: white; font-family: 'Luckiest Guy', cursive; position: absolute; top: 64.5%; left: 61%; text-align: center;}
+    .potion_action_btns>p {
+        transform: translateY(-2px);
+    }
+}
