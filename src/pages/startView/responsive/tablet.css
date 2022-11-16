@@ -110,5 +110,5 @@
 /* Chrome brower (no extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 965px) and (min-height: 965px)  { .startView {overflow: hidden; height: 94vh;}}
 
 /* Exact metric for iPad Pro 12.9"-inch portrait */
-/* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 898px) and (min-height: 898px)  { .startView {overflow: hidden; height: 93vh;}}
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 898px) and (min-height: 898px)  { .startView {overflow: hidden; height: 90vh;}}
 
