@@ -115,4 +115,4 @@
 /* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 898px) and (min-height: 898px)  { .joinView {overflow: hidden; height: 90vh;}}
 
 /* Exact metric for iPad Pro 12.9"-inch landscape */
-/* Safari brower (with extra tabs) */ @media only screen and (max-width: 1024px) and (min-width: 1024px) and (max-height: 642px) and (min-height: 642px)  { .joinView {overflow: hidden; height: 80vh;}}
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 1024px) and (min-width: 1024px) and (max-height: 642px) and (min-height: 642px)  { .joinView {overflow: hidden; height: 70vh;}}
