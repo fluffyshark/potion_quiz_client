@@ -292,3 +292,6 @@
 
 /* Exact metric for iPad 10.2"-inch portrait Safari brower (with extra files) */
 @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 1010px) and (min-height: 1010px)  { .studentQuiz {overflow: hidden; height: 97vh;}}
+
+/* Exact metric for iPad Pro 12.9"-inch portrait */
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 898px) and (min-height: 898px)  { .studentQuiz {overflow: hidden; height: 90vh;}}
