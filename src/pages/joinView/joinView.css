@@ -95,5 +95,5 @@
 
 
 /* Exact metric for iPad Pro 12.9"-inch landscape */
-/* Safari brower (with extra tabs) */ @media only screen and (max-height: 1000px) and (min-height: 600px)  { .joinView {overflow: hidden; height: 90vh; background-color: white}} 
+/* Safari brower (with extra tabs) */ @media only screen and (max-height: 1200px) and (min-height: 500px)  { .joinView {overflow: hidden; height: 90vh; background-color: white}} 
 
