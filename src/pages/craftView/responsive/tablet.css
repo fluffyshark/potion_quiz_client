@@ -402,5 +402,6 @@
     }
 }
 
+
 /* Exact metric for iPad Pro 12.9"-inch portrait */
 /* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 898px) and (min-height: 898px)  { .craftView {overflow: hidden; height: 90vh;}}
