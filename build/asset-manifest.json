@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.809f35d2.css",
-    "main.js": "/static/js/main.2939bbdf.js",
+    "main.js": "/static/js/main.0ede8f31.js",
     "static/css/496.493de51d.chunk.css": "/static/css/496.493de51d.chunk.css",
     "static/js/496.a65564dc.chunk.js": "/static/js/496.a65564dc.chunk.js",
     "static/css/509.95305fcc.chunk.css": "/static/css/509.95305fcc.chunk.css",
@@ -479,7 +479,7 @@
     "static/media/potion_reveal_background.webp": "/static/media/potion_reveal_background.30e7a9ac019333e40be1.webp",
     "index.html": "/index.html",
     "main.809f35d2.css.map": "/static/css/main.809f35d2.css.map",
-    "main.2939bbdf.js.map": "/static/js/main.2939bbdf.js.map",
+    "main.0ede8f31.js.map": "/static/js/main.0ede8f31.js.map",
     "496.493de51d.chunk.css.map": "/static/css/496.493de51d.chunk.css.map",
     "496.a65564dc.chunk.js.map": "/static/js/496.a65564dc.chunk.js.map",
     "509.95305fcc.chunk.css.map": "/static/css/509.95305fcc.chunk.css.map",
@@ -498,6 +498,6 @@
   },
   "entrypoints": [
     "static/css/main.809f35d2.css",
-    "static/js/main.2939bbdf.js"
+    "static/js/main.0ede8f31.js"
   ]
 }
