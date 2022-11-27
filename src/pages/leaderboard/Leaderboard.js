@@ -70,10 +70,6 @@ function Leaderboard() {
   }
 
 
-  // NEXT - FIX LEADERBOARD 
-  // 1. gameStats is not an array at start, no players have been .pushed yet
-  // 2. server not removing old players from other gameCodes
-
 
   useEffect(() => {
   //  console.log("Leaderboard gameStats: ", gameStats)
@@ -97,11 +93,7 @@ function Leaderboard() {
             <div className="scoreboard_image_container">
               <img id="leaderboardImage" src={leaderboard} alt="" />
 
-              <p className="player_leaderboard_your_rank">YOUR RANK 10 - 98 456</p>
-
-
-              {
-              
+              {              
               
               rankedPlayers.map((player, i) => {
                 return (
@@ -132,7 +124,6 @@ function Leaderboard() {
              
              }
                 
-
 
             </div>
           </div>

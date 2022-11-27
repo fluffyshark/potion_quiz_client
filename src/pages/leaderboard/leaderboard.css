@@ -45,12 +45,6 @@
     display: flex;
 }
 
-.player_leaderboard_your_rank {
-    font-size: 22px; 
-    color:white; 
-    position: absolute; top: -0.5%; left: 67%; 
-    font-family: 'Luckiest Guy', cursive;    
-}
 .scoreboard_rank_container_name {
     width: 40%;
     height: 100%;
