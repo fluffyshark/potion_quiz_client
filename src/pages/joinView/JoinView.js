@@ -8,7 +8,7 @@ import "./joinView.css"
 import "./responsive/tablet.css"
 import "./responsive/responsive.css"
 import potion_rules from "../../image_assets/general/potion_rules.webp"
-
+import {InitialSaveToLocalStorage} from "../../components/saveToLocalStorage/InitialSaveToLocalStorage"
 
 
 function JoinView(props) {
@@ -53,6 +53,7 @@ function JoinView(props) {
       // Save initial player data to localStorage
       const storedPlayerData = {playerID: playerID, playerName :  playerData.playerName, cards : playerData.cards, gameCode : playerData.gameCode, coins: playerData.coins}
       localStorage.setItem("playerStats", JSON.stringify(storedPlayerData))
+      
 
     }
 
@@ -77,6 +78,7 @@ function JoinView(props) {
     useEffect(() => {
       socket.on("start_game", (data) => {
         dispatch(add_gameStats({data}))
+        InitialSaveToLocalStorage()
         navigate('/quiz')
       })
 

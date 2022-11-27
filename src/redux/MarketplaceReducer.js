@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { saveToLocalStorage } from "../components/saveToLocalStorage/SaveToLocalStorage";
 
 // Players send their sell orders by Socket.io to server
 // Players send their buy orders by Socket.io to server 
@@ -12,7 +13,10 @@ export const marketSlice = createSlice({
     reducers: {
         update_market: (state, action) => {
             state.value = action.payload
-            console.log("MARKETREDUCER", state.value)
+            saveToLocalStorage("marketData", state.value)
+        },
+        retrieve_market: (state, action) => {
+            state.value = action.payload
         },
        
         
@@ -22,7 +26,7 @@ export const marketSlice = createSlice({
 })
 
 
-export const {update_market} = marketSlice.actions
+export const {update_market, retrieve_market} = marketSlice.actions
 export default marketSlice.reducer
 
 

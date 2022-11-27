@@ -2,18 +2,29 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import "./disconnectedView.css"
 import {motion} from "framer-motion"
+// Redux
 import { useDispatch } from "react-redux"
 import { add_coins_amount } from "../../redux/CoinsReducer.js"
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import { add_gameStats } from "../../redux/GameStatsReducer"
 import { localStorage_import_exp } from "../../redux/LevelExpReducer"
 import { retrive_potionData } from "../../redux/PotionReducer"
-import { PotionData } from "../../redux/PotionData.js"
 import { IngredientData } from "../../redux/IngredientData.js"
 import { retrive_ingreidentData, return_craftIngrediets } from "../../redux/IngredientReducer"
 import { retrive_potionRecipe } from "../../redux/PotionRecipeReducer"
-import { update_market } from "../../redux/MarketplaceReducer"
+import { retrieve_market } from "../../redux/MarketplaceReducer"
 import { retrive_buyLetter } from "../../redux/LetterReducer"
+// Retrieve Functions
+import { retrieveCoinsReducer } from "./retrieveFunctions/retrieveCoinsReduser"
+import { retrievePlayerSocketReducer } from "./retrieveFunctions/retrievePlayerSocketReducer"
+import { retrieveGameStatsReducer } from "./retrieveFunctions/retrieveGameStatsReducer"
+import { retrieveLevelExpReducer } from "./retrieveFunctions/retrieveLevelExpReducer"
+import { retrievePotionReducer } from "./retrieveFunctions/retrievePotionReducer"
+import { retrieveIngredientReducer } from "./retrieveFunctions/retrieveIngredientReducer"
+import { retrievePotionRecipeReducer } from "./retrieveFunctions/retrievePotionRecipeReducer"
+import { retrieveCraftReducer } from "./retrieveFunctions/retrieveCraftReducer"
+import { retrieveMarketplaceReducer } from "./retrieveFunctions/retrieveMarketplaceReducer"
+import { retrieveLetterReducer } from "./retrieveFunctions/retrieveLetterReducer"
 
 
 // NEXT - FIX TIMER 
@@ -23,6 +34,8 @@ import { retrive_buyLetter } from "../../redux/LetterReducer"
 // NEXT - ADD JUKEBOX SOUND TO HOSTBOARD VIA SOCKET
 
 // NEXT - REMOVE OLD PLAYER AFTER RECCONNECT
+
+// NEXT - CHECK CRAFTLIST IF IT NEEDS TO HAVE VALUE, MAP CRASH HAPPENS
 
 
 
@@ -45,63 +58,38 @@ function DisconnectedView(props) {
   function reconnect() {
     
     // Retrive Coinsreducer
-    dispatch(add_coins_amount(JSON.parse(localStorage.getItem("coinList"))))
-    // Retrive PlayerSocketReducer
-    const playerStats = JSON.parse(localStorage.getItem("playerStats"))
-    dispatch(add_playerStartData(playerStats))
-    // Retrive GameStatsReducer
-    dispatch(add_gameStats(JSON.parse(localStorage.getItem("gameStats"))))
-    // Retrive LevelExpReducer
-    dispatch(localStorage_import_exp(JSON.parse(localStorage.getItem("levelExp"))))
+    dispatch(add_coins_amount(retrieveCoinsReducer()))
     
-
+    // Retrive PlayerSocketReducer
+    dispatch(add_playerStartData(retrievePlayerSocketReducer()))
+    
+    // Retrive GameStatsReducer
+    dispatch(add_gameStats(retrieveGameStatsReducer()))
+    
+    // Retrive LevelExpReducer
+    dispatch(localStorage_import_exp(retrieveLevelExpReducer()))
+    
     // Retrive PotionData
-    const storedPotionData = JSON.parse(localStorage.getItem("potionsList"))
-    let retrivedPotionData = JSON.parse(JSON.stringify(PotionData))
-
-    retrivedPotionData.map((item, i) => {
-      item.amount = storedPotionData[i].amount; item.discovered = storedPotionData[i].discovered
-      item.level = storedPotionData[i].level; item.earnedPoints = storedPotionData[i].earnedPoints
-    })
-
-    dispatch(retrive_potionData(retrivedPotionData))
-
+    dispatch(retrive_potionData(retrievePotionReducer()))
     
     // Retrive IngredientData
-    const storedIngredentData = JSON.parse(localStorage.getItem("ingredientsList"))
-    let retrivedIngredientData = JSON.parse(JSON.stringify(IngredientData))
-
-    retrivedIngredientData.map((item, i) => {
-      item.amount = storedIngredentData[i].amount; 
-      item.discovered = storedIngredentData[i].discovered
-    })
+    dispatch(retrive_ingreidentData(retrieveIngredientReducer()))
     
-    dispatch(retrive_ingreidentData(retrivedIngredientData))
-
-
     // Retrive PotionRecipe
-    const retrivedPotionRecipe = JSON.parse(localStorage.getItem("recipeList"))
-    dispatch(retrive_potionRecipe(retrivedPotionRecipe))
-
-    // Retrive MarketData
-    const retrivedMarketData = JSON.parse(localStorage.getItem("marketData"))
-    dispatch(update_market(retrivedMarketData))
-
-    // Retrive BuyLetter
-    const retrivedBuyLetter = JSON.parse(localStorage.getItem("buyletter"))
-    dispatch(retrive_buyLetter(retrivedBuyLetter))
- 
+    dispatch(retrive_potionRecipe(retrievePotionRecipeReducer()))
 
     // Retrive CraftList and return ingredients (if any) to ingredientList
-    setTimeout(function() {
-      const retrivedCraftList = JSON.parse(localStorage.getItem("craftList"))
-      console.log("retrivedCraftList", retrivedCraftList)
-      retrivedCraftList.map((item) => {if (item.amount >= 1) {dispatch(return_craftIngrediets({id:item.selected_id, amount: item.amount}))}})
-    }, 6000);
+    retrieveCraftReducer().map((item) => {if (item.amount >= 1) {dispatch(return_craftIngrediets({id:item.selected_id, amount: item.amount}))}})
 
- 
-    socket.emit("join_room", playerStats.gameCode);
-    socket.emit("player_joining", { nickname: playerStats.playerName, cards: playerStats.cards, gameCode: playerStats.gameCode });
+    // Retrive MarketData
+    dispatch(retrieve_market(retrieveMarketplaceReducer()))
+
+    // Retrive BuyLetter
+    dispatch(retrive_buyLetter(retrieveLetterReducer()))
+    
+
+    socket.emit("join_room", retrievePlayerSocketReducer().gameCode);
+    socket.emit("player_joining", { nickname: retrievePlayerSocketReducer().playerName, cards: retrievePlayerSocketReducer().cards, gameCode: retrievePlayerSocketReducer().gameCode });
 
 
     setTimeout(function() {

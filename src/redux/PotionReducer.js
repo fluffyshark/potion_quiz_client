@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PotionData } from "./PotionData.js"
 import io from "socket.io-client"
+import { saveToLocalStorage } from "../components/saveToLocalStorage/SaveToLocalStorage.js";
 
 const socket = io.connect("https://potionquiz.com/")
 //const socket = io.connect("http://16.171.11.140/")
@@ -20,6 +21,7 @@ export const potionSlice = createSlice({
                     potion.discovered = true
                 }
             })
+            saveToLocalStorage("potionsList", state.value)
         },
         
         reduce_potion: (state, action) => {
@@ -28,6 +30,7 @@ export const potionSlice = createSlice({
                     potion.amount -= 1
                 }
             })
+            saveToLocalStorage("potionsList", state.value)
         },
 
         add_discovery_points: (state, action) => {
@@ -45,6 +48,7 @@ export const potionSlice = createSlice({
 
                 }
             })
+            saveToLocalStorage("potionsList", state.value)
         },
 
         increase_potion_level: (state, action) => {
@@ -54,13 +58,14 @@ export const potionSlice = createSlice({
                     if (action.payload.potion_Level === "gold") {potion.level = 3}  
                 }     
             }) 
+            saveToLocalStorage("potionsList", state.value)
         },
 
         retrive_potionData: (state, action) => {
             state.value = action.payload
         },
 
-        
+       
     }
 })
 

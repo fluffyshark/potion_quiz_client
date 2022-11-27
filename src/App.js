@@ -25,7 +25,6 @@ import { update_market } from "./redux/MarketplaceReducer";
 import { add_buyLetter } from './redux/LetterReducer'
 
 // Component functions
-import {AutoSave} from "./components/autoSave/AutoSave"
 import Loading from "./components/loading/Loading.js";
 import LoginView from "./pages/loginView/LoginView.js";
 
@@ -71,13 +70,10 @@ function App() {
 
   useEffect(() => {
     dispatch(power_counter())
- //   console.log("counter", counter)
-    if (counter === 55) {AutoSave(playerStats, gameStats, coinList, potionsList, powersList, levelExp, ingredientsList, recipeList, craftList, marketData, buyletter)}
+    console.log("counter", counter)
   },[counter])
 
 
-
-  // NOT WORKING , DO NOT UPDATE ONLY REPLACE
     // When page is about to refresh, alert the user so it' not happening by mistake
     useEffect(() => {
       window.addEventListener("beforeunload", alertUser);

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import io from "socket.io-client"
+import { saveToLocalStorage } from "../components/saveToLocalStorage/SaveToLocalStorage";
 
 const socket = io.connect("https://potionquiz.com/")
 //const socket = io.connect("http://16.171.11.140/")
@@ -20,11 +21,13 @@ export const playerStatsSlice = createSlice({
             state.value.playerID = action.payload.playerID
             if (action.payload.hasOwnProperty('displayCode')) { state.value.displayCode = action.payload.displayCode}
             console.log("playerData", action.payload)
+            saveToLocalStorage("playerStats", state.value)
         },
 
         add_playerPoints: (state, action) => {
             state.value.playerPoints += action.payload  
             socket.emit("sending_player_data", { player: state.value.playerName, cards: state.value.cards, gameCode: state.value.gameCode });
+            saveToLocalStorage("playerStats", state.value)
         }
     }
     

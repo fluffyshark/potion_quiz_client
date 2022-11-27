@@ -1,23 +1,16 @@
 
 export const AutoSave = (playerStats, gameStats, coinList, potionsList, powersList, levelExp, ingredientsList, recipeList, craftList, marketData, buyletter) => {
-
-     // Setting disconnected to true, letting autosave know not to overwrite player progress
-    let disconnected = localStorage.getItem("disconnected")
-    console.log("isDisconnected", disconnected)
+      
     
-    setTimeout(function() {
-        if (disconnected === "disconnected") {
-            console.log("Disconnected - Data save discontinued")
-        }
-        if (disconnected === "connected") {
-            console.log("Connected - Data saved")
     
             storePlayerStats(playerStats)
             storeGameStats(gameStats)
             storeCoinList(coinList)
         
             storePotionsList(potionsList)
-            //storePowersList(powersList)
+
+            // Not used - storePowersList(powersList)
+            
             storeLevelExp(levelExp)
             
             storeIngredientsList(ingredientsList)
@@ -27,15 +20,14 @@ export const AutoSave = (playerStats, gameStats, coinList, potionsList, powersLi
             storeMarketData(marketData)
             storeBuyletter(buyletter)
         
+        // Only used for investigative purpuses
         //    clearLocalStorage()
-        
         //    checkSizeOfLocalStorage()
-        }
-      }, 1000);
+   
     
     
-
 }
+
 
 
 // Player related 
@@ -43,7 +35,9 @@ function storePlayerStats(playerStats) {localStorage.setItem("playerStats", JSON
 
 function storeGameStats(gameStats) {localStorage.setItem("gameStats", JSON.stringify(gameStats))}
 
-function storeCoinList(coinList) {localStorage.setItem("coinList", JSON.stringify(coinList.total))}
+function storeCoinList(coinList) {
+    localStorage.setItem("coinList", JSON.stringify(coinList.total)) 
+}
 
 // Potion related
 function storePotionsList(potionsList) {

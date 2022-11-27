@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { saveToLocalStorage } from "../components/saveToLocalStorage/SaveToLocalStorage";
 import no_ingred from "../image_assets/general/no_ingred.png"
 
 const CraftData = [
@@ -22,6 +23,7 @@ export const craftSlice = createSlice({
                     if (ingredient.total >= 1) {ingredient.amount += 1; ingredient.total -= 1}
                 }
             })
+            saveToLocalStorage("craftList", state.value)
         },
         deSelect_ingredients: (state, action) => {
             state.value.map((ingredient) => {
@@ -30,6 +32,7 @@ export const craftSlice = createSlice({
                     if (ingredient.amount < 1) {ingredient.selected_id = action.payload.selected_id; ingredient.image = action.payload.image}
                 }
             })
+            saveToLocalStorage("craftList", state.value)
         },
         remove_for_crafting: (state, action) => {
             state.value.map((ingredient) => {
@@ -38,6 +41,7 @@ export const craftSlice = createSlice({
                     ingredient.total = 0
                     ingredient.image = no_ingred
             })
+            saveToLocalStorage("craftList", state.value)
         },
 
         

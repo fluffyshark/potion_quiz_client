@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { saveToLocalStorage } from "../components/saveToLocalStorage/SaveToLocalStorage.js";
 import { IngredientData } from "./IngredientData.js"
 
 export const ingredientSlice = createSlice({
@@ -12,6 +13,7 @@ export const ingredientSlice = createSlice({
                     ingredient.discovered = true
                 }
             })
+            saveToLocalStorage("ingredientsList", state.value)
         },
         
         decrease_ingredients: (state, action) => {
@@ -21,6 +23,7 @@ export const ingredientSlice = createSlice({
                     if (ingredient.amount >= 1) {ingredient.amount -= 1}
                 }
             })
+            saveToLocalStorage("ingredientsList", state.value)
         },
 
         giveGift_ingredients: (state, action) => {
@@ -33,6 +36,7 @@ export const ingredientSlice = createSlice({
                     }
                 })
             }  
+            saveToLocalStorage("ingredientsList", state.value)
         },
 
         transmute_ingredients: (state, action) => {
@@ -48,6 +52,7 @@ export const ingredientSlice = createSlice({
                             ingredient.amount -= 1
                         }
                     }
+                    saveToLocalStorage("ingredientsList", state.value)
                 })
         },
 
@@ -64,6 +69,7 @@ export const ingredientSlice = createSlice({
                     }
                 })
             }  
+            saveToLocalStorage("ingredientsList", state.value)
         },
         
         buy_four_ingredients: (state) => {
@@ -79,6 +85,7 @@ export const ingredientSlice = createSlice({
                     }
                 })
             }  
+            saveToLocalStorage("ingredientsList", state.value)
         },
 
         buy_fourteen_ingredients: (state) => {
@@ -94,6 +101,7 @@ export const ingredientSlice = createSlice({
                     }
                 })
             }  
+            saveToLocalStorage("ingredientsList", state.value)
         },
 
         buy_fifty_ingredients: (state) => {
@@ -108,7 +116,8 @@ export const ingredientSlice = createSlice({
                         ingredient.discovered = true
                     }
                 })
-            }  
+            } 
+            saveToLocalStorage("ingredientsList", state.value) 
         },
         
         retrive_ingreidentData: (state, action) => {
@@ -122,6 +131,7 @@ export const ingredientSlice = createSlice({
                         ingredient.discovered = true
                 }
             })
+            saveToLocalStorage("ingredientsList", state.value)
         },
 
     }

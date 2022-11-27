@@ -5,7 +5,7 @@ import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import Navbar from "../../components/navbar/Navbar"
 import { useSelector, useDispatch } from "react-redux"
-import { add_coins, add_coins_amount } from "../../redux/CoinsReducer.js"
+import { add_coins_amount } from "../../redux/CoinsReducer.js"
 import { activate_power, power_special } from "../../redux/PowerReducer"
 import Protection from "../../components/powers/Protection.js"
 import DoublePoints from "../../components/powers/DoublePoints.js"
@@ -117,7 +117,7 @@ function QuizView(all_props) {
         if (powersList[1].doublePoints === "active") {dispatch(add_coins_amount(20)); CoinGainEffect(20)}
         else if (powersList[9].tripplePoints === "active") {dispatch(add_coins_amount(30)); CoinGainEffect(30)}
         else if (powersList[19].goldenPoints === "active") {dispatch(add_coins_amount(50)); CoinGainEffect(50)}
-        else {dispatch(add_coins())}
+        else {dispatch(add_coins_amount(10))}
       }, 1000);
       
     } else {
