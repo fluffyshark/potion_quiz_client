@@ -23,11 +23,11 @@ import buy_one_40_btn from "../../image_assets/general/buy_one_40_btn.png"
 import store_buy_ten_40_btn from "../../image_assets/general/store_buy_ten_40_btn.png"
 import store_buy_four_40_btn from "../../image_assets/general/store_buy_four_40_btn.png"
 import { useDispatch, useSelector } from "react-redux"
-import {buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../redux/IngredientReducer.js"
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import { Link } from 'react-router-dom';
 import { playSound } from '../../components/playSound/playSound';
+import BoughtIngredients from './boughtIngredients/BoughtIngredients';
 
 
 
@@ -37,7 +37,7 @@ function BuySell() {
     focus: "buysell", 
   }
 
-
+  const [playerPurchase, setPlayerPurchase] = useState("none")
   const [prices, setPrices] = useState({price_blue: 50, price_purple: 100, price_gold: 300, blue_btn: buy_one_btn, purple_btn: store_buy_four_btn, gold_btn: store_buy_ten_btn})
 
   const dispatch = useDispatch()
@@ -58,8 +58,8 @@ function BuySell() {
 
 
   useEffect(() => {
-    if (coinbag.total < 50) {document.getElementById("lottery_btn01").style.opacity = 0.5; document.getElementById("lottery_btn01").style.pointerEvents = "none"}
-    if (coinbag.total < 100) {document.getElementById("lottery_btn02").style.opacity = 0.5; document.getElementById("lottery_btn02").style.pointerEvents = "none" }
+  //  if (coinbag.total < 50) {document.getElementById("lottery_btn01").style.opacity = 0.5; document.getElementById("lottery_btn01").style.pointerEvents = "none"}
+  //  if (coinbag.total < 100) {document.getElementById("lottery_btn02").style.opacity = 0.5; document.getElementById("lottery_btn02").style.pointerEvents = "none" }
   //  if (coinbag.total < 300) {document.getElementById("lottery_btn03").style.opacity = 0.5; document.getElementById("lottery_btn03").style.pointerEvents = "none"}
 
     if (coinbag.total > 49) {document.getElementById("lottery_btn01").style.opacity = 1; document.getElementById("lottery_btn01").style.pointerEvents = "auto"}
@@ -67,20 +67,27 @@ function BuySell() {
     if (coinbag.total > 299) {document.getElementById("lottery_btn03").style.opacity = 1; document.getElementById("lottery_btn03").style.pointerEvents = "auto"}
   },[coinbag.total])
 
+
   const buyIngredients = (amount) => {
-      if (amount === 4) {dispatch(buy_four_ingredients()); dispatch(reduce_coins_amount(prices.price_blue))}
-      if (amount === 14) {dispatch(buy_fourteen_ingredients()); dispatch(reduce_coins_amount(prices.price_purple))}
-      if (amount === 50) {dispatch(buy_fifty_ingredients()); dispatch(reduce_coins_amount(prices.price_gold))}
+    
+      if (amount === 4) {setPlayerPurchase("buy_four"); dispatch(reduce_coins_amount(prices.price_blue))}
+      if (amount === 14) {setPlayerPurchase("buy_fourteen"); dispatch(reduce_coins_amount(prices.price_purple))}
+      if (amount === 50) {setPlayerPurchase("buy_fifty"); dispatch(reduce_coins_amount(prices.price_gold))}
 
       playSound("coinSpend")
 
   }
 
 
+  // NEXT - Add POPUP ANIMATION TO SCROLL
+  
+
  
  
   return (
     <div className='buySellView'>
+
+      {playerPurchase !== "none" && <BoughtIngredients boughtNr={playerPurchase} exitbtn={setPlayerPurchase}/>}
 
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}

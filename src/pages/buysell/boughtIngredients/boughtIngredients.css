@@ -1,0 +1,69 @@
+
+.boughtIngred {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+}
+.boughtIngred_scroll {
+    width: 400px;
+    height: 565px;
+    background-image: url("../../../image_assets/general/scroll.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boughtIngred_scroll_top {
+    width: 100%; 
+    height: 90px; 
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.boughtIngred_scroll_top>img {height: 35px; margin-right: 30px; cursor: pointer;}
+
+.boughtIngred_scroll_text {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;  
+    flex-direction: column;
+}
+.boughtIngred_scroll_text_title {
+    font-size: 30px;
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+}
+.boughtIngred_scroll_text_sender {
+    font-size: 13px;
+    font-family: 'Arial';
+    font-weight: bold;
+    margin: 0;
+}
+.boughtIngred_scroll_wrap {
+    width: 70%;
+    height: auto;
+    max-height: 340px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+    overflow: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+.boughtIngred_scroll_wrap::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+.boughtIngred_scroll_wrap_herbs {
+    cursor: pointer;
+    height: 65px;
+  }

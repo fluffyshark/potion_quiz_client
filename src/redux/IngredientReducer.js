@@ -72,14 +72,10 @@ export const ingredientSlice = createSlice({
             saveToLocalStorage("ingredientsList", state.value)
         },
         
-        buy_four_ingredients: (state) => {
-            let array = []
-            for (let i = 0; i < 4; i++) {
-                array.push(Math.floor(Math.random() * 180))
-            }  
+        buy_four_ingredients: (state, action) => {
             for (let i = 0; i < 4; i++) {
                 state.value.map((ingredient) => {
-                    if (ingredient.id === array[i]) {
+                    if (ingredient.id === action.payload[i]) {
                         ingredient.amount += 1
                         ingredient.discovered = true
                     }
@@ -88,14 +84,10 @@ export const ingredientSlice = createSlice({
             saveToLocalStorage("ingredientsList", state.value)
         },
 
-        buy_fourteen_ingredients: (state) => {
-            let array = []
-            for (let i = 0; i < 15; i++) {
-                array.push(Math.floor(Math.random() * 180))
-            }  
+        buy_fourteen_ingredients: (state, action) => {
             for (let i = 0; i < 15; i++) {
                 state.value.map((ingredient) => {
-                    if (ingredient.id === array[i]) {
+                    if (ingredient.id === action.payload[i]) {
                         ingredient.amount += 1
                         ingredient.discovered = true
                     }
@@ -104,14 +96,10 @@ export const ingredientSlice = createSlice({
             saveToLocalStorage("ingredientsList", state.value)
         },
 
-        buy_fifty_ingredients: (state) => {
-            let array = []
-            for (let i = 0; i < 50; i++) {
-                array.push(Math.floor(Math.random() * 180))
-            }  
+        buy_fifty_ingredients: (state, action) => {
             for (let i = 0; i < 50; i++) {
                 state.value.map((ingredient) => {
-                    if (ingredient.id === array[i]) {
+                    if (ingredient.id === action.payload[i]) {
                         ingredient.amount += 1
                         ingredient.discovered = true
                     }
