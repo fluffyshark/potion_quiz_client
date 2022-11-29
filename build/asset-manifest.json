@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.c664f17b.css",
+    "main.css": "/static/css/main.5d21049d.css",
     "main.js": "/static/js/main.eda09092.js",
     "static/css/638.20e6adc4.chunk.css": "/static/css/638.20e6adc4.chunk.css",
     "static/js/638.a4d1394e.chunk.js": "/static/js/638.a4d1394e.chunk.js",
@@ -484,7 +484,7 @@
     "static/media/passwordicon.webp": "/static/media/passwordicon.f786499abd0a526fa49b.webp",
     "static/media/potion_reveal_background.webp": "/static/media/potion_reveal_background.30e7a9ac019333e40be1.webp",
     "index.html": "/index.html",
-    "main.c664f17b.css.map": "/static/css/main.c664f17b.css.map",
+    "main.5d21049d.css.map": "/static/css/main.5d21049d.css.map",
     "main.eda09092.js.map": "/static/js/main.eda09092.js.map",
     "638.20e6adc4.chunk.css.map": "/static/css/638.20e6adc4.chunk.css.map",
     "638.a4d1394e.chunk.js.map": "/static/js/638.a4d1394e.chunk.js.map",
@@ -509,7 +509,7 @@
     "931.4d637b0b.chunk.js.map": "/static/js/931.4d637b0b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c664f17b.css",
+    "static/css/main.5d21049d.css",
     "static/js/main.eda09092.js"
   ]
 }

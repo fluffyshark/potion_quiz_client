@@ -1,5 +1,6 @@
 import React from "react";
 import "./loading.css"
+import "./responsive/tablet.css"
 
 function Loading() {
   return (
