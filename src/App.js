@@ -3,8 +3,8 @@ import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
 // Pages
-import StartView from "./pages/startView/StartView.js"
-import QuizView from "./pages/quizView/QuizView"
+//import StartView from "./pages/startView/StartView.js"
+//import QuizView from "./pages/quizView/QuizView"
 import {EndGame} from "./components/endGame/EndGame"
 import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
 //import HostingView from "./pages/hostingView/HostingView";
@@ -28,6 +28,8 @@ import { add_buyLetter } from './redux/LetterReducer'
 import Loading from "./components/loading/Loading.js";
 import LoginView from "./pages/loginView/LoginView.js";
 
+const StartView = lazy(() => import("./pages/startView/StartView"))
+const QuizView = lazy(() => import("./pages/quizView/QuizView"))
 const PotionsView = lazy(() => import("./pages/potions/PotionsView"))
 const CraftView = lazy(() => import("./pages/craftView/CraftView"))
 const BuySell = lazy(() => import("./pages/buysell/BuySell"))
