@@ -37,24 +37,6 @@ function BoughtIngredients(boughtIngredients) {
         console.log("boughtIngredients", boughtIngredients)
     }, [])
 
-
-    /*
-    let array = []
-            for (let i = 0; i < 15; i++) {
-                array.push(Math.floor(Math.random() * 180))
-            }  
-            for (let i = 0; i < 15; i++) {
-                state.value.map((ingredient) => {
-                    if (ingredient.id === array[i]) {
-                        ingredient.amount += 1
-                        ingredient.discovered = true
-                    }
-                })
-            }  
-
-            
-    */
-
             
     // Tells BuySell state playerPurchase to close this view
     function exitScrollView() {

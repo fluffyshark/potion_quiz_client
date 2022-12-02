@@ -161,7 +161,7 @@
     }
     
     .card_ingredient {height: 90%;}
-    .chosen_bottle {height: 85%;}
+    .chosen_bottle {height: 85%; cursor: pointer;}
     
     .potionView_footer_actions {
         height: 60px;

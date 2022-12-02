@@ -20,6 +20,7 @@ import PotionSelectPlayers from './PotionSelectPlayers';
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import PotionInfo, {DisplayInfo} from './PotionInfo';
 import {playSound} from "../../components/playSound/playSound"
+import PotionRecipeStatus from './PotionRecipeStatus';
 
 
 
@@ -139,6 +140,10 @@ function PotionsView(props_socket) {
 
 
 
+  function showRecipeStatus() {
+    document.getElementById("potionRecipeStatus").style.display = "flex"
+  }
+
 
 
 
@@ -146,6 +151,7 @@ function PotionsView(props_socket) {
     <div className='potionsView'>
 
         <PotionInfo potionID={recipe.id} />
+        <PotionRecipeStatus recipe={recipe}/>
 
         {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
         {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
@@ -277,7 +283,7 @@ function PotionsView(props_socket) {
           <div className="potionView_footer_container" id="potionView_footer_display">
             {recipeList[recipe.id].ing1_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred1].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount1}</p></div>) : (<><img src={ingredientsList[recipe.ingred1].image_normal} alt="" className="card_ingredient" /></>)}
             {recipeList[recipe.id].ing2_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred2].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount2}</p></div>) : (<><img src={ingredientsList[recipe.ingred2].image_normal} alt="" className="card_ingredient" /></>)}
-            <img src={recipe.flask} alt="" className="chosen_bottle" />
+            <motion.img whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.8 }} transition={{ type: "spring", stiffness: 200, damping: 40 }} onClick={() => {showRecipeStatus()}} src={recipe.flask} alt="" className="chosen_bottle" />
             {recipeList[recipe.id].ing3_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred3].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount3}</p></div>) : (<><img src={ingredientsList[recipe.ingred3].image_normal} alt="" className="card_ingredient" /></>)}
             {recipeList[recipe.id].ing4_golden ? (<div className='bottom_recipe_container'><img src={ingredientsList[recipe.ingred4].image_golden} alt="" className="card_ingredient" /><p className="footer_ingred_amount">{recipe.amount4}</p></div>) : (<><img src={ingredientsList[recipe.ingred4].image_normal} alt="" className="card_ingredient" /></>)}          
           </div> 
