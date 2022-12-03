@@ -26,7 +26,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import { Link } from 'react-router-dom';
-import { playSound } from '../../components/playSound/playSound';
+//import { playSound } from '../../components/playSound/playSound';
 import BoughtIngredients from './boughtIngredients/BoughtIngredients';
 
 
@@ -74,7 +74,7 @@ function BuySell() {
       if (amount === 14) {setPlayerPurchase("buy_fourteen"); dispatch(reduce_coins_amount(prices.price_purple))}
       if (amount === 50) {setPlayerPurchase("buy_fifty"); dispatch(reduce_coins_amount(prices.price_gold))}
 
-      playSound("coinSpend")
+    //  playSound("coinSpend")
 
   }
 

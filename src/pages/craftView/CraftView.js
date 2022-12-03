@@ -14,7 +14,7 @@ import caldrun from "../../image_assets/general/caldrun.webp"
 import {select_ingredients, deSelect_ingredients} from "../../redux/CraftReducer"
 import { increase_ingredients, decrease_ingredients } from "../../redux/IngredientReducer.js"
 import ReceiveGiveGift from '../../components/powers/GiveGift';
-import {playSound} from "../../components/playSound/playSound"
+//import {playSound} from "../../components/playSound/playSound"
 
 var craftingSlots = [200,200,200,200]
 
@@ -32,6 +32,7 @@ function CraftView(props_socket) {
   const craftList = useSelector((state) => state.crafting.value) 
   const powersList = useSelector((state) => state.powers.value)
 
+  /*
   const dropIngredSound = () => {
     switch (Math.floor(Math.random() * 5)) {
       case 0: playSound("ingredDrop01"); break;
@@ -41,6 +42,8 @@ function CraftView(props_socket) {
       default: break;
     }
   }
+  */
+
 
   useEffect(() => {
     // Show selected ingredient amount when entering CraftView
@@ -72,7 +75,7 @@ function CraftView(props_socket) {
             // Add clicked ingredient id to useState
             craftingSlots[0] = selected_id 
             // Play sound effect
-            dropIngredSound()
+          //  dropIngredSound()
           } 
         }
       }
@@ -83,7 +86,7 @@ function CraftView(props_socket) {
             document.getElementById("craftAmount2").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[1] = selected_id 
-            dropIngredSound()
+          //  dropIngredSound()
           }
         }   
       }
@@ -94,7 +97,7 @@ function CraftView(props_socket) {
             document.getElementById("craftAmount3").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[2] = selected_id
-            dropIngredSound() 
+          //  dropIngredSound() 
           }
         }
       }
@@ -105,7 +108,7 @@ function CraftView(props_socket) {
             document.getElementById("craftAmount4").style.display = "flex"
             dispatch(decrease_ingredients({id:selected_id}))
             craftingSlots[3] = selected_id 
-            dropIngredSound()
+          //  dropIngredSound()
           }
         }
       }
@@ -187,7 +190,7 @@ function CraftView(props_socket) {
    
     document.getElementById("craftPotion").style.display = "flex"
 
-    playSound("craftPotion")
+  //  playSound("craftPotion")
 
   } // End of craftPotion
 

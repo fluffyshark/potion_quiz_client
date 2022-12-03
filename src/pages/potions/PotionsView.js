@@ -19,7 +19,7 @@ import card_back from "../../image_assets/general/card_back1.webp"
 import PotionSelectPlayers from './PotionSelectPlayers';
 import ReceiveGiveGift from '../../components/powers/GiveGift';
 import PotionInfo, {DisplayInfo} from './PotionInfo';
-import {playSound} from "../../components/playSound/playSound"
+//import {playSound} from "../../components/playSound/playSound"
 import PotionRecipeStatus from './PotionRecipeStatus';
 
 
@@ -59,10 +59,10 @@ function PotionsView(props_socket) {
     }
     
     // Show or not, if the level is high enough
-    if (playerLevel === 4 && id > 15) {playSound("nope")}
-    else if (playerLevel === 3 && id > 11) {playSound("nope")}
-    else if (playerLevel === 2 && id > 7) {playSound("nope")}
-    else if (playerLevel === 1 && id > 3) {playSound("nope")}
+    if (playerLevel === 4 && id > 15) {/* playSound("nope") */}
+    else if (playerLevel === 3 && id > 11) {/* playSound("nope") */}
+    else if (playerLevel === 2 && id > 7) {/* playSound("nope") */}
+    else if (playerLevel === 1 && id > 3) {/* playSound("nope") */}
     else {
       // Display the recipe at the bottom of the page
       setRecipe({
@@ -77,7 +77,7 @@ function PotionsView(props_socket) {
         recipeList[id].ing3_amount, 
         amount4: recipeList[id].ing4_amount})
       
-        playSound("blop")
+      //  playSound("blop")
         console.log(recipe)
     }
   }
@@ -87,29 +87,29 @@ function PotionsView(props_socket) {
   const activatePotion = () => {
     switch (recipe.id) {
       case 0: setSelectPlayer(["blessing", "GIFT EXP"]); break;
-      case 1: dispatch(activate_power({power_name: "DOUBLE POINTS"})); playSound("blessing"); break;
-      case 2: dispatch(activate_power({power_name: "SPEED UP"})); playSound("blessing"); break;
-      case 3: dispatch(activate_power({power_name: "PROTECTION"})); playSound("blessing"); break;
+      case 1: dispatch(activate_power({power_name: "DOUBLE POINTS"})); /* playSound("blessing"); */ break;
+      case 2: dispatch(activate_power({power_name: "SPEED UP"})); /* playSound("blessing"); */ break;
+      case 3: dispatch(activate_power({power_name: "PROTECTION"})); /* playSound("blessing"); */ break;
       case 4: setSelectPlayer(["curse", "FREEZE"]); break;
       case 5: dispatch(activate_power({power_name: "FIFTY FIFTY"})); break;
-      case 6: setSelectPlayer(["curse", "POINT POISON"]); playSound("curse"); break;
+      case 6: setSelectPlayer(["curse", "POINT POISON"]); /* playSound("curse"); */ break;
       case 7: setSelectPlayer(["blessing", "GIVE GIFT"]); break;
       case 8: dispatch(activate_power({power_name: "TRANSMUTATION"})); break;
-      case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); playSound("blessing"); break;
-      case 10: dispatch(activate_power({power_name: "JUKEBOX"})); playSound("blessing"); break;
-      case 11: dispatch(activate_power({power_name: "PRICE RUNNER"})); playSound("blessing"); break;
-      case 13: playSound("blessing"); 
+      case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); /* playSound("blessing"); */ break;
+      case 10: dispatch(activate_power({power_name: "JUKEBOX"})); /* playSound("blessing"); */ break;
+      case 11: dispatch(activate_power({power_name: "PRICE RUNNER"})); /* playSound("blessing"); */ break;
+      case 13: /* playSound("blessing"); */ 
                 const revealIngrd = Reveal(recipeList, potionsList); 
                 dispatch(golden_ingredient({id: revealIngrd[0].id, ingredientNr: revealIngrd[0].golden}))
                 dispatch(golden_ingredient({id: revealIngrd[1].id, ingredientNr: revealIngrd[1].golden}))
                 dispatch(golden_ingredient({id: revealIngrd[2].id, ingredientNr: revealIngrd[2].golden}))
       break;
       case 14: setSelectPlayer(["curse", "BLOCKER"]); break;
-      case 15: dispatch(activate_power({power_name: "DOUBLE BATCH"})); playSound("blessing"); break;
-      case 16: dispatch(activate_power({power_name: "EPIC CHALLENGE"})); playSound("blessing"); break;
-      case 17: dispatch(activate_power({power_name: "STREAK BONUS"})); playSound("blessing"); break;
+      case 15: dispatch(activate_power({power_name: "DOUBLE BATCH"})); /* playSound("blessing"); */ break;
+      case 16: dispatch(activate_power({power_name: "EPIC CHALLENGE"})); /* playSound("blessing"); */ break;
+      case 17: dispatch(activate_power({power_name: "STREAK BONUS"})); /* playSound("blessing"); */ break;
       case 18: setSelectPlayer(["curse", "MASS FREEZE"]); break;
-      case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); playSound("blessing"); break;
+      case 19: dispatch(activate_power({power_name: "GOLDEN POINTS"})); /* playSound("blessing"); */ break;
 
       default:
         break;

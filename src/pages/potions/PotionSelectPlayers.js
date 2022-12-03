@@ -4,7 +4,7 @@ import "./responsive/tablet.css"
 import { useSelector } from "react-redux"
 import {motion} from "framer-motion"
 import activateBtn from "../../image_assets/general/select_player_btn.png"
-import { playSound } from '../../components/playSound/playSound'
+// import { playSound } from '../../components/playSound/playSound'
 
 function PotionSelectPlayers(props) {
 
@@ -19,8 +19,8 @@ function PotionSelectPlayers(props) {
     const potionsList = useSelector((state) => state.potions.value)
 
     useEffect(() => {
-        if (props.selectPlayer[0] === "blessing") {document.getElementById("angelOrDemon").className = "potionSelectPlayers_centerSection_angel"; setSound("useBlessing")}
-        if (props.selectPlayer[0] === "curse") {document.getElementById("angelOrDemon").className = "potionSelectPlayers_centerSection_demon"; setSound("useCurse")}
+        if (props.selectPlayer[0] === "blessing") {document.getElementById("angelOrDemon").className = "potionSelectPlayers_centerSection_angel"; /* setSound("useBlessing") */}
+        if (props.selectPlayer[0] === "curse") {document.getElementById("angelOrDemon").className = "potionSelectPlayers_centerSection_demon"; /* setSound("useCurse") */}
     }, [props])
     
 
@@ -28,7 +28,7 @@ function PotionSelectPlayers(props) {
     function handleActivateBtn() {
         socket.emit("potion_effect", {emitData});
         props.hideSelectPlayers()
-        playSound(sound)
+    //    playSound(sound)
     }
 
 

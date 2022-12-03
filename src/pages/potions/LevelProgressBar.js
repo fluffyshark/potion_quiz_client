@@ -5,7 +5,7 @@ import levelBtn from "../../image_assets/general/level_btn.png"
 import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
 import { add_exp_amount } from "../../redux/LevelExpReducer"
 import progressbar_fill from "../../image_assets/general/progressbar_fill.png"
-import {playSound} from "../../components/playSound/playSound"
+// import {playSound} from "../../components/playSound/playSound"
 
 function LevelProgressBar() {
 
@@ -18,7 +18,7 @@ function LevelProgressBar() {
     const buyLevel = () => {
     dispatch(reduce_coins_amount(50))
     dispatch(add_exp_amount(1))
-    playSound("coindrop")   
+  //  playSound("coindrop")   
   }
 
 

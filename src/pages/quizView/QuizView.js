@@ -26,7 +26,7 @@ import StreakBonus from '../../components/powers/StreakBonus'
 import Transmutation from '../../components/powers/Transmutation'
 import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
-import {playSound} from "../../components/playSound/playSound"
+//import {playSound} from "../../components/playSound/playSound"
 import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
 
 
@@ -106,7 +106,7 @@ function QuizView(all_props) {
       
       setAnswerCount({totalQuestions: answerCount.totalQuestions + 1, correct: answerCount.correct + 1, wrong: answerCount.wrong})
       
-      setTimeout(function() {playSound("coinGain")}, 200);
+    //  setTimeout(function() {playSound("coinGain")}, 200);
 
       if (powersList[1].doublePoints === "active") {CoinGainEffect(20)}
       else if (powersList[9].tripplePoints === "active") {CoinGainEffect(30)}
