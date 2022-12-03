@@ -72,7 +72,7 @@ function App() {
 
   useEffect(() => {
     dispatch(power_counter())
-    console.log("counter", counter)
+  //  console.log("counter", counter)
   },[counter])
 
 
@@ -102,6 +102,7 @@ function App() {
     // Receiving potion effects from other players
     socket.on("potion_curse_blessing", (potionData) => {
     //  console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
+      console.log("POTIONDATA", potionData)
       if (potionData.potionName === "GIFT EXP") {dispatch(add_exp_amount(potionData.effect))}
       if (potionData.potionName === "GIVE GIFT") {dispatch(power_special(potionData)); dispatch(activate_power({power_name: "GIVE GIFT"}))}
       if (potionData.potionName === "BLOCKER") {dispatch(activate_power({power_name: "BLOCKER"})); dispatch(power_special(potionData))}
@@ -111,7 +112,7 @@ function App() {
     })
 
     socket.on("sending_marketData_to_players", (marketData) => {
-      console.log("sending_marketData_to_players", marketData)
+    //  console.log("sending_marketData_to_players", marketData)
       dispatch(update_market(marketData))
     }) 
 

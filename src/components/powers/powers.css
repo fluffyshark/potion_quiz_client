@@ -17,6 +17,7 @@
   gap: 5px;
 }
 
+
 #fill_doublePoints {
   background: rgb(197,130,229);
   background: linear-gradient(180deg, rgba(197,130,229,1) 0%, rgba(58,10,160,1) 82%);
@@ -312,3 +313,18 @@ display: none; /* for Chrome, Safari, and Opera */
 }
 
 
+
+
+
+
+ /* iPad 9-inch (PORTRAITE ONLY) */
+
+/* Exact metric for iPad 9"-inch portrait Safari brower (no extra files) */
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { 
+  .power_fill_content>p {transform: translateY(2px);}
+}
+
+/* Exact metric for iPad 9"-inch portrait Safari brower (with extra files) */
+@media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { 
+  .power_fill_content>p {transform: translateY(2px);}
+}

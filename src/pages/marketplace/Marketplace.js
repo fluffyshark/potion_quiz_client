@@ -71,8 +71,8 @@ function Marketplace(props) {
 // Add sold ingredient price to state 
   useEffect(() => { 
     setBuyLetters(buyletter) 
-    console.log("buyletter", buyletter)
-    console.log("buyLetters", buyLetters)
+  //  console.log("buyletter", buyletter)
+  //  console.log("buyLetters", buyLetters)
   }, [buyletter])
 
 

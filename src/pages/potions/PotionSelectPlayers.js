@@ -87,12 +87,14 @@ function PotionSelectPlayers(props) {
 
         let effect = powerEffect(potionName)
 
+        let gameCode = playerStats.gameCode
+
         // Used for declaring if user clicked to select or deselect player
         let clickedToSelect = true        
 
         // If there is no player already selected then add the clicked player
         if (emitData.length === 0) {
-            setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}]) 
+            setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect, gameCode: gameCode}]) 
             setMaxPlayerTargets(maxPlayerTargets + 1)
             // Turn clicked button green
             document.getElementById(playerName).className = "potionSelectPlayers_centerSection_collection_playername_selected"    
@@ -113,7 +115,7 @@ function PotionSelectPlayers(props) {
                 if (maxPlayerTargets < playerLimitByPotion(potionName)) {
                     // If this the click is for selecting and not deselecting
                     if (clickedToSelect === true) {
-                        setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect}])
+                        setEmitData(emitData => [...emitData, {id: id, potionName: potionName, playerName: playerName, effect: effect, gameCode: gameCode}])
                         setMaxPlayerTargets(maxPlayerTargets + 1)
                         // Turn clicked button green
                         document.getElementById(playerName).className = "potionSelectPlayers_centerSection_collection_playername_selected";

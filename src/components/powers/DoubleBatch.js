@@ -35,7 +35,7 @@ function DoubleBatch() {
       <div id="fill_doubleBatch" className="power_fill"></div>
       <div className="power_fill_content">
           <img src={flasks[15]} alt="" className="power_flask" />
-          DOUBLE BATCH
+          <p>DOUBLE BATCH</p>
       </div>
       
   </div>

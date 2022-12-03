@@ -13,7 +13,6 @@ function PotionRecipeStatus({recipe}) {
     const ingredientsList = useSelector((state) => state.ingredients.value)
     // Make available market data from redux
     const marketData = useSelector((state) => state.theMarket.value)
-    console.log("marketData", marketData)
 
     // Tells BuySell state playerPurchase to close this view
     function exitScrollView() {
