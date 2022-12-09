@@ -1,0 +1,306 @@
+@media only screen and (max-width: 1000px) {  
+
+
+    .auction {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .auction_middle {
+        width: 100%;
+        height: 80%;
+        background-image: url("../../../image_assets/general/background_image.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center; 
+    }
+    
+    .auction_middle_container {
+        width: 1024px;
+        height: 100%;
+        background: rgb(26,114,202);
+        background: radial-gradient(circle, rgba(26,114,202,1) 0%, rgba(0,43,87,1) 100%);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .auction_menu_container {
+        height: 90px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .auction_menu {
+        height: 50px;
+        width: 700px;
+        background-color: #1f80e0;
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .auction_menu_filler_left {
+        width: 21.3%;
+        height: 100%;
+    }
+    .auction_menu_potions_ingreds {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    .auction_menu_filler_right {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .market_menu_btns {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Luckiest Guy', cursive;
+        color: white;
+        font-size: 23px;
+        cursor: pointer;
+    }
+    .market_menu_btns>p{
+        transform: translateY(5px);
+    }
+    
+    .auction_menu_potions_btn {
+        width: 110px; 
+    }
+    
+    .auction_menu_indredients_btn {
+        width: 160px;
+        background-color: #1c62b3;
+    }
+    
+    .menu_buysell_text {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Luckiest Guy', cursive;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .menu_buysell_text>p {
+        transform: translateY(3px);
+    }
+    
+    #auction_menu_buy {
+        width: 60px;
+    }
+    #auction_menu_sell {
+        width: 60px;
+        background-color: #1c62b3;
+        margin-right: 20px;
+    }
+    
+    
+    
+    .auction_extra_space_bottom {
+        height: 60px;
+        width: 100%;
+    }
+    
+    .auction_middle_ingred_container {
+        width: 400px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+    /*    gap: 20px; */
+        row-gap: 15px;
+    
+        overflow: scroll;
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
+        overflow-y: scroll; 
+    }
+    
+    .auction_middle_card_container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+   .auction_middle_cards {
+        width: 20%;
+        margin-left: 10px;
+        margin-top: 10px;
+        position: relative;
+   }
+
+    .auction_middle_ingred_container::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+    
+    .auction_ingred {
+        width: 90px;
+        height: 90px;
+        cursor: pointer;
+    }
+
+    
+    
+    .auction_no_ingred {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .auction_ingredBox {
+        width: 75px;
+        height: 78px;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+
+    
+    .auction_ingred_amount {
+        width: 20px;
+        position: absolute;
+        top: 82.8%;
+        left: 80%;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 10px;
+        margin: 0;
+    }
+    
+    .auction_footer {
+        width: 100%;
+        height: 10%;
+        background-color: #2e1e12;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 200;
+    } 
+    
+    .auction_footer_container {
+        width: 700px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        position: absolute;    
+    }
+    
+    .auction_offer_text1 {
+        width: 165px;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 25px;
+        text-align: center;
+    }
+    .auction_offer_ingred {height: 90%;}
+    .auction_offer_text2 {
+        width: 60px;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 25px;
+        text-align: center;
+    }
+    .auction_offer_btns {
+        width: 40px;
+        transform: translateY(2px);
+        cursor: pointer;
+    }
+    .auction_offer_text3 {
+        width: 60px;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 35px;
+        text-align: center;
+    }
+    .auction_offer_done_btn {
+        width: 80px;
+        margin-left: 30px;
+        cursor: pointer;
+    }
+    .auction_offer_done_btn_no_ingred {
+        width: 80px;
+        margin-left: 30px;
+        opacity: 0.3;
+        pointer-events: none;
+    }
+    
+    .auction_footer_buy_process {
+        width: 400px;
+        color: white;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 25px;
+        text-align: center;
+    }
+    
+    
+    
+    .auction_offering {
+        width: auto;
+        height: 115px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .auction_offering_price_btn {
+        width: 85%;
+        height: 20px;
+        background-color: #1f80e0;
+        border-radius: 7px;
+        display: flex;justify-content: center;
+        align-items: center;
+        font-family: 'Luckiest Guy', cursive;
+        color: white;
+        font-size: 17px;
+        padding-bottom: 1px;
+    }
+    .auction_offering_price_btn>p {
+        transform: translateY(3px);
+    }
+    
+    .auction_letterImg {
+        height: 80%;
+        cursor: pointer;
+    }
+
+
+
+
+
+
+}
+
+
+
+
+ /* iPad 9-inch */
+
+/* Safari brower (no extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { .auction {overflow: hidden; height: 97vh;}}
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { .auction {overflow: hidden; height: 93vh;}}
+/* Chrome brower (no extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 909px) and (min-height: 909px)  { .auction {overflow: hidden; height: 92vh;}}
+
+ /* iPad 10.2-inch */
+
+/* Safari brower (no extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 977px) and (min-height: 977px)  { .auction {overflow: hidden; height: 94vh;}}
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 1010px) and (min-height: 1010px)  { .auction {overflow: hidden; height: 97vh;}}
+/* Chrome brower (no extra tabs) */ @media only screen and (max-width: 810px) and (min-width: 810px) and (max-height: 965px) and (min-height: 965px)  { .auction {overflow: hidden; height: 94vh;}}
+
+

@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
 import envelope from "../../image_assets/general/envelope.png"
 import { remove_buyLetter } from '../../redux/LetterReducer'
+import { Link } from 'react-router-dom'
 
 
 function Marketplace(props) {
@@ -115,8 +116,8 @@ function Marketplace(props) {
                 <div className="marketplace_menu">
                     <div className="marketplace_menu_filler_left"></div>
                     <div className="marketplace_menu_potions_ingreds">
-                        <div className="marketplace_menu_potions_btn market_menu_btns"><p>POTIONS</p></div>
-                        <div className="marketplace_menu_indredients_btn market_menu_btns"><p>INGREDIENTS</p></div>
+                        <Link className='link' to="/auction"><div className="marketplace_menu_potions_btn market_menu_btns"><p>POTIONS</p></div></Link>
+                        <Link className='link' to="/marketplace"><div className="marketplace_menu_indredients_btn market_menu_btns"><p>INGREDIENTS</p></div></Link>
                     </div>
                     <div className="marketplace_menu_buysell">
                     <div className="menu_buysell_text" id="marketplace_menu_buy" onClick={() => setmarketIsBuy(true)}><p>BUY</p></div>

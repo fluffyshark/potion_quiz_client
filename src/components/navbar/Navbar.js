@@ -63,19 +63,13 @@ function Navbar(props) {
   }, [powersList[14].blocker])
 
 
-  useEffect(() => {
-    console.log(playerCoins.total)
-  }, [powersList[6].poison] )
-
-
-
    // Check if player are disconnected from game by matching current gameCode with localStorage.
   // If not matching, then navigate player to DisconnectedView and help them reconnect if game is still on.
   useEffect(() => {
     const playerData = JSON.parse(localStorage.getItem("playerStats"))
-    if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {console.log("GAMECODE MATCH !!!!")} 
+    if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {} 
     const gameStatus = localStorage.getItem("disconnected")
-    if (gameStatus === "EndGame") {navigate('/disconnected'); console.log("GAME ENDED")} else {console.log("GAME CONTINUES !!!!")} 
+    if (gameStatus === "EndGame") {navigate('/disconnected'); console.log("GAME ENDED")} else {} 
     
     }, [])
 

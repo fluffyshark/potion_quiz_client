@@ -2,12 +2,13 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import io from "socket.io-client"
+
 // Pages
-//import StartView from "./pages/startView/StartView.js"
-//import QuizView from "./pages/quizView/QuizView"
 import {EndGame} from "./components/endGame/EndGame"
 import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
-//import HostingView from "./pages/hostingView/HostingView";
+// import StartView from "./pages/startView/StartView.js"
+// import QuizView from "./pages/quizView/QuizView"
+// import HostingView from "./pages/hostingView/HostingView";
 // import JoinView from "./pages/joinView/JoinView";
 // import PotionsView from "./pages/potions/PotionsView";
 // import CraftView from "./pages/craftView/CraftView"
@@ -15,19 +16,19 @@ import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
 // import Leaderboard from "./pages/leaderboard/Leaderboard";
 // import Marketplace from "./pages/marketplace/Marketplace";
 
-
-
 // Redux
 import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
 import { add_gameStats } from "./redux/GameStatsReducer"
 import { add_exp_amount } from "./redux/LevelExpReducer"
 import { update_market } from "./redux/MarketplaceReducer";
 import { add_buyLetter } from './redux/LetterReducer'
-
+import { increase_auction_counter, new_auction } from './redux/AuctionReducer'
 // Component functions
 import Loading from "./components/loading/Loading.js";
 import LoginView from "./pages/loginView/LoginView.js";
+import PotionAuction from "./pages/potionAuction/PotionAuction";
 
+// Lazy Loading
 const StartView = lazy(() => import("./pages/startView/StartView"))
 const QuizView = lazy(() => import("./pages/quizView/QuizView"))
 const PotionsView = lazy(() => import("./pages/potions/PotionsView"))
@@ -46,6 +47,8 @@ const socket = io.connect("https://potionquiz.com/")
 let ourHostID = ""
 
 
+
+
 function App() {
 
   // Managing the global counter, which time effects can be hocked on.
@@ -55,14 +58,7 @@ function App() {
   const potionsList = useSelector((state) => state.potions.value)
   const playerStats = useSelector((state) => state.playerStats.value)
   const coinList = useSelector((state) => state.coins.value)
-  const powersList = useSelector((state) => state.powers.value)
-  const ingredientsList = useSelector((state) => state.ingredients.value)
-  const craftList = useSelector((state) => state.crafting.value) 
-  const levelExp = useSelector((state) => state.levelExp.value)
-  const marketData = useSelector((state) => state.theMarket.value)
-  const gameStats = useSelector((state) => state.GameData.value)
-  const buyletter = useSelector((state) => state.buyletter.value)
-  const recipeList = useSelector((state) => state.recipe.value) 
+  const AuctionList = useSelector((state) => state.auction.value)
 
 
   setInterval(function(){ 
@@ -72,6 +68,7 @@ function App() {
 
   useEffect(() => {
     dispatch(power_counter())
+    dispatch(increase_auction_counter())
   //  console.log("counter", counter)
   },[counter])
 
@@ -121,8 +118,16 @@ function App() {
     socket.on("host_to_player_to_end_game", (gameCode) => {
       EndGame(socket, gameCode)
     }) 
-    
 
+
+    socket.on("new_auction_card_to_players", (auctionData) => {
+      console.log("AUCTIONDATA FROM SERVER", auctionData)
+      dispatch(new_auction(auctionData))
+
+    }) 
+    
+    // NEXT - DISPATCH NEW AUCTION TO CORRECT AUTION SLOT
+    
   }, [socket])
 
 
@@ -138,6 +143,17 @@ function App() {
     }
   }, [potionsList])
 
+  
+  // If a auction card has expired or bought, then send request to server for new card
+  useEffect(() => {
+    AuctionList.map((item, i) => {
+      if (item.status === "waiting_for_card") {
+        socket.emit("auction_card_expired_or_bought", { auctionSlot: i, auctionInfo: item, gameCode: playerStats.gameCode });
+      }
+    })
+  }, [AuctionList])
+
+
 
   
   return (
@@ -151,6 +167,7 @@ function App() {
         <Route path="/buysell" element={<BuySell />}></Route>
         <Route path="/leaderboard" element={<Leaderboard />}></Route>
         <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
+        <Route path="/auction" element={<PotionAuction socket={socket} />}></Route>
         <Route path="/login" element={<LoginView/>}></Route>
         <Route path="/host" element={<HostingView socket={socket} />}></Route>
         <Route path="/join" element={<JoinView socket={socket} />}></Route>

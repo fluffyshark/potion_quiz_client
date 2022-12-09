@@ -5,6 +5,7 @@ import "./responsive/responsive.css"
 import Hostboard from "./Hostboard.js"
 import Timer from "../../components/timer/Timer.js"
 import { activate_power } from "../../redux/PowerReducer"
+import { activate_auction } from "../../redux/AuctionReducer"
 import { useSelector, useDispatch } from "react-redux"
 import {motion} from "framer-motion"
 import {playSound} from "../../components/playSound/playSound"
@@ -39,6 +40,7 @@ function HostingView(props) {
 
     socket.on("start_game", (data) => {
       console.log("Start Game Host", data)
+
     })
 
     // Receiving game stats from server, in format: [{playerName: string, playerScore: int}]
@@ -62,6 +64,7 @@ function HostingView(props) {
     setStartTimer(true)
     setGameStarted(true)
     dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
+    dispatch(activate_auction())
     
   }
 
