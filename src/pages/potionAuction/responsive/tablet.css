@@ -78,11 +78,12 @@
     
     .auction_menu_potions_btn {
         width: 110px; 
+        background-color: #1c62b3;
     }
+
     
     .auction_menu_indredients_btn {
         width: 160px;
-        background-color: #1c62b3;
     }
     
     .menu_buysell_text {
@@ -142,6 +143,10 @@
         margin-left: 10px;
         margin-top: 10px;
         position: relative;
+   }
+
+   .auction_middle_cards>img {
+    width: 150px;
    }
 
     .auction_middle_ingred_container::-webkit-scrollbar {
