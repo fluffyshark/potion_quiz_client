@@ -199,8 +199,8 @@ function CraftView(props_socket) {
   return (
     <div className='craftView'>
 
-      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
-      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <Icer />}
+      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <MassFreeze />}
       {powersList[7].gift === "active" && <ReceiveGiveGift />}
 
       <Navbar focus={props}/>

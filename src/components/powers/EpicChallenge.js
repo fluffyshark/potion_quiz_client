@@ -33,8 +33,8 @@ function EpicChallenge(props) {
                 if (challengeScore >= challenge - 1) {
                     let reward = 50
 
-                    if (challenge === 10) {dispatch(epic_challenge_ingredients(50)); reward = 50}
-                    if (challenge === 25) {dispatch(epic_challenge_ingredients(100)); reward = 100}
+                    if (challenge === 10) {dispatch(epic_challenge_ingredients(50)); reward = 75}
+                    if (challenge === 25) {dispatch(epic_challenge_ingredients(100)); reward = 150}
                     if (challenge === 50) {dispatch(epic_challenge_ingredients(300)); reward = 300}
 
                     document.getElementById("power_blocker").style.display = "none"

@@ -17,6 +17,7 @@ import gameStatsSlice from './redux/GameStatsReducer';
 import marketSlice from './redux/MarketplaceReducer';
 import buyLetterSlice from './redux/LetterReducer';
 import auctionSlice  from './redux/AuctionReducer';
+import endGameSlice  from './redux/EndGameReducer';
 
 
 const store = configureStore({
@@ -32,7 +33,8 @@ const store = configureStore({
     GameData: gameStatsSlice,
     theMarket: marketSlice,
     buyletter: buyLetterSlice,
-    auction: auctionSlice
+    auction: auctionSlice,
+    endgame: endGameSlice
   }
 })
 

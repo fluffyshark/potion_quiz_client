@@ -28,8 +28,9 @@ import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
 //import {playSound} from "../../components/playSound/playSound"
 import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
+import MassProtection from '../../components/powers/MassProtection'
 
-
+// Create a random number for choosing the initial question
 var randomQuestionNr = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
 
 function QuizView(all_props) {
@@ -54,9 +55,13 @@ function QuizView(all_props) {
   
 
   function newQuestion() {
+    // Generate random number
     randomQuestionNr = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+    // Set new question in state, selected by the random number
     setQuestion(religionQuestions.questions[randomQuestionNr].question)
+    // Create array with all answer alternative and shuffle them
     let shuffleAnswer = religionQuestions.questions[randomQuestionNr].answerAlt.sort(() => Math.random() - 0.5);
+    // Set the shuffled answer alternative in state
     setAnswerAlt(shuffleAnswer)
     setReveal(!reveal)
 
@@ -93,6 +98,7 @@ function QuizView(all_props) {
     document.getElementById("navbar_blocker").style.display = "none"
 
   } // End of newQuestion()
+
 
 
 
@@ -161,27 +167,30 @@ function QuizView(all_props) {
     }, [powersList[2].speedUp])
 
 
-
+    useEffect(() => {
+      console.log("powersList[6].poison", powersList[6].poison)
+    }, [powersList[6].counter6])
 
 
   return (
     <div className='studentQuiz'>
       
-      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
-      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+      {powersList[4].freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <Icer />}
+      {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <MassFreeze />}
       {powersList[7].gift === "active" && <ReceiveGiveGift />}
       {powersList[8].transmute === "active" && <Transmutation />}
       {powersList[10].jukebox === "active" && <JukeBox socket={socket} hostID={hostID} />}
-
+      
       <div className="studentQuiz_powerContainer">
         {powersList[3].protection === "active" && <Protection />}
+        {powersList[12].massProtection === "active" && <MassProtection />}
         {powersList[5].fiftyfifty === "active" && <FiftyFiftyChance />}
         {powersList[1].doublePoints === "active" && <DoublePoints />}
         {powersList[9].tripplePoints === "active" && <TripplePoints />}
         {powersList[19].goldenPoints === "active" && <GoldenPoints />}
         {powersList[2].speedUp === "active" && <SpeedUp />}
-        {powersList[6].poison === "active" && powersList[3].protection !== "active" && <PointPoision />}
-        {powersList[14].blocker === "active" && powersList[3].protection !== "active" && <Blocker />}
+        {powersList[6].poison === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <PointPoision />}
+        {powersList[14].blocker === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <Blocker />}
         {powersList[15].batch === "active" && <DoubleBatch />}
         {powersList[11].price === "active" && <PriceRunner />}
         {powersList[17].streak === "active" && <StreakBonus answerCount={answerCount} />}

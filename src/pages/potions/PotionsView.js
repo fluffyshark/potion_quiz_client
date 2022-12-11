@@ -9,6 +9,7 @@ import "./responsive/tablet.css"
 import { motion } from "framer-motion";
 import Icer from "../../components/powers/Icer"
 import MassFreeze from "../../components/powers/MassFreeze.js"
+import Transmutation from '../../components/powers/Transmutation'
 // Redux
 import { useSelector, useDispatch } from "react-redux"
 import { activate_power } from "../../redux/PowerReducer"
@@ -78,7 +79,6 @@ function PotionsView(props_socket) {
         amount4: recipeList[id].ing4_amount})
       
       //  playSound("blop")
-        console.log(recipe)
     }
   }
 
@@ -98,6 +98,7 @@ function PotionsView(props_socket) {
       case 9: dispatch(activate_power({power_name: "TRIPPLE POINTS"})); /* playSound("blessing"); */ break;
       case 10: dispatch(activate_power({power_name: "JUKEBOX"})); /* playSound("blessing"); */ break;
       case 11: dispatch(activate_power({power_name: "PRICE RUNNER"})); /* playSound("blessing"); */ break;
+      case 12: setSelectPlayer(["blessing", "MASS PROTECTION"]); dispatch(activate_power({power_name: "MASS PROTECTION"})); break;
       case 13: /* playSound("blessing"); */ 
                 const revealIngrd = Reveal(recipeList, potionsList); 
                 dispatch(golden_ingredient({id: revealIngrd[0].id, ingredientNr: revealIngrd[0].golden}))
@@ -120,7 +121,7 @@ function PotionsView(props_socket) {
     dispatch(reduce_potion({id: recipe.id}))
 
     // If potion used is on self, then navigate to "QuizView"
-    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 10 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 18 || recipe.id === 19) {navigate('/quiz')}
+    if (recipe.id === 1 || recipe.id === 2 || recipe.id === 3 || recipe.id === 9 || recipe.id === 10 || recipe.id === 11 || recipe.id === 15 || recipe.id === 16 || recipe.id === 19) {navigate('/quiz')}
 
   } // End of activatePotion()
 
@@ -153,9 +154,10 @@ function PotionsView(props_socket) {
         <PotionInfo potionID={recipe.id} />
         <PotionRecipeStatus recipe={recipe}/>
 
-        {powersList[4].freeze === "active" && powersList[3].protection !== "active" && <Icer />}
-        {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && <MassFreeze />}
+        {powersList[4].freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <Icer />}
+        {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <MassFreeze />}
         {powersList[7].gift === "active" && <ReceiveGiveGift />}
+        {powersList[8].transmute === "active" && <Transmutation />}
 
         {selectPlayer[0] === "blessing" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer} hideSelectPlayers={hideSelectPlayers} />}
         {selectPlayer[0] === "curse" && <PotionSelectPlayers socket={props_socket} selectPlayer={selectPlayer}  hideSelectPlayers={hideSelectPlayers} />}

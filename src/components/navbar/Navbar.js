@@ -4,12 +4,13 @@ import "./navbar.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import money_icon from "../../image_assets/general/money_icon.webp"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from 'react-router-dom'
 import blocker1 from "../../image_assets/general/slime_blocker2.png"
 import blocker2 from "../../image_assets/general/slime_blocker3.png"
 import blocker3 from "../../image_assets/general/slime_blocker1.png"
 import blocker4 from "../../image_assets/general/slime_blocker4.png"
+import { reduce_coins_amount } from '../../redux/CoinsReducer'
 //import { playSound } from '../playSound/playSound'
 
 
@@ -17,9 +18,11 @@ import blocker4 from "../../image_assets/general/slime_blocker4.png"
 function Navbar(props) {
 
   let navigate = useNavigate();
+  const dispatch = useDispatch()
   const playerCoins = useSelector((state) => state.coins.value)
   const powersList = useSelector((state) => state.powers.value)
   const playerStats = useSelector((state) => state.playerStats.value)
+  const endGameStatus = useSelector((state) => state.endgame.value)
 
   
   useEffect(() => {
@@ -68,18 +71,23 @@ function Navbar(props) {
   useEffect(() => {
     const playerData = JSON.parse(localStorage.getItem("playerStats"))
     if (playerStats.gameCode !== playerData.gameCode) {navigate('/disconnected'); console.log("GAMECODE NOT MATCHING")} else {} 
-    const gameStatus = localStorage.getItem("disconnected")
-    if (gameStatus === "EndGame") {navigate('/disconnected'); console.log("GAME ENDED")} else {} 
-    
     }, [])
 
+    useEffect(() => {
+      if (endGameStatus.gameStatus === "End Game") {navigate('/disconnected')} 
+    }, [endGameStatus.gameStatus])
+
+    // Power Effect - Point Poison
+    useEffect(() => {
+      if (powersList[6].poison === "active") {dispatch(reduce_coins_amount(2));  document.getElementById("money_points").style.color = "#00a027"}
+      if (powersList[6].poison === "inactive") {document.getElementById("money_points").style.color = "#ffffff"}
+    }, [powersList[6].counter6])
     
 
 
   return (
     <div className='navbar'>
 
-      
       <div className="space_filler_left"></div>
 
       <div className='navbar_menu' >

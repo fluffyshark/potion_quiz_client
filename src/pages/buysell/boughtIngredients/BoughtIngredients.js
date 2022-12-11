@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import "./boughtIngredients.css"
 import {IngredientData} from "../../../redux/IngredientData"
 import {buy_four_ingredients, buy_fourteen_ingredients, buy_fifty_ingredients } from "../../../redux/IngredientReducer.js"
@@ -28,13 +28,11 @@ function BoughtIngredients(boughtIngredients) {
             for (let i = 0; i < 50; i++) {array.push(Math.floor(Math.random() * 180))}  
             dispatch(buy_fifty_ingredients(array))
         }
-        console.log("boughtNr", boughtNr)
         setNewIngredients(array)
     }
 
     useEffect(() => {
         createIngredients(boughtIngredients.boughtNr)
-        console.log("boughtIngredients", boughtIngredients)
     }, [])
 
             

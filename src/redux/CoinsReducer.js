@@ -12,7 +12,6 @@ export const coinSlice = createSlice({
         },
         add_coins_amount: (state, action) => {
             state.value.total += action.payload
-            console.log("action.payload", action.payload)
             saveToLocalStorage("coins", state.value.total)
         },
         reduce_coins: (state) => {
@@ -21,7 +20,6 @@ export const coinSlice = createSlice({
         },
         reduce_coins_amount: (state, action) => {
             state.value.total -= action.payload
-            console.log("reduce_coins_amount", reduce_coins_amount)
             saveToLocalStorage("coins", state.value.total)
         },
         change_coins_income: (state, action) => {

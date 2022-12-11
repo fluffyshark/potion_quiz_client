@@ -20,7 +20,7 @@ export default function App() {
     if (powersList[4].attackLevel4 === 2) {duration = powersList[4].duration_level_2}
     if (powersList[4].attackLevel4 === 3) {duration = powersList[4].duration_level_3}
 
-    playSound("freeze")
+  //  playSound("freeze")
 
     return duration
   }

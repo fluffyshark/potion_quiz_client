@@ -1,4 +1,6 @@
 
+
+
 export function EndGame(socket, gameCode) {
 
     // Make player leave room and the game data will be deleted on the server-side
@@ -20,6 +22,8 @@ export function EndGame(socket, gameCode) {
     localStorage.removeItem("powersList")
 
     console.log("Device Ends Game")
+
+    
 }
 
 

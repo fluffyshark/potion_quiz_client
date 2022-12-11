@@ -27,6 +27,7 @@ import { increase_auction_counter, new_auction } from './redux/AuctionReducer'
 import Loading from "./components/loading/Loading.js";
 import LoginView from "./pages/loginView/LoginView.js";
 import PotionAuction from "./pages/potionAuction/PotionAuction";
+import { change_game_status } from "./redux/EndGameReducer";
 
 // Lazy Loading
 const StartView = lazy(() => import("./pages/startView/StartView"))
@@ -98,35 +99,30 @@ function App() {
 
     // Receiving potion effects from other players
     socket.on("potion_curse_blessing", (potionData) => {
-    //  console.log("ATTACK OR BLESSING FROM OTHER PLAYER", potionData)
-      console.log("POTIONDATA", potionData)
       if (potionData.potionName === "GIFT EXP") {dispatch(add_exp_amount(potionData.effect))}
       if (potionData.potionName === "GIVE GIFT") {dispatch(power_special(potionData)); dispatch(activate_power({power_name: "GIVE GIFT"}))}
       if (potionData.potionName === "BLOCKER") {dispatch(activate_power({power_name: "BLOCKER"})); dispatch(power_special(potionData))}
       if (potionData.potionName === "FREEZE") {dispatch(activate_power({power_name: "FREEZE"}))}
       if (potionData.potionName === "MASS FREEZE") {dispatch(activate_power({power_name: "MASS FREEZE"}))}
       if (potionData.potionName === "POINT POISON") {dispatch(activate_power({power_name: "POINT POISON"}))}
+      if (potionData.potionName === "MASS PROTECTION") {dispatch(activate_power({power_name: "MASS PROTECTION"}))}
     })
 
     socket.on("sending_marketData_to_players", (marketData) => {
-    //  console.log("sending_marketData_to_players", marketData)
       dispatch(update_market(marketData))
     }) 
 
     socket.on("sending_successfull_sale", (sale) => {dispatch(add_buyLetter(sale))}) 
 
     socket.on("host_to_player_to_end_game", (gameCode) => {
+      dispatch(change_game_status("End Game"))
       EndGame(socket, gameCode)
     }) 
 
-
     socket.on("new_auction_card_to_players", (auctionData) => {
-      console.log("AUCTIONDATA FROM SERVER", auctionData)
       dispatch(new_auction(auctionData))
-
     }) 
-    
-    // NEXT - DISPATCH NEW AUCTION TO CORRECT AUTION SLOT
+  
     
   }, [socket])
 

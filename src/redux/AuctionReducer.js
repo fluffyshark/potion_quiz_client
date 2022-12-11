@@ -90,9 +90,9 @@ function addingAuction(data) {
         // Declare return variable
         let potionImage = card_back
         // Depending on player's potion level, the function will return the correct potion card image 
-        if (allPotions[id].level === 1) {potionImage = allPotions[id].image_bronze; console.log("allPotions[id].image_bronze", allPotions[id].image_bronze)}
-        if (allPotions[id].level === 2) {potionImage = allPotions[id].image_silver; console.log("allPotions[id].image_silver", allPotions[id].image_silver)}
-        if (allPotions[id].level === 3) {potionImage = allPotions[id].image_gold; console.log("allPotions[id].image_gold", allPotions[id].image_gold)}
+        if (allPotions[id].level === 1) {potionImage = allPotions[id].image_bronze}
+        if (allPotions[id].level === 2) {potionImage = allPotions[id].image_silver}
+        if (allPotions[id].level === 3) {potionImage = allPotions[id].image_gold}
 
         return potionImage
         
