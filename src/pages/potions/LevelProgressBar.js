@@ -39,8 +39,8 @@ function LevelProgressBar() {
 
   // Enable / disable levelBtn if player has enough coins
   useEffect(() => {
-    if (coinbag.total < 50) {document.getElementById("levelBtn").style.opacity = 0.5; document.getElementById("levelBtn").style.pointerEvents = "none"}
-    if (coinbag.total > 49) {document.getElementById("levelBtn").style.opacity = 1; document.getElementById("levelBtn").style.pointerEvents = "auto"}
+  //  if (coinbag.total < 50) {document.getElementById("levelBtn").style.opacity = 0.5; document.getElementById("levelBtn").style.pointerEvents = "none"}
+  //  if (coinbag.total > 49) {document.getElementById("levelBtn").style.opacity = 1; document.getElementById("levelBtn").style.pointerEvents = "auto"}
     /// ADD FUNCTIONALITY TO DISABLE BUTTON
   },[coinbag.total])
 

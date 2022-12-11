@@ -110,6 +110,7 @@ function QuizView(all_props) {
 
       if (powersList[1].doublePoints === "active") {CoinGainEffect(20)}
       else if (powersList[9].tripplePoints === "active") {CoinGainEffect(30)}
+      else if (powersList[19].tripplePoints === "active") {CoinGainEffect(50)}
       else {CoinGainEffect(10)}
 
       setTimeout(function() {
