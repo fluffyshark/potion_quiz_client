@@ -5,14 +5,14 @@ import card_back from "../image_assets/general/card_back1.webp"
 
 
 export const AuctionCards = [
-    {id: 0, potionID: 200, counter: 100, countGoal: 0, status: "not_started", image: card_back},
-    {id: 1, potionID: 200, counter: 90, countGoal: 0, status: "not_started", image: card_back},
-    {id: 2, potionID: 200, counter: 80, countGoal: 0, status: "not_started", image: card_back},
-    {id: 3, potionID: 200, counter: 70, countGoal: 0, status: "not_started", image: card_back},
-    {id: 4, potionID: 200, counter: 60, countGoal: 0, status: "not_started", image: card_back},
-    {id: 5, potionID: 200, counter: 50, countGoal: 0, status: "not_started", image: card_back},
-    {id: 6, potionID: 200, counter: 40, countGoal: 0, status: "not_started", image: card_back},
-    {id: 7, potionID: 200, counter: 30, countGoal: 0, status: "not_started", image: card_back}
+    {id: 0, potionID: 10, counter: 100, countGoal: 0, status: "not_started", image: card_back},
+    {id: 1, potionID: 10, counter: 90, countGoal: 0, status: "not_started", image: card_back},
+    {id: 2, potionID: 10, counter: 80, countGoal: 0, status: "not_started", image: card_back},
+    {id: 3, potionID: 10, counter: 70, countGoal: 0, status: "not_started", image: card_back},
+    {id: 4, potionID: 10, counter: 60, countGoal: 0, status: "not_started", image: card_back},
+    {id: 5, potionID: 10, counter: 50, countGoal: 0, status: "not_started", image: card_back},
+    {id: 6, potionID: 10, counter: 40, countGoal: 0, status: "not_started", image: card_back},
+    {id: 7, potionID: 10, counter: 30, countGoal: 0, status: "not_started", image: card_back}
 ]
 
 export const auctionSlice = createSlice({
@@ -46,7 +46,6 @@ export const auctionSlice = createSlice({
         },
       
     
-    // NEXT - ADJUST POTIONS TO PLAYER'S POTIOn LEVEL - Make a function to use the correct image based on player potion level
     // NEXT - ADJUST PRICES
     // NEXT - MAKE AUCTION RESPONSIVE
     }
@@ -58,26 +57,26 @@ function addingAuction(data) {
    let newAuction = {counter: 100, countGoal: 0, image: card_back}
 
     switch (data.newAuctionCard) {
-        case 0: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(0)}; break;
-        case 1: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(1)}; break;
-        case 2: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(2)}; break;
-        case 3: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(3)}; break;
-        case 4: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(4)}; break;
-        case 5: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(5)}; break;
-        case 6: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(6)}; break;
-        case 7: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(7)}; break;
-        case 8: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(8)}; break;
-        case 9: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(9)}; break;
-        case 10: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(10)}; break;
-        case 11: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(11)}; break;
-        case 12: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(12)}; break;
-        case 13: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(13)}; break;
-        case 14: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(14)}; break;
-        case 15: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(15)}; break;
-        case 16: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(16)}; break;
-        case 17: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(17)}; break;
-        case 18: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(18)}; break;
-        case 19: newAuction = {counter: 30, countGoal: 0, image: levelAdjustedImage(19)}; break;
+        case 0: newAuction = {counter: 100, countGoal: 10, image: levelAdjustedImage(0)}; break;
+        case 1: newAuction = {counter: 110, countGoal: 11, image: levelAdjustedImage(1)}; break;
+        case 2: newAuction = {counter: 125, countGoal: 13, image: levelAdjustedImage(2)}; break;
+        case 3: newAuction = {counter: 150, countGoal: 14, image: levelAdjustedImage(3)}; break;
+        case 4: newAuction = {counter: 400, countGoal: 55, image: levelAdjustedImage(4)}; break;
+        case 5: newAuction = {counter: 375, countGoal: 48, image: levelAdjustedImage(5)}; break;
+        case 6: newAuction = {counter: 380, countGoal: 56, image: levelAdjustedImage(6)}; break;
+        case 7: newAuction = {counter: 410, countGoal: 51, image: levelAdjustedImage(7)}; break;
+        case 8: newAuction = {counter: 610, countGoal: 74, image: levelAdjustedImage(8)}; break;
+        case 9: newAuction = {counter: 570, countGoal: 77, image: levelAdjustedImage(9)}; break;
+        case 10: newAuction = {counter: 600, countGoal:75, image: levelAdjustedImage(10)}; break;
+        case 11: newAuction = {counter: 590, countGoal: 77, image: levelAdjustedImage(11)}; break;
+        case 12: newAuction = {counter: 800, countGoal: 104, image: levelAdjustedImage(12)}; break;
+        case 13: newAuction = {counter: 815, countGoal: 98, image: levelAdjustedImage(13)}; break;
+        case 14: newAuction = {counter: 780, countGoal: 108, image: levelAdjustedImage(14)}; break;
+        case 15: newAuction = {counter: 805, countGoal: 104, image: levelAdjustedImage(15)}; break;
+        case 16: newAuction = {counter: 1100, countGoal: 155, image: levelAdjustedImage(16)}; break;
+        case 17: newAuction = {counter: 1050, countGoal: 154, image: levelAdjustedImage(17)}; break;
+        case 18: newAuction = {counter: 970, countGoal: 152, image: levelAdjustedImage(18)}; break;
+        case 19: newAuction = {counter: 1100, countGoal: 148, image: levelAdjustedImage(19)}; break;
         default:
             break;
     }

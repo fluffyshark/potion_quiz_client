@@ -18,8 +18,6 @@ import { reduce_coins_amount } from '../../redux/CoinsReducer'
 import { add_potion } from '../../redux/PotionReducer'
 
 
-// NEXT - ADJUST RESPONSIVE CSS
-
 
 function PotionAuction(props) {
   

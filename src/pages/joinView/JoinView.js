@@ -23,10 +23,12 @@ function JoinView(props) {
 
   const playerStats = useSelector((state) => state.playerStats.value) 
 
+
    function switchViewContent() {
-    if (gameCode !== "") {setViewContent("enterName"); joinRoom()}
-    if (nickname !== "") {setViewContent("readyAndWaiting"); sendNickname()}
-    }
+    if (gameCode !== "") {setViewContent("enterName")}
+    if (nickname !== "") {setViewContent("readyAndWaiting"); joinRoom(); sendNickname()}
+    } // End of switchViewContent
+
 
     // Send Player data to server, host, redux, and localStorage
     const sendNickname = () => {
@@ -41,7 +43,10 @@ function JoinView(props) {
 
       // Disconnected status set to false, to allow player stats to be save at localStorage
       localStorage.setItem("disconnected", "connected")
-    };
+    
+    } // End of sendNickname()
+
+
 
     function updatePlayerStats(playerID) {
       // Get player data from localStorage, as useState will be empty because of input onchange will make it so
@@ -53,11 +58,12 @@ function JoinView(props) {
       // Save initial player data to localStorage
       const storedPlayerData = {playerID: playerID, playerName :  playerData.playerName, cards : playerData.cards, gameCode : playerData.gameCode, coins: playerData.coins}
       localStorage.setItem("playerStats", JSON.stringify(storedPlayerData))
-      
 
-    }
+    } // End of updatePlayerStats()
 
-    
+
+
+
 
     const configureGameCode = (playerGameCode) => {
       // Remove potiontial whitespace from gameCode

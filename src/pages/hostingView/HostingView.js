@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux"
 import {motion} from "framer-motion"
 import {playSound} from "../../components/playSound/playSound"
 import {EndGame} from "../../components/endGame/EndGame"
+import {InitialSaveToLocalStorage} from "../../components/saveToLocalStorage/InitialSaveToLocalStorage"
 
 // Hosting using Socket.io:
 // - Sockets are initiated at App.js and passed down to all children using props.
@@ -63,6 +64,7 @@ function HostingView(props) {
     socket.emit("ready_game", playerStats.gameCode);
     setStartTimer(true)
     setGameStarted(true)
+    InitialSaveToLocalStorage()
     dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
     dispatch(activate_auction())
     

@@ -26,7 +26,6 @@ import { increase_auction_counter, new_auction } from './redux/AuctionReducer'
 // Component functions
 import Loading from "./components/loading/Loading.js";
 import LoginView from "./pages/loginView/LoginView.js";
-import PotionAuction from "./pages/potionAuction/PotionAuction";
 import { change_game_status } from "./redux/EndGameReducer";
 
 // Lazy Loading
@@ -39,6 +38,7 @@ const Leaderboard = lazy(() => import("./pages/leaderboard/Leaderboard"))
 const Marketplace = lazy(() => import("./pages/marketplace/Marketplace"))
 const HostingView = lazy(() => import("./pages/hostingView/HostingView"))
 const JoinView = lazy(() => import("./pages/joinView/JoinView"))
+const PotionAuction = lazy(() => import("./pages/potionAuction/PotionAuction"))
 
 const socket = io.connect("https://potionquiz.com/")
 //const socket = io.connect("http://16.171.11.140/")
