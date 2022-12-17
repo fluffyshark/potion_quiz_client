@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.3661b95c.css",
-    "main.js": "/static/js/main.16174496.js",
-    "static/css/638.e3987814.chunk.css": "/static/css/638.e3987814.chunk.css",
+    "main.js": "/static/js/main.1253a840.js",
+    "static/css/638.7dae6d87.chunk.css": "/static/css/638.7dae6d87.chunk.css",
     "static/js/638.7e109265.chunk.js": "/static/js/638.7e109265.chunk.js",
     "static/css/324.a9b165d4.chunk.css": "/static/css/324.a9b165d4.chunk.css",
     "static/js/324.942d4f06.chunk.js": "/static/js/324.942d4f06.chunk.js",
@@ -493,8 +493,8 @@
     "static/media/potion_reveal_background.webp": "/static/media/potion_reveal_background.30e7a9ac019333e40be1.webp",
     "index.html": "/index.html",
     "main.3661b95c.css.map": "/static/css/main.3661b95c.css.map",
-    "main.16174496.js.map": "/static/js/main.16174496.js.map",
-    "638.e3987814.chunk.css.map": "/static/css/638.e3987814.chunk.css.map",
+    "main.1253a840.js.map": "/static/js/main.1253a840.js.map",
+    "638.7dae6d87.chunk.css.map": "/static/css/638.7dae6d87.chunk.css.map",
     "638.7e109265.chunk.js.map": "/static/js/638.7e109265.chunk.js.map",
     "324.a9b165d4.chunk.css.map": "/static/css/324.a9b165d4.chunk.css.map",
     "324.942d4f06.chunk.js.map": "/static/js/324.942d4f06.chunk.js.map",
@@ -523,6 +523,6 @@
   },
   "entrypoints": [
     "static/css/main.3661b95c.css",
-    "static/js/main.16174496.js"
+    "static/js/main.1253a840.js"
   ]
 }
