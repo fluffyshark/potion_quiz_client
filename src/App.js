@@ -6,15 +6,7 @@ import io from "socket.io-client"
 // Pages
 import {EndGame} from "./components/endGame/EndGame"
 import DisconnectedView from "./pages/disconnectedView/DisconnectedView";
-// import StartView from "./pages/startView/StartView.js"
-// import QuizView from "./pages/quizView/QuizView"
-// import HostingView from "./pages/hostingView/HostingView";
-// import JoinView from "./pages/joinView/JoinView";
-// import PotionsView from "./pages/potions/PotionsView";
-// import CraftView from "./pages/craftView/CraftView"
-// import BuySell from "./pages/buysell/BuySell";
-// import Leaderboard from "./pages/leaderboard/Leaderboard";
-// import Marketplace from "./pages/marketplace/Marketplace";
+
 
 // Redux
 import { power_counter, activate_power, power_special } from "./redux/PowerReducer"
@@ -25,11 +17,13 @@ import { add_buyLetter } from './redux/LetterReducer'
 import { increase_auction_counter, new_auction } from './redux/AuctionReducer'
 // Component functions
 import Loading from "./components/loading/Loading.js";
-import LoginView from "./pages/loginView/LoginView.js";
 import { change_game_status } from "./redux/EndGameReducer";
+import QuizSelect from "./pages/quizSelect/QuizSelect";
+
 
 // Lazy Loading
 const StartView = lazy(() => import("./pages/startView/StartView"))
+const LoginView = lazy(() => import("./pages/loginView/LoginView"))
 const QuizView = lazy(() => import("./pages/quizView/QuizView"))
 const PotionsView = lazy(() => import("./pages/potions/PotionsView"))
 const CraftView = lazy(() => import("./pages/craftView/CraftView"))
@@ -40,10 +34,10 @@ const HostingView = lazy(() => import("./pages/hostingView/HostingView"))
 const JoinView = lazy(() => import("./pages/joinView/JoinView"))
 const PotionAuction = lazy(() => import("./pages/potionAuction/PotionAuction"))
 
-const socket = io.connect("https://potionquiz.com/")
+//const socket = io.connect("https://potionquiz.com/")
 //const socket = io.connect("http://16.171.11.140/")
 //const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -165,6 +159,7 @@ function App() {
         <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
         <Route path="/auction" element={<PotionAuction socket={socket} />}></Route>
         <Route path="/login" element={<LoginView/>}></Route>
+        <Route path="/quizselect" element={<QuizSelect/>}></Route>
         <Route path="/host" element={<HostingView socket={socket} />}></Route>
         <Route path="/join" element={<JoinView socket={socket} />}></Route>
         <Route path="/disconnected" element={<DisconnectedView socket={socket} />}></Route>

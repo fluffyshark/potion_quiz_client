@@ -1,0 +1,45 @@
+.quizSelect {
+    width: 100%;
+    height: 100vh;
+    background-color: #a88269;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.quizSelect>p {
+    font-size: 50px;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+}
+.quizSelect_container {
+    width: 700px;
+    height: 70%;
+    background-color: #2e1e12;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex; flex-direction: column; align-items: center;
+
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+.quizSelect_container::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+.quizSelect_quizBoxBtn {
+    width: 90%;
+    min-height: 60px;
+    border-radius: 7px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #1f80e0;
+    box-shadow: 0px 2.5px black;
+    display: flex; align-items: center; justify-content: center;
+}
+.quizSelect_quizBoxBtn_title {
+    font-size: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    color: white;
+}

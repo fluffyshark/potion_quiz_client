@@ -1,9 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.5d21049d.css",
-    "main.js": "/static/js/main.641a27fa.js",
-    "static/css/638.20e6adc4.chunk.css": "/static/css/638.20e6adc4.chunk.css",
-    "static/js/638.a4d1394e.chunk.js": "/static/js/638.a4d1394e.chunk.js",
+    "main.css": "/static/css/main.3661b95c.css",
+    "main.js": "/static/js/main.16174496.js",
+    "static/css/638.e3987814.chunk.css": "/static/css/638.e3987814.chunk.css",
+    "static/js/638.7e109265.chunk.js": "/static/js/638.7e109265.chunk.js",
+    "static/css/324.a9b165d4.chunk.css": "/static/css/324.a9b165d4.chunk.css",
+    "static/js/324.942d4f06.chunk.js": "/static/js/324.942d4f06.chunk.js",
     "static/css/727.39410fff.chunk.css": "/static/css/727.39410fff.chunk.css",
     "static/js/727.a1cd51b3.chunk.js": "/static/js/727.a1cd51b3.chunk.js",
     "static/css/750.46a7585d.chunk.css": "/static/css/750.46a7585d.chunk.css",
@@ -23,9 +25,12 @@
     "static/css/585.4dfbb25c.chunk.css": "/static/css/585.4dfbb25c.chunk.css",
     "static/js/585.c90a923e.chunk.js": "/static/js/585.c90a923e.chunk.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/js/684.cf83f626.chunk.js": "/static/js/684.cf83f626.chunk.js",
     "static/js/931.3ba38de6.chunk.js": "/static/js/931.3ba38de6.chunk.js",
     "static/js/938.fa07fa47.chunk.js": "/static/js/938.fa07fa47.chunk.js",
+    "static/media/background002.jpeg": "/static/media/background002.74f19da473d28c43e5da.jpeg",
     "static/media/slime_blocker4.png": "/static/media/slime_blocker4.a1a764f5f20f2bde0726.png",
+    "static/media/background001.jpeg": "/static/media/background001.da199a697160e164d6e8.jpeg",
     "static/media/icer.webp": "/static/media/icer.dcab99c02d57b22bdb2d.webp",
     "static/media/background_image.webp": "/static/media/background_image.a9089bb06ac31ce1962b.webp",
     "static/media/potion_rules.webp": "/static/media/potion_rules.e3942fb7df6b9abbb82f.webp",
@@ -487,10 +492,12 @@
     "static/media/passwordicon.webp": "/static/media/passwordicon.f786499abd0a526fa49b.webp",
     "static/media/potion_reveal_background.webp": "/static/media/potion_reveal_background.30e7a9ac019333e40be1.webp",
     "index.html": "/index.html",
-    "main.5d21049d.css.map": "/static/css/main.5d21049d.css.map",
-    "main.641a27fa.js.map": "/static/js/main.641a27fa.js.map",
-    "638.20e6adc4.chunk.css.map": "/static/css/638.20e6adc4.chunk.css.map",
-    "638.a4d1394e.chunk.js.map": "/static/js/638.a4d1394e.chunk.js.map",
+    "main.3661b95c.css.map": "/static/css/main.3661b95c.css.map",
+    "main.16174496.js.map": "/static/js/main.16174496.js.map",
+    "638.e3987814.chunk.css.map": "/static/css/638.e3987814.chunk.css.map",
+    "638.7e109265.chunk.js.map": "/static/js/638.7e109265.chunk.js.map",
+    "324.a9b165d4.chunk.css.map": "/static/css/324.a9b165d4.chunk.css.map",
+    "324.942d4f06.chunk.js.map": "/static/js/324.942d4f06.chunk.js.map",
     "727.39410fff.chunk.css.map": "/static/css/727.39410fff.chunk.css.map",
     "727.a1cd51b3.chunk.js.map": "/static/js/727.a1cd51b3.chunk.js.map",
     "750.46a7585d.chunk.css.map": "/static/css/750.46a7585d.chunk.css.map",
@@ -510,11 +517,12 @@
     "585.4dfbb25c.chunk.css.map": "/static/css/585.4dfbb25c.chunk.css.map",
     "585.c90a923e.chunk.js.map": "/static/js/585.c90a923e.chunk.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map",
+    "684.cf83f626.chunk.js.map": "/static/js/684.cf83f626.chunk.js.map",
     "931.3ba38de6.chunk.js.map": "/static/js/931.3ba38de6.chunk.js.map",
     "938.fa07fa47.chunk.js.map": "/static/js/938.fa07fa47.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d21049d.css",
-    "static/js/main.641a27fa.js"
+    "static/css/main.3661b95c.css",
+    "static/js/main.16174496.js"
   ]
 }

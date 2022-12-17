@@ -3,10 +3,10 @@ import { PotionData } from "./PotionData.js"
 import io from "socket.io-client"
 import { saveToLocalStorage } from "../components/saveToLocalStorage/SaveToLocalStorage.js";
 
-const socket = io.connect("https://potionquiz.com/")
+//const socket = io.connect("https://potionquiz.com/")
 //const socket = io.connect("http://16.171.11.140/")
 //const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-//const socket = io.connect("http://localhost:3001")
+const socket = io.connect("http://localhost:3001")
 
 
 export const potionSlice = createSlice({

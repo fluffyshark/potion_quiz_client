@@ -18,6 +18,7 @@ import marketSlice from './redux/MarketplaceReducer';
 import buyLetterSlice from './redux/LetterReducer';
 import auctionSlice  from './redux/AuctionReducer';
 import endGameSlice  from './redux/EndGameReducer';
+import quizSlice  from './redux/QuizReducer';
 
 
 const store = configureStore({
@@ -34,7 +35,8 @@ const store = configureStore({
     theMarket: marketSlice,
     buyletter: buyLetterSlice,
     auction: auctionSlice,
-    endgame: endGameSlice
+    endgame: endGameSlice,
+    quiz: quizSlice
   }
 })
 
