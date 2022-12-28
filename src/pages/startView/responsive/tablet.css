@@ -6,9 +6,7 @@
     .startView {
         width: 100%;
         height: 100vh;  
-        background-image: url("../background002.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
+        
     }
 
     .startView_top {
@@ -19,6 +17,9 @@
     .startView_middle {
         width: 100%;
         height: 90%;
+        background-image: url("../background002.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
        
         background-color: #39271a;
         display: flex;
@@ -100,19 +101,31 @@
 }
 
 
- /* iPad 9-inch */
+ /* iPad 9-inch PORTRAIT */ 
 
 /* Safari brower (no extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 954px) and (min-height: 954px)  { 
     .startView {overflow: hidden; height: 97vh;}
-    .startView_middle {background-image: url("../background002.jpeg");background-repeat: no-repeat;background-size: cover;}
+    .startView_middle {background-image: url("../background002.webp");background-repeat: no-repeat;background-size: cover;}
 }
 /* Safari brower (with extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 921px) and (min-height: 921px)  { 
     .startView {overflow: hidden; height: 93vh;}
-    .startView_middle {background-image: url("../background002.jpeg");background-repeat: no-repeat;background-size: cover;}
+    .startView_middle {background-image: url("../background002.webp");background-repeat: no-repeat;background-size: cover;}
 }
 /* Chrome brower (no extra tabs) */ @media only screen and (max-width: 768px) and (min-width: 768px) and (max-height: 909px) and (min-height: 909px)  { 
     .startView {overflow: hidden; height: 92vh;}
-    .startView_middle {background-image: url("../background002.jpeg");background-repeat: no-repeat;background-size: cover;}
+    .startView_middle {background-image: url("../background002.webp");background-repeat: no-repeat;background-size: cover;}
+}
+
+ /* iPad 9-inch LANDSCAPE */ 
+
+/* Safari brower (no extra tabs) */ @media only screen and (max-width: 1024px) and (min-width: 1024px) and (max-height: 698px) and (min-height: 698px)  { 
+    .startView {overflow: hidden; height: 97vh;}
+    .startView_middle {background-image: url("../background004.webp");background-repeat: no-repeat;background-size: cover;}
+}
+
+/* Safari brower (with extra tabs) */ @media only screen and (max-width: 1024px) and (min-width: 1024px) and (max-height: 665px) and (min-height: 665px)  { 
+    .startView {overflow: hidden; height: 93vh;}
+    .startView_middle {background-image: url("../background004.webp");background-repeat: no-repeat;background-size: cover;}
 }
 
  /* iPad 10.2-inch */

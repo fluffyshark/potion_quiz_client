@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { add_playerStartData } from "../../redux/PlayerSocketReducer"
 import { add_gameStats } from "../../redux/GameStatsReducer"
 import "./joinView.css"
@@ -9,6 +9,8 @@ import "./responsive/tablet.css"
 import "./responsive/responsive.css"
 import potion_rules from "../../image_assets/general/potion_rules.webp"
 import {InitialSaveToLocalStorage} from "../../components/saveToLocalStorage/InitialSaveToLocalStorage"
+import { select_one_quiz } from '../../redux/QuizReducer';
+
 
 
 function JoinView(props) {
@@ -21,7 +23,6 @@ function JoinView(props) {
   const [gameCode, setGameCode] = useState("")
   const [nickname, setNickname] = useState("")
 
-  const playerStats = useSelector((state) => state.playerStats.value) 
 
 
    function switchViewContent() {
@@ -63,14 +64,13 @@ function JoinView(props) {
 
 
 
-
-
     const configureGameCode = (playerGameCode) => {
       // Remove potiontial whitespace from gameCode
       const gameCodeNoWhitespace = playerGameCode.replace(/ /g,'')
       setGameCode(gameCodeNoWhitespace)
     }
   
+
     // Join room send
     const joinRoom = () => {
       if (gameCode !== "") {
@@ -82,8 +82,13 @@ function JoinView(props) {
 
     // Start game receive
     useEffect(() => {
-      socket.on("start_game", (data) => {
-        dispatch(add_gameStats({data}))
+      //---------------------------------------------------
+      socket.on("start_game", (gameData /*, quizData*/) => {
+      //---------------------------------------------------
+        dispatch(add_gameStats({gameData}))
+        //---------------------------------------------------
+        //dispatch(select_one_quiz(quizData))
+        //---------------------------------------------------
         InitialSaveToLocalStorage()
         navigate('/quiz')
       })

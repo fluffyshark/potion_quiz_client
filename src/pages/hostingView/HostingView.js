@@ -26,10 +26,13 @@ function HostingView(props) {
 
   const dispatch = useDispatch()
   const playerStats = useSelector((state) => state.playerStats.value) 
+  const quizList = useSelector((state) => state.quiz.value)
+
 
   const [startTimer, setStartTimer] = useState(false)
   const [playersJoined, setPlayersJoined] = useState([])
   const [gameStarted, setGameStarted] = useState(false)
+  
 
 
   // Show players who joined room
@@ -55,27 +58,29 @@ function HostingView(props) {
       playSound(data.melody)
     })
 
-
-    
 }, [socket])
 
 
   function startGame() {
-    socket.emit("ready_game", playerStats.gameCode);
+    //---------------------------------------------------
+    socket.emit("ready_game", playerStats.gameCode /*, quizList*/);
+    //---------------------------------------------------
     setStartTimer(true)
     setGameStarted(true)
     InitialSaveToLocalStorage()
     dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
     dispatch(activate_auction())
-    
   }
 
+  
   function hostEndGame() {
     // Host leave socket room and delete server-side game data
     socket.emit("host_end_game", playerStats.gameCode);
     // Deletes game data from localStorage and sends to all players to leave socket room delete their localStorage
     EndGame(socket, playerStats.gameCode)
   }
+
+
 
 
 

@@ -131,7 +131,7 @@ function PotionsView(props_socket) {
     // Show potion ingredient are hidden if potion card not selected
     window.setTimeout(function(){
       if (recipe.ingred1 === 0) {document.getElementById("potionView_footer_display").style.display = "none"} else {document.getElementById("potionView_footer_display").style.display = "flex"}  
-    }, 500);
+    }, 0);
   }, [recipe])
   
 

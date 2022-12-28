@@ -34,10 +34,10 @@ const HostingView = lazy(() => import("./pages/hostingView/HostingView"))
 const JoinView = lazy(() => import("./pages/joinView/JoinView"))
 const PotionAuction = lazy(() => import("./pages/potionAuction/PotionAuction"))
 
-//const socket = io.connect("https://potionquiz.com/")
+const socket = io.connect("https://potionquiz.com/")
 //const socket = io.connect("http://16.171.11.140/")
 //const socket = io.connect("https://server-potionquiz.herokuapp.com/")
-const socket = io.connect("http://localhost:3001")
+//const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
@@ -159,7 +159,7 @@ function App() {
         <Route path="/marketplace" element={<Marketplace socket={socket} />}></Route>
         <Route path="/auction" element={<PotionAuction socket={socket} />}></Route>
         <Route path="/login" element={<LoginView/>}></Route>
-        <Route path="/quizselect" element={<QuizSelect/>}></Route>
+        <Route path="/quizselect" element={<QuizSelect socket={socket}/>}></Route>
         <Route path="/host" element={<HostingView socket={socket} />}></Route>
         <Route path="/join" element={<JoinView socket={socket} />}></Route>
         <Route path="/disconnected" element={<DisconnectedView socket={socket} />}></Route>

@@ -52,7 +52,7 @@ function CraftView(props_socket) {
       if (craftList[1].amount === 200 || craftList[1].amount === 0) {document.getElementById("craftAmount2").style.display = "none"} else {document.getElementById("craftAmount2").style.display = "inherit"} 
       if (craftList[2].amount === 200 || craftList[2].amount === 0) {document.getElementById("craftAmount3").style.display = "none"} else {document.getElementById("craftAmount3").style.display = "inherit"} 
       if (craftList[3].amount === 200 || craftList[3].amount === 0) {document.getElementById("craftAmount4").style.display = "none"} else {document.getElementById("craftAmount4").style.display = "inherit"} 
-    }, 500);
+    }, 0);
   }, [craftList])
   
 

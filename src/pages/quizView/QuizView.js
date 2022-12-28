@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import {motion} from "framer-motion"
+// CSS
 import "./quizView.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
 import Navbar from "../../components/navbar/Navbar"
+// REDUX
 import { useSelector, useDispatch } from "react-redux"
 import { add_coins_amount } from "../../redux/CoinsReducer.js"
-import { activate_power, power_special } from "../../redux/PowerReducer"
+import { power_special } from "../../redux/PowerReducer"
+// COMPONENTS
+import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
+import {testingQuiz} from "./questions.js"
+// POWERS
 import Protection from "../../components/powers/Protection.js"
 import DoublePoints from "../../components/powers/DoublePoints.js"
-import {religionQuestions} from "./questions.js"
-import {motion} from "framer-motion"
 import Icer from "../../components/powers/Icer.js"
 import MassFreeze from "../../components/powers/MassFreeze.js"
 import SpeedUp from '../../components/powers/SpeedUp'
@@ -27,40 +31,55 @@ import Transmutation from '../../components/powers/Transmutation'
 import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
 //import {playSound} from "../../components/playSound/playSound"
-import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
 import MassProtection from '../../components/powers/MassProtection'
 
-// Create a random number for choosing the initial question
-var randomQuestionNr = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+
+// NEXT - ADD QUIZ STATICLY TO QUESTIONS FILE UNTIL QUIZ_MANAGEMENT APP IS ONLINE
+// REPLACE testingQuiz[0] with quizlist[0]
+// ENABLE LOGIN AGAIN
+// Affected files HostingView, StartView, Index, QuizView, JoinView
+
+// Create a random number for choosing the initial question, (only takes one of the first three questions, as in this initial state the length of quiz is not clear)
+var randomQuestionNr = Math.floor(Math.random() * (24 - 0 + 1)) + 0;
+
 
 function QuizView(all_props) {
 
   var props = {focus: "quiz"}
   let socket = all_props.socket
   let hostID = all_props.hostID
+
+  const dispatch = useDispatch()
+  const potionsList = useSelector((state) => state.potions.value)
+  const powersList = useSelector((state) => state.powers.value)
+  const quizList = useSelector((state) => state.quiz.value)
   
   const [reveal, setReveal] = useState(false)
-  const [question, setQuestion] = useState(religionQuestions.questions[randomQuestionNr].question)
-  const [answerAlt, setAnswerAlt] = useState(religionQuestions.questions[randomQuestionNr].answerAlt)
-  const [answerCount, setAnswerCount] = useState({totalQuestions: 0, correct: 0, wrong:0})
-  
+  const [question, setQuestion] = useState(testingQuiz[0].questions[randomQuestionNr].questionText)
+  const [answerAlt, setAnswerAlt] = useState(testingQuiz[0].questions[randomQuestionNr].answerOptions)
+  const [answerCount, setAnswerCount] = useState({totalQuestions: 0, correct: 0, wrong: 0})
+  const [correctAnswer, setCorrectAnswer] = useState("Next Question")
+
 
   // POTIONS EFFECTS
   const [speed, setSpeed] = useState(4000)
   
-  let navigate = useNavigate()
-  const dispatch = useDispatch()
-  const potionsList = useSelector((state) => state.potions.value)
-  const powersList = useSelector((state) => state.powers.value)
-  
+
+
 
   function newQuestion() {
-    // Generate random number
-    randomQuestionNr = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+    // Generate random number, not larger than quiz length
+    randomQuestionNr = Math.floor(Math.random() * (testingQuiz[0].questions.length - 1 - 0 + 1)) + 0;
+
     // Set new question in state, selected by the random number
-    setQuestion(religionQuestions.questions[randomQuestionNr].question)
-    // Create array with all answer alternative and shuffle them
-    let shuffleAnswer = religionQuestions.questions[randomQuestionNr].answerAlt.sort(() => Math.random() - 0.5);
+    setQuestion(testingQuiz[0].questions[randomQuestionNr].questionText)
+    // Filter the correct answerAlt
+    let correctAnswerText = testingQuiz[0].questions[randomQuestionNr].answerOptions.filter(answer => answer.isCorrect === true);
+    setCorrectAnswer(correctAnswerText[0].answerAlt)
+    // Creates a deep copy of testingQuiz[0].questions[randomQuestionNr].answerOptions, so it can be shuffled (apparently was part of exeption and unable to shuffle as is)
+    let answerOptions = structuredClone(testingQuiz[0].questions[randomQuestionNr].answerOptions)
+    // Create array with all answer OBJECTS and shuffle them (contains both answerAlt and isCorrect)
+    let shuffleAnswer = answerOptions.sort(() => Math.random() - 0.5);
     // Set the shuffled answer alternative in state
     setAnswerAlt(shuffleAnswer)
     setReveal(!reveal)
@@ -74,13 +93,18 @@ function QuizView(all_props) {
     //Potion power - Fifty Fifty
     if (powersList[5].fiftyfifty === "active") {
       
-      // Create and array and fill it with all wrong alternatives
+      // Create an array and fill it with all wrong alternatives
       let fiftyFityArray = []
+      if (shuffleAnswer[0].isCorrect === true) {} else {fiftyFityArray.push(0)} 
+      if (shuffleAnswer[1].isCorrect === true) {} else {fiftyFityArray.push(1)} 
+      if (shuffleAnswer[2].isCorrect === true) {} else {fiftyFityArray.push(2)} 
+      if (shuffleAnswer[3].isCorrect === true) {} else {fiftyFityArray.push(3)} 
+/* ------------------ REPLACING ---------------
       if (shuffleAnswer[0] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(0)} 
       if (shuffleAnswer[1] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(1)} 
       if (shuffleAnswer[2] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(2)} 
       if (shuffleAnswer[3] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(3)} 
-
+   ------------------ REPLACING ---------------*/ 
       // Shuffle array of wrong alternatives and remove last one, leaving only two randomly wrong alternativs
       fiftyFityArray.sort(() => Math.random() - 0.5); fiftyFityArray.pop()
 
@@ -105,7 +129,7 @@ function QuizView(all_props) {
   const answerQuestion = (chosenAnswer) => {
 
     // If correct 
-    if (religionQuestions.questions[randomQuestionNr].answerAlt[chosenAnswer] === religionQuestions.questions[randomQuestionNr].correctAnswer) {
+    if (answerAlt[chosenAnswer].isCorrect === true) {
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox1');
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox3');
@@ -140,7 +164,7 @@ function QuizView(all_props) {
     setReveal(!reveal)
 
     /// Changing reveal-answer-text to answer after the question is answered
-    document.getElementById("answerBtn").innerHTML = religionQuestions.questions[randomQuestionNr].correctAnswer
+    document.getElementById("answerBtn").innerHTML = correctAnswer
     document.getElementById("answerBtn").classList.add('disabledbutton');
     document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');
     document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox1');
@@ -166,10 +190,6 @@ function QuizView(all_props) {
       }
     }, [powersList[2].speedUp])
 
-
-    useEffect(() => {
-      console.log("powersList[6].poison", powersList[6].poison)
-    }, [powersList[6].counter6])
 
 
   return (
@@ -200,29 +220,6 @@ function QuizView(all_props) {
       
 
       <Navbar focus={props} />
-  
-    {/* 
-
-      <button onClick={() => dispatch(activate_power({power_name: "SPEED UP"}))}>SPEED UP</button>
-      <button onClick={() => dispatch(activate_power({power_name: "DOUBLE POINTS"}))}>DOUBLE POTIONS</button>
-      <button onClick={() => dispatch(activate_power({power_name: "TRIPPLE POINTS"}))}>TRIPPLE POTIONS</button>
-      <button onClick={() => dispatch(activate_power({power_name: "GOLDEN POINTS"}))}>GOLDEN POTIONS</button>
-      <button onClick={() => dispatch(activate_power({power_name: "FREEZE"}))}>FREEZE</button>
-      <button onClick={() => dispatch(activate_power({power_name: "PROTECTION"}))}>PROTECTION</button>
-      <button onClick={() => dispatch(activate_power({power_name: "POINT POISON"}))}>POINT POISON</button>
-      <button onClick={() => dispatch(activate_power({power_name: "BLOCKER"}))}>BLOCKER</button>
-      <button onClick={() => dispatch(activate_power({power_name: "FIFTY FIFTY"}))}>FIFTY FIFTY</button>
-      <button onClick={() => dispatch(activate_power({power_name: "GIVE GIFT"}))}>GIVE GIFT</button>
-      <button onClick={() => dispatch(activate_power({power_name: "PRICE RUNNER"}))}>PRICE RUNNER</button>
-      <button onClick={() => dispatch(activate_power({power_name: "STREAK BONUS"}))}>STREAK BONUS</button>
-      <button onClick={() => dispatch(activate_power({power_name: "TRANSMUTATION"}))}>TRANSMUTATION</button>
-      <button onClick={() => dispatch(activate_power({power_name: "EPIC CHALLENGE"}))}>EPIC CHALLENGE</button>
-      <button onClick={() => dispatch(activate_power({power_name: "JUKEBOX"}))}>JUKEBOX</button>
-
-*/}
-
-      
-
       
       <div id="navbar_blocker" className="studentQuiz_navbar_blocker"></div>
       <div id="power_blocker" className="studentQuiz_navbar_blocker"></div>
@@ -231,13 +228,14 @@ function QuizView(all_props) {
       </div>
       <div className='studentQuiz_answerView'>
         <div className='studentQuiz_answerView_correctAnswerBox1' id="answerBtn" onClick={() => newQuestion()}><p>Oh... You were hoping for me not thinking of this :P</p></div> 
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_A' id="answerAlt_A" onClick={() => answerQuestion(0)}><p>{answerAlt[0]}</p></motion.div>
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_B' id="answerAlt_B" onClick={() => answerQuestion(1)}><p>{answerAlt[1]}</p></motion.div>
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_C' id="answerAlt_C" onClick={() => answerQuestion(2)}><p>{answerAlt[2]}</p></motion.div>
-        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_D' id="answerAlt_D" onClick={() => answerQuestion(3)}><p>{answerAlt[3]}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_A' id="answerAlt_A" onClick={() => answerQuestion(0)}><p>{answerAlt[0].answerAlt}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_B' id="answerAlt_B" onClick={() => answerQuestion(1)}><p>{answerAlt[1].answerAlt}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_C' id="answerAlt_C" onClick={() => answerQuestion(2)}><p>{answerAlt[2].answerAlt}</p></motion.div>
+        <motion.div animate={{y: reveal ? 500 : 0}} transition={{duration:0.5}} className='studentQuiz_anwserBox anwserBox_D' id="answerAlt_D" onClick={() => answerQuestion(3)}><p>{answerAlt[3].answerAlt}</p></motion.div>
       </div>
     </div>
   )
 }
 
 export default QuizView
+
