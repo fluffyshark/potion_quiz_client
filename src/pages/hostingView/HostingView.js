@@ -90,7 +90,7 @@ function HostingView(props) {
         
 
         <div className="hostingView_top">
-            <Timer startTimer={startTimer} />
+            <Timer startTimer={startTimer} socket={socket} gameCode={playerStats.gameCode}/>
             
             {gameStarted ? (
               <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => hostEndGame()}>END GAME</motion.button>

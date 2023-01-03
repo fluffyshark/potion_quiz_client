@@ -1,14 +1,19 @@
 import React, {useState, useRef, useEffect} from 'react'
 import "./timer.css"
 import "./responsive/tablet.css"
+import {EndGame} from "../../components/endGame/EndGame"
 
 
 
-function Timer(startCounting) {
+function Timer(dataFromHost) {
 
     const  intervalRef = useRef(null)
     const [timer, setTimer] = useState("00:00:00")
     const [userInput, setUserInput] = useState(0)
+    const [timerActive, setTimerActive] = useState(false)
+    
+    let socket = dataFromHost.socket
+    let gameCode = dataFromHost.gameCode
     
     function getTimeRemaining(endtime) {
         const total = Date.parse(endtime) - Date.parse(new Date())
@@ -21,6 +26,7 @@ function Timer(startCounting) {
         }
     }
     function startTimer(deadline) {
+        
         let { total, hours, minutes, seconds} = getTimeRemaining(deadline)
         if (total >= 0) {
             setTimer(
@@ -31,8 +37,20 @@ function Timer(startCounting) {
             )
         } else {
             clearInterval(intervalRef.current)
+            console.log("TIMER ENDED")
+            timerEndGame()
         }
+        
     }
+
+    function timerEndGame() {
+        // Host leave socket room and delete server-side game data
+        socket.emit("host_end_game", gameCode);
+        // Deletes game data from localStorage and sends to all players to leave socket room and delete their localStorage
+        EndGame(socket, gameCode)
+      }
+
+
     function clearTimer(endtime) {
         setTimer("00:00:00")
         if (intervalRef.current) clearInterval(intervalRef.current)
@@ -47,16 +65,17 @@ function Timer(startCounting) {
         return deadline
     }
     
-    
+    // HostView sends "dataFromHost" every second
     useEffect(() => {
-        if (startCounting.startTimer === true)  {
+        if (dataFromHost.startTimer === true && timerActive === false)  {
+            setTimerActive(true)
             onClickResetBtn()
             document.getElementById("timer_container").style.display = "none"
             if (userInput !== 0) {
                 document.getElementById("actual_timer").style.display = "inherit"
             } 
-        } 
-    }, [startCounting])
+        }
+    }, [dataFromHost])
 
 
     
@@ -64,7 +83,7 @@ function Timer(startCounting) {
         if (userInput !== 0) {
             if (intervalRef.current) clearInterval(intervalRef.current)
             clearTimer(getDeadlineTime())
-            console.log("TIMER START")
+            console.log("TIMER RESETED")
         }
         
     }

@@ -55,7 +55,7 @@ function App() {
   const coinList = useSelector((state) => state.coins.value)
   const AuctionList = useSelector((state) => state.auction.value)
 
-
+  
   setInterval(function(){ 
    setCounter(new Date().getSeconds())
   }, 1000);
