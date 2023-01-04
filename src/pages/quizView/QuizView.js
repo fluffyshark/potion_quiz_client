@@ -68,6 +68,8 @@ function QuizView(all_props) {
 
 
   function newQuestion() {
+    document.getElementById("answerBtn").innerHTML = "Loading"
+    setReveal(!reveal)
     // Generate random number, not larger than quiz length
     randomQuestionNr = Math.floor(Math.random() * (testingQuiz[0].questions.length - 1 - 0 + 1)) + 0;
 
@@ -82,7 +84,8 @@ function QuizView(all_props) {
     let shuffleAnswer = answerOptions.sort(() => Math.random() - 0.5);
     // Set the shuffled answer alternative in state
     setAnswerAlt(shuffleAnswer)
-    setReveal(!reveal)
+    
+    
 
     // If dark mode, then restore
     document.getElementById('answerAlt_A').classList.remove('fiftyFifty_darkAnserAlt')
@@ -162,7 +165,7 @@ function QuizView(all_props) {
     
    
     setReveal(!reveal)
-
+   
     /// Changing reveal-answer-text to answer after the question is answered
     document.getElementById("answerBtn").innerHTML = correctAnswer
     document.getElementById("answerBtn").classList.add('disabledbutton');
