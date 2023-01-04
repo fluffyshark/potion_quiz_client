@@ -85,6 +85,7 @@
       -moz-box-shadow:inset 0px 0px 0px 6px #589100ff;
       box-shadow:inset 0px 0px 0px 6px #589100ff;
       color: white;
+      z-index: 1;
     }
     .anwserBox_B {
       background-color: #d94a42; 
@@ -92,6 +93,7 @@
       -moz-box-shadow:inset 0px 0px 0px 6px #c63300;
       box-shadow:inset 0px 0px 0px 6px #c63300;
       color: white;
+      z-index: 1;
     }
       .anwserBox_C {
       background-color: #2e9e99; 
@@ -99,6 +101,7 @@
       -moz-box-shadow:inset 0px 0px 0px 6px #2e7e99;
       box-shadow:inset 0px 0px 0px 6px #2e7e99;
       color: white;
+      z-index: 1;
     }
     .anwserBox_D {
       background-color: #e8c242; 
@@ -106,6 +109,7 @@
         -moz-box-shadow:inset 0px 0px 0px 6px #dab100;
         box-shadow:inset 0px 0px 0px 6px #dab100;
         color: white;
+        z-index: 1;
     }
     
     #answerAlt_A {opacity: 1}

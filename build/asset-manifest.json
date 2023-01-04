@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.3661b95c.css",
-    "main.js": "/static/js/main.d55314d5.js",
+    "main.js": "/static/js/main.08765281.js",
     "static/css/638.ec75cf8e.chunk.css": "/static/css/638.ec75cf8e.chunk.css",
     "static/js/638.a4d1394e.chunk.js": "/static/js/638.a4d1394e.chunk.js",
     "static/css/324.a9b165d4.chunk.css": "/static/css/324.a9b165d4.chunk.css",
     "static/js/324.942d4f06.chunk.js": "/static/js/324.942d4f06.chunk.js",
-    "static/css/727.4770ea30.chunk.css": "/static/css/727.4770ea30.chunk.css",
+    "static/css/727.3fe55b6d.chunk.css": "/static/css/727.3fe55b6d.chunk.css",
     "static/js/727.640eff3e.chunk.js": "/static/js/727.640eff3e.chunk.js",
     "static/css/750.46a7585d.chunk.css": "/static/css/750.46a7585d.chunk.css",
     "static/js/750.a92ed496.chunk.js": "/static/js/750.a92ed496.chunk.js",
@@ -494,12 +494,12 @@
     "static/media/potion_reveal_background.webp": "/static/media/potion_reveal_background.30e7a9ac019333e40be1.webp",
     "index.html": "/index.html",
     "main.3661b95c.css.map": "/static/css/main.3661b95c.css.map",
-    "main.d55314d5.js.map": "/static/js/main.d55314d5.js.map",
+    "main.08765281.js.map": "/static/js/main.08765281.js.map",
     "638.ec75cf8e.chunk.css.map": "/static/css/638.ec75cf8e.chunk.css.map",
     "638.a4d1394e.chunk.js.map": "/static/js/638.a4d1394e.chunk.js.map",
     "324.a9b165d4.chunk.css.map": "/static/css/324.a9b165d4.chunk.css.map",
     "324.942d4f06.chunk.js.map": "/static/js/324.942d4f06.chunk.js.map",
-    "727.4770ea30.chunk.css.map": "/static/css/727.4770ea30.chunk.css.map",
+    "727.3fe55b6d.chunk.css.map": "/static/css/727.3fe55b6d.chunk.css.map",
     "727.640eff3e.chunk.js.map": "/static/js/727.640eff3e.chunk.js.map",
     "750.46a7585d.chunk.css.map": "/static/css/750.46a7585d.chunk.css.map",
     "750.a92ed496.chunk.js.map": "/static/js/750.a92ed496.chunk.js.map",
@@ -524,6 +524,6 @@
   },
   "entrypoints": [
     "static/css/main.3661b95c.css",
-    "static/js/main.d55314d5.js"
+    "static/js/main.08765281.js"
   ]
 }
