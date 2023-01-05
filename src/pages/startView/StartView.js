@@ -12,10 +12,13 @@ import {motion} from "framer-motion"
 import HostBtn from '../../image_assets/general/HostBtn'
 
 
+
 function StartView(props) {
 
   let socket = props.socket
   const dispatch = useDispatch()
+
+
 
   function hostGame() {
     

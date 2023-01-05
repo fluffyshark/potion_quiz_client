@@ -32,7 +32,7 @@ import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
 //import {playSound} from "../../components/playSound/playSound"
 import MassProtection from '../../components/powers/MassProtection'
-
+import sound_click from "./click.mp3"
 
 // NEXT - ADD QUIZ STATICLY TO QUESTIONS FILE UNTIL QUIZ_MANAGEMENT APP IS ONLINE
 // REPLACE testingQuiz[0] with quizlist[0]
@@ -66,7 +66,9 @@ function QuizView(all_props) {
   // POTIONS EFFECTS
   const [speed, setSpeed] = useState(4000)
   
-
+  function play() {
+    
+  }
 
 
   function newQuestion() {
@@ -133,6 +135,8 @@ function QuizView(all_props) {
 
   const answerQuestion = (chosenAnswer) => {
 
+    new Audio(sound_click).play() 
+    
     // If correct 
     if (answerAlt[chosenAnswer].isCorrect === true) {
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');

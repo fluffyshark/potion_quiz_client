@@ -14,10 +14,11 @@ function LevelProgressBar() {
     const levelExp = useSelector((state) => state.levelExp.value)
 
 
-      // When pressing levelBtn
+    // onClick event when pressing levelBtn
     const buyLevel = () => {
-    dispatch(reduce_coins_amount(50))
-    dispatch(add_exp_amount(1))
+      // Const of increasing one unit on the level bar is 10 gold
+      dispatch(reduce_coins_amount(10))
+      dispatch(add_exp_amount(1))
   //  playSound("coindrop")   
   }
 
@@ -39,9 +40,8 @@ function LevelProgressBar() {
 
   // Enable / disable levelBtn if player has enough coins
   useEffect(() => {
-  //  if (coinbag.total < 50) {document.getElementById("levelBtn").style.opacity = 0.5; document.getElementById("levelBtn").style.pointerEvents = "none"}
-  //  if (coinbag.total > 49) {document.getElementById("levelBtn").style.opacity = 1; document.getElementById("levelBtn").style.pointerEvents = "auto"}
-    /// ADD FUNCTIONALITY TO DISABLE BUTTON
+    if (coinbag.total < 10) {document.getElementById("levelBtn").style.opacity = 0.5; document.getElementById("levelBtn").style.pointerEvents = "none"}
+    if (coinbag.total > 9) {document.getElementById("levelBtn").style.opacity = 1; document.getElementById("levelBtn").style.pointerEvents = "auto"}
   },[coinbag.total])
 
 
