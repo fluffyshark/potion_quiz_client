@@ -32,6 +32,7 @@ import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
 //import {playSound} from "../../components/playSound/playSound"
 import MassProtection from '../../components/powers/MassProtection'
+
 import sound_click from "./click.mp3"
 
 // NEXT - ADD QUIZ STATICLY TO QUESTIONS FILE UNTIL QUIZ_MANAGEMENT APP IS ONLINE
@@ -46,6 +47,30 @@ var randomQuestionNr = Math.floor(Math.random() * (24 - 0 + 1)) + 0;
 
 
 function QuizView(all_props) {
+
+  
+
+
+
+function playSounds() {
+  
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+ 
+    fetch(sound_click)
+      .then(response => response.arrayBuffer())
+      .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
+      .then(audioBuffer => {
+        const source = audioCtx.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioCtx.destination);
+        source.start();
+      });
+
+}
+  
+
+
 
   var props = {focus: "quiz"}
   let socket = all_props.socket
@@ -66,9 +91,7 @@ function QuizView(all_props) {
   // POTIONS EFFECTS
   const [speed, setSpeed] = useState(4000)
   
-  function play() {
-    
-  }
+
 
 
   function newQuestion() {
@@ -135,8 +158,6 @@ function QuizView(all_props) {
 
   const answerQuestion = (chosenAnswer) => {
 
-    new Audio(sound_click).play() 
-    
     // If correct 
     if (answerAlt[chosenAnswer].isCorrect === true) {
       document.getElementById("answerBtn").classList.remove('studentQuiz_answerView_correctAnswerBox2');
@@ -203,7 +224,7 @@ function QuizView(all_props) {
 
   return (
     <div className='studentQuiz'>
-      
+      <button onClick={() => playSounds()} id="play-button">Play Sound</button>
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <MassFreeze />}
       {powersList[7].gift === "active" && <ReceiveGiveGift />}
@@ -246,7 +267,7 @@ function QuizView(all_props) {
   )
 
 
-  
+ 
 
 }
 
