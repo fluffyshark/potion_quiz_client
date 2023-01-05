@@ -12,7 +12,6 @@ import {motion} from "framer-motion"
 import HostBtn from '../../image_assets/general/HostBtn'
 
 
-
 function StartView(props) {
 
   let socket = props.socket
@@ -67,6 +66,10 @@ function StartView(props) {
       <div className="startView_bottom"></div>
     </div>
   )
+
+
+  
+
 }
 
 export default StartView
