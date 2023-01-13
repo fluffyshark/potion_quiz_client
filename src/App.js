@@ -54,7 +54,6 @@ function App() {
   const playerStats = useSelector((state) => state.playerStats.value)
   const coinList = useSelector((state) => state.coins.value)
   const AuctionList = useSelector((state) => state.auction.value)
-
   
   setInterval(function(){ 
    setCounter(new Date().getSeconds())
@@ -64,7 +63,8 @@ function App() {
   useEffect(() => {
     dispatch(power_counter())
     dispatch(increase_auction_counter())
-  //  console.log("counter", counter)
+    if (counter === 20) {socket.emit("sending_player_quiz_score", {playerName: playerStats.playerName, playerQuizScore: playerStats.playerQuizScore, gameCode: playerStats.gameCode})}
+    console.log("counter", counter)
   },[counter])
 
 

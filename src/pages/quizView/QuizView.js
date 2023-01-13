@@ -9,6 +9,7 @@ import Navbar from "../../components/navbar/Navbar"
 import { useSelector, useDispatch } from "react-redux"
 import { add_coins_amount } from "../../redux/CoinsReducer.js"
 import { power_special } from "../../redux/PowerReducer"
+import { add_quiz_score } from "../../redux/PlayerSocketReducer"
 // COMPONENTS
 import {CoinGainEffect} from "../../components/coinGainEffect/CoinGainEffect"
 import {testingQuiz} from "./questions.js"
@@ -30,10 +31,8 @@ import StreakBonus from '../../components/powers/StreakBonus'
 import Transmutation from '../../components/powers/Transmutation'
 import EpicChallenge from '../../components/powers/EpicChallenge'
 import JukeBox from '../../components/powers/JukeBox'
-//import {playSound} from "../../components/playSound/playSound"
 import MassProtection from '../../components/powers/MassProtection'
 
-import sound_click from "./click.mp3"
 
 // NEXT - ADD QUIZ STATICLY TO QUESTIONS FILE UNTIL QUIZ_MANAGEMENT APP IS ONLINE
 // REPLACE testingQuiz[0] with quizlist[0]
@@ -47,29 +46,6 @@ var randomQuestionNr = Math.floor(Math.random() * (24 - 0 + 1)) + 0;
 
 
 function QuizView(all_props) {
-
-  
-
-
-
-function playSounds() {
-  
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
- 
-    fetch(sound_click)
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
-      .then(audioBuffer => {
-        const source = audioCtx.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(audioCtx.destination);
-        source.start();
-      });
-
-}
-  
-
 
 
   var props = {focus: "quiz"}
@@ -86,7 +62,6 @@ function playSounds() {
   const [answerAlt, setAnswerAlt] = useState(testingQuiz[0].questions[randomQuestionNr].answerOptions)
   const [answerCount, setAnswerCount] = useState({totalQuestions: 0, correct: 0, wrong: 0})
   const [correctAnswer, setCorrectAnswer] = useState("Next Question")
-
 
   // POTIONS EFFECTS
   const [speed, setSpeed] = useState(4000)
@@ -129,13 +104,7 @@ function playSounds() {
       if (shuffleAnswer[1].isCorrect === true) {} else {fiftyFityArray.push(1)} 
       if (shuffleAnswer[2].isCorrect === true) {} else {fiftyFityArray.push(2)} 
       if (shuffleAnswer[3].isCorrect === true) {} else {fiftyFityArray.push(3)} 
-/* ------------------ REPLACING ---------------
-      if (shuffleAnswer[0] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(0)} 
-      if (shuffleAnswer[1] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(1)} 
-      if (shuffleAnswer[2] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(2)} 
-      if (shuffleAnswer[3] === religionQuestions.questions[randomQuestionNr].correctAnswer) {} else {fiftyFityArray.push(3)} 
-   ------------------ REPLACING ---------------*/ 
-      // Shuffle array of wrong alternatives and remove last one, leaving only two randomly wrong alternativs
+
       fiftyFityArray.sort(() => Math.random() - 0.5); fiftyFityArray.pop()
 
       // Turn two wrong alternatives dark
@@ -165,8 +134,6 @@ function playSounds() {
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox3');
       
       setAnswerCount({totalQuestions: answerCount.totalQuestions + 1, correct: answerCount.correct + 1, wrong: answerCount.wrong})
-      
-    //  setTimeout(function() {playSound("coinGain")}, 200);
 
       if (powersList[1].doublePoints === "active") {CoinGainEffect(20)}
       else if (powersList[9].tripplePoints === "active") {CoinGainEffect(30)}
@@ -207,6 +174,11 @@ function playSounds() {
       document.getElementById("answerBtn").classList.add('studentQuiz_answerView_correctAnswerBox2');
       document.getElementById("answerBtn").classList.remove('disabledbutton');
     }, speed);
+
+    // Send quiz score to redux
+    dispatch(add_quiz_score(answerCount))
+    console.log(answerCount)
+    
   
   } // End of answerQuestion
 
@@ -224,7 +196,6 @@ function playSounds() {
 
   return (
     <div className='studentQuiz'>
-      <button onClick={() => playSounds()} id="play-button">Play Sound</button>
       {powersList[4].freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <Icer />}
       {powersList[18].mass_freeze === "active" && powersList[3].protection !== "active" && powersList[12].massProtection !== "active" && <MassFreeze />}
       {powersList[7].gift === "active" && <ReceiveGiveGift />}

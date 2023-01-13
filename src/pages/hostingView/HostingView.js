@@ -12,7 +12,7 @@ import {playSound} from "../../components/playSound/playSound"
 import {EndGame} from "../../components/endGame/EndGame"
 import {InitialSaveToLocalStorage} from "../../components/saveToLocalStorage/InitialSaveToLocalStorage"
 
-// Hosting using Socket.io:
+// Hosting process using Socket.io:
 // - Sockets are initiated at App.js and passed down to all children using props.
 // - At StartView, when clicking host button a random 9 digit number (gameCode and edited displayCode) are generated and passed to playerStats by redux.
 // - At StartView, clicking host button also make that client join socket room using the gameCode as room code.
@@ -32,6 +32,7 @@ function HostingView(props) {
   const [startTimer, setStartTimer] = useState(false)
   const [playersJoined, setPlayersJoined] = useState([])
   const [gameStarted, setGameStarted] = useState(false)
+  const [quizStats, setQuizStats] = useState([])
   
 
 
@@ -58,7 +59,23 @@ function HostingView(props) {
       playSound(data.melody)
     })
 
+    // Receive quiz stats from all players, filtering for the latest, in quizStats state
+    // data: {gameCode: "", playerName: "", playerQuizScore: {correct: 0, totalQuestions: 0, wrong: 0}
+    socket.on("to_host_player_quiz_score", (data) => {
+      setQuizStats(prevStats => {
+        const filtered = prevStats.filter(player => player.playerName !== data.playerName);
+        return [...filtered, data];
+      });
+    })
+
+    
 }, [socket])
+
+
+
+useEffect(() => {
+  console.log("quizStats", quizStats)
+}, [quizStats])
 
 
   function startGame() {

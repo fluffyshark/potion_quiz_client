@@ -15,7 +15,7 @@ export const ingredientSlice = createSlice({
             })
             saveToLocalStorage("ingredientsList", state.value)
         },
-        
+         
         decrease_ingredients: (state, action) => {
             state.value.map((ingredient) => {
                 if (ingredient.id === action.payload.id) {
