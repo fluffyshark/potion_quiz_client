@@ -16,6 +16,16 @@
         align-items: center;
         position: relative;
     }
+
+    .hostingView_top>p {
+        color: white;
+        position: absolute;
+        top: calc(50% - 15px);
+        margin: 0;
+        left: 50px;
+        font-size: 25px;
+        font-family: 'Luckiest Guy', cursive;
+    }
     
     .hostView_startBtn {
         width: 110px;

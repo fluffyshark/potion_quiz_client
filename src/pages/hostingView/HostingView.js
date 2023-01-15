@@ -11,6 +11,7 @@ import {motion} from "framer-motion"
 import {playSound} from "../../components/playSound/playSound"
 import {EndGame} from "../../components/endGame/EndGame"
 import {InitialSaveToLocalStorage} from "../../components/saveToLocalStorage/InitialSaveToLocalStorage"
+import EndStatsReveal from './endsStatsReveal/EndStatsReveal'
 
 // Hosting process using Socket.io:
 // - Sockets are initiated at App.js and passed down to all children using props.
@@ -31,9 +32,9 @@ function HostingView(props) {
 
   const [startTimer, setStartTimer] = useState(false)
   const [playersJoined, setPlayersJoined] = useState([])
-  const [gameStarted, setGameStarted] = useState(false)
+  const [gameState, setGameState] = useState("GAME NOT STARTED")
   const [quizStats, setQuizStats] = useState([])
-  
+  const [finalScore, setFinalScore] = useState([])
 
 
   // Show players who joined room
@@ -83,7 +84,7 @@ useEffect(() => {
     socket.emit("ready_game", playerStats.gameCode /*, quizList*/);
     //---------------------------------------------------
     setStartTimer(true)
-    setGameStarted(true)
+    setGameState("GAME STARTED")
     InitialSaveToLocalStorage()
     dispatch(activate_power({power_name: "LEADERBOARD CARDS"}))
     dispatch(activate_auction())
@@ -91,10 +92,13 @@ useEffect(() => {
 
   
   function hostEndGame() {
+    setFinalScore(quizStats)
     // Host leave socket room and delete server-side game data
     socket.emit("host_end_game", playerStats.gameCode);
     // Deletes game data from localStorage and sends to all players to leave socket room delete their localStorage
     EndGame(socket, playerStats.gameCode)
+    setGameState("GAME ENDED")
+    
   }
 
 
@@ -107,38 +111,37 @@ useEffect(() => {
         
 
         <div className="hostingView_top">
-            <Timer startTimer={startTimer} socket={socket} gameCode={playerStats.gameCode}/>
+          {gameState === "GAME STARTED" && <p>GAME CODE: {playerStats.gameCode}</p>}
+          <Timer startTimer={startTimer} socket={socket} gameCode={playerStats.gameCode}/>
+
+          {gameState === "GAME NOT STARTED" &&  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}  className='hostView_startBtn' onClick={() => startGame()}>START GAME</motion.button>}
+          {gameState === "GAME STARTED" &&  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => hostEndGame()}>END GAME</motion.button>}
             
-            {gameStarted ? (
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className='hostView_startBtn' onClick={() => hostEndGame()}>END GAME</motion.button>
-            ) : (
-              <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}  className='hostView_startBtn' onClick={() => startGame()}>START GAME</motion.button>
-            )}
             
         </div>
         
+        {gameState === "GAME NOT STARTED" &&  <>
 
-        {gameStarted ? (<Hostboard />) : (
-          
-          <>
+          <div className="hostingView_middle">
+            <p className="joinDesc">Go to potionquiz.com and enter:</p>
+            <p className="joinCode">{playerStats.displayCode}</p>
+          </div>
 
-            <div className="hostingView_middle">
-              <p className="joinDesc">Go to potionquiz.com and enter:</p>
-              <p className="joinCode">{playerStats.displayCode}</p>
-            </div>
-            
-            <div className="hostingView_bottom">
-              {playersJoined.map((player, i) => {
-                if (playersJoined.length > 0) {
-                  return (<div key={i} className="playerTags">{player}</div>)
-                }
-              })} 
+          <div className="hostingView_bottom">
+            {playersJoined.map((player, i) => {
+              if (playersJoined.length > 0) {
+                return (<div key={i} className="playerTags">{player}</div>)
+              }
+            })} 
 
-            </div>
+          </div>
+
+        </>}
         
-        </>
+        {gameState === "GAME STARTED" && <Hostboard />}
 
-        )}
+        {gameState === "GAME ENDED" && <EndStatsReveal finalScore={finalScore} />}
+       
   </div>
     
 
