@@ -42,7 +42,7 @@ import MassProtection from '../../components/powers/MassProtection'
 
 
 // Create a random number for choosing the initial question, (only takes one of the first three questions, as in this initial state the length of quiz is not clear)
-var randomQuestionNr = Math.floor(Math.random() * (24 - 0 + 1)) + 0;
+var randomQuestionNr = Math.floor(Math.random() * (35 - 0 + 1)) + 0;
 
 
 function QuizView(all_props) {

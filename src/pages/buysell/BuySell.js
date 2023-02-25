@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+// CSS
 import "./buySell.css"
 import "./responsive/responsive.css"
 import "./responsive/tablet.css"
-import { motion } from "framer-motion";
+// Redux
+import { useDispatch, useSelector } from "react-redux"
+import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
+// Components
 import Navbar from "../../components/navbar/Navbar"
 import Icer from "../../components/powers/Icer"
 import MassFreeze from "../../components/powers/MassFreeze.js"
+import ReceiveGiveGift from '../../components/powers/GiveGift';
+import BoughtIngredients from './boughtIngredients/BoughtIngredients';
+// Images
 import market_btn from "../../image_assets/general/market_btn.png"
-import buy_one_btn from "../../image_assets/general/buy_one_btn.png"
+import blue_level_0 from "../../image_assets/general/button_pricetag_blue_level0.webp"
+import blue_level_1 from "../../image_assets/general/button_pricetag_blue_level1.webp"
+import blue_level_2 from "../../image_assets/general/button_pricetag_blue_level2.webp"
+import blue_level_3 from "../../image_assets/general/button_pricetag_blue_level3.webp"
+import purple_level_0 from "../../image_assets/general/button_pricetag_purple_level0.webp"
+import purple_level_1 from "../../image_assets/general/button_pricetag_purple_level1.webp"
+import purple_level_2 from "../../image_assets/general/button_pricetag_purple_level2.webp"
+import purple_level_3 from "../../image_assets/general/button_pricetag_purple_level3.webp"
+import yellow_level_0 from "../../image_assets/general/button_pricetag_yellow_level0.webp"
+import yellow_level_1 from "../../image_assets/general/button_pricetag_yellow_level1.webp"
+import yellow_level_2 from "../../image_assets/general/button_pricetag_yellow_level2.webp"
+import yellow_level_3 from "../../image_assets/general/button_pricetag_yellow_level3.webp"
 import store_buy_one from "../../image_assets/general/store_buy_one.webp"
 import store_buy_ten from "../../image_assets/general/store_buy_ten.webp"
-import store_buy_ten_btn from "../../image_assets/general/store_buy_ten_btn.png"
 import store_buy_four from "../../image_assets/general/store_buy_four.webp"
-import store_buy_four_btn from "../../image_assets/general/store_buy_four_btn.png"
-import buy_one_10_btn from "../../image_assets/general/buy_one_10_btn.png"
-import store_buy_ten_10_btn from "../../image_assets/general/store_buy_ten_10_btn.png"
-import store_buy_four_10_btn from "../../image_assets/general/store_buy_four_10_btn.png"
-import buy_one_25_btn from "../../image_assets/general/buy_one_25_btn.png"
-import store_buy_ten_25_btn from "../../image_assets/general/store_buy_ten_25_btn.png"
-import store_buy_four_25_btn from "../../image_assets/general/store_buy_four_25_btn.png"
-import buy_one_40_btn from "../../image_assets/general/buy_one_40_btn.png"
-import store_buy_ten_40_btn from "../../image_assets/general/store_buy_ten_40_btn.png"
-import store_buy_four_40_btn from "../../image_assets/general/store_buy_four_40_btn.png"
-import { useDispatch, useSelector } from "react-redux"
-import { reduce_coins_amount } from "../../redux/CoinsReducer.js"
-import ReceiveGiveGift from '../../components/powers/GiveGift';
-import { Link } from 'react-router-dom';
-//import { playSound } from '../../components/playSound/playSound';
-import BoughtIngredients from './boughtIngredients/BoughtIngredients';
 
 
 
@@ -38,7 +41,7 @@ function BuySell() {
   }
 
   const [playerPurchase, setPlayerPurchase] = useState("none")
-  const [prices, setPrices] = useState({price_blue: 50, price_purple: 100, price_gold: 300, blue_btn: buy_one_btn, purple_btn: store_buy_four_btn, gold_btn: store_buy_ten_btn})
+  const [prices, setPrices] = useState({price_blue: 30, price_purple: 70, price_gold: 150, blue_btn: blue_level_0, purple_btn: purple_level_0, gold_btn: yellow_level_0})
 
   const dispatch = useDispatch()
   const coinbag = useSelector((state) => state.coins.value)
@@ -48,23 +51,23 @@ function BuySell() {
 
   useEffect(() => {
     if (powersList[11].price === "active") {
-      if (potionsList[11].level === 1) {setPrices({price_blue: 45, price_purple: 90, price_gold: 270, blue_btn: buy_one_10_btn, purple_btn: store_buy_four_10_btn, gold_btn: store_buy_ten_10_btn})}
-      else  if (potionsList[11].level === 2) {setPrices({price_blue: 40, price_purple: 75, price_gold: 225, blue_btn: buy_one_25_btn, purple_btn: store_buy_four_25_btn, gold_btn: store_buy_ten_25_btn})}
-      else if (potionsList[11].level === 3) {setPrices({price_blue: 30, price_purple: 60, price_gold: 180, blue_btn: buy_one_40_btn, purple_btn: store_buy_four_40_btn, gold_btn: store_buy_ten_40_btn})}
+      if (potionsList[11].level === 1) {setPrices({price_blue: 20, price_purple: 50, price_gold: 130, blue_btn: blue_level_1, purple_btn: purple_level_1, gold_btn: yellow_level_1})}
+      else  if (potionsList[11].level === 2) {setPrices({price_blue: 15, price_purple: 40, price_gold: 100, blue_btn: blue_level_2, purple_btn: purple_level_2, gold_btn: yellow_level_2})}
+      else if (potionsList[11].level === 3) {setPrices({price_blue: 10, price_purple: 20, price_gold: 50, blue_btn: blue_level_3, purple_btn: purple_level_3, gold_btn: yellow_level_3})}
     } else {
-      setPrices({price_blue: 50, price_purple: 100, price_gold: 300, blue_btn: buy_one_btn, purple_btn: store_buy_four_btn, gold_btn: store_buy_ten_btn})
+      setPrices({price_blue: 30, price_purple: 70, price_gold: 150, blue_btn: blue_level_0, purple_btn: purple_level_0, gold_btn: yellow_level_0})
     }
   }, [powersList[11].price])
 
 
   useEffect(() => {
-    if (coinbag.total < 50) {document.getElementById("lottery_btn01").style.opacity = 0.5; document.getElementById("lottery_btn01").style.pointerEvents = "none"}
-    if (coinbag.total < 100) {document.getElementById("lottery_btn02").style.opacity = 0.5; document.getElementById("lottery_btn02").style.pointerEvents = "none" }
-    if (coinbag.total < 300) {document.getElementById("lottery_btn03").style.opacity = 0.5; document.getElementById("lottery_btn03").style.pointerEvents = "none"}
+    if (coinbag.total < 30) {document.getElementById("lottery_btn01").style.opacity = 0.5; document.getElementById("lottery_btn01").style.pointerEvents = "none"}
+    if (coinbag.total < 70) {document.getElementById("lottery_btn02").style.opacity = 0.5; document.getElementById("lottery_btn02").style.pointerEvents = "none" }
+    if (coinbag.total < 150) {document.getElementById("lottery_btn03").style.opacity = 0.5; document.getElementById("lottery_btn03").style.pointerEvents = "none"}
 
-    if (coinbag.total > 49) {document.getElementById("lottery_btn01").style.opacity = 1; document.getElementById("lottery_btn01").style.pointerEvents = "auto"}
-    if (coinbag.total > 99) {document.getElementById("lottery_btn02").style.opacity = 1; document.getElementById("lottery_btn02").style.pointerEvents = "auto"}
-    if (coinbag.total > 299) {document.getElementById("lottery_btn03").style.opacity = 1; document.getElementById("lottery_btn03").style.pointerEvents = "auto"}
+    if (coinbag.total > 29) {document.getElementById("lottery_btn01").style.opacity = 1; document.getElementById("lottery_btn01").style.pointerEvents = "auto"}
+    if (coinbag.total > 69) {document.getElementById("lottery_btn02").style.opacity = 1; document.getElementById("lottery_btn02").style.pointerEvents = "auto"}
+    if (coinbag.total > 149) {document.getElementById("lottery_btn03").style.opacity = 1; document.getElementById("lottery_btn03").style.pointerEvents = "auto"}
   },[coinbag.total])
 
 

@@ -8,7 +8,6 @@ import { activate_power } from "../../redux/PowerReducer"
 import { activate_auction } from "../../redux/AuctionReducer"
 import { useSelector, useDispatch } from "react-redux"
 import {motion} from "framer-motion"
-import {playSound} from "../../components/playSound/playSound"
 import {EndGame} from "../../components/endGame/EndGame"
 import {InitialSaveToLocalStorage} from "../../components/saveToLocalStorage/InitialSaveToLocalStorage"
 import EndStatsReveal from './endsStatsReveal/EndStatsReveal'
@@ -57,7 +56,6 @@ function HostingView(props) {
 
     socket.on("sending_jukebox_to_host", (data) => {
       console.log("FROM JUKEBOX: ", data)
-      playSound(data.melody)
     })
 
     // Receive quiz stats from all players, filtering for the latest, in quizStats state

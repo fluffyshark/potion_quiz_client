@@ -31,11 +31,6 @@ import flasks from "../../image_assets/FlaskImageExport"
         }
     },[powersList[12].counter12])
        
-/*
-    useEffect(() => {
-        if (powersList[12].massProtection === "active") {startPower()} 
-    })
-*/
 
     return (
         <div className="power_effect_container">

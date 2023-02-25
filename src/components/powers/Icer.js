@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { dectivate_power } from "../../redux/PowerReducer.js"
 import icer from "../../image_assets/powers/icer.webp"
 import { motion } from "framer-motion";
-import { playSound } from "../playSound/playSound";
 
 
 export default function App() {
@@ -19,8 +18,6 @@ export default function App() {
     if (powersList[4].attackLevel4 === 1) {duration = powersList[4].duration_level_1}
     if (powersList[4].attackLevel4 === 2) {duration = powersList[4].duration_level_2}
     if (powersList[4].attackLevel4 === 3) {duration = powersList[4].duration_level_3}
-
-  //  playSound("freeze")
 
     return duration
   }

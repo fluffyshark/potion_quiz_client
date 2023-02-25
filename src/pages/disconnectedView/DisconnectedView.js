@@ -37,6 +37,7 @@ import { retrieveLetterReducer } from "./retrieveFunctions/retrieveLetterReducer
 
 // NEXT - CHECK CRAFTLIST IF IT NEEDS TO HAVE VALUE, MAP CRASH HAPPENS
 
+// Crash might happen because of auction require potionList from localStorage, move that functionality to server insted
 
 
 function DisconnectedView(props) {
@@ -54,7 +55,7 @@ function DisconnectedView(props) {
   }, [])
 
 
-
+/*
   function reconnect() {
     
     // Retrive Coinsreducer
@@ -98,7 +99,7 @@ function DisconnectedView(props) {
     }, 3000);
     
   } // End of reconnect()
-
+*/
 
 
   function backToStartView() {navigate('/')}
@@ -126,7 +127,7 @@ function DisconnectedView(props) {
             <div className="disconnectedView_boxContainer">
                 <p className="disconnectedView_title">You're disconnected</p>
                 <p className="disconnectedView_smalldescription">If the game is still on, would you like to reconnect ?</p>
-                <motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => {reconnect()}} className="disconnectedView_reconnectBtn"><p>Reconnect</p></motion.div>
+                <motion.div  whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} onClick={() => {backToStartView()}} className="disconnectedView_reconnectBtn"><p>Reconnect</p></motion.div>
            </div>
 
           )

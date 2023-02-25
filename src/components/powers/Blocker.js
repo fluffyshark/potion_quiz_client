@@ -4,7 +4,6 @@ import { dectivate_power } from "../../redux/PowerReducer"
 import flasks from "../../image_assets/FlaskImageExport"
 import blocker4 from "../../image_assets/general/slime_blocker4.png"
 import {motion} from "framer-motion"
-import {playSound} from "../playSound/playSound"
 
 let duration = 0
 
@@ -38,9 +37,7 @@ function Blocker() {
        
 
     useEffect(() => {
-        if (powersList[14].blocker === "active") {
-            startPower(); 
-            playSound("splash")} 
+        if (powersList[14].blocker === "active") {startPower(); } 
     }, [powersList[14].blocker])
 
 
