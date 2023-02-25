@@ -34,8 +34,8 @@ const HostingView = lazy(() => import("./pages/hostingView/HostingView"))
 const JoinView = lazy(() => import("./pages/joinView/JoinView"))
 const PotionAuction = lazy(() => import("./pages/potionAuction/PotionAuction"))
 
-//const socket = io.connect("https://potionquiz.com/")
-const socket = io.connect("http://localhost:3001")
+const socket = io.connect("https://potionquiz.com/")
+//const socket = io.connect("http://localhost:3001")
 
 let ourHostID = ""
 
