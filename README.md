@@ -76,15 +76,21 @@ The web app uses Axios to fetch quizzes from the Quiz Editor's database.
 - MASS FREEZE - Makes three players unable to do anything by freezing the screen.
 - GOLDEN POINTS - Makes the each question worth 5x the normal income.
 
+<br/>
 
 **Potion effects example**
 -
+**Me being a jerk to my fellow classmate**
 <p align="center">
   <img width="70%" src="https://user-images.githubusercontent.com/16481598/221404464-764ac1e6-83e9-4c06-a218-1786e34d5ed1.gif" alt="Material Bread logo">
 </p>
+
 <p align="center">
   My screen
 </p>
+
+<br/>
+
 <p align="center">
   <img width="70%" src="https://user-images.githubusercontent.com/16481598/221404507-28d65cb3-86d5-4e86-a692-3d1bea85e192.gif" alt="Material Bread logo">
 </p>
