@@ -1,13 +1,9 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-
 ![potion_quiz_starter](https://user-images.githubusercontent.com/16481598/221392045-02304a78-b33c-4a41-a874-6ca06bb33114.png)
+
+<p align="center">
+Languages and tools used
+  ![languagesandtools](https://user-images.githubusercontent.com/16481598/221394297-07336305-7642-45fb-9530-432b6ae2c704.png)
+</p>
 
 ![gif_potion_quiz](https://user-images.githubusercontent.com/16481598/221392077-61883de7-589a-4a74-88c1-92ce3e08454b.gif)
 
