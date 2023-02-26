@@ -7,7 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 
-https://user-images.githubusercontent.com/16481598/221391673-b29eb705-8156-40c1-9f63-9a11022bb0c2.mp4
+![potion_quiz_starter](https://user-images.githubusercontent.com/16481598/221392045-02304a78-b33c-4a41-a874-6ca06bb33114.png)
+
 
 
 ### `npm start`
