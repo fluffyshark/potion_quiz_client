@@ -9,6 +9,7 @@ In the project directory, you can run:
 
 ![potion_quiz_starter](https://user-images.githubusercontent.com/16481598/221392045-02304a78-b33c-4a41-a874-6ca06bb33114.png)
 
+![gif_potion_quiz](https://user-images.githubusercontent.com/16481598/221392077-61883de7-589a-4a74-88c1-92ce3e08454b.gif)
 
 
 ### `npm start`
