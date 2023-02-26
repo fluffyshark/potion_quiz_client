@@ -40,6 +40,10 @@ The web app uses Axios to fetch quizzes from the Quiz Editor's database.
 - Sell and buy ingredients to on a market.
 - Buy potions on a Dutch auction.
 
+<p align="center">
+  <img width="80%" src="https://user-images.githubusercontent.com/16481598/221401593-ed52db3b-72ed-4f36-9863-c352e2a24491.png" alt="Material Bread logo">
+</p>
+
 **Potion effects**
 -
 **Level 1 - Novice**
