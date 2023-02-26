@@ -42,9 +42,32 @@ The web app uses Axios to fetch quizzes from the Quiz Editor's database.
 
 **Potion effects**
 -
+**Level 1 - Novice**
 - GIFT EXP - Gives two players a gift of experience to help unlock new potions. 
 - DOUBLE POINTS - Double you income for each question for x seconds.
+- SPEED UP - Reduces the wait time between questions.
+- PROTECTION - Gives you protection agains all harmful potions.
 
+**Level 2 - Apprentice**
+- FREEZE - Makes your target unable to do anything by freezing the screen for a time.
+- 50 / 50 - You will only need to choose between two answer alternatives.
+- POINT POISON - Your target will lose 2 gold every second this potion is active.
+- GIVE GIFT - Gift two players a set crafting ingredients.
 
+**Level 3 - Expert**
+- TRANSMUTATION - Transform several ingredients into one of your choosing.
+- TRIPPLE POINTS - Tripple you income for each question.
+- JUKEBOX - The host starts playing background music of your choosing. 
+- PRICE RUNNER - Get disconts at the shop for 60 seconds.
 
+**Level 4 - Master**
+- MASS PROTECTION - Gives you and three others protection agains all harmful potions.
+- REVEAL - Reveal ingredient's correct amount for random potions.
+- BLOCKER - Throw slime on your target's screen and locks him in the quiz section.
+- DOUBLE BATCH - Craft two potions instead of one while this potion is active.
 
+**Level 5 - Grandmaster**
+- EPIC CHALLEGE - Clear the challenges and get a random rewards for it.
+- STREAK BONUS - Get increasing bonus income for every correct question in a row. While you stay in quiz section.
+- MASS FREEZE - Makes three players unable to do anything by freezing the screen.
+- GOLDEN POINTS - Makes the each question worth 5x the normal income.
