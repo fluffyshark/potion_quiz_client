@@ -1,9 +1,10 @@
 ![potion_quiz_starter](https://user-images.githubusercontent.com/16481598/221392045-02304a78-b33c-4a41-a874-6ca06bb33114.png)
 
-
-
 <p align="center">
   ### Languages and tools used
+</p>
+
+<p align="center">
   <img width="50%" src="https://user-images.githubusercontent.com/16481598/221394297-07336305-7642-45fb-9530-432b6ae2c704.png" alt="Material Bread logo">
 </p>
 
